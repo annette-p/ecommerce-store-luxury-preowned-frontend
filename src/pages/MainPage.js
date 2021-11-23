@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav'
 import NavItem from 'react-bootstrap/NavItem'
 import NavLink from 'react-bootstrap/NavLink'
 import Dropdown from 'react-bootstrap/Dropdown'
+import ShopCarousel from '../components/ShopCarousel'
 
 export default function MainPage(){
     return (
@@ -94,9 +95,12 @@ export default function MainPage(){
                     </Nav>
                     <hr className="mt-1"></hr>
                 </div>
-
+                {/* Carousel */}
+                <div class="row mt-3">
+                    <ShopCarousel/>
+                </div>
                 {/* card */}
-                <div className="row mt-4">
+                <div className="row ms-1 mt-4">
                     <div className="col mb-3">
                         <div className="card listing-card">
                             <img src={require("../images/product/dior-mini-saddle-shoulder.jpg").default} className="card-img-top" alt="doirMiniShoulderBag"/>
@@ -142,7 +146,6 @@ export default function MainPage(){
                         </div>
                     </div>
                 </div>
-
             </div>
         </React.Fragment>
     )
