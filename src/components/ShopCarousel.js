@@ -88,7 +88,7 @@ export default function ShopCarousel(){
                         <div className="row third-custom-caption-carousel">
                             <h3 className="text text-start">Top Brand Latest Collection</h3>
                             <div className="fw-bold text text-start mt-3 third-carousel-text">At much FRIENDLY price</div>
-                            <div className="text text-start third-carousel-text">Stay sustainability by giving a second life</div>
+                            <div className="text text-start third-carousel-text">Stay sustainable by giving a second life</div>
                             <div className="text text-start mb-4 third-carousel-text">to the fashion we no longer wear</div>
                         </div>
                         <div className="mt-1 row third-custom-caption-carousel">

@@ -4,6 +4,7 @@ import NavItem from 'react-bootstrap/NavItem'
 import NavLink from 'react-bootstrap/NavLink'
 import Dropdown from 'react-bootstrap/Dropdown'
 import ShopCarousel from '../components/ShopCarousel'
+import CardListing from '../components/CardListing'
 
 export default function MainPage(){
     return (
@@ -99,53 +100,8 @@ export default function MainPage(){
                 <div class="row mt-3">
                     <ShopCarousel/>
                 </div>
-                {/* card */}
-                <div className="row ms-1 mt-4">
-                    <div className="col mb-3">
-                        <div className="card listing-card">
-                            <img src={require("../images/product/dior-mini-saddle-shoulder.jpg").default} className="card-img-top" alt="doirMiniShoulderBag"/>
-                            <div className="card-body">
-                                <h5>Dior</h5>
-                                <p className="card-text">Diorissimo Canvas and Leather Mini Saddle Shoulder Bag</p>
-                                <div className="fw-bold">$S3,500</div>
-                                <div className="fw-light fst-italic">Est. Retail<span>$S3,500</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col mb-3">
-                        <div className="card listing-card">
-                            <img src={require("../images/product/dior-mini-saddle-shoulder.jpg").default} className="card-img-top" alt="doirMiniShoulderBag"/>
-                            <div className="card-body">
-                                <h5>Dior</h5>
-                                <p className="card-text">Diorissimo Canvas and Leather Mini Saddle Shoulder Bag</p>
-                                <div className="fw-bold">$S3,500</div>
-                                <div className="fw-light fst-italic">Est. Retail<span>$S3,500</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col mb-3">
-                        <div className="card listing-card">
-                            <img src={require("../images/product/dior-mini-saddle-shoulder.jpg").default} className="card-img-top" alt="doirMiniShoulderBag"/>
-                            <div className="card-body">
-                                <h5>Dior</h5>
-                                <p className="card-text">Diorissimo Canvas and Leather Mini Saddle Shoulder Bag</p>
-                                <div className="fw-bold">$S3,500</div>
-                                <div className="fw-light fst-italic">Est. Retail<span>$S3,500</span></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col mb-3">
-                        <div className="card listing-card">
-                            <img src={require("../images/product/dior-mini-saddle-shoulder.jpg").default} className="card-img-top" alt="doirMiniShoulderBag"/>
-                            <div className="card-body">
-                                <h5>Dior</h5>
-                                <p className="card-text">Diorissimo Canvas and Leather Mini Saddle Shoulder Bag</p>
-                                <div className="fw-bold">$S3,500</div>
-                                <div className="fw-light fst-italic">Est. Retail<span>$S3,500</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {/* Product listing - card */}
+                    <CardListing/>
             </div>
         </React.Fragment>
     )
