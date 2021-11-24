@@ -101,11 +101,20 @@ a {
     margin-bottom: 70px;
 }
 
-/* listing */
+/* listing page */
 
 .listing-card {
     width: 18rem;
     height: 465px;
+}
+
+/* product page */
+
+.img-bucket {
+    background-color: rgb(247, 242, 242);
+    width: 400px;
+    height: 140px;
+    margin-left: 10px;
 }
 
 /* footer */
