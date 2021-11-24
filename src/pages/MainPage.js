@@ -101,7 +101,9 @@ export default function MainPage(){
                     <ShopCarousel/>
                 </div>
                 {/* Product listing - card */}
+                <div className="row ms-1 mt-4">
                     <CardListing/>
+                </div>   
             </div>
         </React.Fragment>
     )
