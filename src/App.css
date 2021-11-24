@@ -113,8 +113,26 @@ a {
 .img-bucket {
     background-color: rgb(247, 242, 242);
     width: 400px;
-    height: 140px;
+    height: 155px;
     margin-left: 10px;
+}
+
+.icon-container {
+    width: 80px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: rgb(230, 225, 225);
+}
+
+.hand-dollar-icon {
+    color: rgb(243, 142, 10);
+    font-size: 40px;
+    margin-left: 16px;
+    margin-top: 7px;
+}
+
+.similar-item-div {
+    margin-left: -100px;
 }
 
 /* footer */

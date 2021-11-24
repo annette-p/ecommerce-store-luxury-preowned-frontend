@@ -1,17 +1,19 @@
 import React from 'react'
 import Accordion from 'react-bootstrap/Accordion'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHandHoldingUsd } from '@fortawesome/free-solid-svg-icons'
 
 export default function ProductPage(){
     return (
         <React.Fragment>
             <div className="container">
                 <div className="row mt-4">
-                    <div class="col-1">
+                    <div className="col-1">
                     </div>
                     {/* image section */}
                     <div className="col">
                         <div className="card" style={{width: "25rem"}}>
-                            <img class="card-img-top"
+                            <img className="card-img-top"
                             src={require('../images/product/dior-mini-saddle-shoulder.jpg').default}
                             alt="first"/>
                             <div className="card-body">
@@ -33,21 +35,23 @@ export default function ProductPage(){
                         </div>
                         {/* buttons */}
                         <div className="row mt-4">
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-secondary" type="button">Buy Now</button>
-                                <button class="btn btn-secondary" type="button">Add To Cart</button>
+                            <div className="d-grid gap-2">
+                                <button className="btn btn-secondary" type="button">BUY NOW</button>
+                                <button className="btn btn-secondary" type="button">ADD TO CART</button>
                             </div>
                         </div>
                         {/* Sell with us */}
                         <div className="row mt-4">
-                            <div class="col">
-                                icon here
+                            <div className="col mt-2 ms-2">
+                                <div className="icon-container">
+                                    <FontAwesomeIcon icon={faHandHoldingUsd} className="hand-dollar-icon"/>
+                                </div>
                             </div>
-                            <div class="col .left-align">
+                            <div className="col mt-2 similar-item-div">
                                 <h6>Have a similar item?</h6>
-                                <a href="/sell" class="card-link">Click here to Sell with Us!</a>
+                                <a href="/sell" className="card-link">Click here to Sell with Us!</a>
                             </div>
-                            <div class="col">
+                            <div className="col">
                             </div>
                         </div>
                         {/* Collapse option - product description */}
@@ -117,7 +121,7 @@ export default function ProductPage(){
                             </Accordion>
                         </div>
                     </div>
-                    <div class="col-1">
+                    <div className="col-1">
                     </div>
                 </div>
             </div>
