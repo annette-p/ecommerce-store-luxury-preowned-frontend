@@ -5,6 +5,7 @@ import NavLink from 'react-bootstrap/NavLink'
 import Dropdown from 'react-bootstrap/Dropdown'
 import ShopCarousel from '../components/ShopCarousel'
 import CardListing from '../components/CardListing'
+import Footer from '../components/Footer'
 
 export default function MainPage(){
     return (
@@ -103,6 +104,10 @@ export default function MainPage(){
                 {/* Product listing - card */}
                 <div className="row ms-1 mt-4">
                     <CardListing/>
+                </div>
+                {/* footer section */}
+                <div className="row mt-3 mb-3 footer-row">
+                    <Footer/>
                 </div>   
             </div>
         </React.Fragment>

@@ -107,3 +107,10 @@ a {
     width: 18rem;
     height: 465px;
 }
+
+/* footer */
+.footer-row {
+    background-color: rgb(177, 174, 174);
+    /* background-color: rgb(155, 151, 151); */
+    border: solid rgb(136, 136, 136);
+}
