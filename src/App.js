@@ -1,7 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 // import MainPage from "./pages/MainPage";
-import ProductPage from "./pages/ProductPage";  // to remove once implementing the route
+
+// to remove once implementing the route
+import ProductPage from "./pages/ProductPage";  
 
 function App() {
   return (

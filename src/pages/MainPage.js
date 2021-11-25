@@ -3,9 +3,9 @@ import Nav from 'react-bootstrap/Nav'
 import NavItem from 'react-bootstrap/NavItem'
 import NavLink from 'react-bootstrap/NavLink'
 import Dropdown from 'react-bootstrap/Dropdown'
-import ShopCarousel from '../components/ShopCarousel'
-import CardListing from '../components/CardListing'
-import Footer from '../components/Footer'
+import ShopCarousel from '../components/main/ShopCarousel'
+import CardListing from '../components/main/CardListing'
+import Footer from '../components/main/Footer'
 
 export default function MainPage(){
     return (

@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Accordion from 'react-bootstrap/Accordion'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHandHoldingUsd } from '@fortawesome/free-solid-svg-icons'
+import CartPage from './CartPage'
 
 export default function ProductPage(){
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
         <React.Fragment>
             <div className="container">
@@ -37,7 +44,8 @@ export default function ProductPage(){
                         <div className="row mt-4">
                             <div className="d-grid gap-2">
                                 <button className="btn btn-secondary" type="button">BUY NOW</button>
-                                <button className="btn btn-secondary" type="button">ADD TO CART</button>
+                                <button className="btn btn-secondary" type="button" onClick={handleShow}>ADD TO CART</button>
+                                <CartPage handleClose={handleClose} placement="end" show={show} />
                             </div>
                         </div>
                         {/* Sell with us */}

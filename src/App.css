@@ -10,6 +10,11 @@ a {
     align-items: left;
 }
 
+.right-align {
+    display: flex;
+    align-items: flex-end;
+}
+
 .gold-color {
     color: rgb(250, 152, 6);
     /* font-weight: bold; */
@@ -133,6 +138,19 @@ a {
 
 .similar-item-div {
     margin-left: -100px;
+}
+
+/* Cart page */
+
+.trash-icon {
+    margin-top: 18px;
+    margin-left: 340px;
+}
+
+.white-hr {
+    /* color: white; */
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 /* footer */

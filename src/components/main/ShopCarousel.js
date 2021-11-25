@@ -17,7 +17,7 @@ export default function ShopCarousel(){
                     <img
                     className="d-block w-100"
                     // src="holder.js/800x400?text=First slide&bg=373940"
-                    src={require('../images/banner/gg-runway.jpg').default}
+                    src={require('../../images/banner/gg-runway.jpg').default}
                     alt="First slide"/>
                     <Carousel.Caption>
                         <div className="row custom-caption-carousel">
@@ -41,7 +41,7 @@ export default function ShopCarousel(){
                 <Carousel.Item>
                     <img
                     className="d-block w-100"
-                    src={require('../images/banner/gg-x-balenciaga.jpg').default}
+                    src={require('../../images/banner/gg-x-balenciaga.jpg').default}
                     alt="Second slide"/>
                     <Carousel.Caption>
                         <div className="row second-custom-cap-carousel">
@@ -62,7 +62,7 @@ export default function ShopCarousel(){
                 <Carousel.Item>
                     <img
                     className="d-block w-100"
-                    src={require('../images/banner/lv-classic.jpg').default}
+                    src={require('../../images/banner/lv-classic.jpg').default}
                     alt="Third slide"/>
                     <Carousel.Caption>
                         <div className="row third-custom-caption-carousel">
@@ -82,7 +82,7 @@ export default function ShopCarousel(){
                 <Carousel.Item>
                     <img
                     className="d-block w-100"
-                    src={require('../images/banner/lv-newcollection.jpg').default}
+                    src={require('../../images/banner/lv-newcollection.jpg').default}
                     alt="Third slide"/>
                     <Carousel.Caption>
                         <div className="row third-custom-caption-carousel">
