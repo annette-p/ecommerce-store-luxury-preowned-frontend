@@ -228,6 +228,12 @@ a {
     margin-bottom: 15px;
 }
 
+.empty-cart {
+    font-size: 23px;
+    text-align: center;
+    margin-top: 300px;
+}
+
 /* footer */
 .footer-row {
     background-color: rgb(177, 174, 174);
