@@ -43,8 +43,8 @@ export default function ProductPage(){
                         {/* buttons */}
                         <div className="row mt-4">
                             <div className="d-grid gap-2">
-                                <button className="btn btn-secondary" type="button">BUY NOW</button>
-                                <button className="btn btn-secondary" type="button" onClick={handleShow}>ADD TO CART</button>
+                                <button className="btn btn-secondary gold-hover" type="button">BUY NOW</button>
+                                <button className="btn btn-secondary gold-hover" type="button" onClick={handleShow}>ADD TO CART</button>
                                 <CartPage handleClose={handleClose} placement="end" show={show} />
                             </div>
                         </div>

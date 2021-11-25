@@ -20,6 +20,23 @@ a {
     /* font-weight: bold; */
 }
 
+.gold-hover:hover {
+    background-color: darkgoldenrod;
+}
+
+.grey-bg {
+    background-color: rgb(85, 84, 84);
+}
+
+.dark-grey {
+    color: rgb(12, 12, 12);
+}
+
+.white-font {
+    color: rgb(228, 227, 227);
+    /* color: white; */
+}
+
 
 /* ...................... main page ...................... */
 
@@ -140,17 +157,75 @@ a {
     margin-left: -100px;
 }
 
-/* Cart page */
+
+/* Shopping Cart page */
+
+.quantity-form {
+    width: 50px;
+    height: 30px;
+    text-align: center;
+}
+
+.quantity-btn {
+    height: 30px;
+    text-align: center;
+}
+
+.quantity-control-sec {
+    /* margin-left: 100px; */
+    margin-left: 190px;
+}
 
 .trash-icon {
-    margin-top: 18px;
-    margin-left: 340px;
+    margin-top: 5px;
+    font-size: 18px;
+}
+
+.trash-icon:hover {
+    color: rgb(209, 61, 61);
 }
 
 .white-hr {
     /* color: white; */
     margin-top: 10px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
+}
+
+.cart-icon {
+    font-size: 25px;
+    color: rgb(236, 138, 102);
+    margin-left: 170px;
+}
+
+.cart-hr {
+    margin-top: -16px;
+    margin-bottom: 30px;
+}
+
+.product-img-cart {
+    width: 90px;
+    height: 90px;
+    margin-top: 8px;
+}
+
+.product-des-cart {
+    margin-left: -180px;
+}
+
+.total-number {
+    /* margin-right: -200px; */
+    margin-left: 150px;
+}
+
+.free {
+    margin-right: 27px;
+}
+
+.summary-section {
+    position: fixed;
+    bottom: 0px;
+    margin-right: 0px;
+    margin-bottom: 15px;
 }
 
 /* footer */
