@@ -142,14 +142,27 @@ a {
     margin-top: -10px;
 }
 
-/* listing page */
+/* ......listing page...... */
 
 .listing-card {
     width: 18rem;
     height: 465px;
 }
 
-/* login page */
+.card-img-container {
+    width: 285px;
+    height: 285px;
+}
+
+
+/* footer */
+.footer-row {
+    background-color: rgb(177, 174, 174);
+    /* background-color: rgb(155, 151, 151); */
+    border: solid rgb(136, 136, 136);
+}
+
+/* ...................... login page ...................... */
 
 .login-card {
     background-color: #f7f7f7;
@@ -177,13 +190,17 @@ a {
 }
 
 
+/* ...................... product page ...................... */
 
-/* product page */
+.product-img-container {
+    width: 478px;
+    height: 478px;
+}
 
 .img-bucket {
     background-color: rgb(247, 242, 242);
-    width: 400px;
-    height: 155px;
+    width: 480px;
+    height: 85px;
     margin-left: 10px;
 }
 
@@ -206,7 +223,7 @@ a {
 }
 
 
-/* Shopping Cart page */
+/* ...................... Shopping Cart page ...................... */
 
 .quantity-form {
     width: 50px;
@@ -280,11 +297,4 @@ a {
     font-size: 23px;
     text-align: center;
     margin-top: 300px;
-}
-
-/* footer */
-.footer-row {
-    background-color: rgb(177, 174, 174);
-    /* background-color: rgb(155, 151, 151); */
-    border: solid rgb(136, 136, 136);
 }

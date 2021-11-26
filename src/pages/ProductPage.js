@@ -19,14 +19,14 @@ export default function ProductPage(){
                     </div>
                     {/* image section */}
                     <div className="col">
-                        <div className="card" style={{width: "25rem"}}>
-                            <img className="card-img-top"
+                        <div className="card" style={{width: "30rem"}}>
+                            <img className="card-img-top product-img-container"
                             src={require('../images/product/dior-mini-saddle-shoulder.jpg').default}
                             alt="first"/>
                             <div className="card-body">
                             </div>
                         </div>
-                        <div className="row mt-4">
+                        <div className="row mt-3">
                             <div className="img-bucket">
                                 container to display additional product images for viewing
                             </div> 

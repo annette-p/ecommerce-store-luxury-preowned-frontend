@@ -11,7 +11,7 @@ export default function CardListing(){
                     // ref: https://stackoverflow.com/questions/48703510/change-image-on-hover-in-jsx
                     onMouseOver={e => (e.currentTarget.src = require("../../images/product/review-dior-mini-saddle-shoulder.jpg").default)} 
                     onMouseOut={e => (e.currentTarget.src = require("../../images/product/dior-mini-saddle-shoulder.jpg").default)} 
-                    className="card-img-top" alt="doirMiniShoulderBag"/>
+                    className="card-img-top card-img-container" alt="doirMiniShoulderBag"/>
                     <div className="card-body">
                         <h5>Dior</h5>
                         <p className="card-text">Diorissimo Canvas and Leather Mini Saddle Shoulder Bag</p>
@@ -25,7 +25,7 @@ export default function CardListing(){
                     <img src={require("../../images/product/dior-mini-saddle-shoulder.jpg").default}
                     onMouseOver={e => (e.currentTarget.src = require("../../images/product/review-dior-mini-saddle-shoulder.jpg").default)} 
                     onMouseOut={e => (e.currentTarget.src = require("../../images/product/dior-mini-saddle-shoulder.jpg").default)} 
-                    className="card-img-top" alt="doirMiniShoulderBag"/>
+                    className="card-img-top card-img-container" alt="doirMiniShoulderBag"/>
                     <div className="card-body">
                         <h5>Dior</h5>
                         <p className="card-text">Diorissimo Canvas and Leather Mini Saddle Shoulder Bag</p>
@@ -39,7 +39,7 @@ export default function CardListing(){
                     <img src={require("../../images/product/dior-mini-saddle-shoulder.jpg").default}
                     onMouseOver={e => (e.currentTarget.src = require("../../images/product/review-dior-mini-saddle-shoulder.jpg").default)} 
                     onMouseOut={e => (e.currentTarget.src = require("../../images/product/dior-mini-saddle-shoulder.jpg").default)} 
-                    className="card-img-top" alt="doirMiniShoulderBag"/>
+                    className="card-img-top card-img-container" alt="doirMiniShoulderBag"/>
                     <div className="card-body">
                         <h5>Dior</h5>
                         <p className="card-text">Diorissimo Canvas and Leather Mini Saddle Shoulder Bag</p>
@@ -53,7 +53,7 @@ export default function CardListing(){
                     <img src={require("../../images/product/dior-mini-saddle-shoulder.jpg").default}
                     onMouseOver={e => (e.currentTarget.src = require("../../images/product/review-dior-mini-saddle-shoulder.jpg").default)} 
                     onMouseOut={e => (e.currentTarget.src = require("../../images/product/dior-mini-saddle-shoulder.jpg").default)} 
-                    className="card-img-top" alt="doirMiniShoulderBag"/>
+                    className="card-img-top card-img-container" alt="doirMiniShoulderBag"/>
                     <div className="card-body">
                         <h5>Dior</h5>
                         <p className="card-text">Diorissimo Canvas and Leather Mini Saddle Shoulder Bag</p>
