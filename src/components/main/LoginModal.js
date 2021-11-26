@@ -1,4 +1,5 @@
 import React from 'react'
+// import SignupForm from './SignupForm'
 
 export default function LoginModal(){
     return (
@@ -17,7 +18,7 @@ export default function LoginModal(){
                         <div class="modal-body login-card">
                             <div class="container-fluid"> 
                                 <div class="row">
-                                    {/* logo and motto collumn */}
+                                    {/* logo and motto column */}
                                     <div class="col-md-6 login-logo vertical-line">
                                         <img src={require('../../images/logo/curve-lp-logo.jpg').default} class="img-fluid round-logo" alt="logo"/>
                                         <div className="mt-4 motto-text fw-bold">
@@ -27,7 +28,7 @@ export default function LoginModal(){
                                             Give your wardrobe a second life 
                                         </div>
                                     </div>
-                                    {/* login collumn */}
+                                    {/* login column */}
                                     <div class="col-md-6">
                                         <div class="card-body">
                                             <h5 class="card-title text-center">Login</h5>
@@ -48,9 +49,14 @@ export default function LoginModal(){
                                                 Forgot password?
                                             </p>
                                             <p class="text-center">
-                                                Not yet a member? <span className="fw-bold ms-2">Sing up here </span>
+                                                Not yet a member? <span className="fw-bold ms-2">Sign up here </span>
                                             </p>
                                         </div>
+                                    </div>
+
+                                    {/* Signup column */}
+                                    <div class="col-md-6">
+                                        {/* <SignupForm /> */}
                                     </div>
                                 </div>
                             </div>

@@ -207,6 +207,7 @@ a {
 .horizontal-scrollbar {
     overflow-x: scroll; /* Add horizontal scrollbar  */
     overflow-y: hidden; /* Hide vertical scrollbar */
+    display: flex;
 }
 
 .additional-img-div {

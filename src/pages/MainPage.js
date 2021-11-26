@@ -11,7 +11,7 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import ShopCarousel from '../components/main/ShopCarousel'
 import CardListing from '../components/main/CardListing'
 import Footer from '../components/main/Footer'
-import LoginModal from '../components/main/LoginModal'
+// import LoginModal from '../components/main/LoginModal'
 
 export default function MainPage(){
 
@@ -87,7 +87,7 @@ export default function MainPage(){
                                         </a>
                                 </OverlayTrigger>
                             </li>
-                            <LoginModal />
+                            {/* <LoginModal /> */}
                         </ul>
                     </div> 
                 </div>
