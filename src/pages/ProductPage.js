@@ -23,12 +23,69 @@ export default function ProductPage(){
                             <img className="card-img-top product-img-container"
                             src={require('../images/product/dior-mini-saddle-shoulder.jpg').default}
                             alt="first"/>
-                            <div className="card-body">
-                            </div>
                         </div>
-                        <div className="row mt-3">
-                            <div className="img-bucket">
-                                container to display additional product images for viewing
+                        <div className="row mt-2">
+                            <div className="img-bucket horizontal-scrollbar">
+                                {/* img 1 */}
+                                <div class="additional-img-div me-1">
+                                    <img className="product-img-cart"
+                                    src={require('../images/product/dior-mini-saddle-shoulder.jpg').default}
+                                    alt="product"/>
+                                </div>
+                                {/* img 2 */}
+                                <div class="additional-img-div me-1">
+                                    <img className="product-img-cart"
+                                    src={require('../images/product/dior-mini-saddle-shoulder.jpg').default}
+                                    alt="product"/>
+                                </div>
+                                {/* img 3 */}
+                                <div class="additional-img-div me-1">
+                                    <img className="product-img-cart"
+                                    src={require('../images/product/dior-mini-saddle-shoulder.jpg').default}
+                                    alt="product"/>
+                                </div>
+                                {/* img 4 */}
+                                <div class="additional-img-div me-1">
+                                    <img className="product-img-cart"
+                                    src={require('../images/product/dior-mini-saddle-shoulder.jpg').default}
+                                    alt="product"/>
+                                </div>
+                                {/* img 5 */}
+                                <div class="additional-img-div me-1">
+                                    <img className="product-img-cart"
+                                    src={require('../images/product/dior-mini-saddle-shoulder.jpg').default}
+                                    alt="product"/>
+                                </div>
+                                {/* img 6 */}
+                                <div class="additional-img-div me-1">
+                                    <img className="product-img-cart"
+                                    src={require('../images/product/dior-mini-saddle-shoulder.jpg').default}
+                                    alt="product"/>
+                                </div>
+                                {/* img 7 */}
+                                <div class="additional-img-div me-1">
+                                    <img className="product-img-cart"
+                                    src={require('../images/product/dior-mini-saddle-shoulder.jpg').default}
+                                    alt="product"/>
+                                </div>
+                                {/* img 8 */}
+                                <div class="additional-img-div me-1">
+                                    <img className="product-img-cart"
+                                    src={require('../images/product/dior-mini-saddle-shoulder.jpg').default}
+                                    alt="product"/>
+                                </div>
+                                {/* img 9 */}
+                                <div class="additional-img-div me-1">
+                                    <img className="product-img-cart"
+                                    src={require('../images/product/dior-mini-saddle-shoulder.jpg').default}
+                                    alt="product"/>
+                                </div>
+                                {/* img 10 */}
+                                <div class="additional-img-div me-1">
+                                    <img className="product-img-cart"
+                                    src={require('../images/product/dior-mini-saddle-shoulder.jpg').default}
+                                    alt="product"/>
+                                </div>
                             </div> 
                         </div>
                     </div>

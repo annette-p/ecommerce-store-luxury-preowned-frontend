@@ -200,8 +200,17 @@ a {
 .img-bucket {
     background-color: rgb(247, 242, 242);
     width: 480px;
-    height: 85px;
+    height: 120px;
     margin-left: 10px;
+}
+
+.horizontal-scrollbar {
+    overflow-x: scroll; /* Add horizontal scrollbar  */
+    overflow-y: hidden; /* Hide vertical scrollbar */
+}
+
+.additional-img-div {
+    display: inline-block;
 }
 
 .icon-container {
