@@ -123,12 +123,60 @@ a {
     margin-bottom: 70px;
 }
 
+.cart {
+    font-size: 18px;
+    color: rgb(77, 75, 75);
+    /* color: rgb(240, 118, 74); */
+    margin-top: 3px;
+}
+
+.user-icon {
+    font-size: 19px;
+    color: rgb(43, 42, 42);
+}
+
+.sell-icon {
+    font-size: 27px;
+    color: rgb(77, 75, 75);
+    /* color: goldenrod; */
+    margin-top: -10px;
+}
+
 /* listing page */
 
 .listing-card {
     width: 18rem;
     height: 465px;
 }
+
+/* login page */
+
+.login-card {
+    background-color: #f7f7f7;
+}
+
+/* .login-logo {
+    margin-top: 5px;
+} */
+
+.round-logo {
+    width: 270px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+.vertical-line {
+    border-right: solid #dddbdb;
+    margin-bottom: 20px;
+}
+
+.motto-text {
+    font-size: 20px;
+    text-align: center;
+    margin-left: -30px;
+}
+
+
 
 /* product page */
 

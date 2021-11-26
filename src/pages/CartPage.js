@@ -10,7 +10,9 @@ export default function CartPage({ ...props }){
             <Offcanvas show={props.show} onHide={props.handleClose} {...props}>   {/* is a short cut of: <Offcanvas onHide={props.handleClose} show={props.show} placement={props.placement}> 
             note: placement indicate which direction the canvas will show (start, end, top, bottom) */}
                 <Offcanvas.Header closeButton className="grey-bg"> 
-                    <Offcanvas.Title><FontAwesomeIcon icon={faCartArrowDown} className="cart-icon"/></Offcanvas.Title>
+                    <Offcanvas.Title>
+                        <FontAwesomeIcon icon={faCartArrowDown} className="cart-icon"/>
+                    </Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body className="grey-bg white-font"> 
                     <hr className="dark-grey cart-hr"></hr>

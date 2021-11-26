@@ -1,4 +1,9 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCartArrowDown, faHandHoldingUsd } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-regular-svg-icons'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import Tooltip from 'react-bootstrap/Tooltip'
 import Nav from 'react-bootstrap/Nav'
 import NavItem from 'react-bootstrap/NavItem'
 import NavLink from 'react-bootstrap/NavLink'
@@ -6,8 +11,14 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import ShopCarousel from '../components/main/ShopCarousel'
 import CardListing from '../components/main/CardListing'
 import Footer from '../components/main/Footer'
+import LoginModal from '../components/main/LoginModal'
 
 export default function MainPage(){
+
+    // const [showLogin, setShowLogin] = useState(false);
+    // const handleCloseLogin = () => setShowLogin(false);
+    // const handleShowLogin = () => setShowLogin(true);
+
     return (
         <React.Fragment>
             <div className="container">
@@ -28,18 +39,55 @@ export default function MainPage(){
                             {/* <button className="btn btn-outline-success" type="submit">Search</button> */}
                         </form>
                     </div>
-                    {/* Navigation tap */}
+                    {/* Sell / Sign in / Cart tap */}
                     <div className="col">
                         <ul className="nav justify-content-end mt-3">
+                            {/* sell icon */}
                             <li className="nav-item">
-                                <a className="nav-link active" aria-current="page" href="/product">Sell</a>
+                                <OverlayTrigger
+                                    key="sell-icon"
+                                    placement="bottom"
+                                    overlay={
+                                        <Tooltip id="tooltip-bottom-sell-icon">
+                                            Sell with Us!
+                                        </Tooltip>
+                                    }>
+                                        <a className="nav-link active" aria-current="page" href="/product">
+                                            <FontAwesomeIcon icon={faHandHoldingUsd} className="sell-icon"/>
+                                        </a>
+                                </OverlayTrigger>
                             </li>
+                            {/* user icon */}
                             <li className="nav-item">
-                                <a className="nav-link" href="/product">Sign in</a>
+                                <OverlayTrigger
+                                    key="user-icon"
+                                    placement="bottom"
+                                    overlay={
+                                        <Tooltip id="tooltip-bottom-user-icon">
+                                            Login
+                                        </Tooltip>
+                                    }>
+                                        <a className="nav-link" href="/product">
+                                            <FontAwesomeIcon icon={faUser} className="user-icon"/>
+                                        </a>
+                                </OverlayTrigger>
                             </li>
+                            {/* cart icon */}
                             <li className="nav-item">
-                                <a className="nav-link" href="/product">Cart</a>
+                                <OverlayTrigger
+                                    key="cart"
+                                    placement="bottom"
+                                    overlay={
+                                        <Tooltip id="tooltip-bottom-cart">
+                                            Shopping Cart
+                                        </Tooltip>
+                                    }>
+                                        <a className="nav-link" href="/product">
+                                            <FontAwesomeIcon icon={faCartArrowDown} className="cart"/>
+                                        </a>
+                                </OverlayTrigger>
                             </li>
+                            <LoginModal />
                         </ul>
                     </div> 
                 </div>
