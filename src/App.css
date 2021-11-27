@@ -24,8 +24,16 @@ a {
     background-color: darkgoldenrod;
 }
 
+.light-grey-hover:hover {
+    background-color: rgb(240, 239, 239);
+}
+
 .grey-bg {
     background-color: rgb(85, 84, 84);
+}
+
+.light-grey-bg {
+    background-color: rgb(148, 148, 148);
 }
 
 .dark-grey {
@@ -331,3 +339,40 @@ a {
     height: 100px;
     margin-top: 8px;
 }
+
+/* consignment page */
+
+.sell-order-sum {
+    margin-left: 40px;
+}
+
+.product-img-sell {
+    width: 100px;
+    height: 100px;
+    margin-top: 25px;
+}
+
+.consignment-img-bucket {
+    /* background-color: rgb(247, 242, 242); */
+    background-color: rgb(190, 190, 190);
+    /* width: 100%; */
+    width: 700px;
+    height: 270px;
+    margin-left: 10px;
+}
+
+.consignment-img {
+    width: 230px;
+    height: 230px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.no-order {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-weight: bold;
+}
+
+

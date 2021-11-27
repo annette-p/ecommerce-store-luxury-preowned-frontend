@@ -1,12 +1,14 @@
 import React from 'react'
-import MyPurchaseOrders from '../components/profile/MyPurchaseOrders'
+// import MyPurchaseOrders from '../components/profile/MyPurchaseOrders'
+import MySellingOrders from '../components/profile/MySellingOrders'
+// import EditProfile from '../components/profile/EditProfile'
 
 export default function ProfilePage(){
     return (
         <React.Fragment>
             <div className="container">
                 <div class="row">
-                    {/* sidebar medu */}
+                    {/* sidebar navigation list */}
                     <div class="col-2">
                         <div class="ps-1 col-bg">
                             <div class="mt-3 col-hover">
@@ -32,7 +34,9 @@ export default function ProfilePage(){
 
                     {/* Each profile content */}
                     <div class="col-10">
-                        <MyPurchaseOrders/>
+                        {/* <MyPurchaseOrders/> */}
+                        <MySellingOrders/> 
+                        {/* <EditProfile/>   */}
                     </div>
                 </div>
             </div>

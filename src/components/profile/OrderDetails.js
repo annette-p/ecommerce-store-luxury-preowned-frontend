@@ -4,24 +4,24 @@ export default function OrderDetails(){
     return (
         <React.Fragment>
             <div className="row mt-4">
-                <div className="col">
+                <div className="col light-grey-hover">
                     <div className="fw-bold">Shipping Information</div>
                     <div className="mt-2">
                         fedex - 908888555556666
                     </div>
                 </div>
-                <div className="col">
+                <div className="col light-grey-hover">
                     <div className="fw-bold">Delivery Address</div>
                     <div className="mt-2">Jonh Doe</div>
                     <div>
                         80 Marine Parade Rd, Singapore 449269
                     </div>
                 </div>
-                <div className="col">
+                <div className="col light-grey-hover">
                     <div className="fw-bold text-center">Payment Method</div>
                     <div className="mt-2 text-center">Credit Card</div>
                 </div>
-                <div className="col">
+                <div className="col light-grey-hover">
                     <div className="fw-bold text-center">Order ID</div>
                     <div className="mt-2 text-center">LP5556666888999</div>
                 </div>
@@ -37,7 +37,7 @@ export default function OrderDetails(){
                         alt="product"/>
                         {/* ---linkable to product page--- */}
                     </div>
-                    <div class="col">
+                    <div class="col light-grey-hover">
                         {/* ---linkable to product page--- */}
                         <div className="ms-2 fw-bold">Dior</div>
                         <div className="ms-2">Diorissimo Canvas and Leather Mini Saddle Shoulder Bag</div>
@@ -52,7 +52,7 @@ export default function OrderDetails(){
                         alt="product"/>
                         {/* ---linkable to product page--- */}
                     </div>
-                    <div class="col">
+                    <div class="col light-grey-hover">
                         {/* ---linkable to product page--- */}
                         <div className="ms-2 fw-bold">Dior</div>
                         <div className="ms-2">Diorissimo Canvas and Leather Mini Saddle Shoulder Bag</div>
