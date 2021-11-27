@@ -28,6 +28,10 @@ a {
     background-color: rgb(240, 239, 239);
 }
 
+.red-hover:hover {
+    background-color: rgb(139, 16, 16);
+}
+
 .grey-bg {
     background-color: rgb(85, 84, 84);
 }
@@ -374,7 +378,6 @@ a {
     text-align: center;
     font-weight: bold;
 }
-
 
 
 /* edit profile page */

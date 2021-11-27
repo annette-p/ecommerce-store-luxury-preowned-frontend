@@ -1,7 +1,7 @@
 import React from 'react'
-import MyPurchaseOrders from '../components/profile/MyPurchaseOrders'
+// import MyPurchaseOrders from '../components/profile/MyPurchaseOrders'
 // import MySellingOrders from '../components/profile/MySellingOrders'
-// import EditProfile from '../components/profile/EditProfile'
+import EditProfile from '../components/profile/EditProfile'
 
 export default function ProfilePage(){
     return (
@@ -34,9 +34,9 @@ export default function ProfilePage(){
 
                     {/* Each profile content */}
                     <div class="col-10">
-                        <MyPurchaseOrders/>
+                        {/* <MyPurchaseOrders/> */}
                         {/* <MySellingOrders/>  */}
-                        {/* <EditProfile/>   */}
+                        <EditProfile/>  
                     </div>
                 </div>
             </div>

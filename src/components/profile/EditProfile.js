@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 // import EditProfileForm from './EditProfileForm'
-import ChangePasswordForm from './ChangePasswordForm'
+// import ChangePasswordForm from './ChangePasswordForm'
+import DeleteAccountForm from './DeleteAccountForm'
 
 export default function EditProfile(){
     const [activePage, setActivePage] = useState("EditProfile")
@@ -16,12 +17,16 @@ export default function EditProfile(){
                     <li className="nav-item" role="presentation"  onClick={() => {setActivePage("ChangePassword")}}>
                         <a type="button" className={activePage === "ChangePassword" ? "nav-link active" : "nav-link"} href="/change-password">Change Password</a>
                     </li>
+                    <li className="nav-item" role="presentation"  onClick={() => {setActivePage("DeleteAccount")}}>
+                        <a type="button" className={activePage === "DeleteAccount" ? "nav-link active" : "nav-link"} href="/delete-account">Delete Account</a>
+                    </li>
                 </ul>
                 {/* content container */}
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         {/* <EditProfileForm/> */}
-                        <ChangePasswordForm/>
+                        {/* <ChangePasswordForm/> */}
+                        <DeleteAccountForm/>
                     </div>
                 </div>
             </div>
