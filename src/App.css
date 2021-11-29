@@ -58,6 +58,10 @@ a {
     color: rgb(194, 55, 4);
 }
 
+.underline-remove {
+    text-decoration: none !important;
+}
+
 
 /* ...................... main page ...................... */
 

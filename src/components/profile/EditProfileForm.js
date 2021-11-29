@@ -4,7 +4,7 @@ export default function EditProfileForm(){
     return (
         <React.Fragment>
 
-            <div className="row mt-4">
+            <div className="row mt-4 mb-4">
                 <div className="card light-grey-bg edit-profile" style={{width: "30rem"}}>
                     <div class="card-body">
                         {/* username */}

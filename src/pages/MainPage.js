@@ -11,8 +11,9 @@ import ListingPage from './ListingPage'
 import ProductPage from "./ProductPage"; 
 import ProfilePage from "./ProfilePage";
 import ConsignmentPage from "./ConsignmentPage";
-
+// import CartPage from './CartPage';
 // import LoginModal from '../components/main/LoginModal'
+
 
 export default function MainPage(){
 
@@ -32,7 +33,7 @@ export default function MainPage(){
                         <div className="col">
                             {/* <a className="navbar-brand logo" href="#"></a> */}
                             {/* <a className="navbar-brand text-logo" href="#"></a>  */}
-                            <a className="navbar-brand" href="/product">
+                            <a className="navbar-brand" href="/">
                                 <img src={require('../images/logo/lp-logo.jpg').default} id="logo" alt="logo"/>
                                 <img src={require('../images/logo/text-lp-logo.jpg').default} id="text-logo" alt="logo"/>
                             </a>
@@ -48,7 +49,7 @@ export default function MainPage(){
                         <div className="col">
                             <ul className="nav justify-content-end mt-3">
                                 {/* sell icon */}
-                                <Link to="/start-selling">
+                                <Link to="/consignment">
                                     <li className="nav-item">
                                         <OverlayTrigger
                                             key="sell-icon"
@@ -65,7 +66,7 @@ export default function MainPage(){
                                     </li>
                                 </Link>
                                 {/* user icon */}
-                                <Link to="/login">
+                                <Link to="/profile">
                                     <li className="nav-item">
                                         <OverlayTrigger
                                             key="user-icon"
@@ -75,7 +76,7 @@ export default function MainPage(){
                                                     Login
                                                 </Tooltip>
                                             }>
-                                            <a className="nav-link" href="/product">
+                                            <a className="nav-link" href="/">
                                                 <FontAwesomeIcon icon={faUser} className="user-icon"/>
                                             </a>
                                         </OverlayTrigger>
@@ -114,7 +115,13 @@ export default function MainPage(){
                         <Route exact path="/product">
                             <ProductPage/> 
                         </Route> 
-                        <Route exact path="/profile">
+                        {/* <Route exact path="/shopping-cart">
+                            <CartPage/>
+                        </Route> */}
+                        {/* <Route exact path="/login">
+                            <LoginModal/>
+                        </Route>  */}
+                        <Route path="/profile">
                             <ProfilePage/>
                         </Route> 
                         <Route exact path="/consignment">

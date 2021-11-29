@@ -4,8 +4,8 @@ export default function DeleteAccountForm(){
     return (
         <React.Fragment>
 
-            <div className="row mt-4">
-                <div className="card light-grey-bg ms-4" style={{width: "70rem"}}>
+            <div className="row ms-4 mt-4 mb-4">
+                <div className="card v-light-grey-bg ms-4" style={{width: "60rem"}}>
                     <div class="card-body">
                         <p className="mt-3">Dear <span className="fw-bold">name</span></p>
                         <p>We are sorry to hear that you would like to delete your account.</p>
