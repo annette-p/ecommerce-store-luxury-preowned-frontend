@@ -403,6 +403,9 @@ a {
 
 .consignment-carousel-text {
     font-size: 21px;
+}
+
+.consignment-carousel-spacing {
     margin-top: 25px;
     margin-bottom: 50px;
 }
@@ -410,7 +413,7 @@ a {
 .consignment-carousel-quote {
     font-size: 21px;
     margin-top: 25px;
-    margin-bottom: 90px;
+    margin-bottom: 100px;
 }
 
 .consign-container {

@@ -76,9 +76,12 @@ export default function ProductConsignmentForm(){
             <div class="row mt-4 pt-3 v-light-grey-bg">
                 <h5>Product Images</h5>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">
+                    <div className="mt-1">
                         Please upload images of your item as specified
-                    </label>
+                    </div>
+                    <div className="mt-1 mb-2 orange-text">
+                        Tips: <span className="fst-italic">include clear photos, showing the true color and any areas prone to wear (interior lining, corners and handle).</span>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="formFile" class="form-label fw-bold">Front Image of your item</label>

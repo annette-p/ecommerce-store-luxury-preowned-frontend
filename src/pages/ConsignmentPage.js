@@ -2,6 +2,7 @@ import React from 'react'
 import Carousel from 'react-bootstrap/Carousel'
 import PayoutRates from '../components/consignment/PayoutRates'
 import SellingMethod from '../components/consignment/SellingMethod'
+import SellingAdvice from '../components/consignment/SellingAdvice'
 
 export default function ConsignmentPage(){
     return (
@@ -17,11 +18,13 @@ export default function ConsignmentPage(){
                             <div className="d-block w-100 light-grey-bg consignment-carousel-block"></div>
                             <Carousel.Caption>
                                 <h3>Tell us what you would like to sell</h3>
-                                <p className="consignment-carousel-text">We take care of everything: free pick-ups, item pricing, item write-ups and photography, meaning more sales and less effort for you.</p>
+                                <p className="consignment-carousel-text consignment-carousel-spacing">
+                                    We take care of everything: free pick-ups, item pricing, item write-ups and photography, meaning more sales and less effort for you.
+                                </p>
                                 {/* button */}
                                 <div class="ms-4 me-4 mb-4">
                                     <div class="d-grid gap-2">
-                                        <button class="btn btn-outline-secondary white-font fw-bold" type="button">Fill out a consignment form with your item information</button>
+                                        <button class="btn btn-outline-secondary white-font fw-bold" type="button">Get Initial Evaluation NOW</button>
                                     </div>
                                 </div>
                             </Carousel.Caption>
@@ -31,7 +34,7 @@ export default function ConsignmentPage(){
                             <div className="d-block w-100 light-grey-bg consignment-carousel-block"></div>
                             <Carousel.Caption>
                                 <h3>We collect your items, free of charge</h3>
-                                <p className="consignment-carousel-text">
+                                <p className="consignment-carousel-text consignment-carousel-spacing">
                                     Sit back and relax while our experts will contact you and collect the items you want to sell. We arrange a FREE home pick-up for all eligible bags, watches and prestige jewelry. For apparel, there is a $5 pick up fee.
                                 </p>
                             </Carousel.Caption>
@@ -51,7 +54,7 @@ export default function ConsignmentPage(){
                             <div className="d-block w-100 light-grey-bg consignment-carousel-block"></div>
                             <Carousel.Caption>
                                 <h3>We take care of everything</h3>
-                                <p className="consignment-carousel-text">
+                                <p className="consignment-carousel-text consignment-carousel-spacing">
                                     That means item curation, descriptions, display, pricing, photography, quality control, authentication, item listing on Luxury Pre-owned platform and trace progress of your sales including sales transaction processing. 
                                 </p>
                             </Carousel.Caption>
@@ -61,7 +64,7 @@ export default function ConsignmentPage(){
                             <div className="d-block w-100 light-grey-bg consignment-carousel-block"></div>
                             <Carousel.Caption>
                                 <h3>You get paid</h3>
-                                <p className="consignment-carousel-text">
+                                <p className="consignment-carousel-text consignment-carousel-spacing">
                                     Once your item is sold, we send a direct payment to your account. You can earn up to 80% of the sale price. 
                                 </p>
                                 {/* button */}
@@ -82,13 +85,12 @@ export default function ConsignmentPage(){
                         </p>
                     </div>
                 </div>
-                
                 {/* Payout Rate - collapse buttons */}
                 <PayoutRates />
-
+                {/* Selling Section */}
                 <div className="row mt-4">
                     <div className="mt-4 container consign-container">
-                        <h4 className="text-center">Start Selling</h4>
+                        <h4 className="text-center">START SELLING</h4>
                         <h6 className="mt-3">
                             Select your selling method 
                             <span className="ms-2 fw-normal">- Already have an account?</span>
@@ -98,7 +100,14 @@ export default function ConsignmentPage(){
                 </div>
                 {/* Selling request */}
                 <SellingMethod />
-  
+                {/* Selling Advice */}
+                <div className="row mt-4">
+                    <div className="col mt-4">
+                        <h4 className="text-center">SELLING ADVICE</h4>     
+                    </div>
+                </div>
+                <SellingAdvice />
+                
             </div>
         </React.Fragment>
     )
