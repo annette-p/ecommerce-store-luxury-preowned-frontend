@@ -4,7 +4,8 @@ import './App.css';
 
 // to remove once implementing the route
 // import ProductPage from "./pages/ProductPage";   
-import ProfilePage from "./pages/ProfilePage";
+// import ProfilePage from "./pages/ProfilePage";
+import ConsignmentPage from "./pages/ConsignmentPage";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       {/* <MainPage/> */}
       {/* to remove once implementing the route */} 
       {/* <ProductPage/>     */}
-      <ProfilePage/>
+      {/* <ProfilePage/> */}
+      <ConsignmentPage/>
     </div>
   );
 }

@@ -37,7 +37,12 @@ a {
 }
 
 .light-grey-bg {
-    background-color: rgb(148, 148, 148);
+    /* background-color: rgb(148, 148, 148); */
+    background-color: rgb(173, 171, 171);
+}
+
+.v-light-grey-bg {
+    background-color: rgb(214, 210, 210);
 }
 
 .dark-grey {
@@ -384,5 +389,41 @@ a {
 
 .edit-profile {
     margin-left: 100px;
+}
+
+
+/* ...................... Consignment page ...................... */
+
+
+/* carousel */
+
+.consignment-carousel-block {
+    height: 350px;
+}
+
+.consignment-carousel-text {
+    font-size: 21px;
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+.consignment-carousel-quote {
+    font-size: 21px;
+    margin-top: 25px;
+    margin-bottom: 90px;
+}
+
+.consign-container {
+    width: 1200px;
+}
+
+.collapse-card {
+    margin-left: 70px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.arrow-down-icon {
+    color: rgb(163, 33, 33);
 }
 
