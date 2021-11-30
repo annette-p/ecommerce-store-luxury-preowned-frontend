@@ -1,14 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import { useParams } from 'react-router-dom'
+import ProductContext from '../../contexts/products/ProductContext'
 import CartPage from '../../pages/CartPage'
 import ProductInfo from './ProductInfo'
 import SellWithUs from './SellWithUs'
 
-export default function ProductDetails({product}){
+export default function ProductDetails(){
 
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    let pageParams = useParams(); 
+    console.log(pageParams)
+
+    const { productId } = useParams(); 
+    const [ product, setProduct ] = useState({});
+    const context = useContext(ProductContext);
+
+    useEffect(() => {
+        const fetchProduct = () => {
+            let selectedProduct = context.getProductByID(productId);  
+            setProduct(selectedProduct);
+        }
+        fetchProduct();
+    })
 
     return (
         <React.Fragment>

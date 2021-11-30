@@ -3,14 +3,15 @@ import Carousel from 'react-bootstrap/Carousel'
 
 export default function ShopCarousel(){
 
-        const [index, setIndex] = useState(0);
+    const [index, setIndex] = useState(0);
 
-        const handleSelect = (selectedIndex, e) => {
-            setIndex(selectedIndex);
-        };
+    const handleSelect = (selectedIndex, e) => {
+        setIndex(selectedIndex);
+    };
 
     return (
         <React.Fragment>
+
             <div class="row mt-3">
                 <Carousel activeIndex={index} onSelect={handleSelect}>
                     {/* item 1 */}
@@ -33,11 +34,13 @@ export default function ShopCarousel(){
                                     <button type="button" className="btn btn-secondary left-align">Shop Limited Edition<span className="fw-bold gold-color">&nbsp; &gt;&gt;</span></button>
                                 </div>
                                 <div className="col-12 margin-bottom">
-                                    <button className="btn btn-secondary left-align">
+                                    <a href="/product" 
+                                    className="btn btn-secondary left-align carousel-sell-btn">
                                         Sell with Us
                                         <span className="sell-btn fw-bold gold-color">&nbsp; &gt;&gt;
                                         </span>
-                                    </button>
+                                    </a>
+                                    {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
                                 </div>
                             </div>
                         </Carousel.Caption>
@@ -105,6 +108,7 @@ export default function ShopCarousel(){
                     </Carousel.Item>
                 </Carousel>
             </div>
+
         </React.Fragment>
     )
 }

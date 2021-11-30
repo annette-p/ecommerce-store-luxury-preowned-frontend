@@ -7,6 +7,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
 import NavFilterOption from '../components/main/NavFilterOption'
 import Footer from '../components/main/Footer'
+import ProductProvider from '../contexts/products/ProductProvider'
 import ListingPage from './ListingPage'
 import ProductPage from "./ProductPage"; 
 import ProfilePage from "./ProfilePage";
@@ -107,27 +108,32 @@ export default function MainPage(){
                     {/* Nav options */}
                     <NavFilterOption/>
 
-                    <Switch> 
-                        <Route exact path="/">
-                            {/* Listing Page */}
-                            <ListingPage/>
-                        </Route>
-                        <Route exact path="/product">
-                            <ProductPage/> 
-                        </Route> 
-                        {/* <Route exact path="/shopping-cart">
-                            <CartPage/>
-                        </Route> */}
-                        {/* <Route exact path="/login">
-                            <LoginModal/>
-                        </Route>  */}
-                        <Route path="/profile">
-                            <ProfilePage/>
-                        </Route> 
-                        <Route exact path="/consignment">
-                            <ConsignmentPage/>
-                        </Route>
-                    </Switch> 
+
+                    <ProductProvider>
+
+                        <Switch> 
+                            <Route exact path="/">
+                                <ListingPage/>
+                            </Route>
+                            <Route path="/product/:productId">
+                                <ProductPage/> 
+                            </Route> 
+                            {/* <Route exact path="/shopping-cart">
+                                <CartPage/>
+                            </Route> */}
+                            {/* <Route exact path="/login">
+                                <LoginModal/>
+                            </Route>  */}
+                            <Route path="/profile">
+                                <ProfilePage/>
+                            </Route> 
+                            <Route exact path="/consignment">
+                                <ConsignmentPage/>
+                            </Route>
+                        </Switch> 
+
+                    </ProductProvider>
+                    
 
                     {/* footer section */}
                     <Footer/>
