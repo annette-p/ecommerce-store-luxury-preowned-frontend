@@ -39,11 +39,9 @@ export default function OrderSummary(){
                                     <img className="product-img-profile"
                                     src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
                                     alt="product"/>
-                                    {/* ---linkable to product page--- */}
                                 </div>
                                 {/* product description */}
                                 <div className="col-11">
-                                    {/* ---linkable to product page--- */}
                                     <div className="ms-2 fw-bold">{order.designer}</div>
                                     <div className="ms-2">{order.name}</div>
                                     <div className="ms-2"><span className="fw-bold">Condition: </span>{order.condition}</div>

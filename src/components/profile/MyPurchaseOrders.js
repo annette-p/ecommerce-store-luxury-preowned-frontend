@@ -38,6 +38,7 @@ export default function MyPurchaseOrders(){
                         <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                             <Switch>
+                                {/* https://stackoverflow.com/questions/37696391/multiple-params-with-react-router */}
                                 <Route path={`${url}/:order_status/:order_id/order-details`}>
                                     <OrderDetails/>
                                 </Route>

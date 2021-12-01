@@ -13,7 +13,11 @@ export default function UserProfileProvider(props) {
           quantity: "1",
           total: "3,500",
           total_quantity: "1",
-          status: "new"
+          status: "new",
+          shipping_name: "NA",
+          delivery_tracking: "NA",
+          delivery_address: "80 Marine Parade Rd, Singapore 449269",
+          customer_name: "Jenny Doe"
         },
         {
             id: 2,
@@ -25,7 +29,10 @@ export default function UserProfileProvider(props) {
             total: "9,000",
             total_quantity: "2",
             status: "delivery",
-            delivery_tracking: "XY99999888888"
+            shipping_name: "FedEx",
+            delivery_tracking: "XY99999888888",
+            delivery_address: "80 Marine Parade Rd, Singapore 449269",
+            customer_name: "James Daniel"
         },
         {
             id: 3,
@@ -36,7 +43,11 @@ export default function UserProfileProvider(props) {
             quantity: "3",
             total: "16,500",
             total_quantity: "3",
-            status: "completed"
+            status: "completed",
+            shipping_name: "FedEx",
+            delivery_tracking: "MT5555555555555",
+            delivery_address: "80 Marine Parade Rd, Singapore 449269",
+            customer_name: "Tony Jaa"
         },
     ]);
 
