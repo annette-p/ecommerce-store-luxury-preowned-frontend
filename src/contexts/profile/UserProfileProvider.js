@@ -54,13 +54,13 @@ export default function UserProfileProvider(props) {
     const [sellingOrders, setSellingOrders] = useState([
         {
           id: 1,
-          order_no: "CLP0009999888555567",
+          order_no: "CLP00099998885555671",
           designer: "YSL",
           name: "Red Leather Mini Shoulder Bag",
           condition: "Used like new",
           quantity: "1",
           extected_price: "3,500",
-          status: "ending initial evaluation"
+          status: "pending initial evaluation"
         },
         {
             id: 2,
@@ -123,8 +123,13 @@ export default function UserProfileProvider(props) {
             return sellingOrders;
         },
 
+        getSellingOrderById: (id) => {
+            return sellingOrders.filter( s => s.id === parseInt(id))[0]
+        },
+
+        // *** to fix -- for several pending status such as pending initial evaliation, pending official evaluation status which is be displayed under "in progress" tap  >> currently only display 1 status only
         getSellingOrdersByStatus: (selectedStatus) => {
-            return sellingOrders.filter( s => s.status === selectedStatus)
+            return sellingOrders.filter( s => s.status.toLowerCase() === selectedStatus.toLowerCase())
         },
 
         testSellingOrder: () => {

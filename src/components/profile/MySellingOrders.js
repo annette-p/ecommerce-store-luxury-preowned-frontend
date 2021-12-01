@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import ConsignmentOrderSummary from './ConsignmentOrderSummary'
-// import ConsignmentOrderDetails from './ConsignmentOrderDetails'
-import ConsignmentOrderNone from './ConsignmentOrderNone'
+import ConsignmentOrderDetails from './ConsignmentOrderDetails'
+
 
 export default function MySellingOrders(){
 
@@ -42,7 +42,7 @@ export default function MySellingOrders(){
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                             <Switch>
-                                <Route  path={`${url}/progress`}>
+                                {/* <Route  path={`${url}/progress`}>
                                     <ConsignmentOrderSummary/>
                                 </Route>
                                 <Route  path={`${url}/listing`}>
@@ -56,11 +56,16 @@ export default function MySellingOrders(){
                                 </Route>
                                 <Route  path={`${url}/refund`}>
                                     <ConsignmentOrderNone/>  
+                                </Route> */}
+
+                                <Route path={`${url}/:order_status/:order_id/order-details`}>
+                                    <ConsignmentOrderDetails/>
+                                </Route>
+                                <Route path={`${url}/:order_status`}>
+                                    <ConsignmentOrderSummary/>
                                 </Route>
                             </Switch> 
                             
-                            {/* to process using React context */}
-                            {/* <ConsignmentOrderDetails/> */}
                             
                         </div>
                     </div>
