@@ -17,7 +17,7 @@ export default function CardListing(){
                     return (
 
                         <div className="col mb-3">
-                            <Link to={"/product/" + p.id}>
+                            <Link to={"/product/" + p.id} className="no-underline">
                                 <div className="card listing-card" key={p.id}>
                                     <img src={require("../../images/product/dior-mini-saddle-shoulder.jpg").default}
                                     // ref: https://stackoverflow.com/questions/48703510/change-image-on-hover-in-jsx

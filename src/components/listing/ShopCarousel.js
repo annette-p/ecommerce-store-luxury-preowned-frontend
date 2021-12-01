@@ -34,7 +34,7 @@ export default function ShopCarousel(){
                                     <button type="button" className="btn btn-secondary left-align">Shop Limited Edition<span className="fw-bold gold-color">&nbsp; &gt;&gt;</span></button>
                                 </div>
                                 <div className="col-12 margin-bottom">
-                                    <a href="/product" 
+                                    <a href="/consignment" 
                                     className="btn btn-secondary left-align carousel-sell-btn">
                                         Sell with Us
                                         <span className="sell-btn fw-bold gold-color">&nbsp; &gt;&gt;

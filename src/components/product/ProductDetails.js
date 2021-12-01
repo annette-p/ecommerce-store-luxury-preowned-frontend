@@ -13,7 +13,7 @@ export default function ProductDetails({product}){
     return (
         <React.Fragment>
             <div className="container">
-                <div className="row mt-4">
+                <div className="row mt-4 mb-4">
                     <div className="col-1">
                     </div>
                     {/* image section */}
