@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import OrderSummary from './OrderSummary'
 import OrderNone from './OrderNone'
-// import OrderDetails from './OrderDetails'
+import OrderDetails from './OrderDetails'
 
 export default function MyPurchaseOrders(){
 
@@ -35,15 +35,15 @@ export default function MyPurchaseOrders(){
                     </ul>
 
                     {/* content container */}
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div className="tab-content" id="myTabContent">
+                        <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                             <Switch>
                                 <Route  path={`${url}/deliver`}>
                                     <OrderSummary orderStatus="new"/>
                                 </Route>
                                 <Route  path={`${url}/receive`}>
-                                <OrderSummary orderStatus="delivery"/>
+                                    <OrderSummary orderStatus="delivery"/>
                                 </Route>
                                 <Route  path={`${url}/completed`}>
                                     <OrderSummary orderStatus="completed"/>
@@ -56,11 +56,11 @@ export default function MyPurchaseOrders(){
                                     {/* <OrderSummary orderStatus="refund"/> */}
                                     <OrderNone/>
                                 </Route>
+                                <Route  path={`${url}/:order_id/order-details`}>
+                                    <OrderDetails/>
+                                </Route>
                             </Switch> 
                             
-                            {/* to process using React context */}
-                            {/* <OrderDetails/> */}
-
                         </div>
                     </div>
 
