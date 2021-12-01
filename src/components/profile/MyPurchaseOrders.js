@@ -40,18 +40,20 @@ export default function MyPurchaseOrders(){
 
                             <Switch>
                                 <Route  path={`${url}/deliver`}>
-                                    <OrderSummary/>
+                                    <OrderSummary orderStatus="new"/>
                                 </Route>
                                 <Route  path={`${url}/receive`}>
-                                    <OrderNone/>
+                                <OrderSummary orderStatus="delivery"/>
                                 </Route>
                                 <Route  path={`${url}/completed`}>
-                                    <OrderNone/>
+                                    <OrderSummary orderStatus="completed"/>
                                 </Route>
                                 <Route  path={`${url}/cancelled`}>
+                                    {/* <OrderSummary orderStatus="cancelled"/> */}
                                     <OrderNone/>
                                 </Route>
                                 <Route  path={`${url}/refund`}>
+                                    {/* <OrderSummary orderStatus="refund"/> */}
                                     <OrderNone/>
                                 </Route>
                             </Switch> 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom";
+import UserProfileProvider from '../contexts/profile/UserProfileProvider';
 import MyPurchaseOrders from '../components/profile/MyPurchaseOrders'
 import MySellingOrders from '../components/profile/MySellingOrders'
 import EditProfile from '../components/profile/EditProfile'
@@ -12,50 +13,56 @@ export default function ProfilePage(){
 
                 <Router>
 
-                    <div class="row">
+                    <div className="row">
                         {/* sidebar navigation list */}
-                        <div class="col-2">
-                            <div class="ps-1 col-bg">
-                                <div class="mt-3 col-hover">
-                                    <div class="btn white-font mt-2">Dashboard</div>
+                        <div className="col-2">
+                            <div className="ps-1 col-bg">
+                                <div className="mt-3 col-hover">
+                                    <div className="btn white-font mt-2">Dashboard</div>
                                 </div>
                                 <Link to={`${url}/purchases`}>
-                                    <div class="mt-3 col-hover">
-                                        <div class="btn white-font">My Purchases</div>
+                                    <div className="mt-3 col-hover">
+                                        <div className="btn white-font">My Purchases</div>
                                     </div>
                                 </Link>
                                 <Link to={`${url}/sellings`}> 
-                                    <div class="mt-3 col-hover">
-                                        <div class="btn white-font">My Selling</div>
+                                    <div className="mt-3 col-hover">
+                                        <div className="btn white-font">My Selling</div>
                                     </div>
                                 </Link>
-                                <div class="mt-3 col-hover">
-                                    <div class="btn white-font">Order History</div>
+                                <div className="mt-3 col-hover">
+                                    <div className="btn white-font">Order History</div>
                                 </div>
                                 <Link to={`${url}/account-settings`}>
-                                    <div class="mt-3 col-hover">
-                                        <div class="btn white-font">Account Settings</div>
+                                    <div className="mt-3 col-hover">
+                                        <div className="btn white-font">Account Settings</div>
                                     </div>
                                 </Link>
-                                <div class="mt-3 col-hover">
-                                    <div class="btn white-font mb-3">Logout</div>  
+                                <div className="mt-3 col-hover">
+                                    <div className="btn white-font mb-3">Logout</div>  
                                 </div>
                             </div>
                         </div>
 
                         {/* Each profile content */}
-                        <div class="col-10">
-                            <Switch>
-                                <Route path={`${url}/purchases`}>
-                                    <MyPurchaseOrders/>
-                                </Route>
-                                <Route path={`${url}/sellings`}>
-                                    <MySellingOrders/> 
-                                </Route>
-                                <Route path={`${url}/account-settings`}>
-                                    <EditProfile/>   
-                                </Route>
-                            </Switch> 
+                        <div className="col-10">
+
+                            <UserProfileProvider>
+
+                                <Switch>
+                                    <Route path={`${url}/purchases`}>
+                                        <MyPurchaseOrders/>
+                                    </Route>
+                                    <Route path={`${url}/sellings`}>
+                                        <MySellingOrders/> 
+                                    </Route>
+                                    <Route path={`${url}/account-settings`}>
+                                        <EditProfile/>   
+                                    </Route>
+                                </Switch> 
+
+                            </UserProfileProvider>
+                            
                         </div>
                     </div>
 

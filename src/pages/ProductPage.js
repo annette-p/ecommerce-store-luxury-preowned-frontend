@@ -15,7 +15,7 @@ export default function ProductPage() {
             setProduct(selectedProduct);
         }
         fetchProduct();
-    }) // [productId])
+    }, [context, productId])
 
     return (
         <React.Fragment>
