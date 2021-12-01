@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react'
 import UserProfileContext from '../../contexts/profile/UserProfileContext'
-import { BrowserRouter as Link, useRouteMatch } from "react-router-dom"
+import { Link, useRouteMatch } from "react-router-dom"
 
 export default function OrderSummary({orderStatus}){
 
@@ -24,7 +24,7 @@ export default function OrderSummary({orderStatus}){
             {purchaseOrders ? 
                 purchaseOrders.map(order => {
                     return (
-                        <Link to={url + "/" + order.id + "/order-details"} className="no-underline">
+                        <Link to={`${url}/${order.id}/order-details`} className="no-underline">
                             <div className="row mt-4">
                                 {/* product image */}
                                 <div className="col-1">
