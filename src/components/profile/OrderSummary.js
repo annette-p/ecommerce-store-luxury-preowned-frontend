@@ -1,27 +1,35 @@
 import React, { useContext, useState, useEffect } from 'react'
-import UserProfileContext from '../../contexts/profile/UserProfileContext'
 import { Link, useRouteMatch } from "react-router-dom"
+import { useParams } from 'react-router';
 
-export default function OrderSummary({orderStatus}){
+import UserProfileContext from '../../contexts/profile/UserProfileContext'
+import OrderNone from './OrderNone'
 
+export default function OrderSummary(){
+    const {order_status} = useParams();
     let { url } = useRouteMatch();
     const [ purchaseOrders, setPurchaseOrders ] = useState();
     const context = useContext(UserProfileContext);
 
     useEffect(() => {
-        const fetchPurchaseOrders = () => {
-            // console.log(orderStatus)
+        const fetchPurchaseOrders = (status) => {
+            let orderStatus;
+            switch(status) {
+                case "deliver": orderStatus="new"; break;
+                case "receive": orderStatus="delivery"; break;
+                default: orderStatus=status; 
+            }
             let retrievedPurchasedOrders = context.getPurchaseOrdersByStatus(orderStatus);  
             setPurchaseOrders(retrievedPurchasedOrders);
         }
-        fetchPurchaseOrders();
-    }, [context, orderStatus]) 
+        fetchPurchaseOrders(order_status);
+    }, [context, order_status]) 
 
 
     return (
         <React.Fragment>
 
-            {purchaseOrders ? 
+            {purchaseOrders && purchaseOrders.length > 0 ? 
                 purchaseOrders.map(order => {
                     return (
                         <Link to={`${url}/${order.id}/order-details`} className="no-underline">
@@ -47,7 +55,7 @@ export default function OrderSummary({orderStatus}){
                         </Link> 
                     )
                 })
-            : null}
+            : <OrderNone/>}
             
         </React.Fragment>
     )

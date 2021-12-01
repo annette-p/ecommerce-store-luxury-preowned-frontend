@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import OrderSummary from './OrderSummary'
-import OrderNone from './OrderNone'
 import OrderDetails from './OrderDetails'
 
 export default function MyPurchaseOrders(){
@@ -39,25 +38,11 @@ export default function MyPurchaseOrders(){
                         <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                             <Switch>
-                                <Route  path={`${url}/deliver`}>
-                                    <OrderSummary orderStatus="new"/>
-                                </Route>
-                                <Route  path={`${url}/receive`}>
-                                    <OrderSummary orderStatus="delivery"/>
-                                </Route>
-                                <Route  path={`${url}/completed`}>
-                                    <OrderSummary orderStatus="completed"/>
-                                </Route>
-                                <Route  path={`${url}/cancelled`}>
-                                    {/* <OrderSummary orderStatus="cancelled"/> */}
-                                    <OrderNone/>
-                                </Route>
-                                <Route  path={`${url}/refund`}>
-                                    {/* <OrderSummary orderStatus="refund"/> */}
-                                    <OrderNone/>
-                                </Route>
-                                <Route  path={`${url}/:order_id/order-details`}>
+                                <Route path={`${url}/:order_status/:order_id/order-details`}>
                                     <OrderDetails/>
+                                </Route>
+                                <Route path={`${url}/:order_status`}>
+                                    <OrderSummary/>
                                 </Route>
                             </Switch> 
                             

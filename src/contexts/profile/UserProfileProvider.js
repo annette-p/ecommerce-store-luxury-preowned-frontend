@@ -92,6 +92,10 @@ export default function UserProfileProvider(props) {
             return purchaseOrders;
         },
 
+        getPurchaseOrderById: (id) => {
+            return purchaseOrders.filter( p => p.id === parseInt(id))[0]
+        },
+
         getPurchaseOrdersByStatus: (selectedStatus) => {
             return purchaseOrders.filter( p => p.status === selectedStatus)
         },

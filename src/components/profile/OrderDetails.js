@@ -1,69 +1,87 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { useParams } from 'react-router';
+import UserProfileContext from '../../contexts/profile/UserProfileContext'
 
 export default function OrderDetails(){
+
+    const {order_id} = useParams();
+    const [order, setOrder] = useState();
+    const context = useContext(UserProfileContext);
+
+    useEffect(() => {
+        const fetchPurchaseOrder = (id) => {
+            let retrievedPurchasedOrder = context.getPurchaseOrderById(id); 
+            setOrder(retrievedPurchasedOrder);
+        }
+        fetchPurchaseOrder(order_id);
+    }, [context, order_id]) 
+
     return (
         <React.Fragment>
-            <div className="row mt-4">
-                <div className="col light-grey-hover">
-                    <div className="fw-bold">Shipping Information</div>
-                    <div className="mt-2">
-                        fedex - 908888555556666
+            {order ? 
+                (<div className="row mt-4">
+                    <div className="col light-grey-hover">
+                        <div className="fw-bold">Shipping Information</div>
+                        <div className="mt-2">
+                            fedex - 908888555556666
+                        </div>
                     </div>
-                </div>
-                <div className="col light-grey-hover">
-                    <div className="fw-bold">Delivery Address</div>
-                    <div className="mt-2">Jonh Doe</div>
-                    <div>
-                        80 Marine Parade Rd, Singapore 449269
+                    <div className="col light-grey-hover">
+                        <div className="fw-bold">Delivery Address</div>
+                        <div className="mt-2">Jonh Doe</div>
+                        <div>
+                            80 Marine Parade Rd, Singapore 449269
+                        </div>
                     </div>
-                </div>
-                <div className="col light-grey-hover">
-                    <div className="fw-bold text-center">Payment Method</div>
-                    <div className="mt-2 text-center">Credit Card</div>
-                </div>
-                <div className="col light-grey-hover">
-                    <div className="fw-bold text-center">Order ID</div>
-                    <div className="mt-2 text-center">LP5556666888999</div>
-                </div>
-                <hr className="mt-3"></hr>
-                {/* Product details / image */}
-                <div className="row mt-3">
-                    <div className="fw-bold">Product Details</div>
-                </div>
-                <div className="row mt-3">
-                    <div class="col-1">
-                        <img className="product-img-profile"
-                        src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
-                        alt="product"/>
-                        {/* ---linkable to product page--- */}
+                    <div className="col light-grey-hover">
+                        <div className="fw-bold text-center">Payment Method</div>
+                        <div className="mt-2 text-center">Credit Card</div>
                     </div>
-                    <div class="col light-grey-hover">
-                        {/* ---linkable to product page--- */}
-                        <div className="ms-2 fw-bold">Dior</div>
-                        <div className="ms-2">Diorissimo Canvas and Leather Mini Saddle Shoulder Bag</div>
-                        <div className="ms-2"><span className="fw-bold">Condition: </span>Used like new</div>
-                        <div className="ms-2 fw-bold">$S 3,500 <span className="ms-1 fw-normal">x1</span></div>
-                        <div className="ms-2 fw-bold">Total: <span className="ms-1 fw-normal orange-text">$S 3,500</span></div>
+                    <div className="col light-grey-hover">
+                        <div className="fw-bold text-center">Order ID</div>
+                        <div className="mt-2 text-center">LP5556666888999</div>
+                    </div>
+                    <hr className="mt-3"></hr>
+                    {/* Product details / image */}
+                    <div className="row mt-3">
+                        <div className="fw-bold">Product Details</div>
+                    </div>
+                    <div className="row mt-3">
+                        <div class="col-1">
+                            <img className="product-img-profile"
+                            src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
+                            alt="product"/>
+                            {/* ---linkable to product page--- */}
+                        </div>
+                        <div class="col light-grey-hover">
+                            {/* ---linkable to product page--- */}
+                            <div className="ms-2 fw-bold">{order.designer}</div>
+                            <div className="ms-2">{order.name}</div>
+                            <div className="ms-2"><span className="fw-bold">Condition: </span>Used like new</div>
+                            <div className="ms-2 fw-bold">$S 3,500 <span className="ms-1 fw-normal">x1</span></div>
+                            <div className="ms-2 fw-bold">Total: <span className="ms-1 fw-normal orange-text">$S 3,500</span></div>
+                        </div>
+
+                        <div class="col-1">
+                            <img className="product-img-profile"
+                            src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
+                            alt="product"/>
+                            {/* ---linkable to product page--- */}
+                        </div>
+                        <div class="col light-grey-hover">
+                            {/* ---linkable to product page--- */}
+                            <div className="ms-2 fw-bold">{order.designer}</div>
+                            <div className="ms-2">{order.name}</div>
+                            <div className="ms-2"><span className="fw-bold">Condition: </span>Used like new</div>
+                            <div className="ms-2 fw-bold">$S 3,500 <span className="ms-1 fw-normal">x1</span></div>
+                            <div className="ms-2 fw-bold">Total: <span className="ms-1 fw-normal orange-text">$S 3,500</span></div>
+                        </div>
+                    
                     </div>
 
-                    <div class="col-1">
-                        <img className="product-img-profile"
-                        src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
-                        alt="product"/>
-                        {/* ---linkable to product page--- */}
-                    </div>
-                    <div class="col light-grey-hover">
-                        {/* ---linkable to product page--- */}
-                        <div className="ms-2 fw-bold">Dior</div>
-                        <div className="ms-2">Diorissimo Canvas and Leather Mini Saddle Shoulder Bag</div>
-                        <div className="ms-2"><span className="fw-bold">Condition: </span>Used like new</div>
-                        <div className="ms-2 fw-bold">$S 3,500 <span className="ms-1 fw-normal">x1</span></div>
-                        <div className="ms-2 fw-bold">Total: <span className="ms-1 fw-normal orange-text">$S 3,500</span></div>
-                    </div>
-                  
-                </div>
-
-            </div>
+                </div>) 
+            : null}
+            
         </React.Fragment>
     )
 }

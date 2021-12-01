@@ -96,9 +96,6 @@ export default function CardListing(){
                     </div>
                 </div>
             </div>
-            
-            {/* to process using React context */}
-            {/* <ProductPage/> */}
 
         </React.Fragment>
     )
