@@ -92,7 +92,8 @@ export default function UserProfileProvider(props) {
           name: "Jane",
           last_name: "XX",
           email: "jane@gmail.com",
-          address: "132 xxxxxxxxxx Singapore 232323"
+          address: "132 xxxxxxxxxx Singapore 232323",
+          shipping_address: "132 xxxxxxxxxx Singapore 232323"
         }
     ]);
 
@@ -145,7 +146,19 @@ export default function UserProfileProvider(props) {
             return userProfile;
         },
 
-        // function to allow edit profile 
+        // function to allow edit and update profile 
+        updateProfile: (name, lastName, email, address, shippingAddress) => {
+            let newUserProfile = {
+                name: name,
+                last_name: lastName,
+                email: email,
+                address: address,
+                shipping_address: shippingAddress
+            };
+      
+            let clone = [...userProfile, newUserProfile];
+            setUserProfile(clone);
+        },
 
         // function to allow changing password
 
