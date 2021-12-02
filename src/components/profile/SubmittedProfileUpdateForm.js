@@ -17,7 +17,7 @@ export default function SubmittedProfileUpdateForm(){
 
             <div className="row mt-4 mb-4">
                 <h5 className="mt-2">Your profile has been updated</h5>
-                <div className="mt-3 card light-grey-bg edit-profile" style={{width: "30rem"}}>
+                <div className="mt-3 card light-grey-bg edit-profile light-grey-hover" style={{width: "30rem"}}>
                     <div className="card-body">
                         {/* username */}
                         <div className="row">

@@ -11,7 +11,7 @@ export default function DeleteAccountForm(){
                         <p>We are sorry to hear that you would like to delete your account.</p>
                         <p className="fw-bold mt-3">Are you sure you want to proceed?</p>
                         <p>
-                            This mean you are deleting your profile and account permanently. You won't be able to retrieve the information or past orders in Luxury Pre-owned platform.  
+                            This mean you are deleting your profile and account permanently. You won't be able to retrieve the information or your past orders in Luxury Pre-owned platform.  
                         </p>
                         <hr className="mt-1"></hr>
                         {/* reason to delete */}
@@ -22,7 +22,7 @@ export default function DeleteAccountForm(){
                             {/* Drop down list */}
                             <div className="col-sm-12 col-md-7">
                                 <div className="mt-0 mt-md-4">
-                                    <select className="" name="reasonToDelete" value="reasonToDelete">
+                                    <select className="form-select" name="reasonToDelete" value="reasonToDelete">
                                         <option value=""> ----- Select One ----- </option>
                                         <option value="second-account">Create second account</option>
                                         <option value="remove-data">Want to remove something</option>

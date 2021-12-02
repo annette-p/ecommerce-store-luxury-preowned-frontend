@@ -160,8 +160,6 @@ export default function UserProfileProvider(props) {
             setUserProfile(newUserProfile);
         },
 
-        // function to allow changing password
-
         // function to allow delete account
 
         test: () => {

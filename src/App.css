@@ -66,6 +66,23 @@ a {
     text-decoration: none !important;
 }
 
+.change-success {
+    background-color: rgb(189, 241, 139);
+    /* background-color: rgb(243, 201, 96); */
+}
+
+.top-margin {
+    margin-top: 40px;
+}
+
+.change-fail {
+    background-color: rgb(192, 79, 79);
+}
+
+.error-msg {
+    color: red;
+  }
+
 
 /* ...................... main page ...................... */
 

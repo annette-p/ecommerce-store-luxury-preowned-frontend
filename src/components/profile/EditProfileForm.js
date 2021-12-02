@@ -5,7 +5,6 @@ import UserProfileContext from '../../contexts/profile/UserProfileContext'
 export default function EditProfileForm(){
 
     const history = useHistory();
-    // history.push('/form-submitted');
     
     // setting up local state
     // const [userProfile, setUserProfile] = useState();
