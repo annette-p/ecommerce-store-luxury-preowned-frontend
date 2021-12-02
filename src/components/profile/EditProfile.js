@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "rea
 import EditProfileForm from './EditProfileForm'
 import ChangePasswordForm from './ChangePasswordForm'
 import DeleteAccountForm from './DeleteAccountForm'
+import SubmittedProfileUpdateForm from './SubmittedProfileUpdateForm';
 
 export default function EditProfile(){
     
@@ -37,6 +38,9 @@ export default function EditProfile(){
                             <Switch>
                                 <Route  path={`${url}/edit-profile`}>
                                     <EditProfileForm/>
+                                </Route>
+                                <Route path={`${url}/form-submitted`}>
+                                    <SubmittedProfileUpdateForm/>
                                 </Route>
                                 <Route  path={`${url}/change-password`}>
                                     <ChangePasswordForm/>

@@ -1,8 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom';
 import UserProfileContext from '../../contexts/profile/UserProfileContext'
 
 export default function EditProfileForm(){
 
+    const history = useHistory();
+    // history.push('/form-submitted');
+    
     // setting up local state
     // const [userProfile, setUserProfile] = useState();
     const [name, setName] = useState();
@@ -25,6 +29,13 @@ export default function EditProfileForm(){
         }
         fetchUserProfile();
     }, [context]) 
+
+    function submitProfileForm() {
+        context.updateProfile(name, lastName, email, address, shippingAddress)
+        history.push("/profile/account-settings/form-submitted",{
+            name, lastName, email, address, shippingAddress
+        });
+    }
 
     return (
         <React.Fragment>
@@ -58,7 +69,7 @@ export default function EditProfileForm(){
                             {/* sign up button */}
                             <div className="mt-4">
                                 <div className="d-grid gap-2">
-                                    <button className="btn btn-secondary gold-hover" type="submit" onClick={()=>{context.updateProfile(name, lastName, email, address, shippingAddress)}} >
+                                    <button className="btn btn-secondary gold-hover" type="submit" onClick={()=>{submitProfileForm()}} >
                                         UPDATE
                                     </button>
                                 </div>
