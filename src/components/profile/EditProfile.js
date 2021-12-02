@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "rea
 import EditProfileForm from './EditProfileForm'
 import ChangePasswordForm from './ChangePasswordForm'
 import DeleteAccountForm from './DeleteAccountForm'
-import SubmittedProfileUpdateForm from './SubmittedProfileUpdateForm';
+import SubmittedProfileUpdateForm from './SubmittedProfileUpdateForm'
+import DeleteAccountCompleted from './DeleteAccountCompleted'
 
 export default function EditProfile(){
     
@@ -36,17 +37,20 @@ export default function EditProfile(){
                         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                             <Switch>
-                                <Route  path={`${url}/edit-profile`}>
-                                    <EditProfileForm/>
-                                </Route>
-                                <Route path={`${url}/form-submitted`}>
+                                <Route path={`${url}/edit-profile/completed`}>
                                     <SubmittedProfileUpdateForm/>
                                 </Route>
-                                <Route  path={`${url}/change-password`}>
+                                <Route path={`${url}/edit-profile`}>
+                                    <EditProfileForm/>
+                                </Route>
+                                <Route path={`${url}/change-password`}>
                                     <ChangePasswordForm/>
                                 </Route>
-                                <Route  path={`${url}/delete-account`}>
+                                <Route exact path={`${url}/delete-account`}>
                                     <DeleteAccountForm/>
+                                </Route>
+                                <Route exact path={`${url}/delete-account/completed`}>
+                                    <DeleteAccountCompleted/>
                                 </Route>
                             </Switch> 
 

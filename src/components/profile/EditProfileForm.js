@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom';
+import { useHistory, useRouteMatch } from 'react-router-dom';
 import UserProfileContext from '../../contexts/profile/UserProfileContext'
 
 export default function EditProfileForm(){
 
     const history = useHistory();
+
+    let { url } = useRouteMatch();
     
     // setting up local state
     // const [userProfile, setUserProfile] = useState();
@@ -31,7 +33,7 @@ export default function EditProfileForm(){
 
     function submitProfileForm() {
         context.updateProfile(name, lastName, email, address, shippingAddress)
-        history.push("/profile/account-settings/form-submitted",{
+        history.push(`${url}/completed`,{
             name, lastName, email, address, shippingAddress
         });
     }

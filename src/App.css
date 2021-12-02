@@ -81,7 +81,7 @@ a {
 
 .error-msg {
     color: red;
-  }
+}
 
 
 /* ...................... main page ...................... */
@@ -419,6 +419,13 @@ a {
 
 .edit-profile {
     margin-left: 100px;
+}
+
+
+/* delete account page */
+
+.delete-complete-msg {
+    font-size: large;
 }
 
 

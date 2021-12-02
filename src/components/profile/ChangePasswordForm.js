@@ -24,26 +24,26 @@ export default function ChangePasswordForm(){
         if (!changePasswordSuccess && !changePasswordFailed) {
             return (
                 <div className="card light-grey-bg edit-profile" style={{width: "30rem"}}>
-                    <div class="card-body">
+                    <div className="card-body">
                         {/* password */}
-                        <div class="mt-4">
-                            <input class="form-control" type="text" placeholder="Current Password" name="currentPassword"  value={currentPassword} 
+                        <div className="mt-4">
+                            <input className="form-control" type="text" placeholder="Current Password" name="currentPassword"  value={currentPassword} 
                             onChange={(e) => {setCurrentPassword(e.target.value)}}/>
                         </div>
                         {/* new password */}
-                        <div class="mt-4">
-                            <input class="form-control" type="text" placeholder="New Password" name="newPassword"  value={newPassword} 
+                        <div className="mt-4">
+                            <input className="form-control" type="text" placeholder="New Password" name="newPassword"  value={newPassword} 
                             onChange={(e) => {setNewPassword(e.target.value)}}/>
                         </div>
                         {/* confirm new password */}
-                        <div class="mt-4">
-                            <input class="form-control" type="text" placeholder="Confirm New Password" name="confirmPassword"  value={confirmPassword} 
+                        <div className="mt-4">
+                            <input className="form-control" type="text" placeholder="Confirm New Password" name="confirmPassword"  value={confirmPassword} 
                             onChange={(e) => {setConfirmPassword(e.target.value)}}/>
                         </div>
-                        {/* sign up button */}
-                        <div class="mt-4">
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-secondary gold-hover" type="button" onClick={()=>{changePassword()}}>
+                        {/* button */}
+                        <div className="mt-4">
+                            <div className="d-grid gap-2">
+                                <button className="btn btn-secondary gold-hover" type="button" onClick={()=>{changePassword()}}>
                                     UPDATE
                             </button>
                             </div>
@@ -58,7 +58,7 @@ export default function ChangePasswordForm(){
         if (changePasswordFailed) {
             return (
                 <div className="card change-fail edit-profile top-margin" style={{width: "30rem"}}>
-                    <div class="card-body">
+                    <div className="card-body">
                         <div className="row mt-4 text-center fw-bold">
                             <p>Change Password Failed</p>
                         </div>
@@ -72,7 +72,7 @@ export default function ChangePasswordForm(){
         if (changePasswordSuccess) {
             return (
                 <div className="card change-success edit-profile top-margin" style={{width: "30rem"}}>
-                    <div class="card-body">
+                    <div className="card-body">
                         <div className="row mt-4 text-center fw-bold">
                             <p>Completed. Password has been changed</p>
                         </div>
