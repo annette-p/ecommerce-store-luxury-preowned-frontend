@@ -86,7 +86,7 @@ export default function UserProfileProvider(props) {
         },
     ]);
 
-    const [userProfile, setUserProfile] = useState([
+    const [userProfile, setUserProfile] = useState(
         {
           id: 1,
           name: "Jane",
@@ -95,7 +95,7 @@ export default function UserProfileProvider(props) {
           address: "132 xxxxxxxxxx Singapore 232323",
           shipping_address: "132 xxxxxxxxxx Singapore 232323"
         }
-    ]);
+    );
 
     const context = {
 
@@ -156,8 +156,8 @@ export default function UserProfileProvider(props) {
                 shipping_address: shippingAddress
             };
       
-            let clone = [...userProfile, newUserProfile];
-            setUserProfile(clone);
+            // let clone = {...userProfile, newUserProfile};
+            setUserProfile(newUserProfile);
         },
 
         // function to allow changing password
