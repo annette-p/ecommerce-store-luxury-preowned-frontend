@@ -1,81 +1,155 @@
-import React from 'react'
+import React, {useContext, useState} from 'react';
+import ConsignmentContext from '../../contexts/consignment/ConsignmentContext';
 
 export default function ProductConsignmentForm(){
+
+    let context = useContext(ConsignmentContext);
+
+    const [category, setCategory] = useState();
+    const [type, setType] = useState();
+    const [designer, setDesigner] = useState();
+    const [condition, setCondition] = useState();
+    const [conditionDescription, setConditionDescription] = useState();
+    const [width, setWidth] = useState();
+    const [height, setHeight] = useState();
+    const [expectedPrice, setExpectedPrice] = useState();
+    const [frontImage, setFrontImage] = useState();
+    const [backImage, setBackImage] = useState();
+    const [cornerImage, setCornerImage] = useState();
+    const [insideImage, setInsideImage] = useState();
+    const [labelImage, setLabelImage] = useState();
+    const [serialImage, setSerialImage] = useState();
+    const [tagImage, setTagImage] = useState();
+    const [receiptImage, setReceiptImage] = useState();
+    
+    // ---->>> to create validation function
+
+    // create new consignment request --> create this function locally as it is related to user authentication
+    // maybe import user contax in here to share user state data
+    function requestNewConsignment() {
+        let newConsignment = {
+            categories: category,
+            type: type,
+            designer: "",
+            condition: "",
+            condition_description: "",
+            width: "",
+            height: "",
+            expected_price: "",
+            front_image: "",
+            back_image: "",
+            corner_image: "",
+            inside_image: "",
+            label_image: "",
+            serial_image: "",
+            tag_image: "",
+            receipt_image: ""
+        };
+        console.log(newConsignment)
+    }
+
     return (
         <React.Fragment>
-            <div class="row mt-4 v-light-grey-bg">
+            <div className="row mt-4 v-light-grey-bg">
                 <h4 className="text-center pt-3">Consignment Form</h4>
-                {/* item type */}
-                <div class="mt-4 mb-3 fw-bold">
-                    <label for="exampleFormControlInput1" class="form-label">
-                        Which type of item are you selling? 
+                {/* item catergories - drop down lists */}
+                <div className="mt-4 fw-bold">
+                    <label for="exampleFormControlInput1" className="form-label">
+                        Which category of item are you selling? 
                     </label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="e.g shoulder bag"/>
+                    <select className="form-select" name="category" value={category} onChange={(e)=>{setCategory(e.target.value)}}>
+                        <option value=""> ----- Select One ----- </option>
+                        {context.getCategories().map(c => {
+                            return (
+                                <option value={c}>  
+                                    {c}
+                                </option>
+                            )
+                        })}
+                    </select>
+                </div>
+                {/* item type */}
+                <div className="mt-4 mb-3 fw-bold">
+                    <label for="exampleFormControlInput1" className="form-label">
+                        Which specific type of item are you selling? 
+                    </label>
+                    <input type="text" className="form-control" placeholder="e.g shoulder bag" name="type" value={type} onChange={(e) => {setType(e.target.value)}}/>
                 </div>
                 {/* designer / brand - drop down lists */}
-                <div class="mb-3 fw-bold">
-                    <label for="exampleFormControlInput1" class="form-label">
+                <div className="mb-3 fw-bold">
+                    <label for="exampleFormControlInput1" className="form-label">
                         Which designer is your item?
                     </label>
-                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                        {/* load the desginer options from db */}
+                    <select className="form-select" name="designer" value={designer} onChange={(e)=>{setDesigner(e.target.value)}}>
                         <option selected>Pick a brand</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        {context.getDesigners().map(d => {
+                            return (
+                                <option value={d}>  
+                                    {d}
+                                </option>
+                            )
+                        })}
                     </select>
                 </div>
                 {/* condition - drop down lists */}
-                <div class="mb-3 fw-bold">
-                    <label for="exampleFormControlInput1" class="form-label">
+                <div className="mb-3 fw-bold">
+                    <label for="exampleFormControlInput1" className="form-label">
                         Which condition is your item in? 
                         <span className="ms-3 fst-italic text-decoration-underline" href="">
                             See condition guide here
                         </span>
                     </label>
-                    <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                        {/* load the condition options from db */}
-                        <option selected>Select item's condition</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select className="form-select" name="condition" value={condition} onChange={(e)=>{setCondition(e.target.value)}}>
+                        <option selected value=""> ------ Select item's condition  ------ </option>
+                        {context.getConditions().map(c => {
+                            return (
+                                <option value={c}>  
+                                    {c}
+                                </option>
+                            )
+                        })}
                     </select>
                 </div>
                 {/* condition description */}
-                <div class="mb-3 fw-bold">
-                    <label for="exampleFormControlTextarea1" class="form-label">
+                <div className="mb-3 fw-bold">
+                    <label for="exampleFormControlTextarea1" className="form-label">
                         Describe the conditions and defect (if any)
                     </label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" 
-                    placeholder="Describe any wear, aging, or defect (i.e. dust bags, straps, clochettes)"></textarea>
+                    <textarea className="form-control" rows="3" 
+                    placeholder="Describe any wear, aging, or defect (i.e. dust bags, straps, clochettes)"
+                    name="conditionDescription" value={conditionDescription} 
+                    onChange={(e) => {setConditionDescription(e.target.value)}}></textarea>
                 </div>
                 {/* width */}
-                <div class="mb-3 fw-bold">
-                    <label for="exampleFormControlInput1" class="form-label">
+                <div className="mb-3 fw-bold">
+                    <label for="exampleFormControlInput1" className="form-label">
                         What is the width of your item (CM)?
                     </label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="width in cm"/>
+                    <input type="text" className="form-control" placeholder="width in cm"
+                    name="width" value={width} onChange={(e) => {setWidth(e.target.value)}}/>
                 </div>
                 {/* height */}
-                <div class="mb-3 fw-bold">
-                    <label for="exampleFormControlInput1" class="form-label">
+                <div className="mb-3 fw-bold">
+                    <label for="exampleFormControlInput1" className="form-label">
                         What is the height of your item (CM)?
                     </label>
-                    <input type="" class="form-control" id="exampleFormControlInput1" placeholder="height in cm"/>
+                    <input type="" className="form-control" placeholder="height in cm"
+                    name="height" value={height} onChange={(e) => {setHeight(e.target.value)}}/>
                 </div>
                 {/* expecting price */}
-                <div class="mb-4 fw-bold">
-                    <label for="exampleFormControlInput1" class="form-label">
+                <div className="mb-4 fw-bold">
+                    <label for="exampleFormControlInput1" className="form-label">
                         How much are you hoping to get for your item?
                     </label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="price in SGD"/>
+                    <input type="text" className="form-control" placeholder="price in SGD"
+                    name="expectedPrice" value={expectedPrice} onChange={(e) => {setExpectedPrice(e.target.value)}}/>
                 </div>
             </div>
 
             {/* Product Images */}
-            <div class="row mt-4 pt-3 v-light-grey-bg">
+            <div className="row mt-4 pt-3 v-light-grey-bg">
                 <h5>Product Images</h5>
-                <div class="mb-3">
+                <div className="mb-3">
                     <div className="mt-1">
                         Please upload images of your item as specified
                     </div>
@@ -83,46 +157,54 @@ export default function ProductConsignmentForm(){
                         Tips: <span className="fst-italic">include clear photos, showing the true color and any areas prone to wear (interior lining, corners and handle).</span>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label for="formFile" class="form-label fw-bold">Front Image of your item</label>
-                    <input class="form-control" type="file" id="formFile"/>
+                <div className="mb-3">
+                    <label for="formFile" className="form-label fw-bold">Front Image of your item</label>
+                    <input className="form-control" type="file" name="frontImage" value={frontImage} 
+                    onChange={(e) => {setFrontImage(e.target.value)}}/>
                 </div>
-                <div class="mb-3">
-                    <label for="formFile" class="form-label fw-bold">Back Image of your item</label>
-                    <input class="form-control" type="file" id="formFile"/>
+                <div className="mb-3">
+                    <label for="formFile" className="form-label fw-bold">Back Image of your item</label>
+                    <input className="form-control" type="file" name="backImage" value={backImage} 
+                    onChange={(e) => {setBackImage(e.target.value)}}/>
                 </div>
-                <div class="mb-3">
-                    <label for="formFile" class="form-label fw-bold">Corner Image of your item</label>
-                    <input class="form-control" type="file" id="formFile"/>
+                <div className="mb-3">
+                    <label for="formFile" className="form-label fw-bold">Corner Image of your item</label>
+                    <input className="form-control" type="file" name="cornerImage" value={cornerImage} 
+                    onChange={(e) => {setCornerImage(e.target.value)}}/>
                 </div>
-                <div class="mb-3">
-                    <label for="formFile" class="form-label fw-bold">Inside Image of your item</label>
-                    <input class="form-control" type="file" id="formFile"/>
+                <div className="mb-3">
+                    <label for="formFile" className="form-label fw-bold">Inside Image of your item</label>
+                    <input className="form-control" type="file" name="insideImage" value={insideImage} 
+                    onChange={(e) => {setInsideImage(e.target.value)}}/>
                 </div>
-                <div class="mb-3">
-                    <label for="formFile" class="form-label fw-bold"> Image of item Label</label>
-                    <input class="form-control" type="file" id="formFile"/>
+                <div className="mb-3">
+                    <label for="formFile" className="form-label fw-bold"> Image of item Label</label>
+                    <input className="form-control" type="file" name="labelImage" value={labelImage} 
+                    onChange={(e) => {setLabelImage(e.target.value)}}/>
                 </div>
-                <div class="mb-3">
-                    <label for="formFile" class="form-label fw-bold">Image of item Serial Number</label>
-                    <input class="form-control" type="file" id="formFile"/>
+                <div className="mb-3">
+                    <label for="formFile" className="form-label fw-bold">Image of item Serial Number</label>
+                    <input className="form-control" type="file" name="serialImage" value={serialImage} 
+                    onChange={(e) => {setSerialImage(e.target.value)}}/>
                 </div>
-                <div class="mb-3">
-                    <label for="formFile" class="form-label fw-bold">Image of item tag (if any)</label>
-                    <input class="form-control" type="file" id="formFile"/>
+                <div className="mb-3">
+                    <label for="formFile" className="form-label fw-bold">Image of item tag (if any)</label>
+                    <input className="form-control" type="file" name="tagImage" value={tagImage} 
+                    onChange={(e) => {setTagImage(e.target.value)}}/>
                 </div>
-                <div class="mb-4">
-                    <label for="formFile" class="form-label fw-bold">Image of item receipt (if any)</label>
-                    <input class="form-control" type="file" id="formFile"/>
+                <div className="mb-4">
+                    <label for="formFile" className="form-label fw-bold">Image of item receipt (if any)</label>
+                    <input className="form-control" type="file" name="receiptImage" value={receiptImage} 
+                    onChange={(e) => {setReceiptImage(e.target.value)}}/>
                 </div>
-
-
             </div>
 
             {/* Submit button */}
-            <div class="row mt-4 mb-2">
-                <div class="d-grid gap-2">
-                    <button class="btn btn-secondary" type="button">SUBMIT</button>
+            <div className="row mt-4 mb-2">
+                <div className="d-grid gap-2">
+                    <button className="btn btn-secondary" type="submit" onClick={()=>{requestNewConsignment()}}>
+                        SUBMIT
+                    </button>
                 </div>
             </div>
 

@@ -8,12 +8,13 @@ import Tooltip from 'react-bootstrap/Tooltip'
 import NavFilterOption from '../components/main/NavFilterOption'
 import Footer from '../components/main/Footer'
 import ProductProvider from '../contexts/products/ProductProvider'
+import ConsignmentProvider from '../contexts/consignment/ConsignmentProvider';
 import ListingPage from './ListingPage'
 import ProductPage from "./ProductPage"; 
 import ProfilePage from "./ProfilePage";
 import ConsignmentPage from "./ConsignmentPage";
 // import CartPage from './CartPage';
-// import LoginModal from '../components/main/LoginModal'
+import LoginModal from '../components/main/LoginModal'
 
 
 export default function MainPage(){
@@ -110,27 +111,33 @@ export default function MainPage(){
 
 
                     <ProductProvider>
+                        <ConsignmentProvider>
 
-                        <Switch> 
-                            <Route exact path="/">
-                                <ListingPage/>
-                            </Route>
-                            <Route path="/product/:productId">
-                                <ProductPage/> 
-                            </Route> 
-                            {/* <Route exact path="/shopping-cart">
-                                <CartPage/>
-                            </Route> */}
-                            {/* <Route exact path="/login">
-                                <LoginModal/>
-                            </Route>  */}
-                            <Route path="/profile">
-                                <ProfilePage/>
-                            </Route> 
-                            <Route exact path="/consignment">
-                                <ConsignmentPage/>
-                            </Route>
-                        </Switch> 
+                            <Switch> 
+                                <Route exact path="/">
+                                    <ListingPage/>
+                                </Route>
+                                <Route path="/product/:productId">
+                                    <ProductPage/> 
+                                </Route> 
+                                {/* <Route exact path="/shopping-cart">
+                                    <CartPage/>
+                                </Route> */}
+                                <Route exact path="/login">
+                                    <LoginModal action="login"/>
+                                </Route> 
+                                <Route exact path="/signup">
+                                    <LoginModal action="signup"/>
+                                </Route> 
+                                <Route path="/profile">
+                                    <ProfilePage/>
+                                </Route> 
+                                <Route exact path="/consignment">
+                                    <ConsignmentPage/>
+                                </Route>
+                            </Switch>
+
+                        </ConsignmentProvider>
 
                     </ProductProvider>
                     
