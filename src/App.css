@@ -55,7 +55,7 @@ a {
 }
 
 .orange-text {
-    color: rgb(194, 55, 4);
+    color: rgb(194, 55, 4) !important;
 }
 
 .underline-remove {
@@ -254,6 +254,13 @@ a {
     margin-bottom: 30px;
     margin-left: 2px;
     margin-right: 2px;
+}
+
+
+/* ...................... sign up page ...................... */
+
+.top-margin-div {
+    margin-top: 70px;
 }
 
 
