@@ -1,51 +1,77 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function VirtualAppointmentForm(){
+
+    const [name, setName] = useState();
+    const [phoneNumber, setPhoneNumber] = useState();
+    const [email, setEmail] = useState();
+    const [date, setDate] = useState();
+    const [time, setTime] = useState();
+
+    
+    // --- >>> to route the request to email.js 
+
+    // --->>> to perform validation function here 
+
+    function requestVirtualAppt() {
+        let newAppointment = {
+            name: name,
+            phoneNumber: phoneNumber,
+            email: email,
+            date: date,
+            time: time
+        }
+        console.log(newAppointment)
+    }
+
+
     return (
         <React.Fragment>
-            <div class="row mt-4 v-light-grey-bg">
+            <div className="row mt-4 v-light-grey-bg">
                 <h4 className="text-center pt-3">Get Virtual Appointment</h4>
                 {/* Name */}
-                <div class="mt-4 mb-3 fw-bold">
-                    <label for="exampleFormControlInput1" class="form-label">
+                <div className="mt-4 mb-3 fw-bold">
+                    <label for="exampleFormControlInput1" className="form-label">
                         Name  
                     </label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Your Name"/>
+                    <input type="text" className="form-control" placeholder="Your Name" name="name" value={name} onChange={(e) => {setName(e.target.value)}}/>
                 </div>
                 {/* Phone Number */}
-                <div class="mb-3 fw-bold">
-                    <label for="exampleFormControlInput1" class="form-label">
+                <div className="mb-3 fw-bold">
+                    <label for="exampleFormControlInput1" className="form-label">
                         Phone Number  
                     </label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Your Phone Number"/>
+                    <input type="email" className="form-control" placeholder="Your Phone Number" name="phoneNumber" value={phoneNumber} onChange={(e) => {setPhoneNumber(e.target.value)}}/>
                 </div>
                 {/* Email address */}
-                <div class="mb-3 fw-bold">
-                    <label for="exampleFormControlInput1" class="form-label">
+                <div className="mb-3 fw-bold">
+                    <label for="exampleFormControlInput1" className="form-label">
                         Email 
                     </label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Your Email Address"/>
+                    <input type="email" className="form-control" placeholder="Your Email Address" name="email" value={email} onChange={(e) => {setEmail(e.target.value)}}/>
                 </div>
                 {/* Date */}
-                <div class="mb-3 fw-bold">
-                    <label for="exampleFormControlInput1" class="form-label">
-                        Select a date 
+                <div className="mb-3 fw-bold">
+                    <label for="exampleFormControlInput1" className="form-label">
+                        Select a date  
                     </label>
-                    <input type="date" class="form-control" id="exampleFormControlInput1"/>
+                    <input type="date" className="form-control" name="date" value={date} onChange={(e) => {setDate(e.target.value)}}/>
                 </div>
                 {/* Time */}
-                <div class="mb-4 fw-bold">
-                    <label for="exampleFormControlInput1" class="form-label">
+                <div className="mb-4 fw-bold">
+                    <label for="exampleFormControlInput1" className="form-label">
                         Select a time 
                     </label>
-                    <input type="time" class="form-control" id="exampleFormControlInput1"/>
+                    <input type="time" className="form-control" name="time" value={time} onChange={(e) => {setTime(e.target.value)}}/>
                 </div>
             </div>
 
             {/* Submit button */}
-            <div class="row mt-4 mb-2">
-                <div class="d-grid gap-2">
-                    <button class="btn btn-secondary" type="button">SUBMIT</button>
+            <div className="row mt-4 mb-2">
+                <div className="d-grid gap-2">
+                    <button className="btn btn-secondary" type="submit" onClick={()=>{requestVirtualAppt()}}>
+                        SUBMIT
+                    </button>
                 </div>
             </div>
 
