@@ -284,6 +284,12 @@ a {
     display: flex;
 }
 
+.vertical-scrollbar {
+    overflow-x: hidden; /* Hide horizontal scrollbar  */
+    overflow-y: scroll; /* Add vertical scrollbar */
+    display: flex;
+}
+
 .additional-img-div {
     display: inline-block;
 }
@@ -381,6 +387,14 @@ a {
     font-size: 23px;
     text-align: center;
     margin-top: 300px;
+}
+
+/* ...................... checkout page ...................... */
+
+.processing-cart {
+    font-size: 23px;
+    text-align: center;
+    margin-top: 250px;
 }
 
 

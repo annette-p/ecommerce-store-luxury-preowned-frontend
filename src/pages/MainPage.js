@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartArrowDown, faHandHoldingUsd } from '@fortawesome/free-solid-svg-icons'
@@ -8,13 +8,15 @@ import Tooltip from 'react-bootstrap/Tooltip'
 import NavFilterOption from '../components/main/NavFilterOption'
 import Footer from '../components/main/Footer'
 import ProductProvider from '../contexts/products/ProductProvider'
+import CartProvider from '../contexts/carts/CartProvider';
 import ConsignmentProvider from '../contexts/consignment/ConsignmentProvider';
 import ListingPage from './ListingPage'
 import ProductPage from "./ProductPage"; 
 import ProfilePage from "./ProfilePage";
 import ConsignmentPage from "./ConsignmentPage";
-// import CartPage from './CartPage';
+import CartPage from './CartPage';
 import LoginModal from '../components/main/LoginModal'
+import CheckoutPage from './CheckoutPage'; // to remove later
 
 
 export default function MainPage(){
@@ -22,6 +24,11 @@ export default function MainPage(){
     // const [showLogin, setShowLogin] = useState(false);
     // const handleCloseLogin = () => setShowLogin(false);
     // const handleShowLogin = () => setShowLogin(true);
+
+    // for shopping cart 
+    const [show, setShow] = useState(true);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     return (
         <React.Fragment>
@@ -85,7 +92,7 @@ export default function MainPage(){
                                     </li>
                                 </Link>
                                 {/* cart icon */}
-                                <Link to="/shopping-cart">
+                                <Link to="/shopping-cart" onClick={() => handleShow()}>
                                     <li className="nav-item">
                                         <OverlayTrigger
                                             key="cart"
@@ -112,33 +119,38 @@ export default function MainPage(){
 
                     <ProductProvider>
                         <ConsignmentProvider>
+                            <CartProvider>
 
-                            <Switch> 
-                                <Route exact path="/">
-                                    <ListingPage/>
-                                </Route>
-                                <Route path="/product/:productId">
-                                    <ProductPage/> 
-                                </Route> 
-                                {/* <Route exact path="/shopping-cart">
-                                    <CartPage/>
-                                </Route> */}
-                                <Route exact path="/login">
-                                    <LoginModal action="login"/>
-                                </Route> 
-                                <Route exact path="/signup">
-                                    <LoginModal action="signup"/>
-                                </Route> 
-                                <Route path="/profile">
-                                    <ProfilePage/>
-                                </Route> 
-                                <Route exact path="/consignment">
-                                    <ConsignmentPage/>
-                                </Route>
-                            </Switch>
+                                <Switch> 
+                                    <Route exact path="/">
+                                        <ListingPage/>
+                                    </Route>
+                                    <Route path="/product/:productId">
+                                        <ProductPage/> 
+                                    </Route> 
+                                    <Route exact path="/shopping-cart">
+                                        <CartPage handleClose={handleClose} placement="end" show={show}/>
+                                    </Route>
+                                    {/* To remove later */}
+                                    <Route exact path="/checkout">
+                                        <CheckoutPage handleClose={handleClose} placement="end" show={show}/>
+                                    </Route>
+                                    <Route exact path="/login">
+                                        <LoginModal action="login"/>
+                                    </Route> 
+                                    <Route exact path="/signup">
+                                        <LoginModal action="signup"/>
+                                    </Route> 
+                                    <Route path="/profile">
+                                        <ProfilePage/>
+                                    </Route> 
+                                    <Route exact path="/consignment">
+                                        <ConsignmentPage/>
+                                    </Route>
+                                </Switch>
 
+                            </CartProvider>
                         </ConsignmentProvider>
-
                     </ProductProvider>
                     
 
