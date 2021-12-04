@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import CartPage from '../../pages/CartPage'
+import React, { useState } from 'react'
+// import CartPage from '../../pages/CartPage'
 import ProductInfo from './ProductInfo'
 import SellWithUs from './SellWithUs'
+import CheckoutPage from '../../pages/CheckoutPage' // to remove later
+
 
 export default function ProductDetails({product}){
 
@@ -101,7 +103,11 @@ export default function ProductDetails({product}){
                             <div className="d-grid gap-2">
                                 <button className="btn btn-secondary gold-hover" type="button">BUY NOW</button>
                                 <button className="btn btn-secondary gold-hover" type="button" onClick={handleShow}>ADD TO CART</button>
-                                <CartPage handleClose={handleClose} placement="end" show={show} />
+                                {/* <CartPage handleClose={handleClose} placement="end" show={show} /> */}
+
+                                {/* to remove later */}
+                                <CheckoutPage handleClose={handleClose} placement="end" show={show} />
+                                
                             </div>
                         </div>
                         {/* Sell with us */}
