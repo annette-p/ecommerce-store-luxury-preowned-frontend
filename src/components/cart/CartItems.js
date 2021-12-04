@@ -57,11 +57,11 @@ export default function CartItems(){
                         {/* Quantity Control Section */}
                         <div className="col-12 mb-1">
                             <form class="d-flex mt-4 quantity-control-sec">
-                                <button class="btn btn-outline-secondary gold-hover white-font me-1 quantity-btn" type="submit">
+                                <button class="btn btn-outline-secondary gold-hover white-font me-1 quantity-btn" type="button" onClick={() => {cartContext.increment(item.id)}}>
                                     <FontAwesomeIcon icon={faPlus} className="mb-1"/>
                                 </button>
                                 <input class="form-control me-1 quantity-form" type="" placeholder={item.quantity}/>
-                                <button class="btn btn-outline-secondary gold-hover white-font quantity-btn" type="submit">
+                                <button class="btn btn-outline-secondary gold-hover white-font quantity-btn" type="button" onClick={() => {cartContext.decrement(item.id)}}>
                                     <FontAwesomeIcon icon={faMinus} className="mb-1"/>
                                 </button>
                                 {/* trash */}

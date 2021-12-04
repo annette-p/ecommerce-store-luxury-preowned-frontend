@@ -21,20 +21,52 @@ export default function CartProvider(props) {
         // }
     ]);
 
+    // const [ increment, setiIncrement ] = useState();
+
 
     const context = {
 
+        // get items in the cart 
         getCartItems:() => {
             return cartItems;
         },
 
-        // add cart 
+        // add new item to cart
+        addProductToCart: (id, cart_id, quantity) => {
+            let newCartItem = {
+              id: id, 
+              cart_id: cart_id,
+              quantity: quantity
+            };
+            let clone = [...cartItems, newCartItem];
+            setCartItems(clone);
+        }, 
 
 
         // delete items in cart  
 
 
-        // update quantity 
+        // update quantity (add or minus) of cart items (id here = product id )
+        increment: (id) =>{
+            let updatedCartItems = cartItems.map( item => {
+                if (item.id === id) {
+                    item.quantity = item.quantity + 1
+                }
+                return item
+            })
+            setCartItems(updatedCartItems);
+        },
+
+        decrement: (product_id) => {
+            let updatedCartItems = cartItems.map( item => {
+                if (item.id === product_id) {
+                    item.quantity = item.quantity - 1
+                }
+                return item
+            })
+            console.log(product_id, updatedCartItems)
+            setCartItems(updatedCartItems);
+        },
 
 
         // total items ordered 
