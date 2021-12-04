@@ -17,6 +17,7 @@ import ConsignmentPage from "./ConsignmentPage";
 import CartPage from './CartPage';
 import LoginModal from '../components/main/LoginModal'
 import CheckoutPage from './CheckoutPage'; // to remove later
+import AuthenticationPage from './AuthenticationPage';
 
 
 export default function MainPage(){
@@ -146,6 +147,9 @@ export default function MainPage(){
                                     </Route> 
                                     <Route exact path="/consignment">
                                         <ConsignmentPage/>
+                                    </Route>
+                                    <Route exact path="/product-authentication">
+                                        <AuthenticationPage/>
                                     </Route>
                                 </Switch>
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 export default function Footer(){
     return (
@@ -22,7 +23,9 @@ export default function Footer(){
                 </div>
                 <div className="col mb-3 me-4">
                     <h5 className="mt-3">Our Services</h5>
-                    <div className="pt-2">Authentication</div>
+                    <Link to="/product-authentication" className="no-underline">
+                        <div className="pt-2">Authentication</div>
+                    </Link>
                     <div>Condition Guide</div>
                     <div>Payment in installment plan<span className="fst-italic fw-light">- coming soon</span></div>
                 </div>
