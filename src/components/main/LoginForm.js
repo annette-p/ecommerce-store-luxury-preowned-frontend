@@ -1,10 +1,7 @@
-import React, {useContext, useEffect, useState} from 'react'
-import { Link, useHistory } from 'react-router-dom'
-// import axios from 'axios'
+import React, {useContext, useEffect, useState} from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
 import UserProfileContext from '../../contexts/profile/UserProfileContext';
-
-// --->> later  to think how to share the authenticated user across the state, either to create user contex**
 
 export default function LoginForm(){
 
@@ -17,10 +14,9 @@ export default function LoginForm(){
 
     const userContext = useContext(UserProfileContext);
 
-    // --->>> to perform validation function here -- refer to project 2
-
     useEffect( () => {}, [errors])
 
+    // Perform validation of form inputs
     function validateForm() {
         let errors = {}
         let formIsValid = true
@@ -40,6 +36,7 @@ export default function LoginForm(){
         return formIsValid
     }
 
+    // Perform user authentication based on username/password
     async function authenticateUser() {
         if (validateForm()) {
             try {
@@ -58,6 +55,7 @@ export default function LoginForm(){
         }
     }
 
+    // Render login failure message
     function renderLoginFailMessage() {
         if (loginFailed) {
             return (
@@ -67,10 +65,6 @@ export default function LoginForm(){
             )
         }
     }
-
-
-    // --- >>> login success > route to main page (listing page) + display NAME on the nave bar 
-
 
     return (
         <React.Fragment>

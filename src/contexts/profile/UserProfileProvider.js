@@ -1,7 +1,11 @@
 import React, {useState} from "react";
 import UserProfileContext from "./UserProfileContext";
 
-import { authenticateUser, invalidateUserAuthentication } from '../../services/authentication';
+import { 
+    authenticateUser,
+    createNewUserProfile,
+    invalidateUserAuthentication
+} from '../../services/authentication';
 
 export default function UserProfileProvider(props) {
 
@@ -144,6 +148,7 @@ export default function UserProfileProvider(props) {
 
         // .................................................................... //
 
+        // Validate whether there is currently an authenticated user session based on whether 'user' state variable is NULL
         isAuthenticated: () => {
             // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
             if (user === null) {
@@ -153,21 +158,32 @@ export default function UserProfileProvider(props) {
             }
         },
 
+        // Perform user authentication.
         loginUser: async (username, password) => {
             let loginSuccess = await authenticateUser(username, password);
-            setUser(JSON.parse(localStorage.getItem("authenticatedUser")));
+            if (loginSuccess) {
+                // if authentication is successful, keep a copy of the user info from the window local storage and save in the
+                // React Context state. The main purpose is to leverage "useEffect" to re-render components when the Context state
+                // changes.
+                setUser(JSON.parse(localStorage.getItem("authenticatedUser")));
+            }
             return loginSuccess;
         },
 
+        // Perform logout of user by invalidating the window local storage, as well as the React Context state.
         logoutUser: () => {
             invalidateUserAuthentication();
             setUser(null);
         },
 
+        // Retrieve all details about that authenticated user profile
+        getUserProfile: () => {
+            return user.info;
+        },
 
-        // retrieve all details about that authenticated user profile
-        getUserProfile:() => {
-            return userProfile;
+        createUserProfile: async (username, password, email) => {
+            let signupSuccess = await createNewUserProfile(username, password, email);
+            return signupSuccess;
         },
 
         // function to allow edit and update profile 

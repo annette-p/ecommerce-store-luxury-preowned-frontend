@@ -60,3 +60,34 @@ export function invalidateUserAuthentication() {
     // ref: https://developer.mozilla.org/en-US/docs/Web/API/Storage/removeItem
     localStorage.removeItem("authenticatedUser")
 }
+
+export async function createNewUserProfile(username, password, email) {
+    let userInfo = {
+        type: "Customer",
+        username: username,
+        password: password,
+        email: email
+    }
+
+    try {
+        let signupResult = await axios.post(`${global.apiUrl}/users/create`, userInfo);
+        /*
+            A success user account sign-up response data from backend API will be:
+            {
+                "success": true,
+                "message": "New user created successfully",
+                "user_id": 1
+            }
+        */
+
+        const newUserId = signupResult.data.user_id;
+        if (newUserId) {
+            // signup success
+            return true;
+        } else {
+            return false
+        }
+    } catch(err) {
+        throw err;
+    }
+}

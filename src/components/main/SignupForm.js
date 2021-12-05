@@ -1,34 +1,75 @@
-import React, {useState} from 'react'
-import { Link } from 'react-router-dom'
+import React, {useContext, useState} from 'react';
+import { Link } from 'react-router-dom';
 
-// --->> later  to think how to share the authenticated user across the state, either to create user contex**
+import UserProfileContext from '../../contexts/profile/UserProfileContext';
 
 export default function SignupForm(){
 
-    const [userName, setUserName] = useState();
+    const [username, setUsername] = useState();
     const [password, setPassword] = useState();
     const [confirmPassword, setConfirmPassword] = useState();
     const [email, setEmail] = useState();
+    const [errors, setErrors] = useState({})
     const [accountCreationFailed, setAccountCreationFailed] = useState(false);
     const [accountCreationSuccess, setAccountCreationSuccess] = useState(false);
+
+    const userContext = useContext(UserProfileContext);
     
+    // Perform validation of form inputs
+    function validateForm() {
+        let errors = {}
+        let formIsValid = true
 
-    // --->>> to perform validation function here -- refer to project 2
-
-
-    function createUserAccount() {
-        let userAccount = {
-            userName: userName,
-            password: password,
-            confirmPassword: confirmPassword,
-            email: email
+        if (!username) {
+            formIsValid = false
+            errors["username"] = "Please enter your username"
         }
-        setAccountCreationFailed(false)
-        setAccountCreationSuccess(true)
-        console.log(userAccount)
+
+        if (!password) {
+            formIsValid = false
+            errors["password"] = "Please enter your preferred password"
+        }
+
+        if (!confirmPassword) {
+            formIsValid = false
+            errors["confirmPassword"] = "Please re-enter your preferred password"
+        }
+
+        if (password && confirmPassword && password !== confirmPassword) {
+            formIsValid = false
+            errors["confirmPassword"] = "Password does not match the above"
+        }
+
+        if (!email) {
+            formIsValid = false
+            errors["email"] = "Please enter your email address"
+        }
+
+        setErrors(errors);
+
+        return formIsValid
     }
 
-    function renderLoginFailMessage() {
+    // Perform signup of new user account
+    async function createUserAccount() {
+        if (validateForm()) {
+            try {
+                await userContext.createUserProfile(username, password, email)
+                .then( signupSuccess => {
+                    if (signupSuccess) {
+                        setAccountCreationSuccess(true);
+                    } else {
+                        setAccountCreationFailed(true);
+                    }
+                })
+            } catch(err) {
+                setAccountCreationFailed(true)
+            }
+        }
+    }
+
+    // Render account signup failure message
+    function renderFailAccountCreation() {
         if (accountCreationFailed) {
             return (
                 <div className="row mt-4 login-fail">
@@ -38,28 +79,33 @@ export default function SignupForm(){
         }
     }
 
+    // Render account signup form
     function renderSignupForm() {
         if (!accountCreationSuccess) {
             return (
                 <div class="card-body">
                     <h5 class="card-title text-center">Create Account</h5>
-                    {/* display login error */}
-                    {renderLoginFailMessage()}
+                    {/* display account creation failure error */}
+                    {renderFailAccountCreation()}
                     {/* username */}
                     <div class="mt-4">
-                        <input class="form-control" type="text" placeholder="Username" name="userName" value={userName} onChange={(e) => {setUserName(e.target.value)}}/>
+                        <input class="form-control" type="text" placeholder="Username" name="username" value={username} onChange={(e) => {setUsername(e.target.value)}}/>
+                        <div className="error-msg">{errors.username}</div>
                     </div>
                     {/* password */}
                     <div class="mt-4">
-                        <input class="form-control" type="text" placeholder="Password" name="password" value={password} onChange={(e) => {setPassword(e.target.value)}}/>
+                        <input class="form-control" type="password" placeholder="Password" name="password" value={password} onChange={(e) => {setPassword(e.target.value)}}/>
+                        <div className="error-msg">{errors.password}</div>
                     </div>
                     {/* confirm password */} 
                     <div class="mt-4">
-                        <input class="form-control" type="text" placeholder="Confirm Password" name="confirmPassword" value={confirmPassword} onChange={(e) => {setConfirmPassword(e.target.value)}}/>
+                        <input class="form-control" type="password" placeholder="Confirm Password" name="confirmPassword" value={confirmPassword} onChange={(e) => {setConfirmPassword(e.target.value)}}/>
+                        <div className="error-msg">{errors.confirmPassword}</div>
                     </div>
                     {/* email address */} 
                     <div class="mt-4">
                         <input class="form-control" type="text" placeholder="Email Address" name="email" value={email} onChange={(e) => {setEmail(e.target.value)}}/>
+                        <div className="error-msg">{errors.email}</div>
                     </div>
                     {/* sign up button */}
                     <div class="mt-4">
@@ -74,6 +120,7 @@ export default function SignupForm(){
         }
     }
 
+    // Render account signup success message
     function renderSuccessAccountCreation() {
         if (accountCreationSuccess) {
             return (
@@ -88,7 +135,6 @@ export default function SignupForm(){
             )
         }
     }
-
 
     return (
         <React.Fragment>
