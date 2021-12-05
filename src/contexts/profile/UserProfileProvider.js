@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import UserProfileContext from "./UserProfileContext";
 
+import { authenticateUser, invalidateUserAuthentication } from '../../services/authentication';
+
 export default function UserProfileProvider(props) {
 
     const [purchaseOrders, setPurchaseOrders] = useState([
@@ -97,6 +99,8 @@ export default function UserProfileProvider(props) {
         }
     );
 
+    const [user, setUser] = useState(null);
+
     const context = {
 
         // retrieve all purchase orders of that authenticated user
@@ -139,6 +143,26 @@ export default function UserProfileProvider(props) {
 
 
         // .................................................................... //
+
+        isAuthenticated: () => {
+            // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+            if (user === null) {
+                return false;
+            } else {
+                return true;
+            }
+        },
+
+        loginUser: async (username, password) => {
+            let loginSuccess = await authenticateUser(username, password);
+            setUser(JSON.parse(localStorage.getItem("authenticatedUser")));
+            return loginSuccess;
+        },
+
+        logoutUser: () => {
+            invalidateUserAuthentication();
+            setUser(null);
+        },
 
 
         // retrieve all details about that authenticated user profile
