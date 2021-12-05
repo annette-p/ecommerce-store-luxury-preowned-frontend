@@ -1,8 +1,10 @@
 import React from 'react'
+import { useHistory } from 'react-router'
 import LoginForm from './LoginForm'
 import SignupForm from './SignupForm'
 
 export default function LoginModal({action}){
+    const history = useHistory();
     return (
         <React.Fragment>
             <div
@@ -14,7 +16,7 @@ export default function LoginModal({action}){
                         {/* header */}
                         <div className="modal-header">
                             <h4 className="modal-title">Welcome to Luxury Pre-owned</h4>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => {history.goBack()}}></button>
                         </div>
                         <div className="modal-body login-card">
                             <div className="container-fluid"> 
