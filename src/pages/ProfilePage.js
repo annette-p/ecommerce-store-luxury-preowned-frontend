@@ -1,12 +1,26 @@
-import React from 'react'
-import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from "react-router-dom";
-import UserProfileProvider from '../contexts/profile/UserProfileProvider';
+import React, {useContext, useEffect} from 'react'
+import { BrowserRouter as Router, Switch, Route, Link, useHistory, useRouteMatch } from "react-router-dom";
+// import UserProfileProvider from '../contexts/profile/UserProfileProvider';
 import MyPurchaseOrders from '../components/profile/MyPurchaseOrders'
 import MySellingOrders from '../components/profile/MySellingOrders'
 import EditProfile from '../components/profile/EditProfile'
 
+import UserProfileContext from '../contexts/profile/UserProfileContext';
+
 export default function ProfilePage(){
     let { url } = useRouteMatch();
+    const history = useHistory();
+    const userContext = useContext(UserProfileContext);
+
+    useEffect(() => {
+        //
+    }, [userContext])
+
+    function logoutUser() {
+        userContext.logoutUser();
+        history.push("/");
+    }
+
     return (
         <React.Fragment>
             <div className="container">
@@ -39,7 +53,7 @@ export default function ProfilePage(){
                                     </div>
                                 </Link>
                                 <div className="mt-3 col-hover">
-                                    <div className="btn white-font mb-3">Logout</div>  
+                                    <div className="btn white-font mb-3" onClick={() => {logoutUser()}}>Logout</div>  
                                 </div>
                             </div>
                         </div>
@@ -47,7 +61,7 @@ export default function ProfilePage(){
                         {/* Each profile content */}
                         <div className="col-10">
 
-                            <UserProfileProvider>
+                            {/* <UserProfileProvider> */}
 
                                 <Switch>
                                     <Route path={`${url}/purchases`}>
@@ -61,7 +75,7 @@ export default function ProfilePage(){
                                     </Route>
                                 </Switch> 
 
-                            </UserProfileProvider>
+                            {/* </UserProfileProvider> */}
                             
                         </div>
                     </div>

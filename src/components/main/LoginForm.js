@@ -1,6 +1,8 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import axios from 'axios'
+// import axios from 'axios'
+
+import UserProfileContext from '../../contexts/profile/UserProfileContext';
 
 // --->> later  to think how to share the authenticated user across the state, either to create user contex**
 
@@ -12,6 +14,8 @@ export default function LoginForm(){
     const [password, setPassword] = useState();
     const [errors, setErrors] = useState({})
     const [loginFailed, setLoginFailed] = useState(false);
+
+    const userContext = useContext(UserProfileContext);
 
     // --->>> to perform validation function here -- refer to project 2
 
@@ -38,80 +42,19 @@ export default function LoginForm(){
 
     async function authenticateUser() {
         if (validateForm()) {
-            let userLogin = {
-                username: username,
-                password: password
-            }
-
-            await axios.post(`${global.apiUrl}/users/authenticate`, userLogin)
-            .then( async (authResult) => {
-                // login success
-                /*
-                    A success login response data from backend API will be:
-                    {
-                        "accessToken": "eyJhbGc...",
-                        "refreshToken": "eyJhbGc...",
-                        "lastLogin": "2021-12-05T05:02:07.000Z"
-                    }
-                */
-
-                const tokens = authResult.data;
-
-                const authHeaders = {
-                    "Authorization": `Bearer ${tokens.accessToken}`
-                };
-
-                // now use the access token to retrieve the user's info
-                await axios.get(`${global.apiUrl}/users/info`, { headers: authHeaders})
-                .then( (userInfoResult) => {
-
-                    const userInfo = userInfoResult.data.data
-
-                    if (userInfo.type === "Customer") {
-                        const authenticatedUserInfo = {   
-                            "info": userInfo,
-                            "token": tokens.refreshToken
-                        }
-
-                        // update session storage with details of logged-in freelancer
-                        // ref: https://typeofnan.dev/using-session-storage-in-react-with-hooks/
-
-                        // The JSON.stringify() method converts a JavaScript object to a JSON string,
-                        sessionStorage.setItem("authenticatedUser", JSON.stringify(authenticatedUserInfo))
-
+            try {
+                await userContext.loginUser(username, password)
+                .then( authSuccess => {
+                    if (authSuccess) {
                         history.push("/");
-                        
                     } else {
-                        // Admins are not permitted to login here
                         setLoginFailed(true)
                     }
-                    
                 })
-    
-            })
-            .catch( (error) => {
-    
+                
+            } catch(err) {
                 setLoginFailed(true)
-    
-                // to improve error handling
-                if (error.response){
-    
-                    //do something
-                    console.error('error.response: ', error.response)
-                
-                } else if (error.request){
-                
-                    //do something else
-                    console.error('error.request: ', error.request)
-                
-                } else if (error.message){
-                
-                    //do something other than the other two
-                    console.error('error.message: ', error.message)
-                
-                }
-            })
-
+            }
         }
     }
 
@@ -144,7 +87,7 @@ export default function LoginForm(){
                         <div className="error-msg">{errors.username}</div>
                     </div>
                     <div className="mt-4">
-                        <input className="form-control" type="text" placeholder="Password" name="password" value={password} onChange={(e) => {setPassword(e.target.value)}}/>
+                        <input className="form-control" type="password" placeholder="Password" name="password" value={password} onChange={(e) => {setPassword(e.target.value)}}/>
                         <div className="error-msg">{errors.password}</div>
                     </div>
                     <div className="mt-4">

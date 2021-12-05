@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartArrowDown, faHandHoldingUsd } from '@fortawesome/free-solid-svg-icons'
@@ -19,6 +19,7 @@ import LoginModal from '../components/main/LoginModal'
 import CheckoutPage from './CheckoutPage'; // to remove later
 import AuthenticationPage from './AuthenticationPage';
 
+import UserProfileContext from '../contexts/profile/UserProfileContext';
 
 export default function MainPage(){
 
@@ -30,6 +31,13 @@ export default function MainPage(){
     const [show, setShow] = useState(true);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    // for nav bar
+    const userContext = useContext(UserProfileContext);
+
+    useEffect(() => {
+        //
+    }, [userContext])
 
     return (
         <React.Fragment>
@@ -69,26 +77,26 @@ export default function MainPage(){
                                                     Sell with Us!
                                                 </Tooltip>
                                             }>
-                                            <a className="nav-link active" aria-current="page" href="/product">
+                                            {/* <a className="nav-link active" aria-current="page" href="/product"> */}
                                                 <FontAwesomeIcon icon={faHandHoldingUsd} className="sell-icon"/>
-                                            </a>
+                                            {/* </a> */}
                                         </OverlayTrigger>
                                     </li>
                                 </Link>
                                 {/* user icon */}
-                                <Link to="/profile">
+                                <Link to={userContext.isAuthenticated() ? "/profile" : "/login"}>
                                     <li className="nav-item">
                                         <OverlayTrigger
                                             key="user-icon"
                                             placement="bottom"
                                             overlay={
                                                 <Tooltip id="tooltip-bottom-user-icon">
-                                                    Login
+                                                    {userContext.isAuthenticated() ? "Manage Profile" : "Login"}
                                                 </Tooltip>
                                             }>
-                                            <a className="nav-link" href="/">
+                                            {/* <a className="nav-link" href="/"> */}
                                                 <FontAwesomeIcon icon={faUser} className="user-icon"/>
-                                            </a>
+                                            {/* </a> */}
                                         </OverlayTrigger>
                                     </li>
                                 </Link>
@@ -103,9 +111,9 @@ export default function MainPage(){
                                                     Shopping Cart
                                                 </Tooltip>
                                             }>
-                                            <a className="nav-link" href="/product">
+                                            {/* <a className="nav-link" href="/product"> */}
                                                 <FontAwesomeIcon icon={faCartArrowDown} className="cart"/>
-                                            </a>
+                                            {/* </a> */}
                                         </OverlayTrigger>
                                     </li>
                                 </Link>

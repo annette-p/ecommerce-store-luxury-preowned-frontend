@@ -25,7 +25,7 @@ export default function ProductDetails(){
             setProduct(selectedProduct);
         }
         fetchProduct();
-    })
+    }, [context])
 
     return (
         <React.Fragment>
