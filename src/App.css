@@ -78,6 +78,10 @@ a {
     color: rgb(12, 12, 12);
 }
 
+.text {
+    color: rgb(43, 42, 42);
+}
+
 .white-font {
     color: rgb(228, 227, 227);
     /* color: white; */
@@ -181,12 +185,11 @@ a {
     margin-right: 20px;
 }
 
-/* ..... Carousel ..... */
+/* .............. Carousel ............... */
 
-.text {
-    color: rgb(43, 42, 42);
-    /* text-align: left; */
-}
+/* .shop-carousel-div {
+    height: 270px;
+} */
 
 .sell-btn {
     margin-left: 65px;
@@ -614,6 +617,60 @@ a {
         margin-right: 5px;
     }
 
+    
+    /* .............. Carousel ............... */
+
+    .shop-carousel-div {
+        /* width: 100%; */
+        height: 280px;
+    }
+
+    .custom-caption-carousel {
+        margin-left: -50px;
+        margin-top: -15px;
+    }
+
+    .cap-text {
+        font-size: 18px;
+    }
+
+    .margin-bottom {
+        margin-bottom: -32px;
+    }
+
+    .left-margin {
+        margin-left: -65px;
+    }
+
+    .second-custom-cap-carousel {
+        /* margin-left: 50px; */
+        margin-right: -180px;
+    }
+
+    .second-carousel-text {
+        font-size: 15.5px;
+    }
+
+    .second-custom-cap-carousel-btn {
+        margin-left: 250px;
+        margin-top: 15px;
+        margin-bottom: 10px;
+    }
+
+    .third-custom-caption-carousel {
+        margin-left: -90px;
+    }
+
+    .third-margin-btm {
+        margin-bottom: 5px;
+    }
+
+    .forth-custom-caption-carousel {
+        margin-left: -90px;
+    }
+
+
+
 
 }
 
@@ -686,59 +743,69 @@ a {
     }
 
 
-    /* ..... Carousel ..... */
+    /* ...................... Carousel...................... */
 
-.text {
-    color: rgb(43, 42, 42);
-    /* text-align: left; */
-}
+    .shop-carousel-div {
+        width: 100%;
+        height: 100%;
+    }
 
-.sell-btn {
-    margin-left: 65px;
-}
+    .sell-btn {
+        margin-left: 65px;
+    }
 
-.custom-caption-carousel {
-    margin-left: -50px;
-}
+    .custom-caption-carousel {
+        margin-left: -50px;
+        margin-top: 0px;
+    }
 
-.cap-text {
-    font-size: 22px;
-}
+    .cap-text {
+        font-size: 22px;
+    }
 
-.margin-bottom {
-    margin-bottom: -12px;
-}
+    .margin-bottom {
+        margin-bottom: -12px;
+    }
 
-.carousel-sell-btn {
-    color: white !important;
-    width: 205px;
-}
+    .carousel-sell-btn {
+        color: white !important;
+        width: 205px;
+    }
 
-.second-custom-cap-carousel {
-    margin-left: 45px;
-}
+    .left-margin {
+        margin-left: 0px;
+    }
 
-.second-carousel-text {
-    font-size: 16.5px;
-}
+    .second-custom-cap-carousel {
+        margin-left: 45px;
+        margin-right: 0px;
+    }
 
-.second-custom-cap-carousel-btn {
-    margin-left: 80px;
-    margin-top: 15px;
-    margin-bottom: 90px;
-}
+    .second-carousel-text {
+        font-size: 16.5px;
+    }
 
-.third-custom-caption-carousel {
-    margin-left: -70px;
-}
+    .second-custom-cap-carousel-btn {
+        margin-left: 80px;
+        margin-top: 15px;
+        margin-bottom: 90px;
+    }
 
-.third-carousel-text {
-    font-size: 18px;
-}
+    .third-custom-caption-carousel {
+        margin-left: -70px;
+    }
 
-.third-margin-btm {
-    margin-bottom: 70px;
-}
+    .third-carousel-text {
+        font-size: 18px;
+    }
+
+    .third-margin-btm {
+        margin-bottom: 70px;
+    }
+
+    .forth-custom-caption-carousel {
+        margin-left: -100px;
+    }
 
 
 

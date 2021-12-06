@@ -12,35 +12,40 @@ export default function ShopCarousel(){
     return (
         <React.Fragment>
 
-            <div class="row mt-3">
+            <div className="row mt-3">
                 <Carousel activeIndex={index} onSelect={handleSelect}>
                     {/* item 1 */}
-                    <Carousel.Item className="shop-carousel-div">
+                    <Carousel.Item>
                         <img
-                        className="d-block w-100"
-                        // src="holder.js/800x400?text=First slide&bg=373940"
+                        className="d-block shop-carousel-div"
                         src={require('../../images/banner/gg-runway.jpg').default}
                         alt="First slide"/>
                         <Carousel.Caption>
                             <div className="row custom-caption-carousel">
-                                <h1 className="text text-start">Shop<span className="fw-bold gold-color">.</span></h1>
-                                <h1 className="text text-start">Sell<span className="fw-bold gold-color">.</span></h1>
-                                <h1 className="text text-start">Repeat<span className="fw-bold gold-color">.</span></h1>
+                                <div className="d-none d-lg-block">
+                                    <h1 className="text text-start">Shop<span className="fw-bold gold-color">.</span></h1>
+                                    <h1 className="text text-start">Sell<span className="fw-bold gold-color">.</span></h1>
+                                    <h1 className="text text-start">Repeat<span className="fw-bold gold-color">.</span></h1>
+                                </div>
+                                <div className="d-block d-lg-none">
+                                    <h4 className="text text-start">Shop<span className="fw-bold gold-color">.</span></h4>
+                                    <h4 className="text text-start">Sell<span className="fw-bold gold-color">.</span></h4>
+                                    <h4 className="text text-start">Repeat<span className="fw-bold gold-color">.</span></h4>
+                                </div>
                                 <div className="text text-start cap-text mt-2">Protect the Environment</div>
                                 <div className="text text-start cap-text mb-4">Through Circular Fashion</div>
                             </div>
                             <div className="row custom-caption-carousel">
-                                <div className="col-12 mb-2">
+                                <div className="col-md-6 col-lg-12 mb-0 mb-lg-2">
                                     <button type="button" className="btn btn-secondary left-align">Shop Limited Edition<span className="fw-bold gold-color">&nbsp; &gt;&gt;</span></button>
                                 </div>
-                                <div className="col-12 margin-bottom">
+                                <div className="col-md-6 col-lg-12 margin-bottom left-margin">
                                     <a href="/consignment" 
-                                    className="btn btn-secondary left-align carousel-sell-btn">
+                                        className="btn btn-secondary left-align carousel-sell-btn">
                                         Sell with Us
                                         <span className="sell-btn fw-bold gold-color">&nbsp; &gt;&gt;
                                         </span>
                                     </a>
-                                    {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
                                 </div>
                             </div>
                         </Carousel.Caption>
@@ -48,7 +53,7 @@ export default function ShopCarousel(){
                     {/* item 2 */}
                     <Carousel.Item>
                         <img
-                        className="d-block w-100"
+                        className="d-block shop-carousel-div"
                         src={require('../../images/banner/gg-x-balenciaga.jpg').default}
                         alt="Second slide"/>
                         <Carousel.Caption>
@@ -58,18 +63,18 @@ export default function ShopCarousel(){
                                 <div className="mb-3 text text-center second-carousel-text">Whether to splurge or sell or both, you can do it right here</div>
                             </div>
                             <div className="row second-custom-cap-carousel-btn">
-                                <div class="col"></div>
-                                <div class="col">
+                                <div className="col d-none d-lg-block"></div>
+                                <div className="col">
                                     <button type="button" className="btn btn-secondary left-align">Become VIP customer<span className="fw-bold gold-color">&nbsp; &gt;&gt;</span></button>
                                 </div>
-                                <div class="col"></div>
+                                <div className="col d-none d-lg-block"></div>
                             </div>
                         </Carousel.Caption>
                     </Carousel.Item>
                     {/* item 3 */}
                     <Carousel.Item>
                         <img
-                        className="d-block w-100"
+                        className="d-block shop-carousel-div"
                         src={require('../../images/banner/lv-classic.jpg').default}
                         alt="Third slide"/>
                         <Carousel.Caption>
@@ -89,17 +94,18 @@ export default function ShopCarousel(){
                     {/* item 4 */}
                     <Carousel.Item>
                         <img
-                        className="d-block w-100"
+                        className="d-block shop-carousel-div"
                         src={require('../../images/banner/lv-newcollection.jpg').default}
                         alt="Third slide"/>
                         <Carousel.Caption>
-                            <div className="row third-custom-caption-carousel">
-                                <h3 className="text text-start">Top Brand Latest Collection</h3>
+                            <div className="row forth-custom-caption-carousel">
+                                <h3 className="text text-start d-none d-lg-block">Top Brand Latest Collection</h3>
+                                <h4 className="text text-start d-block d-lg-none">Top Brand Latest Collection</h4>
                                 <div className="fw-bold text text-start mt-3 third-carousel-text">At much FRIENDLY price</div>
                                 <div className="text text-start third-carousel-text">Stay sustainable by giving a second life</div>
                                 <div className="text text-start mb-4 third-carousel-text">to the fashion we no longer wear</div>
                             </div>
-                            <div className="mt-1 row third-custom-caption-carousel">
+                            <div className="mt-1 row forth-custom-caption-carousel">
                                 <div className="col-12">
                                     <button type="button" className="btn btn-secondary left-align third-margin-btm">Shop New Arrival<span className="ms-2 fw-bold gold-color">&nbsp; &gt;&gt;</span></button>
                                 </div>
