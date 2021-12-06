@@ -18,6 +18,12 @@ export default function NavFilterOption(){
                     <Nav.Item>
                         <Nav.Link eventKey="link-1">Limited edition</Nav.Link>
                     </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link eventKey="link-1">X Collaboration</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link eventKey="link-1">Runway Collection</Nav.Link>
+                    </Nav.Item>
                     <Dropdown as={NavItem}>
                         <Dropdown.Toggle as={NavLink}>Designers</Dropdown.Toggle>
                         <Dropdown.Menu>
