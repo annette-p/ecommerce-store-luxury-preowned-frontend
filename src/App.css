@@ -178,12 +178,15 @@ a {
     font-size: 18px;
     color: rgb(77, 75, 75);
     /* color: rgb(240, 118, 74); */
-    margin-top: 3px;
+    margin-top: 12px;
+    margin-left: 15px;
 }
 
 .user-icon {
     font-size: 19px;
     color: rgb(43, 42, 42);
+    margin-top: 10px;
+    margin-left: 15px;
 }
 
 .sell-icon {
