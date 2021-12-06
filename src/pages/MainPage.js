@@ -39,6 +39,15 @@ export default function MainPage(){
         //
     }, [userContext])
 
+    function renderSearchBar() {
+        return (
+            <form className="d-flex justify-content-center mb-2 mt-2 search-box-div">
+                <input className="form-control me-2 search-box" type="search" placeholder="Search" aria-label="Search"/>
+                {/* <button className="btn btn-outline-success" type="submit">Search</button> */}
+            </form>
+        )
+    }
+
     return (
         <React.Fragment>
             <div className="container">
@@ -58,10 +67,7 @@ export default function MainPage(){
                         </div>
                         {/* Search input  - render on laptop*/}
                         <div className="col d-none d-lg-block">
-                            <form className="d-flex justify-content-center mt-3 mb-2">
-                                <input className="form-control me-2 search-box" type="search" placeholder="Search" aria-label="Search"/>
-                                {/* <button className="btn btn-outline-success" type="submit">Search</button> */}
-                            </form>
+                            {renderSearchBar()}
                         </div>
                         {/* Sell / Sign in / Cart tap */}
                         <div className="col mt-1">
@@ -128,10 +134,7 @@ export default function MainPage(){
                         </div> 
                         {/* Search input  - render on iPad and Mobile*/}
                         <div className="col d-sm-block d-md-block d-lg-none">
-                            <form className="d-flex justify-content-center mt-2 mb-2">
-                                <input className="form-control me-2 search-box" type="search" placeholder="Search" aria-label="Search"/>
-                                {/* <button className="btn btn-outline-success" type="submit">Search</button> */}
-                            </form>
+                            {renderSearchBar()}
                         </div>
                     </div>
                     {/* Nav options */}
