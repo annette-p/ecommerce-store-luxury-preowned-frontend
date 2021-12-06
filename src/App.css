@@ -119,12 +119,13 @@ a {
 
 #logo {
     height: 60px;
-    /* margin-left: -10px; */
+    margin-left: 15px;
+    margin-right: -10px;
 }
 
 #text-logo {
     height: 45px;
-    margin-left: -10px;
+    align-items: center;
 }
 
 .logo {
@@ -150,7 +151,7 @@ a {
 
 .name-nav {
     font-size: 18px;
-    margin-right: 50px;
+    margin-left: -150px;
 }
 
 .cart {
@@ -558,6 +559,65 @@ a {
 }
 
 
+/* ....................................style for meduim and large screen......................................... */
+
+
+/*.................................. for iPad .................................. */
+
+
+@media (min-width: 768px) {
+
+    /* ...................... main page ...................... */
+
+    /* Navar */
+
+    #logo {
+        height: 70px;
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+
+    #text-logo {
+        height: 50px;
+        margin-left: -10px;
+    }
+
+    .text-logo {
+        height: 60px;
+        width: 280px;
+        margin-right: 950px;
+    }
+
+    .name-nav {
+        font-size: 18px;
+        margin-right: 30px;
+    }
+
+    .cart {
+        font-size: 18px;
+        margin-top: 12px;
+        margin-left: 15px;
+        margin-right: 5px;
+    }
+    
+    .user-icon {
+        font-size: 19px;
+        margin-top: 10px;
+        margin-left: 15px;
+        margin-right: 5px;
+    }
+    
+    .sell-icon {
+        font-size: 27px;
+        margin-top: 0px;
+        margin-right: 5px;
+    }
+
+
+}
+
+
+
 /*........................................ for laptop ......................................... */
 
 
@@ -574,23 +634,17 @@ a {
 
     #text-logo {
         height: 50px;
-        margin-left: -20px;
+        margin-left: -10px;
     }
 
     .logo {
-        /* background-image: url("./images/logo/lp-logo.jpg"); */
         height: 70px;
         width: 70px;
-        /* background-size: cover; */
-        /* background-position: center; */
     }
 
     .text-logo {
-        /* background-image: url("./images/logo/text-lp-logo.jpg"); */
         height: 60px;
         width: 280px;
-        /* background-size: cover; */
-        /* background-position: center; */
         margin-right: 950px;
         /* margin-left: -20px; */
     }
@@ -607,8 +661,6 @@ a {
 
     .cart {
         font-size: 18px;
-        /* color: rgb(77, 75, 75); */
-        /* color: rgb(240, 118, 74); */
         margin-top: 12px;
         margin-left: 15px;
         margin-right: 5px;
@@ -616,7 +668,6 @@ a {
     
     .user-icon {
         font-size: 19px;
-        /* color: rgb(43, 42, 42); */
         margin-top: 10px;
         margin-left: 15px;
         margin-right: 5px;
@@ -624,8 +675,6 @@ a {
     
     .sell-icon {
         font-size: 27px;
-        /* color: rgb(77, 75, 75); */
-        /* color: goldenrod; */
         margin-top: 0px;
         margin-right: 5px;
     }

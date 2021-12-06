@@ -56,19 +56,19 @@ export default function MainPage(){
                                 <img src={require('../images/logo/text-lp-logo.jpg').default} id="text-logo" alt="logo"/>
                             </a>
                         </div>
-                        {/* Search input */}
-                        <div className="col">
-                            <form className="d-flex justify-content-center mt-3">
+                        {/* Search input  - render on laptop*/}
+                        <div className="col d-none d-lg-block">
+                            <form className="d-flex justify-content-center mt-3 mb-2">
                                 <input className="form-control me-2 search-box" type="search" placeholder="Search" aria-label="Search"/>
                                 {/* <button className="btn btn-outline-success" type="submit">Search</button> */}
                             </form>
                         </div>
                         {/* Sell / Sign in / Cart tap */}
-                        <div className="col">
-                            <ul className="nav justify-content-end mt-3">
+                        <div className="col mt-1">
+                            <ul className="nav justify-content-end mt-sm-2 mt-md-3">
                                 <li className="nav-item mt-1">
                                     {/* Display first name of authenticated user */}
-                                    <span className="fw-bold name-nav">Jane</span>
+                                    <span className="fw-bold name-nav">Jenny</span>
                                     {/* {userContext.isAuthenticated() ? userContext.getUserProfile().firstname : null} */}
                                 </li>
                                 {/* sell icon */}
@@ -126,6 +126,13 @@ export default function MainPage(){
                                 {/* <LoginModal/> */}
                             </ul>
                         </div> 
+                        {/* Search input  - render on iPad and Mobile*/}
+                        <div className="col d-sm-block d-md-block d-lg-none">
+                            <form className="d-flex justify-content-center mt-2 mb-2">
+                                <input className="form-control me-2 search-box" type="search" placeholder="Search" aria-label="Search"/>
+                                {/* <button className="btn btn-outline-success" type="submit">Search</button> */}
+                            </form>
+                        </div>
                     </div>
                     {/* Nav options */}
                     <NavFilterOption/>

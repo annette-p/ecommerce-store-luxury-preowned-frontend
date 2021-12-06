@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
-import './mobile.css'
+// import './mobile.css'
 import MainPage from "./pages/MainPage";
 import UserProfileProvider from './contexts/profile/UserProfileProvider'
 
