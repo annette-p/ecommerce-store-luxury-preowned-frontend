@@ -56,9 +56,18 @@ export async function authenticateUser(username, password) {
 }
 
 export function invalidateUserAuthentication() {
-    // remove the entry from session
+    // remove the entry from local window storage
     // ref: https://developer.mozilla.org/en-US/docs/Web/API/Storage/removeItem
     localStorage.removeItem("authenticatedUser")
+}
+
+export function getRefreshToken() {
+    const user = JSON.parse(localStorage.getItem("authenticatedUser"));
+    if (user) {
+        return user.token;
+    } else {
+        return null;
+    }
 }
 
 export async function createNewUserProfile(username, password, email) {
@@ -89,5 +98,44 @@ export async function createNewUserProfile(username, password, email) {
         }
     } catch(err) {
         throw err;
+    }
+}
+
+// use refresh token to obtain a new access token
+export async function getAccessToken(refreshToken) {
+    let accessTokenResult = await axios.post(
+        `${global.apiUrl}/users/refresh`, 
+        {
+            "refresh_token": refreshToken
+        }, 
+        {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+    );
+    if (!accessTokenResult) {
+        // if it is not possible to get a new access token, it is 
+        // likely that the refresh token has expired.
+        invalidateUserAuthentication();
+        return null;
+    }
+
+    let accessToken = accessTokenResult.data.accessToken;
+    return accessToken;
+}
+
+// generate http authorization header
+export async function generateHttpAuthzHeader(refreshToken) {
+    const accessToken = await getAccessToken(refreshToken);
+    if (accessToken !== null) {
+        const headers = { 
+            'headers': {
+                'Authorization': `Bearer ${accessToken}`
+            }
+        };
+        return headers;
+    } else {
+        return null;
     }
 }
