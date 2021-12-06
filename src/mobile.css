@@ -1,0 +1,12 @@
+
+@media (min-width: 576px) {
+
+    /* ...................... main page ...................... */
+
+    /* Navar */
+    #logo {
+        height: 50px;
+        margin-left: -10px;
+    }
+
+}

@@ -66,9 +66,10 @@ export default function MainPage(){
                         {/* Sell / Sign in / Cart tap */}
                         <div className="col">
                             <ul className="nav justify-content-end mt-3">
-                                <li className="nav-item">
+                                <li className="nav-item mt-1">
                                     {/* Display first name of authenticated user */}
-                                    {userContext.isAuthenticated() ? userContext.getUserProfile().firstname : null}
+                                    <span className="fw-bold name-nav">Jane</span>
+                                    {/* {userContext.isAuthenticated() ? userContext.getUserProfile().firstname : null} */}
                                 </li>
                                 {/* sell icon */}
                                 <Link to="/consignment">
