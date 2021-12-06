@@ -14,11 +14,11 @@ export default function CartProvider(props) {
             cart_id: 2,
             quantity: 4
         },
-        // {
-        //     id: 3,
-        //     cart_id: 3,
-        //     quantity: 1
-        // }
+        {
+            id: 3,
+            cart_id: 3,
+            quantity: 1
+        }
     ]);
 
     // const [ increment, setiIncrement ] = useState();
@@ -54,6 +54,8 @@ export default function CartProvider(props) {
                 }
                 return item
             })
+            console.log(id)
+            console.log(updatedCartItems)
             setCartItems(updatedCartItems);
         },
 

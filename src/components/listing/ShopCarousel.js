@@ -15,7 +15,7 @@ export default function ShopCarousel(){
             <div class="row mt-3">
                 <Carousel activeIndex={index} onSelect={handleSelect}>
                     {/* item 1 */}
-                    <Carousel.Item>
+                    <Carousel.Item className="shop-carousel-div">
                         <img
                         className="d-block w-100"
                         // src="holder.js/800x400?text=First slide&bg=373940"

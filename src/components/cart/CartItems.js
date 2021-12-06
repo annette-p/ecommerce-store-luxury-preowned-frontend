@@ -35,45 +35,47 @@ export default function CartItems(){
     return (
         <React.Fragment>
 
-        {cartItems ? 
-            cartItems.map( item => {
-                return (
-                    <div className="row">
-                        {/* product image */}
-                        <div className="col">
-                            <img className="product-img-cart"
-                            src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
-                            alt="product"/>
-                            {/* ---linkable to product page--- */}
-                        </div>
-                        {/* product description */}
-                        <div className="col product-des-cart">
-                            {/* ---linkable to product page--- */}
-                            <div>{item.product.designer}</div>
-                            <div>{item.product.name}</div>
-                            <div><span className="fw-bold">Condition: </span>{item.product.condition}</div>
-                            <div className="fw-bold">$S {item.product.price}</div>
-                        </div>
-                        {/* Quantity Control Section */}
-                        <div className="col-12 mb-1">
-                            <form class="d-flex mt-4 quantity-control-sec">
-                                <button class="btn btn-outline-secondary gold-hover white-font me-1 quantity-btn" type="button" onClick={() => {cartContext.increment(item.id)}}>
-                                    <FontAwesomeIcon icon={faPlus} className="mb-1"/>
-                                </button>
-                                <input class="form-control me-1 quantity-form" type="" placeholder={item.quantity}/>
-                                <button class="btn btn-outline-secondary gold-hover white-font quantity-btn" type="button" onClick={() => {cartContext.decrement(item.id)}}>
-                                    <FontAwesomeIcon icon={faMinus} className="mb-1"/>
-                                </button>
-                                {/* trash */}
-                                <FontAwesomeIcon icon={faTrashAlt} className="ms-4 trash-icon"/>
-                            </form> 
-                        </div>
-                        <hr className="white-hr"></hr>
-                    </div>
-                )
-            })
-        : null}
-            
+            <div className="row vertical-scrollbar">
+
+                {cartItems ? 
+                    cartItems.map( item => {
+                        return (
+                            <div className="row">
+                                {/* product image */}
+                                <div className="col">
+                                    <img className="product-img-cart"
+                                    src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
+                                    alt="product"/>
+                                    {/* ---linkable to product page--- */}
+                                </div>
+                                {/* product description */}
+                                <div className="col product-des-cart">
+                                    {/* ---linkable to product page--- */}
+                                    <div>{item.product.designer}</div>
+                                    <div>{item.product.name}</div>
+                                    <div><span className="fw-bold">Condition: </span>{item.product.condition}</div>
+                                    <div className="fw-bold">$S {item.product.price}</div>
+                                </div>
+                                {/* Quantity Control Section */}
+                                <div className="col-12 mb-1">
+                                    <form class="d-flex mt-4 quantity-control-sec">
+                                        <button class="btn btn-outline-secondary gold-hover white-font me-1 quantity-btn" type="button" onClick={() => {cartContext.increment(item.product.id)}}>
+                                            <FontAwesomeIcon icon={faPlus} className="mb-1"/>
+                                        </button>
+                                        <input class="form-control me-1 quantity-form" type="" placeholder={item.quantity}/>
+                                        <button class="btn btn-outline-secondary gold-hover white-font quantity-btn" type="button" onClick={() => {cartContext.decrement(item.product.id)}}>
+                                            <FontAwesomeIcon icon={faMinus} className="mb-1"/>
+                                        </button>
+                                        {/* trash */}
+                                        <FontAwesomeIcon icon={faTrashAlt} className="ms-4 trash-icon"/>
+                                    </form> 
+                                </div>
+                                <hr className="white-hr"></hr>
+                            </div>
+                        )
+                    })
+                : null}
+            </div>
 
         </React.Fragment>
     )
