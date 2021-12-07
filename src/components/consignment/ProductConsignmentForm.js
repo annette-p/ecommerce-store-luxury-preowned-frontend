@@ -3,7 +3,10 @@ import ConsignmentContext from '../../contexts/consignment/ConsignmentContext';
 
 export default function ProductConsignmentForm(){
 
-    let context = useContext(ConsignmentContext);
+    // const [categories, setCategories] = useState();
+    // const [designers, setDesigners] = useState();
+    // const [conditions, setConditions] = useState();
+    // const [loaded, setLoaded] = useState(false)
 
     const [category, setCategory] = useState();
     const [type, setType] = useState();
@@ -23,6 +26,29 @@ export default function ProductConsignmentForm(){
     const [receiptImage, setReceiptImage] = useState();
     const [successFormSubmission, setSuccessFormSubmission] = useState(false);
     
+    let context = useContext(ConsignmentContext);
+
+    // useEffect(() => {
+
+    //     const loadData = async() => {
+    //         const allCategories = await context.getProductCategories();
+    //         console.log("allCategories: ", allCategories)
+    //         setCategories([...allCategories]);
+    //         console.log("categories: ", categories)
+
+    //         const allDesigners = await context.getProductDesigners();
+    //         setDesigners(allDesigners);
+    //         console.log("designers: ", designers)
+
+    //         const allConditions = await context.getProductConditions()
+    //         setConditions(allConditions);
+    //         console.log("conditions: ", conditions)
+
+    //         setLoaded(true);
+    //     }
+    //     loadData();
+
+    // }, [loaded, categories, conditions, designers, context]) 
 
     // ---->>> to create validation function
 
@@ -67,10 +93,10 @@ export default function ProductConsignmentForm(){
                             </label>
                             <select className="form-select" name="category" value={category} onChange={(e)=>{setCategory(e.target.value)}}>
                                 <option value=""> ----- Select One ----- </option>
-                                {context.getCategories().map(c => {
+                                {context.getProductCategories().map(c => {
                                     return (
-                                        <option value={c}>  
-                                            {c}
+                                        <option value={c.id}>  
+                                            {c.name}
                                         </option>
                                     )
                                 })}
@@ -90,10 +116,10 @@ export default function ProductConsignmentForm(){
                             </label>
                             <select className="form-select" name="designer" value={designer} onChange={(e)=>{setDesigner(e.target.value)}}>
                                 <option selected>Pick a brand</option>
-                                {context.getDesigners().map(d => {
+                                {context.getProductDesigners().map(d => {
                                     return (
-                                        <option value={d}>  
-                                            {d}
+                                        <option value={d.id}>  
+                                            {d.name}
                                         </option>
                                     )
                                 })}
@@ -109,7 +135,7 @@ export default function ProductConsignmentForm(){
                             </label>
                             <select className="form-select" name="condition" value={condition} onChange={(e)=>{setCondition(e.target.value)}}>
                                 <option selected value=""> ------ Select item's condition  ------ </option>
-                                {context.getConditions().map(c => {
+                                {context.getProductConditions().map(c => {
                                     return (
                                         <option value={c}>  
                                             {c}
