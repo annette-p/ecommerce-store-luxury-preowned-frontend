@@ -49,7 +49,6 @@ export default function ConsignmentProvider(props) {
 
         const loadData = async() => {
             const allCategories = await getProductCategories();
-            console.log("allCategories: ", allCategories)
             setCategories(allCategories);
 
             const allDesigners = await getProductDesigners();

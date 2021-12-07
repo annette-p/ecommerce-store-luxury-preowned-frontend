@@ -7,6 +7,13 @@ import CheckoutPage from '../../pages/CheckoutPage' // to remove later
 
 export default function ProductDetails({product}){
 
+    const images = [
+        'product_image_1', 'product_image_2',
+        'product_gallery_1', 'product_gallery_2', 'product_gallery_3', 'product_gallery_4',
+        'product_gallery_5', 'product_gallery_6', 'product_gallery_7', 'product_gallery_8'
+    ]
+
+    const [carouselImg, setCarouselImg] = useState(product[images[0]])
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -21,81 +28,37 @@ export default function ProductDetails({product}){
                     <div className="col ms-md-4 ms-lg-0">
                         <div className="card product-card">
                             <img className="card-img-top product-img-container"
-                            src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
+                            src={carouselImg}
                             alt="first"/>
                         </div>
                         <div className="row mt-2">
                             <div className="img-bucket horizontal-scrollbar">
-                                {/* img 1 */}
-                                <div class="additional-img-div me-1">
-                                    <img className="product-img-cart"
-                                    src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
-                                    alt="product"/>
-                                </div>
-                                {/* img 2 */}
-                                <div class="additional-img-div me-1">
-                                    <img className="product-img-cart"
-                                    src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
-                                    alt="product"/>
-                                </div>
-                                {/* img 3 */}
-                                <div class="additional-img-div me-1">
-                                    <img className="product-img-cart"
-                                    src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
-                                    alt="product"/>
-                                </div>
-                                {/* img 4 */}
-                                <div class="additional-img-div me-1">
-                                    <img className="product-img-cart"
-                                    src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
-                                    alt="product"/>
-                                </div>
-                                {/* img 5 */}
-                                <div class="additional-img-div me-1">
-                                    <img className="product-img-cart"
-                                    src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
-                                    alt="product"/>
-                                </div>
-                                {/* img 6 */}
-                                <div class="additional-img-div me-1">
-                                    <img className="product-img-cart"
-                                    src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
-                                    alt="product"/>
-                                </div>
-                                {/* img 7 */}
-                                <div class="additional-img-div me-1">
-                                    <img className="product-img-cart"
-                                    src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
-                                    alt="product"/>
-                                </div>
-                                {/* img 8 */}
-                                <div class="additional-img-div me-1">
-                                    <img className="product-img-cart"
-                                    src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
-                                    alt="product"/>
-                                </div>
-                                {/* img 9 */}
-                                <div class="additional-img-div me-1">
-                                    <img className="product-img-cart"
-                                    src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
-                                    alt="product"/>
-                                </div>
-                                {/* img 10 */}
-                                <div class="additional-img-div me-1">
-                                    <img className="product-img-cart"
-                                    src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
-                                    alt="product"/>
-                                </div>
+                                {images.map( image => {
+                                    if (product[image]) {
+                                        return (
+                                            <div class="additional-img-div me-1">
+                                                <img className="product-img-cart"
+                                                src={product[image]}
+                                                alt="product" onClick={() => setCarouselImg(product[image])}/>
+                                            </div>
+                                        )
+                                    } else {
+                                        return null
+                                    }
+                                    
+                                })}
                             </div> 
                         </div>
                     </div>
                     {/* details section */}
                     <div className="col mb-4">
                         <div className="row product-detail-section">
-                            <h5>{product.designer}</h5>
+                            {product.designer && 
+                                <h5>{product.designer.name}</h5>
+                            }
                             <p className="card-text">{product.name}</p>
-                            <div className="fw-bold">{product.price}</div>
-                            <div className="fw-light fst-italic">Est. Retail<span>${product.retail_price}</span></div>
+                            <div className="fw-bold">S${product.selling_price}</div>
+                            <div className="fw-light fst-italic">Est. Retail<span> S${product.retail_price}</span></div>
                         </div>
                         {/* buttons */}
                         <div className="row mt-4">
@@ -112,7 +75,7 @@ export default function ProductDetails({product}){
                         {/* Sell with us */}
                         <SellWithUs/>
                         {/* Collapse option - product details */}
-                        <ProductInfo/>
+                        <ProductInfo product={product} />
                     </div>
                     <div className="col-1">
                     </div>

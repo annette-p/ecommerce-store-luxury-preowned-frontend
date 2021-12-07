@@ -10,11 +10,12 @@ export default function ProductPage() {
     const context = useContext(ProductContext);
 
     useEffect(() => {
-        const fetchProduct = () => {
-            let selectedProduct = context.getProductByID(productId);  
+        const fetchProduct = (id) => {
+            let selectedProduct = context.getProductByID(id);
+            console.log(selectedProduct)
             setProduct(selectedProduct);
         }
-        fetchProduct();
+        fetchProduct(productId);
     }, [context, productId])
 
     return (
