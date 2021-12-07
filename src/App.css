@@ -187,24 +187,29 @@ a {
 
 /* .............. Carousel ............... */
 
-/* .shop-carousel-div {
-    height: 270px;
-} */
+.shop-carousel-div {
+    height: 300px;
+}
 
 .sell-btn {
     margin-left: 65px;
 }
 
 .custom-caption-carousel {
-    margin-left: -50px;
+    margin-left: -45px;
 }
 
 .cap-text {
-    font-size: 22px;
+    font-size: 18px;
 }
 
 .margin-bottom {
     margin-bottom: -12px;
+}
+
+.small-btn {
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 .carousel-sell-btn {
@@ -213,29 +218,35 @@ a {
 }
 
 .second-custom-cap-carousel {
-    margin-left: 45px;
+    margin-left: 0px;
 }
 
 .second-carousel-text {
-    font-size: 16.5px;
+    font-size: 16px;
+    color: rgb(10, 10, 10);
+    /* color: rgb(36, 35, 35); */
 }
 
 .second-custom-cap-carousel-btn {
-    margin-left: 80px;
-    margin-top: 15px;
-    margin-bottom: 90px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: -10px;
 }
 
 .third-custom-caption-carousel {
-    margin-left: -70px;
+    margin-left: -50px;
 }
 
 .third-carousel-text {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .third-margin-btm {
-    margin-bottom: 70px;
+    margin-bottom: 17px;
+}
+
+.forth-custom-caption-carousel {
+    margin-left: -50px;
 }
 
 
@@ -642,6 +653,11 @@ a {
         margin-left: -65px;
     }
 
+    .small-btn {
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
     .second-custom-cap-carousel {
         /* margin-left: 50px; */
         margin-right: -180px;
@@ -655,6 +671,10 @@ a {
         margin-left: 250px;
         margin-top: 15px;
         margin-bottom: 10px;
+    }
+
+    .third-carousel-text {
+        font-size: 18px;
     }
 
     .third-custom-caption-carousel {
@@ -765,6 +785,11 @@ a {
 
     .margin-bottom {
         margin-bottom: -12px;
+    }
+
+    .small-btn {
+        padding-top: 6px;
+        padding-bottom: 6px;
     }
 
     .carousel-sell-btn {
