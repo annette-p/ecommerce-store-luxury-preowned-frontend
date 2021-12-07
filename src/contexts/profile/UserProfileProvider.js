@@ -15,6 +15,7 @@ import {
 } from '../../services/user';
 
 import {
+    getCartIdForUser,
     takeOwnershipOfCart,
     removeCartId
 } from '../../services/cart';
@@ -184,6 +185,9 @@ export default function UserProfileProvider(props) {
 
                 // take ownership of cart (if any)
                 await takeOwnershipOfCart()
+
+                // if user have an existing cart, retrieved the cart id
+                await getCartIdForUser()
             }
             return loginSuccess;
         },

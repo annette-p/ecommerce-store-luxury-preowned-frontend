@@ -107,8 +107,30 @@ export async function takeOwnershipOfCart() {
             await axios.put(`${global.apiUrl}/carts/${cartId}/own`, {}, headers);
             // /carts/35/own
         } catch(err) {
-            console.log(err)
-            throw err;
+            console.log(err);
+            throw err;;
         }
     }
+}
+
+export async function getCartIdForUser() {
+    let cartId = getCartId();
+    if (!cartId) {
+        try {
+            const refreshToken = getRefreshToken();
+            if (refreshToken) {
+                const headers = await generateHttpAuthzHeader(refreshToken);
+                let response = await axios.get(`${global.apiUrl}/carts/mycart`, headers);
+                const cartId = response.data.data.id
+                setCartId(cartId);
+            }
+            
+        } catch(err) {
+            console.log(err);
+            if (err.response.status !== 404) {
+                throw err;
+            }
+        }
+    }
+    
 }
