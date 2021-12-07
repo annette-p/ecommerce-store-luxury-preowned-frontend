@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 export default function Footer(){
     return (
         <React.Fragment>
-            <div className="row mt-3 mb-3 footer-row">
-                <div className="col mb-3 ms-4">
+            <div className="row mt-3 mb-3 ms-1 me-1 footer-row">
+                <div className="col mb-3 ms-1 ms-md-4">
                     <h5 className="mt-3">About Us</h5>
                     <div className="pt-2">Our Concept</div>
                     <div>Premium Service <span className="fst-italic fw-light">- coming soon</span></div>

@@ -261,7 +261,8 @@ a {
 
 .listing-card {
     width: 18rem;
-    height: 465px;
+    height: 435px;
+    /* height: 465px; */
 }
 
 .card-img-container {
