@@ -16,11 +16,10 @@ export default function ProductDetails({product}){
         <React.Fragment>
             <div className="container">
                 <div className="row mt-4 mb-4">
-                    <div className="col-1">
-                    </div>
+                    <div className="col-1"></div>
                     {/* image section */}
-                    <div className="col">
-                        <div className="card" style={{width: "30rem"}}>
+                    <div className="col ms-md-4 ms-lg-0">
+                        <div className="card product-card">
                             <img className="card-img-top product-img-container"
                             src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
                             alt="first"/>
@@ -91,8 +90,8 @@ export default function ProductDetails({product}){
                         </div>
                     </div>
                     {/* details section */}
-                    <div className="col">
-                        <div className="row">
+                    <div className="col mb-4">
+                        <div className="row product-detail-section">
                             <h5>{product.designer}</h5>
                             <p className="card-text">{product.name}</p>
                             <div className="fw-bold">{product.price}</div>
@@ -100,7 +99,7 @@ export default function ProductDetails({product}){
                         </div>
                         {/* buttons */}
                         <div className="row mt-4">
-                            <div className="d-grid gap-2">
+                            <div className="d-grid gap-2 ms-2 ms-md-0">
                                 <button className="btn btn-secondary gold-hover" type="button">BUY NOW</button>
                                 <button className="btn btn-secondary gold-hover" type="button" onClick={handleShow}>ADD TO CART</button>
                                 {/* <CartPage handleClose={handleClose} placement="end" show={show} /> */}

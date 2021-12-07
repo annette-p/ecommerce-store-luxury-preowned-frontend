@@ -268,74 +268,20 @@ a {
 }
 
 
-/* footer */
-.footer-row {
-    background-color: rgb(177, 174, 174);
-    /* background-color: rgb(155, 151, 151); */
-    border: solid rgb(136, 136, 136);
-}
-
-/* ...................... login page ...................... */
-
-.login-card {
-    background-color: #f7f7f7;
-}
-
-.center-div {
-    /* width: 100%; */
-    /* height: 100%; */
-    /* display: flex; */
-    justify-content: center;
-    align-items: center;
-}
-
-.round-logo {
-    width: 270px;
-    margin-left: 15px;
-    margin-bottom: 10px;
-}
-
-.vertical-line {
-    border-right: solid #dddbdb;
-    margin-bottom: 20px;
-}
-
-.motto-text {
-    font-size: 20px;
-    text-align: center;
-    margin-left: -30px;
-}
-
-.login-fail {
-    background-color: rgb(240, 140, 122);
-    font-weight: bolder;
-    font-size: large;
-    text-align: center;
-    padding-top: 10px;
-    margin-top: 15px;
-    margin-bottom: 30px;
-    margin-left: 2px;
-    margin-right: 2px;
-}
-
-
-/* ...................... sign up page ...................... */
-
-.top-margin-div {
-    margin-top: 70px;
-}
-
-
 /* ...................... product page ...................... */
 
+.product-card {
+    width: 20rem;
+    align-items: center;
+}
 .product-img-container {
-    width: 478px;
-    height: 478px;
+    width: 285px;
+    height: 285px;
 }
 
 .img-bucket {
     background-color: rgb(247, 242, 242);
-    width: 480px;
+    width: 320px;
     height: 120px;
     margin-left: 10px;
 }
@@ -357,6 +303,10 @@ a {
     display: inline-block;
 }
 
+.product-detail-section {
+    margin-top: 20px;
+}
+
 .icon-container {
     width: 80px;
     height: 60px;
@@ -372,7 +322,8 @@ a {
 }
 
 .similar-item-div {
-    margin-left: -100px;
+    margin-left: -120px;
+    padding-top: 5px;
 }
 
 
@@ -450,6 +401,64 @@ a {
     font-size: 23px;
     text-align: center;
     margin-top: 300px;
+}
+
+/* .................... footer ....................... */
+
+.footer-row {
+    background-color: rgb(177, 174, 174);
+    /* background-color: rgb(155, 151, 151); */
+    border: solid rgb(136, 136, 136);
+}
+
+/* ...................... login page ...................... */
+
+.login-card {
+    background-color: #f7f7f7;
+}
+
+.center-div {
+    /* width: 100%; */
+    /* height: 100%; */
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+}
+
+.round-logo {
+    width: 270px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+.vertical-line {
+    border-right: solid #dddbdb;
+    margin-bottom: 20px;
+}
+
+.motto-text {
+    font-size: 20px;
+    text-align: center;
+    margin-left: -30px;
+}
+
+.login-fail {
+    background-color: rgb(240, 140, 122);
+    font-weight: bolder;
+    font-size: large;
+    text-align: center;
+    padding-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+
+/* ...................... sign up page ...................... */
+
+.top-margin-div {
+    margin-top: 70px;
 }
 
 /* ...................... checkout page ...................... */
@@ -693,7 +702,33 @@ a {
         margin-left: -90px;
     }
 
+    /* ...................... product page ...................... */
 
+    .product-card {
+        width: 30rem;
+        align-items: center;
+    }
+
+    .product-img-container {
+        width: 478px;
+        height: 478px;
+    }
+
+    .img-bucket {
+        background-color: rgb(247, 242, 242);
+        width: 480px;
+        height: 120px;
+        margin-left: 10px;
+    }
+
+    .product-detail-section {
+        margin-top: 40px;
+    }
+
+    .similar-item-div {
+        margin-left: -150px;
+        padding-top: 3px;
+    }
 
 
 }
@@ -834,6 +869,60 @@ a {
 
     .forth-custom-caption-carousel {
         margin-left: -100px;
+    }
+
+    /* ...................... product page ...................... */
+
+    .product-img-container {
+        width: 478px;
+        height: 478px;
+    }
+
+    .img-bucket {
+        background-color: rgb(247, 242, 242);
+        width: 480px;
+        height: 120px;
+        margin-left: 10px;
+    }
+
+    .horizontal-scrollbar {
+        overflow-x: scroll; /* Add horizontal scrollbar  */
+        overflow-y: hidden; /* Hide vertical scrollbar */
+        display: flex;
+    }
+
+    .vertical-scrollbar {
+        overflow-x: hidden; /* Hide horizontal scrollbar  */
+        overflow-y: scroll; /* Add vertical scrollbar */
+        display: flex;
+        height: 62vh;
+    }
+
+    .additional-img-div {
+        display: inline-block;
+    }
+
+    .product-detail-section {
+        margin-top: 0px;
+    }
+
+    .icon-container {
+        width: 80px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: rgb(230, 225, 225);
+    }
+
+    .hand-dollar-icon {
+        color: rgb(243, 142, 10);
+        font-size: 40px;
+        margin-left: 16px;
+        margin-top: 7px;
+    }
+
+    .similar-item-div {
+        margin-left: -100px;
+        padding-top: 5px;
     }
 
 

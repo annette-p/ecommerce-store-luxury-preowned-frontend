@@ -16,7 +16,7 @@ export default function SellWithUs(){
                     <h6>Have a similar item?</h6>
                     <a href="/sell" className="card-link">Click here to Sell with Us!</a>
                 </div>
-                <div className="col">
+                <div className="col d-none d-md-block">
                 </div>
             </div>
 
