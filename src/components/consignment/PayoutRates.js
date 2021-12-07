@@ -33,7 +33,7 @@ export default function PayoutRates(){
                         </button>
                     </div>
                 </div>
-                <div className="col-6">
+                <div className="col-12 col-lg-6">
                     <Collapse in={open1}>
                         <div id="bag-payout">
                             <div class="card collapse-card" style={{width: "30rem"}}>
@@ -69,7 +69,7 @@ export default function PayoutRates(){
                         </div>
                     </Collapse>
                 </div>
-                <div className="col-6">
+                <div className="col-12 col-lg-6">
                     <Collapse in={open2}>
                         <div id="apparel-payout">
                             <div class="card collapse-card" style={{width: "30rem"}}>

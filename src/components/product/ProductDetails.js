@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // import CartPage from '../../pages/CartPage'
 import ProductInfo from './ProductInfo'
 import SellWithUs from './SellWithUs'
@@ -15,9 +15,14 @@ export default function ProductDetails({product}){
 
     const [carouselImg, setCarouselImg] = useState(product[images[0]])
     const [show, setShow] = useState(false);
-
+    console.log(product)
+    
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    useEffect(() => {
+        setCarouselImg(product[images[0]])
+    }, [product]);
 
     return (
         <React.Fragment>

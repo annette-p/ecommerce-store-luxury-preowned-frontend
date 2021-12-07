@@ -30,6 +30,7 @@ export default function ProductConsignmentForm(){
         // //intentionally bypass validation to test cloudinary image upload
         // setErrors({})
         // return true
+
         let errors = {}
         let formIsValid = true
 
