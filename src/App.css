@@ -951,12 +951,6 @@ a {
         margin-left: 10px;
     }
 
-    .horizontal-scrollbar {
-        overflow-x: scroll; /* Add horizontal scrollbar  */
-        overflow-y: hidden; /* Hide vertical scrollbar */
-        display: flex;
-    }
-
     .vertical-scrollbar {
         overflow-x: hidden; /* Hide horizontal scrollbar  */
         overflow-y: scroll; /* Add vertical scrollbar */
