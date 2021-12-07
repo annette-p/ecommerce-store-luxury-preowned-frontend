@@ -35,13 +35,13 @@ export default function OrderSummary(){
                         <Link to={`${url}/${order.id}/order-details`} className="no-underline">
                             <div className="row mt-4">
                                 {/* product image */}
-                                <div className="col-1">
+                                <div className="col-3 col-lg-1">
                                     <img className="product-img-profile"
                                     src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
                                     alt="product"/>
                                 </div>
                                 {/* product description */}
-                                <div className="col-11">
+                                <div className="col-9 col-lg-11">
                                     <div className="ms-2 fw-bold">{order.designer}</div>
                                     <div className="ms-2">{order.name}</div>
                                     <div className="ms-2"><span className="fw-bold">Condition: </span>{order.condition}</div>

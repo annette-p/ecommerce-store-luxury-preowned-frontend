@@ -19,27 +19,27 @@ export default function OrderDetails(){
     return (
         <React.Fragment>
             {order ? 
-                (<div className="row mt-4">
-                    <div className="col light-grey-hover">
+                (<div className="row mt-4 mb-3 mb-lg-0">
+                    <div className="col-6 col-lg-3 light-grey-hover">
                         <div className="fw-bold">Shipping Information</div>
                         <div className="mt-2">
                             {order.shipping_name} - {order.delivery_tracking}
                         </div>
                     </div>
-                    <div className="col light-grey-hover">
+                    <div className="col-6 mb-3 mb-lg-0 col-lg-3 light-grey-hover">
                         <div className="fw-bold">Delivery Address</div>
                         <div className="mt-2">{order.customer_name}</div>
                         <div>
                             {order.delivery_address}
                         </div>
                     </div>
-                    <div className="col light-grey-hover">
-                        <div className="fw-bold text-center">Payment Method</div>
-                        <div className="mt-2 text-center">Credit Card</div>
+                    <div className="col-6 col-lg-3 light-grey-hover">
+                        <div className="fw-bold center-lg">Payment Method</div>
+                        <div className="mt-2 center-lg">Credit Card</div>
                     </div>
-                    <div className="col light-grey-hover">
-                        <div className="fw-bold text-center">Order ID</div>
-                        <div className="mt-2 text-center">{order.id}</div>
+                    <div className="col-6 col-lg-3 light-grey-hover">
+                        <div className="fw-bold center-lg">Order ID</div>
+                        <div className="mt-2 center-lg">{order.id}</div>
                     </div>
                     <hr className="mt-3"></hr>
                     {/* Product details / image */}
@@ -47,13 +47,13 @@ export default function OrderDetails(){
                         <div className="fw-bold">Product Details</div>
                     </div>
                     <div className="row mt-3">
-                        <div class="col-1">
+                        <div class="col-3 col-lg-1 mb-4">
                             <img className="product-img-profile"
                             src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
                             alt="product"/>
                             {/* ---linkable to product page--- */}
                         </div>
-                        <div class="col light-grey-hover">
+                        <div class="col-9 col-lg-11 light-grey-hover mb-4">
                             {/* ---linkable to product page--- */}
                             <div className="ms-2 fw-bold">{order.designer}</div>
                             <div className="ms-2">{order.name}</div>
@@ -63,13 +63,13 @@ export default function OrderDetails(){
                         </div>
 
                         {/* ----- it must display all products in this same prder (e.g of total orders 3 items, here to display all 3) */}
-                        <div class="col-1">
+                        <div class="col-3 col-lg-1">
                             <img className="product-img-profile"
                             src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
                             alt="product"/>
                             {/* ---linkable to product page--- */}
                         </div>
-                        <div class="col light-grey-hover">
+                        <div class="col-9 col-lg-11 light-grey-hover">
                             {/* ---linkable to product page--- */}
                             <div className="ms-2 fw-bold">{order.designer}</div>
                             <div className="ms-2">{order.name}</div>

@@ -499,6 +499,13 @@ a {
     margin-top: 8px;
 }
 
+/* purchased order page */
+
+.no-order-div {
+    margin-left: 12px;
+    width: 22rem;
+}
+
 /* consignment page */
 
 .sell-order-sum {
@@ -791,6 +798,13 @@ a {
         width: 38rem;
     }
 
+    /* ...................... Profile page ...................... */
+
+    .no-order-div {
+        margin-left: 30px;
+        width: 25rem;
+    }
+
 
 }
 
@@ -1038,6 +1052,17 @@ a {
 
     .arrow-down-icon {
         color: rgb(163, 33, 33);
+    }
+
+    /* ...................... Profile page ...................... */
+
+    .center-lg {
+        text-align: center;
+    }
+
+    .no-order-div {
+        margin-left: 100px;
+        width: 30rem;
     }
 
     
