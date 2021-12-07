@@ -1,12 +1,8 @@
 import React, {useContext, useState} from 'react';
 import ConsignmentContext from '../../contexts/consignment/ConsignmentContext';
+// import axios from 'axios';
 
 export default function ProductConsignmentForm(){
-
-    // const [categories, setCategories] = useState();
-    // const [designers, setDesigners] = useState();
-    // const [conditions, setConditions] = useState();
-    // const [loaded, setLoaded] = useState(false)
 
     const [category, setCategory] = useState();
     const [type, setType] = useState();
@@ -24,58 +20,124 @@ export default function ProductConsignmentForm(){
     const [serialImage, setSerialImage] = useState();
     const [tagImage, setTagImage] = useState();
     const [receiptImage, setReceiptImage] = useState();
+    const [errors, setErrors] = useState({})
     const [successFormSubmission, setSuccessFormSubmission] = useState(false);
     
     let context = useContext(ConsignmentContext);
 
-    // useEffect(() => {
+    // Perform validation of form inputs
+    function validateForm() {
+        // //intentionally bypass validation to test cloudinary image upload
+        // setErrors({})
+        // return true
+        let errors = {}
+        let formIsValid = true
 
-    //     const loadData = async() => {
-    //         const allCategories = await context.getProductCategories();
-    //         console.log("allCategories: ", allCategories)
-    //         setCategories([...allCategories]);
-    //         console.log("categories: ", categories)
+        if (!category) {
+            formIsValid = false
+            errors["category"] = "Please select the category for the item"
+        }
 
-    //         const allDesigners = await context.getProductDesigners();
-    //         setDesigners(allDesigners);
-    //         console.log("designers: ", designers)
+        if (!type) {
+            formIsValid = false
+            errors["type"] = "Please provide a short description of the item type (e.g shoulder bag)"
+        }
 
-    //         const allConditions = await context.getProductConditions()
-    //         setConditions(allConditions);
-    //         console.log("conditions: ", conditions)
+        if (!designer) {
+            formIsValid = false
+            errors["designer"] = "Please select the designer for the item"
+        }
 
-    //         setLoaded(true);
-    //     }
-    //     loadData();
+        if (!condition) {
+            formIsValid = false
+            errors["condition"] = "Please select the condition for the item"
+        }
 
-    // }, [loaded, categories, conditions, designers, context]) 
+        if (!conditionDescription) {
+            formIsValid = false
+            errors["conditionDescription"] = "Please describe the item's conditions and defect (if any)"
+        }
 
-    // ---->>> to create validation function
+        if (!width) {
+            formIsValid = false
+            errors["width"] = "Please specify the width of the item"
+        }
+
+        if (!height) {
+            formIsValid = false
+            errors["height"] = "Please specify the height of the item"
+        }
+
+        if (!expectedPrice) {
+            formIsValid = false
+            errors["expectedPrice"] = "Please specify your desired selling price for the item"
+        }
+
+        // if (!frontImage) {
+        //     formIsValid = false
+        //     errors["frontImage"] = "Please provide the front image for the item"
+        // }
+
+        // if (!backImage) {
+        //     formIsValid = false
+        //     errors["backImage"] = "Please provide the front image for the item"
+        // }
+
+        setErrors(errors);
+
+        return formIsValid
+    }
 
     // create new consignment request --> create this function locally as it is related to user authentication
     // maybe import user contax in here to share user state data
-    function requestNewConsignment() {
-        let newConsignment = {
-            categories: category,
-            type: type,
-            designer: "",
-            condition: "",
-            condition_description: "",
-            width: "",
-            height: "",
-            expected_price: "",
-            front_image: "",
-            back_image: "",
-            corner_image: "",
-            inside_image: "",
-            label_image: "",
-            serial_image: "",
-            tag_image: "",
-            receipt_image: ""
-        };
-        setSuccessFormSubmission(true)
-        console.log(newConsignment)
+    async function requestNewConsignment() {
+        if (validateForm()) {
+            try {
+
+                // // Ref: https://cloudinary.com/documentation/upload_images#uploading_with_a_direct_call_to_the_rest_api
+                // const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_NAME}/upload`
+
+                // const frontImageUpload = {
+                //     file: frontImage,
+                //     upload_preset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+                // }
+                // console.log("cloudinaryUrl: ", cloudinaryUrl)
+                // console.log("frontImageUpload: ", frontImageUpload)
+                // let frontImageUploadResponse = await axios.post(cloudinaryUrl, frontImageUpload)
+                // console.log(frontImageUploadResponse.data)
+
+                // await context.createConsignment(designer, category, type, expectedPrice, condition, conditionDescription, width, height, 
+                //                                 frontImage, backImage, cornerImage, insideImage, labelImage, labelImage, serialImage, tagImage, receiptImage)
+                // setSuccessFormSubmission(true)
+
+                // *** Without proper handling of the selected images yet :(
+
+                await context.createConsignment(designer, category, type, expectedPrice, condition, conditionDescription, width, height, 
+                                                frontImage, backImage, cornerImage, insideImage, labelImage, labelImage, serialImage, tagImage, receiptImage)
+                setSuccessFormSubmission(true)
+            } catch(_err) {
+                console.log(_err)
+                setSuccessFormSubmission(false)
+            }
+        }
     }
+
+    // function renderCloudinaryUploadWidget() {
+    //     let widget = window.cloudinary.createUploadWidget({
+    //             cloudName: process.env.REACT_APP_CLOUDINARY_NAME,
+    //             uploadPreset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+    //         }, (error, result) => {})
+        
+    //     return (
+    //         <div className="mb-3">
+    //             <label for="formFile" className="form-label fw-bold">Front Image of your item (test)</label>
+    //             <button onclick={() => widget.open()}>Upload Image</button>
+    //             {/* <input className="form-control" type="file" accept="image/*" name="frontImage" value={frontImage} 
+    //             onChange={(e) => {setFrontImage(e.target.value)}}/>
+    //             <div className="error-msg">{errors.frontImage}</div> */}
+    //         </div>
+    //     )
+    // }
 
 
     function renderProductConsignmentForm() {
@@ -101,6 +163,7 @@ export default function ProductConsignmentForm(){
                                     )
                                 })}
                             </select>
+                            <div className="error-msg">{errors.category}</div>
                         </div>
                         {/* item type */}
                         <div className="mt-4 mb-3 fw-bold">
@@ -108,6 +171,7 @@ export default function ProductConsignmentForm(){
                                 Which specific type of item are you selling? 
                             </label>
                             <input type="text" className="form-control" placeholder="e.g shoulder bag" name="type" value={type} onChange={(e) => {setType(e.target.value)}}/>
+                            <div className="error-msg">{errors.type}</div>
                         </div>
                         {/* designer / brand - drop down lists */}
                         <div className="mb-3 fw-bold">
@@ -124,6 +188,7 @@ export default function ProductConsignmentForm(){
                                     )
                                 })}
                             </select>
+                            <div className="error-msg">{errors.designer}</div>
                         </div>
                         {/* condition - drop down lists */}
                         <div className="mb-3 fw-bold">
@@ -143,6 +208,7 @@ export default function ProductConsignmentForm(){
                                     )
                                 })}
                             </select>
+                            <div className="error-msg">{errors.condition}</div>
                         </div>
                         {/* condition description */}
                         <div className="mb-3 fw-bold">
@@ -150,9 +216,10 @@ export default function ProductConsignmentForm(){
                                 Describe the conditions and defect (if any)
                             </label>
                             <textarea className="form-control" rows="3" 
-                            placeholder="Describe any wear, aging, or defect (i.e. dust bags, straps, clochettes)"
-                            name="conditionDescription" value={conditionDescription} 
-                            onChange={(e) => {setConditionDescription(e.target.value)}}></textarea>
+                                placeholder="Describe any wear, aging, or defect (i.e. dust bags, straps, clochettes)"
+                                name="conditionDescription" value={conditionDescription} 
+                                onChange={(e) => {setConditionDescription(e.target.value)}}></textarea>
+                            <div className="error-msg">{errors.conditionDescription}</div>
                         </div>
                         {/* width */}
                         <div className="mb-3 fw-bold">
@@ -161,6 +228,7 @@ export default function ProductConsignmentForm(){
                             </label>
                             <input type="text" className="form-control" placeholder="width in cm"
                             name="width" value={width} onChange={(e) => {setWidth(e.target.value)}}/>
+                            <div className="error-msg">{errors.width}</div>
                         </div>
                         {/* height */}
                         <div className="mb-3 fw-bold">
@@ -169,6 +237,7 @@ export default function ProductConsignmentForm(){
                             </label>
                             <input type="" className="form-control" placeholder="height in cm"
                             name="height" value={height} onChange={(e) => {setHeight(e.target.value)}}/>
+                            <div className="error-msg">{errors.height}</div>
                         </div>
                         {/* expecting price */}
                         <div className="mb-4 fw-bold">
@@ -177,6 +246,7 @@ export default function ProductConsignmentForm(){
                             </label>
                             <input type="text" className="form-control" placeholder="price in SGD"
                             name="expectedPrice" value={expectedPrice} onChange={(e) => {setExpectedPrice(e.target.value)}}/>
+                            <div className="error-msg">{errors.expectedPrice}</div>
                         </div>
                     </div>
 
@@ -193,42 +263,45 @@ export default function ProductConsignmentForm(){
                         </div>
                         <div className="mb-3">
                             <label for="formFile" className="form-label fw-bold">Front Image of your item</label>
-                            <input className="form-control" type="file" name="frontImage" value={frontImage} 
+                            <input className="form-control" type="file" accept="image/*" name="frontImage" value={frontImage} 
                             onChange={(e) => {setFrontImage(e.target.value)}}/>
+                            <div className="error-msg">{errors.frontImage}</div>
+                            {/* {renderCloudinaryUploadWidget()} */}
                         </div>
                         <div className="mb-3">
                             <label for="formFile" className="form-label fw-bold">Back Image of your item</label>
-                            <input className="form-control" type="file" name="backImage" value={backImage} 
+                            <input className="form-control" type="file" accept="image/*" name="backImage" value={backImage} 
                             onChange={(e) => {setBackImage(e.target.value)}}/>
+                            <div className="error-msg">{errors.backImage}</div>
                         </div>
                         <div className="mb-3">
                             <label for="formFile" className="form-label fw-bold">Corner Image of your item</label>
-                            <input className="form-control" type="file" name="cornerImage" value={cornerImage} 
+                            <input className="form-control" type="file" accept="image/*" name="cornerImage" value={cornerImage} 
                             onChange={(e) => {setCornerImage(e.target.value)}}/>
                         </div>
                         <div className="mb-3">
                             <label for="formFile" className="form-label fw-bold">Inside Image of your item</label>
-                            <input className="form-control" type="file" name="insideImage" value={insideImage} 
+                            <input className="form-control" type="file" accept="image/*" name="insideImage" value={insideImage} 
                             onChange={(e) => {setInsideImage(e.target.value)}}/>
                         </div>
                         <div className="mb-3">
                             <label for="formFile" className="form-label fw-bold"> Image of item Label</label>
-                            <input className="form-control" type="file" name="labelImage" value={labelImage} 
+                            <input className="form-control" type="file" accept="image/*" name="labelImage" value={labelImage} 
                             onChange={(e) => {setLabelImage(e.target.value)}}/>
                         </div>
                         <div className="mb-3">
                             <label for="formFile" className="form-label fw-bold">Image of item Serial Number</label>
-                            <input className="form-control" type="file" name="serialImage" value={serialImage} 
+                            <input className="form-control" type="file" accept="image/*" name="serialImage" value={serialImage} 
                             onChange={(e) => {setSerialImage(e.target.value)}}/>
                         </div>
                         <div className="mb-3">
                             <label for="formFile" className="form-label fw-bold">Image of item tag (if any)</label>
-                            <input className="form-control" type="file" name="tagImage" value={tagImage} 
+                            <input className="form-control" type="file" accept="image/*" name="tagImage" value={tagImage} 
                             onChange={(e) => {setTagImage(e.target.value)}}/>
                         </div>
                         <div className="mb-4">
                             <label for="formFile" className="form-label fw-bold">Image of item receipt (if any)</label>
-                            <input className="form-control" type="file" name="receiptImage" value={receiptImage} 
+                            <input className="form-control" type="file" accept="image/*" name="receiptImage" value={receiptImage} 
                             onChange={(e) => {setReceiptImage(e.target.value)}}/>
                         </div>
                     </div>

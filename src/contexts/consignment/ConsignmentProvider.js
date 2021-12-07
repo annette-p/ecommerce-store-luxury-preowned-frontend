@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from "react";
 import ConsignmentContext from "./ConsignmentContext";
 
-import { 
+import {
+    createConsignment,
     getProductCategories,
     getProductDesigners,
     getProductConditions 
@@ -14,32 +15,20 @@ export default function ConsignmentProvider(props) {
     const [conditions, setConditions] = useState([]);
     const [loaded, setLoaded] = useState(false)
 
-    const [consignment, setConsignment] = useState(
-        {
-          categories: ["bag", "shoe", "cloth", "jewelry", "watch"],
-          designers: ["gucci", "celine", "fendi", "loius vuitton", "hermes"],
-          conditions: ["new", "never-worn", "pristine", "good", "fair", "vintage"]
-        }
-    );
-
-
     const context = {
 
-        // getConsignment:() => {
-        //     return consignment;
-        // },
-
-        // 
-        getCategories: () => {
-            return consignment.categories
-        },
-
-        getDesigners: () => {
-            return consignment.designers
-        },
-
-        getConditions: () => {
-            return consignment.conditions
+        createConsignment: async (designerId, categoryId, itemName, sellingPrice, itemCondition, itemConditionDescription, itemWidth, itemHeight,
+                                  itemPhoto1, itemPhoto2, itemPhoto3, itemPhoto4, itemPhoto5, itemPhoto6, itemPhoto7, itemPhoto8) => {
+            try{
+                const newConsignmentId = await createConsignment(designerId, categoryId, itemName, sellingPrice, 
+                                                                 itemCondition, itemConditionDescription, itemWidth, itemHeight,
+                                                                 itemPhoto1, itemPhoto2, itemPhoto3, itemPhoto4,
+                                                                 itemPhoto5, itemPhoto6, itemPhoto7, itemPhoto8)
+                return newConsignmentId;
+            } catch(err) {
+                console.log(err)
+                throw err
+            }
         },
 
         getProductCategories: () => {
@@ -52,10 +41,6 @@ export default function ConsignmentProvider(props) {
 
         getProductConditions: () => {
             return conditions;
-        },
-
-        test: () => {
-            setConsignment(consignment)
         }
 
     }
