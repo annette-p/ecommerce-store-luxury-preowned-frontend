@@ -69,7 +69,7 @@ export default function DeleteAccountForm(){
         if (!deleteAccountSuccess && !deleteAccountFailed) {
             return (
 
-                <div className="card v-light-grey-bg ms-4" style={{width: "60rem"}}>
+                <div className="card v-light-grey-bg ms-4 delete-acct-div">
                     <div className="card-body">
                         <p className="mt-3">Dear <span className="fw-bold">name</span></p>
                         <p>We are sorry to hear that you would like to delete your account.</p>
@@ -159,7 +159,7 @@ export default function DeleteAccountForm(){
     function renderDeleteAccountFailedMessage() {
         if (deleteAccountFailed) {
             return (
-                <div className="card change-fail edit-profile top-margin" style={{width: "30rem"}}>
+                <div className="card change-fail top-margin no-order-div">
                     <div className="card-body">
                         <div className="row mt-4 text-center fw-bold">
                             <h5>Request Fail</h5>

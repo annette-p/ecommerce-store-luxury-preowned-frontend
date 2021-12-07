@@ -37,14 +37,14 @@ export default function ConsignmentOrderSummary(){
 
                             <div className="row mt-4">
                                 {/* product image */}
-                                <div className="col-1">
+                                <div className="col-3 col-lg-1">
                                     <img className="product-img-sell"
                                     src={require('../../images/consignment/ysl-sample.png').default}
                                     alt="product"/>
                                     {/* ---linkable to product page--- */}
                                 </div>
                                 {/* product description */}
-                                <div className="col-11">
+                                <div className="col-9 col-lg-11">
                                     {/* ---linkable to product page--- */}
                                     <div className="sell-order-sum fw-bold">Date: <span className="ms-1 fw-normal">18-11-2021 15.28</span></div>
                                     <div className="sell-order-sum fw-bold">Order No.: <span className="ms-1 fw-normal">{order.order_no}</span></div>

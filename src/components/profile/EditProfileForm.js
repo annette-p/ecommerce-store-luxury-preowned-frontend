@@ -76,7 +76,7 @@ export default function EditProfileForm(){
             {/* {userProfile ?  */}
 
                 <div className="row mt-4 mb-4">
-                    <div className="card light-grey-bg edit-profile" style={{width: "30rem"}}>
+                    <div className="card light-grey-bg no-order-div">
                         <div className="card-body">
                             {/* First name */}
                             <div className="mt-4">

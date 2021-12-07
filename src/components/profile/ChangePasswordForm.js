@@ -23,7 +23,7 @@ export default function ChangePasswordForm(){
     function renderChangePasswordForm() {
         if (!changePasswordSuccess && !changePasswordFailed) {
             return (
-                <div className="card light-grey-bg edit-profile" style={{width: "30rem"}}>
+                <div className="card light-grey-bg no-order-div">
                     <div className="card-body">
                         {/* password */}
                         <div className="mt-4">
@@ -71,7 +71,7 @@ export default function ChangePasswordForm(){
     function renderChangePasswordSuccessMessage() {
         if (changePasswordSuccess) {
             return (
-                <div className="card change-success edit-profile top-margin" style={{width: "30rem"}}>
+                <div className="card change-success top-margin no-order-div">
                     <div className="card-body">
                         <div className="row mt-4 text-center fw-bold">
                             <p>Completed. Password has been changed</p>

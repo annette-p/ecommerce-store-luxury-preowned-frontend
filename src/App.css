@@ -548,11 +548,21 @@ a {
     margin-left: 100px;
 }
 
+.delete-acct-div {
+    margin-left: -16px !important;
+    width: 30rem;
+}
+
 
 /* delete account page */
 
 .delete-complete-msg {
     font-size: large;
+}
+
+.delete-done-div {
+    margin-left: 10px;
+    width: 22rem;
 }
 
 
@@ -614,7 +624,7 @@ a {
 }
 
 
-/* ....................................style for meduim and large screen......................................... */
+/* ................................style for meduim and large screen................................... */
 
 
 /*.................................. for iPad .................................. */
@@ -803,6 +813,16 @@ a {
     .no-order-div {
         margin-left: 30px;
         width: 25rem;
+    }
+
+    .delete-acct-div {
+        margin-left: -20px !important;
+        width: 30rem;
+    }
+
+    .delete-done-div {
+        margin-left: 5px;
+        width: 30rem;
     }
 
 
@@ -1063,6 +1083,16 @@ a {
     .no-order-div {
         margin-left: 100px;
         width: 30rem;
+    }
+
+    .delete-acct-div {
+        width: 60rem;
+        margin-left: 20px !important;
+    }
+
+    .delete-done-div {
+        margin-left: 150px;
+        width: 40rem;
     }
 
     

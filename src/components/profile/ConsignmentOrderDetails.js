@@ -21,27 +21,27 @@ export default function ConsignmentOrderDetails(){
 
             {sellingOrders ? 
 
-                <div className="row mt-4">
-                    <div className="col light-grey-hover">
+                <div className="row mt-4 mb-3 mb-lg-0">
+                    <div className="col-6 col-lg-3 light-grey-hover">
                         <div className="fw-bold">Shipping Information</div>
                         <div className="mt-2">
                             NA
                         </div>
                     </div>
-                    <div className="col light-grey-hover">
+                    <div className="col-6 col-lg-3 mb-3 mb-lg-0 light-grey-hover">
                         <div className="fw-bold">Address</div>
                         <div className="mt-2">Jonh Doe</div>
                         <div>
                             80 Marine Parade Rd, Singapore 449269
                         </div>
                     </div>
-                    <div className="col light-grey-hover">
-                        <div className="fw-bold text-center">Payment Method</div>
-                        <div className="mt-2 text-center">Cheque</div>
+                    <div className="col-6 col-lg-3 light-grey-hover">
+                        <div className="fw-bold center-lg">Payment Method</div>
+                        <div className="mt-2 center-lg">Cheque</div>
                     </div>
-                    <div className="col light-grey-hover">
-                        <div className="fw-bold text-center">Order Np.</div>
-                        <div className="mt-2 text-center">{sellingOrders.order_no}</div>
+                    <div className="col-6 col-lg-3 light-grey-hover">
+                        <div className="fw-bold center-lg">Order No.</div>
+                        <div className="mt-2 center-lg">{sellingOrders.order_no}</div>
                     </div>
                     <hr className="mt-3"></hr>
                     {/* Product details / image */}
