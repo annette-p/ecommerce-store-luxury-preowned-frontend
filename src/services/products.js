@@ -1,5 +1,12 @@
 import axios from 'axios'
 
+import { getRefreshToken, generateHttpAuthzHeader } from './authentication'
+
+export async function getAllProducts() {
+    let response = await axios.get(`${global.apiUrl}/products`);
+    const products = response.data.data;
+    return products;
+}
 
 export async function getProductCategories() {
     let response = await axios.get(`${global.apiUrl}/categories`);
