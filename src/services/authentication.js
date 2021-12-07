@@ -103,26 +103,31 @@ export async function createNewUserProfile(username, password, email) {
 
 // use refresh token to obtain a new access token
 export async function getAccessToken(refreshToken) {
-    let accessTokenResult = await axios.post(
-        `${global.apiUrl}/users/refresh`, 
-        {
-            "refresh_token": refreshToken
-        }, 
-        {
-            headers: {
-                'Content-Type': 'application/json'
+    if (refreshToken) {
+        let accessTokenResult = await axios.post(
+            `${global.apiUrl}/users/refresh`, 
+            {
+                "refresh_token": refreshToken
+            }, 
+            {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             }
+        );
+        if (!accessTokenResult) {
+            // if it is not possible to get a new access token, it is 
+            // likely that the refresh token has expired.
+            invalidateUserAuthentication();
+            return null;
         }
-    );
-    if (!accessTokenResult) {
-        // if it is not possible to get a new access token, it is 
-        // likely that the refresh token has expired.
-        invalidateUserAuthentication();
-        return null;
+    
+        let accessToken = accessTokenResult.data.accessToken;
+        return accessToken;
+    } else {
+        return null
     }
-
-    let accessToken = accessTokenResult.data.accessToken;
-    return accessToken;
+    
 }
 
 // generate http authorization header
