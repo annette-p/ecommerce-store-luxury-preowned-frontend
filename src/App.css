@@ -273,6 +273,8 @@ a {
     /* height: 48px; */
     height: 25px;
     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 
