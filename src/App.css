@@ -263,6 +263,10 @@ a {
     height: 285px;
 }
 
+.card-name-height {
+    height: 48px;
+}
+
 
 /* footer */
 .footer-row {

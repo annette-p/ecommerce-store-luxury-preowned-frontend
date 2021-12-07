@@ -11,7 +11,7 @@ export default function CardListing(){
     return (
         <React.Fragment>
             {/* card */}
-            <div className="row ms-1 mt-4">
+            <div className="row ms-3 ms-lg-1 mt-4">
             {
                 context.getProducts().map( (p)=>{
                     return (
@@ -26,7 +26,7 @@ export default function CardListing(){
                                     className="card-img-top card-img-container" alt="doirMiniShoulderBag"/>
                                     <div className="card-body">
                                         <h5>{p.designer}</h5>
-                                        <p className="card-text">{p.name}</p>
+                                        <p className="card-text card-name-height">{p.name}</p>
                                         <div className="fw-bold">$S{p.price}</div>
                                         <div className="fw-light fst-italic">Est. Retail<span>$S{p.retail_price}</span></div>
                                     </div>
