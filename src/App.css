@@ -584,8 +584,13 @@ a {
     color: rgb(99, 98, 98);
 }
 
+#vdo {
+    width: 400px;
+    height: 250px;
+}
+
 .article-text {
-    font-size: 20px;
+    font-size: 17px;
 }
 
 
@@ -730,6 +735,17 @@ a {
     .similar-item-div {
         margin-left: -150px;
         padding-top: 3px;
+    }
+
+    /* ...................... Authentication page ...................... */
+
+    #vdo {
+        width: 700px;
+        height: 400px;
+    }
+
+    .article-text {
+        font-size: 18px;
     }
 
 
@@ -925,6 +941,18 @@ a {
     .similar-item-div {
         margin-left: -100px;
         padding-top: 5px;
+    }
+
+
+    /* ...................... Authentication page ...................... */
+
+    #vdo {
+        width: 700px;
+        height: 400px;
+    }
+
+    .article-text {
+        font-size: 20px;
     }
 
 
