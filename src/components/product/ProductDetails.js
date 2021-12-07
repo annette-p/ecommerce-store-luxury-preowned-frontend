@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
-// import CartPage from '../../pages/CartPage'
+import React, { useContext, useEffect, useState } from 'react'
+import CartPage from '../../pages/CartPage'
 import ProductInfo from './ProductInfo'
 import SellWithUs from './SellWithUs'
-import CheckoutPage from '../../pages/CheckoutPage' // to remove later
+// import CheckoutPage from '../../pages/CheckoutPage' // to remove later
+
+import CartContext from '../../contexts/carts/CartContext'
 
 
 export default function ProductDetails({product}){
@@ -15,14 +17,27 @@ export default function ProductDetails({product}){
 
     const [carouselImg, setCarouselImg] = useState(product[images[0]])
     const [show, setShow] = useState(false);
-    console.log(product)
     
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const cartContext = useContext(CartContext);
+
     useEffect(() => {
         setCarouselImg(product[images[0]])
+        // eslint-disable-next-line
     }, [product]);
+
+    async function addItemToCart(productId) {
+        try {
+            let success = await cartContext.addProductToCart(productId, 1)
+            if (success) {
+                handleShow()
+            }
+        } catch(err) {
+            console.log(err)
+        }
+    }
 
     return (
         <React.Fragment>
@@ -69,11 +84,11 @@ export default function ProductDetails({product}){
                         <div className="row mt-4">
                             <div className="d-grid gap-2 ms-2 ms-md-0">
                                 <button className="btn btn-secondary gold-hover" type="button">BUY NOW</button>
-                                <button className="btn btn-secondary gold-hover" type="button" onClick={handleShow}>ADD TO CART</button>
-                                {/* <CartPage handleClose={handleClose} placement="end" show={show} /> */}
+                                <button className="btn btn-secondary gold-hover" type="button" onClick={() => addItemToCart(product.id)}>ADD TO CART</button>
+                                <CartPage handleClose={handleClose} placement="end" show={show} />
 
                                 {/* to remove later */}
-                                <CheckoutPage handleClose={handleClose} placement="end" show={show} />
+                                {/* <CheckoutPage handleClose={handleClose} placement="end" show={show} /> */}
                                 
                             </div>
                         </div>

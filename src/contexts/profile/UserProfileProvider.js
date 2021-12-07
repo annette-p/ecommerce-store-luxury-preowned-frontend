@@ -14,6 +14,11 @@ import {
     updateUserInfo
 } from '../../services/user';
 
+import {
+    takeOwnershipOfCart,
+    removeCartId
+} from '../../services/cart';
+
 export default function UserProfileProvider(props) {
 
     const [purchaseOrders, setPurchaseOrders] = useState([
@@ -176,6 +181,9 @@ export default function UserProfileProvider(props) {
                 // React Context state. The main purpose is to leverage "useEffect" to re-render components when the Context state
                 // changes.
                 setUser(JSON.parse(localStorage.getItem("authenticatedUser")));
+
+                // take ownership of cart (if any)
+                await takeOwnershipOfCart()
             }
             return loginSuccess;
         },
@@ -183,6 +191,7 @@ export default function UserProfileProvider(props) {
         // Perform logout of user by invalidating the window local storage, as well as the React Context state.
         logoutUser: () => {
             invalidateUserAuthentication();
+            removeCartId();
             setUser(null);
         },
 

@@ -1,20 +1,58 @@
-import React from 'react'
+import React, { useContext, useEffect, useState }  from 'react'
 
-export default function CartSummary(){
+import ProductContext from '../../contexts/products/ProductContext'
+import CartContext from '../../contexts/carts/CartContext'
+
+export default function CartSummary() {
+
+    const [ cartItems, setCartItems ] = useState([]);
+    const [ totalAmount, setTotalAmount ] = useState(0);
+    const [ loaded, setLoaded ] = useState(false)
+
+    const productContext = useContext(ProductContext);
+    const cartContext = useContext(CartContext);
+
+
+    useEffect(() => {
+        const fetchProduct = async () => {
+            let total = 0;
+
+            // get list of items in cart from cart context
+            let itemsInCart = await cartContext.getCartItems();
+            
+            if (itemsInCart && Array.isArray(itemsInCart)) {
+                // for each cart item, get the item details from product context
+                // by lookup using id of product
+                let itemDetails = itemsInCart.map( item => {
+                    let product = productContext.getProductByID(item.product_id);
+                    total = total + (item.quantity * product.selling_price);
+                    return {
+                        "product": product,
+                        "quantity": item.quantity
+                    }
+                })
+                setCartItems(itemDetails);
+            }
+            setTotalAmount(total);
+            setLoaded(true);
+        }
+        fetchProduct();
+    }, [loaded, cartContext, productContext])
+    
     return (
         <React.Fragment>
 
             <div className="row summary-section">
                 <hr className="dark-grey"></hr>
                 <div className="col">
-                    <div>Total <span>(1 item)</span></div>
+                    <div>Total <span>({cartItems.length} item)</span></div>
                     <div className="mt-1">Shipping</div>
                     <div className="mt-1">Total Order</div>
                 </div>
                 <div className="col total-number">
-                    <div><span className="me-2">S$</span>3,500</div>
+                    <div><span className="me-2">S$</span>{totalAmount.toFixed(2)}</div>
                     <div className="mt-1"><span className="free"></span>Free</div>
-                    <div className="mt-1"><span className="me-2">S$</span>3,500</div>
+                    <div className="mt-1"><span className="me-2">S$</span>{totalAmount.toFixed(2)}</div>
                 </div>
                 {/* button */}
                 <form className="d-flex mt-4">

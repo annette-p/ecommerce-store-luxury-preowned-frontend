@@ -53,7 +53,6 @@ export default function ProductProvider(props) {
 
         // find product by ID, to retrieve a product by its id
         getProductByID: (selectedProductID) => {
-            console.log("selectedProductID: ", selectedProductID)
             return products.filter( p => p.id === parseInt(selectedProductID))[0] 
         },
     }
@@ -62,7 +61,6 @@ export default function ProductProvider(props) {
 
         const loadData = async() => {
             const products = await getAllProducts();
-            console.log("all products from api: ", products)
             setProducts(products);
 
             setLoaded(true);
