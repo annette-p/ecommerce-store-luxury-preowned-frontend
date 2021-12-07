@@ -23,7 +23,7 @@ export default function CardListing(){
                                     // ref: https://stackoverflow.com/questions/48703510/change-image-on-hover-in-jsx
                                     onMouseOver={e => (e.currentTarget.src = p.product_image_2)} 
                                     onMouseOut={e => (e.currentTarget.src = p.product_image_1)} 
-                                    className="card-img-top card-img-container" alt="doirMiniShoulderBag"/>
+                                    className="card-img-top card-img-container" alt={p.name}/>
                                     <div className="card-body">
                                         <h5>{p.designer.name}</h5>
                                         <p className="card-text card-name-height">{p.name}</p>

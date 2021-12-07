@@ -264,7 +264,9 @@ a {
 }
 
 .card-name-height {
-    height: 48px;
+    /* height: 48px; */
+    height: 25px;
+    overflow: hidden;
 }
 
 
