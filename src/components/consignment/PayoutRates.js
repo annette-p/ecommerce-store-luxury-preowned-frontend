@@ -10,8 +10,8 @@ export default function PayoutRates(){
     return (
         <React.Fragment>
 
-            <div className="row mt-4">
-                <div className="col-6">
+            <div className="row mt-md-3 mt-lg-4">
+                <div className="col-12 col-md-6 mb-2 mb-md-0">
                     <div class="d-grid gap-2">
                         <button class="btn btn-secondary" type="button" 
                         // onClick={() => { setOpen1(!open1); setOpen2(open1) }} 
@@ -22,7 +22,7 @@ export default function PayoutRates(){
                         </button>
                     </div>
                 </div>
-                <div className="col-6">
+                <div className="col-12 col-md-6">
                     <div class="d-grid gap-2">
                         <button class="btn btn-secondary" type="button" 
                         // onClick={() =>{ setOpen2(!open2); setOpen1(open2) }} 
@@ -36,7 +36,7 @@ export default function PayoutRates(){
                 <div className="col-12 col-lg-6">
                     <Collapse in={open1}>
                         <div id="bag-payout">
-                            <div class="card collapse-card" style={{width: "30rem"}}>
+                            <div class="card collapse-card" >
                                 <div class="card-body">
                                     <table class="table table-hover">
                                         <thead>
@@ -72,7 +72,7 @@ export default function PayoutRates(){
                 <div className="col-12 col-lg-6">
                     <Collapse in={open2}>
                         <div id="apparel-payout">
-                            <div class="card collapse-card" style={{width: "30rem"}}>
+                            <div class="card collapse-card">
                                 <div class="card-body">
                                     <table class="table table-hover">
                                         <thead>

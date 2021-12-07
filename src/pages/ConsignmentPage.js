@@ -15,7 +15,7 @@ export default function ConsignmentPage(){
                 <ConsignmentCarousel />
                 <div className="row mt-4">
                     <div className="container consign-container">
-                        <p className="fs-5 pt-4 pb-4 text-center light-grey-hover">
+                        <p className="fs-5 pt-4 pb-3 pb-lg-3 text-center light-grey-hover consign-text">
                             Luxury Pre-owned offers an exclusive end-to-end service to anyone with exceptional items to consign.
                             This consignment service is available THROUGHOUT SINGAPORE and takes care of the whole process from collection to selling.
                         </p>
@@ -37,7 +37,7 @@ export default function ConsignmentPage(){
                 {/* Selling request */}
                 <SellingMethod />
                 {/* Selling Advice */}
-                <div className="row mt-4">
+                <div className="row mt-3 mt-md-4">
                     <div className="col mt-4">
                         <h4 className="text-center">SELLING ADVICE</h4>     
                     </div>

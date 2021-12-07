@@ -6,8 +6,8 @@ export default function SellingAdvice(){
         <React.Fragment>
 
             <div className="row mb-4">
-                <div className="col-5 mt-4 mb-2"></div>
-                <div className="col-7 mt-4 mb-2">
+                <div className="d-none d-lg-block col-lg-5 mt-4 mb-2"></div>
+                <div className="col-12 col-lg-7 mt-4 mb-2">
                     <Accordion>
                         {/* Be Brand Savvy */}
                         <Accordion.Item eventKey="0">
