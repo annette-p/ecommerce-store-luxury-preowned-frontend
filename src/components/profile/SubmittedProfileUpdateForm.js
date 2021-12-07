@@ -6,10 +6,9 @@ export default function SubmittedProfileUpdateForm(){
 
     const location = useLocation();
 
-    const name = location.state.name;
+    const firstName = location.state.firstName;
     const lastName = location.state.lastName;
-    const email = location.state.email;
-    const address = location.state.address;
+    // const email = location.state.email;
     const shippingAddress = location.state.shippingAddress;
 
     return (
@@ -21,8 +20,8 @@ export default function SubmittedProfileUpdateForm(){
                     <div className="card-body">
                         {/* username */}
                         <div className="row">
-                            <div className="col-3 fw-bold">Name: </div>
-                            <div className="col-9">{name}</div>
+                            <div className="col-3 fw-bold">First Name: </div>
+                            <div className="col-9">{firstName}</div>
                         </div>
                         {/* Last name */}
                         <div className="row mt-2">
@@ -30,15 +29,10 @@ export default function SubmittedProfileUpdateForm(){
                             <div className="col-9">{lastName}</div>
                         </div>
                         {/* email address */}
-                        <div className="row mt-2">
+                        {/* <div className="row mt-2">
                             <div className="col-3 fw-bold">Email: </div>
                             <div className="col-9">{email}</div>
-                        </div>
-                        {/* billing address */}
-                        <div className="row mt-2">
-                            <div className="col-3 fw-bold">Address: </div>
-                            <div className="col-9">{address}</div>
-                        </div>
+                        </div> */}
                         {/* shipping address */}
                         <div className="row mt-2">
                             <div className="col-3 fw-bold">Shipping Address: </div>

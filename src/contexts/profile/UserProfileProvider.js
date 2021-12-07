@@ -4,8 +4,15 @@ import UserProfileContext from "./UserProfileContext";
 import { 
     authenticateUser,
     createNewUserProfile,
+    getRefreshToken,
     invalidateUserAuthentication
 } from '../../services/authentication';
+
+import {
+    getUserInfo,
+    getUserInfoFromLocalStorage,
+    updateUserInfo
+} from '../../services/user';
 
 export default function UserProfileProvider(props) {
 
@@ -150,11 +157,14 @@ export default function UserProfileProvider(props) {
 
         // Validate whether there is currently an authenticated user session based on whether 'user' state variable is NULL
         isAuthenticated: () => {
+            console.log("user: ", user)
             // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
-            if (user === null) {
-                return false;
-            } else {
+            if (getUserInfoFromLocalStorage()) {
+                // User info found in local storage. We can assume that user is authenticated :)
                 return true;
+            } else {
+                // User info NOT found in local storage. We can assume that user is NOT authenticated
+                return false;
             }
         },
 
@@ -177,8 +187,11 @@ export default function UserProfileProvider(props) {
         },
 
         // Retrieve all details about that authenticated user profile
-        getUserProfile: () => {
-            return user.info;
+        getUserProfile: async () => {
+            // return user.info;
+            let retrievedUserInfo = await getUserInfo();
+            // setUser(retrievedUserInfo);
+            return retrievedUserInfo;
         },
 
         createUserProfile: async (username, password, email) => {
@@ -187,17 +200,23 @@ export default function UserProfileProvider(props) {
         },
 
         // function to allow edit and update profile 
-        updateProfile: (name, lastName, email, address, shippingAddress) => {
-            let newUserProfile = {
-                name: name,
-                last_name: lastName,
-                email: email,
-                address: address,
-                shipping_address: shippingAddress
-            };
-      
-            // let clone = {...userProfile, newUserProfile};
-            setUserProfile(newUserProfile);
+        updateProfile: async (firstName, lastName, shippingAddress) => {
+            let updateSuccess = await updateUserInfo(firstName, lastName, shippingAddress);
+            if (updateSuccess) {
+                const updatedUser = await getUserInfo();
+
+                const authenticatedUserInfo = {   
+                    "info": updatedUser,
+                    "token": getRefreshToken()
+                }
+
+                localStorage.setItem("authenticatedUser", JSON.stringify(authenticatedUserInfo));
+                setUser(authenticatedUserInfo);
+                return true;
+            } else {
+                return false;
+            }
+            
         },
 
         test: () => {

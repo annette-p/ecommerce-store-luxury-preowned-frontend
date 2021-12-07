@@ -14,7 +14,7 @@ export default function LoginForm(){
 
     const userContext = useContext(UserProfileContext);
 
-    useEffect( () => {}, [errors])
+    useEffect( () => {}, [userContext])
 
     // Perform validation of form inputs
     function validateForm() {
