@@ -49,9 +49,21 @@ export default function ConsignmentProvider(props) {
 
         const loadData = async() => {
             const allCategories = await getProductCategories();
+            allCategories.sort( function(category1, category2) {
+                let categoryName1 = category1.name.toLowerCase();
+                let categoryName2 = category2.name.toLowerCase();
+    
+                return categoryName1.localeCompare(categoryName2);
+            })
             setCategories(allCategories);
 
             const allDesigners = await getProductDesigners();
+            allDesigners.sort( function(designer1, designer2) {
+                let designerName1 = designer1.name.toLowerCase();
+                let designerName2 = designer2.name.toLowerCase();
+    
+                return designerName1.localeCompare(designerName2);
+            })
             setDesigners(allDesigners);
 
             const allConditions = await getProductConditions()
