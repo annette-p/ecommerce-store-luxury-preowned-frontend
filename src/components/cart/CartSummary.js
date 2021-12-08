@@ -45,7 +45,7 @@ export default function CartSummary() {
             <div className="row summary-section">
                 <hr className="dark-grey"></hr>
                 <div className="col">
-                    <div>Total <span>({cartItems.length} item)</span></div>
+                    <div>Total <span>({cartItems.length} items)</span></div>
                     <div className="mt-1">Shipping</div>
                     <div className="mt-1">Total Order</div>
                 </div>

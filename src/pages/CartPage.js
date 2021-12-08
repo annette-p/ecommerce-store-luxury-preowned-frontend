@@ -22,7 +22,7 @@ export default function CartPage({ ...props }){
                     {/* product item list */}
                     <CartItems />
 
-                    {/* summary section + checkout buttos */}
+                    {/* summary section + checkout buttons */}
                     <CartSummary />
 
                     {/* conditional rendering - when the cart is empty */}

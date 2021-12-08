@@ -76,7 +76,7 @@ export default function CartItems(){
                                     </div>
                                     {/* Quantity Control Section */}
                                     <div className="col-12 mb-1">
-                                        <form class="d-flex mt-4 quantity-control-sec">
+                                        <form class="d-flex quantity-control-sec">
                                             <button class="btn btn-outline-secondary gold-hover white-font me-1 quantity-btn" type="button" onClick={() => updateCartItemQuantity(index, cartItems[index].quantity + 1)}>
                                                 <FontAwesomeIcon icon={faPlus} className="mb-1"/>
                                             </button>
@@ -87,8 +87,9 @@ export default function CartItems(){
                                             {/* trash */}
                                             <FontAwesomeIcon icon={faTrashAlt} className="ms-4 trash-icon" onClick={() => updateCartItemQuantity(index, 0)}/>
                                         </form> 
+                                        <hr className="mt-3"></hr>
                                     </div>
-                                    <hr className="white-hr"></hr>
+                                    {/* <hr className="white-hr"></hr> */}
                                 </div>
                             : null
                             
