@@ -59,7 +59,12 @@ export default function MainPage(){
 
     function renderLoginUserName() {
         let user = userContext.getUserInfoFromLocalStorage();
-        return user.info.firstname;
+        if (user) {
+            return user.info.firstname;
+        } else {
+            return null;
+        }
+        
     }
 
     return (
