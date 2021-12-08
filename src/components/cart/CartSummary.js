@@ -9,6 +9,7 @@ export default function CartSummary() {
     const history = useHistory();
 
     const [ cartItems, setCartItems ] = useState([]);
+    const [ itemCount, setItemCount ] = useState(0);
     const [ totalAmount, setTotalAmount ] = useState(0);
     const [ loaded, setLoaded ] = useState(false)
 
@@ -19,6 +20,7 @@ export default function CartSummary() {
     useEffect(() => {
         const fetchProduct = async () => {
             let total = 0;
+            let numItems = 0;
 
             // get list of items in cart from cart context
             let itemsInCart = await cartContext.getCartItems();
@@ -29,6 +31,7 @@ export default function CartSummary() {
                 let itemDetails = itemsInCart.map( item => {
                     let product = productContext.getProductByID(item.product_id);
                     total = total + (item.quantity * product.selling_price);
+                    numItems = numItems + item.quantity
                     return {
                         "product": product,
                         "quantity": item.quantity
@@ -37,6 +40,7 @@ export default function CartSummary() {
                 setCartItems(itemDetails);
             }
             setTotalAmount(total);
+            setItemCount(numItems)
             setLoaded(true);
         }
         fetchProduct();
@@ -58,7 +62,7 @@ export default function CartSummary() {
             <div className="row summary-section">
                 <hr className="dark-grey"></hr>
                 <div className="col">
-                    <div>Total <span>({cartItems.length} items)</span></div>
+                    <div>Total <span>({itemCount} items)</span></div>
                     <div className="mt-1">Shipping</div>
                     <div className="mt-1">Total Order</div>
                 </div>

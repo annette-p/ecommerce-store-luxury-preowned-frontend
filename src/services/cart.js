@@ -47,15 +47,26 @@ export async function addItemToCart(productId, quantity) {
 
             // check if item already exists in cart. If yes, need to increment the quantity accordingly
             let existingCartItems = await getCartItems();
+
+            let updated = false;
             existingCartItems.forEach(item => {
                 if (item.product_id === productId) {
-                    cartData = {
-                        "items": [
-                            { "product_id": productId, "quantity": quantity + item.quantity }
-                        ]
-                    }
+                    item.quantity += quantity
+                    updated = true
                 }
             })
+            if (!updated) {
+                cartData = {
+                    "items": [
+                        ...existingCartItems,
+                        { "product_id": productId, "quantity": quantity }
+                    ]
+                }
+            } else {
+                cartData = {
+                    "items": [ ...existingCartItems ]
+                }
+            }
 
             await axios.put(`${global.apiUrl}/carts/${cartId}/update`, cartData, headers);
             /*
