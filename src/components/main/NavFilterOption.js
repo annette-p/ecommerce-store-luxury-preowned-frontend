@@ -63,7 +63,7 @@ export default function NavFilterOption(){
                     </Dropdown.Menu>
                 </Dropdown>
                 <Nav.Item>
-                    <Nav.Link eventKey="link-5">Voucher</Nav.Link>
+                    <Nav.Link eventKey="vouchers" href="/voucher">Voucher</Nav.Link>
                 </Nav.Item>
             </Nav>
         )

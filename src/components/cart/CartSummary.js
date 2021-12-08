@@ -74,7 +74,7 @@ export default function CartSummary() {
                 {/* button */}
                 <form className="d-flex mt-4">
                     <input className="form-control me-1" type="" placeholder="Add voucher code" aria-label=""/>
-                    <button className="btn btn-secondary gold-hover" type="submit">APPLY</button>
+                    <button className="btn btn-secondary gold-hover" type="button">APPLY</button>
                 </form>
                 <div className="d-grid gap-2 mt-3">
                     <button className="btn btn-secondary gold-hover" type="button" onClick={() => performCheckout()}>CHECK OUT</button>
