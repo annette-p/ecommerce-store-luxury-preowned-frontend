@@ -196,6 +196,10 @@ export default function UserProfileProvider(props) {
             return retrievedUserInfo;
         },
 
+        getUserInfoFromLocalStorage: () => {
+            return getUserInfoFromLocalStorage()
+        },
+
         createUserProfile: async (firstname, username, password, email) => {
             let signupSuccess = await createNewUserProfile(firstname, username, password, email);
             return signupSuccess;

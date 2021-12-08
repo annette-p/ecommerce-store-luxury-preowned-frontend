@@ -57,6 +57,11 @@ export default function MainPage(){
         )
     }
 
+    function renderLoginUserName() {
+        let user = userContext.getUserInfoFromLocalStorage();
+        return user.info.firstname;
+    }
+
     return (
         <React.Fragment>
             <div className="container">
@@ -83,8 +88,7 @@ export default function MainPage(){
                             <ul className="nav justify-content-end mt-sm-2 mt-md-3">
                                 <li className="nav-item mt-1">
                                     {/* Display first name of authenticated user */}
-                                    <span className="fw-bold name-nav">Jenny</span>
-                                    {/* {userContext.isAuthenticated() ? userContext.getUserProfile().firstname : null} */}
+                                    <span className="fw-bold name-nav">{renderLoginUserName()}</span>
                                 </li>
                                 {/* sell icon */}
                                 <Link to="/consignment">
