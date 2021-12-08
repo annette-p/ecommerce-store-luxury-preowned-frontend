@@ -35,7 +35,7 @@ export async function addItemToCart(productId, quantity) {
     const refreshToken = getRefreshToken();
     const headers = await generateHttpAuthzHeader(refreshToken);
 
-    const cartData = {
+    let cartData = {
         "items": [
             { "product_id": productId, "quantity": quantity }
         ]
@@ -44,6 +44,19 @@ export async function addItemToCart(productId, quantity) {
     try {
         if (cartId) {
             // add to existing cart
+
+            // check if item already exists in cart. If yes, need to increment the quantity accordingly
+            let existingCartItems = await getCartItems();
+            existingCartItems.forEach(item => {
+                if (item.product_id === productId) {
+                    cartData = {
+                        "items": [
+                            { "product_id": productId, "quantity": quantity + item.quantity }
+                        ]
+                    }
+                }
+            })
+
             await axios.put(`${global.apiUrl}/carts/${cartId}/update`, cartData, headers);
             /*
                 The response from backend api when cart is updated successfully
