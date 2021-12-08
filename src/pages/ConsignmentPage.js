@@ -1,10 +1,26 @@
-import React from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import ConsignmentCarousel from '../components/consignment/ConsignmentCarousel'
 import PayoutRates from '../components/consignment/PayoutRates'
 import SellingMethod from '../components/consignment/SellingMethod'
 import SellingAdvice from '../components/consignment/SellingAdvice'
 
+import UserProfileContext from '../contexts/profile/UserProfileContext'
+
 export default function ConsignmentPage(){
+
+    const [loaded, setLoaded] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
+    
+    const userContext = useContext(UserProfileContext);
+
+    useEffect(() => {
+        const checkUserAuthenticationStatus = async() => {
+            setIsAuthenticated(userContext.isAuthenticated())
+            setLoaded(true);
+        }
+        checkUserAuthenticationStatus()
+    }, [loaded, userContext])
+
     return (
         <React.Fragment>
             <div className="container">
@@ -30,12 +46,15 @@ export default function ConsignmentPage(){
                         <h6 className="mt-3">
                             Select your selling method 
                             <span className="ms-2 fw-normal">- Already have an account?</span>
-                            <span className="ms-2 fw-normal text-decoration-underline" href="/login">Sign in</span>
+                            <span className="ms-2 fw-normal text-decoration-underline"><a href="/login">Sign in</a></span>
                         </h6>  
                     </div>
                 </div>
                 {/* Selling request */}
-                <SellingMethod />
+                {isAuthenticated ? 
+                    // user is already authenticated
+                    <SellingMethod />
+                : null}
                 {/* Selling Advice */}
                 <div className="row mt-3 mt-md-4">
                     <div className="col mt-4">

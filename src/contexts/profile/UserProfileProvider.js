@@ -154,7 +154,7 @@ export default function UserProfileProvider(props) {
         // Validate whether there is currently an authenticated user session based on whether 'user' state variable is NULL
         isAuthenticated: () => {
             // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
-            if (getUserInfoFromLocalStorage() && user) {
+            if (getUserInfoFromLocalStorage()) {
                 // User info found in local storage. We can assume that user is authenticated :)
                 return true;
             } else {
