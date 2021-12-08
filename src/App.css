@@ -473,7 +473,7 @@ a {
 .processing-cart {
     font-size: 23px;
     text-align: center;
-    margin-top: 250px;
+    margin-top: 170px;
 }
 
 
@@ -842,6 +842,14 @@ a {
         margin-top: -240px;
     }
 
+    /* ...................... checkout page ...................... */
+
+    .processing-cart {
+        font-size: 23px;
+        text-align: center;
+        margin-top: 300px;
+    }
+
 
 
 }
@@ -1132,6 +1140,14 @@ a {
         /* margin-left: 100px; */
         margin-left: 160px;
         margin-top: -180px;
+    }
+
+    /* ...................... checkout page ...................... */
+
+    .processing-cart {
+        font-size: 23px;
+        text-align: center;
+        margin-top: 250px;
     }
 
     
