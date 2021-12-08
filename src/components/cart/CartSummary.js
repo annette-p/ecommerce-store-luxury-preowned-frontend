@@ -8,7 +8,6 @@ export default function CartSummary() {
 
     const history = useHistory();
 
-    const [ cartItems, setCartItems ] = useState([]);
     const [ itemCount, setItemCount ] = useState(0);
     const [ totalAmount, setTotalAmount ] = useState(0);
     const [ loaded, setLoaded ] = useState(false)
@@ -28,7 +27,7 @@ export default function CartSummary() {
             if (itemsInCart && Array.isArray(itemsInCart)) {
                 // for each cart item, get the item details from product context
                 // by lookup using id of product
-                let itemDetails = itemsInCart.map( item => {
+                itemsInCart.forEach( item => {
                     let product = productContext.getProductByID(item.product_id);
                     total = total + (item.quantity * product.selling_price);
                     numItems = numItems + item.quantity
@@ -37,7 +36,6 @@ export default function CartSummary() {
                         "quantity": item.quantity
                     }
                 })
-                setCartItems(itemDetails);
             }
             setTotalAmount(total);
             setItemCount(numItems)
@@ -74,7 +72,7 @@ export default function CartSummary() {
                 {/* button */}
                 <form className="d-flex mt-4">
                     <input className="form-control me-1" type="" placeholder="Add voucher code" aria-label=""/>
-                    <button className="btn btn-secondary gold-hover" type="button">APPLY</button>
+                    <button className="btn btn-secondary gold-hover" type="submit">APPLY</button>
                 </form>
                 <div className="d-grid gap-2 mt-3">
                     <button className="btn btn-secondary gold-hover" type="button" onClick={() => performCheckout()}>CHECK OUT</button>
