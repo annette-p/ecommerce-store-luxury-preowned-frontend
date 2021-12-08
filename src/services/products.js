@@ -2,7 +2,19 @@ import axios from 'axios'
 
 import { getRefreshToken, generateHttpAuthzHeader } from './authentication'
 
-export async function getAllProducts(searchCriteria) {
+export async function getAllProducts(searchCriteria, filterBy) {
+    console.log("getAllProducts() - searchCriteria: ", searchCriteria)
+    console.log("getAllProducts() - filterBy: ", filterBy)
+    /*
+        "filterBy" will be an object in the following possible formats
+
+        { "category_id": 1}
+        { "designer_id": 1}
+        { "tag_id": 1}
+
+        "searchCriteria" will be a string
+    */
+
     // By default, will list only active products
     let searchParams = {
         params: {
@@ -10,7 +22,15 @@ export async function getAllProducts(searchCriteria) {
         }
     }
     if (searchCriteria) {
-        searchParams.params = { ...searchParams.params, search: searchCriteria }
+        searchParams.params = { 
+            ...searchParams.params, 
+            search: searchCriteria }
+    }
+
+    if (filterBy) {
+        searchParams.params = { 
+            ...searchParams.params, 
+            ...filterBy }
     }
 
     console.log("getAllProducts() - searchParams: ", searchParams)

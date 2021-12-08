@@ -1,17 +1,31 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import Nav from 'react-bootstrap/Nav'
 import NavItem from 'react-bootstrap/NavItem'
 import NavLink from 'react-bootstrap/NavLink'
 import Dropdown from 'react-bootstrap/Dropdown'
 import Accordion from 'react-bootstrap/Accordion'
 
+import ProductContext from '../../contexts/products/ProductContext';
+
 export default function NavFilterOption(){
+    
+    let productContext = useContext(ProductContext);
+
+    function filterProductByDesigner(e) {
+        productContext.setFilterBy({
+            "designer_id": parseInt(e)
+        })
+    }
+
+    function filterProductByCategory(e) {
+        productContext.setFilterBy({
+            "category_id": parseInt(e)
+        })
+    }
 
     function renderFilterMenuBar() {
         return (
-            <Nav
-                activeKey="/home"
-                    onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}>
+            <Nav>
                 <Nav.Item>
                     <Nav.Link href="/home">Just in</Nav.Link>
                 </Nav.Item>
@@ -24,38 +38,24 @@ export default function NavFilterOption(){
                 <Nav.Item>
                     <Nav.Link eventKey="link-1">Runway Collection</Nav.Link>
                 </Nav.Item>
-                <Dropdown as={NavItem}>
+                <Dropdown as={NavItem} onSelect={filterProductByDesigner}>
                     <Dropdown.Toggle as={NavLink}>Designers</Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <Dropdown.Item>Alexander McQueen</Dropdown.Item>
-                        <Dropdown.Item>Alexander Wang</Dropdown.Item>
-                        <Dropdown.Item>Balenciaga</Dropdown.Item>
-                        <Dropdown.Item>Gucci</Dropdown.Item>
-                        <Dropdown.Item>Celine</Dropdown.Item>
-                        <Dropdown.Item>Chanel</Dropdown.Item>
-                        <Dropdown.Item>Christian Dior</Dropdown.Item>
-                        <Dropdown.Item>Christian Louboutin</Dropdown.Item>
-                        <Dropdown.Item>Dolce Gabbana</Dropdown.Item>
-                        <Dropdown.Item>Fendi</Dropdown.Item>
-                        <Dropdown.Item>Hermes</Dropdown.Item>
-                        <Dropdown.Item>Loius Vuitton</Dropdown.Item>
-                        <Dropdown.Item>Miu Miu</Dropdown.Item>
-                        <Dropdown.Item>Patek Philippe</Dropdown.Item>
-                        <Dropdown.Item>Prada</Dropdown.Item>
-                        <Dropdown.Item>Rolex</Dropdown.Item>
-                        <Dropdown.Item>Siant Laurent</Dropdown.Item>
-                        <Dropdown.Item>Valentino</Dropdown.Item>
-                        <Dropdown.Item>Versace</Dropdown.Item>
+                        {productContext.getDesigners().map( designer => {
+                            return (
+                                <Dropdown.Item eventKey={designer.id}>{designer.name}</Dropdown.Item>
+                            )
+                        })}
                     </Dropdown.Menu>
                 </Dropdown>
-                <Dropdown as={NavItem}>
+                <Dropdown as={NavItem} onSelect={filterProductByCategory}>
                     <Dropdown.Toggle as={NavLink}>By categories</Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <Dropdown.Item>Bag</Dropdown.Item>
-                        <Dropdown.Item>Shoe</Dropdown.Item> 
-                        <Dropdown.Item>Clothing</Dropdown.Item> 
-                        <Dropdown.Item>Jewelry</Dropdown.Item> 
-                        <Dropdown.Item>Watch</Dropdown.Item> 
+                        {productContext.getCategories().map( category => {
+                            return (
+                                <Dropdown.Item eventKey={category.id}>{category.name}</Dropdown.Item>
+                            )
+                        })}
                     </Dropdown.Menu>
                 </Dropdown>
                 <Nav.Item>

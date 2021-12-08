@@ -14,8 +14,9 @@ export default function ProductProvider(props) {
     const [designers, setDesigners] = useState([]);
     const [tags, setTags] = useState([]);
     const [products, setProducts] = useState([]);
-    const [searchCriteria, setSearchCriteria] = useState()
-    const [loaded, setLoaded] = useState(false)
+    const [searchCriteria, setSearchCriteria] = useState();
+    const [filterBy, setFilterBy] = useState();
+    const [loaded, setLoaded] = useState(false);
 
     const context = {
 
@@ -50,19 +51,40 @@ export default function ProductProvider(props) {
         updateSearchCriteria: (searchText) => {
             setSearchCriteria(searchText);
             setLoaded(false);
+        },
+
+        getFilterBy: () => {
+            return filterBy;
+        },
+
+        setFilterBy: (filter) => {
+            setFilterBy(filter);
+            setLoaded(false);
         }
     }
 
     useEffect(() => {
 
         const loadData = async() => {
-            const retrievedProducts = await getAllProducts(searchCriteria);
+            const retrievedProducts = await getAllProducts(searchCriteria, filterBy);
             setProducts(retrievedProducts);
 
             const retrievedCategories = await getProductCategories();
+            retrievedCategories.sort( function(category1, category2) {
+                let categoryName1 = category1.name.toLowerCase();
+                let categoryName2 = category2.name.toLowerCase();
+    
+                return categoryName1.localeCompare(categoryName2);
+            })
             setCategories(retrievedCategories);
 
             const retrievedDesigners = await getProductDesigners();
+            retrievedDesigners.sort( function(designer1, designer2) {
+                let designerName1 = designer1.name.toLowerCase();
+                let designerName2 = designer2.name.toLowerCase();
+    
+                return designerName1.localeCompare(designerName2);
+            })
             setDesigners(retrievedDesigners);
 
             const retrievedTags = await getProductTags();
@@ -72,7 +94,7 @@ export default function ProductProvider(props) {
         }
         loadData();
 
-    }, [loaded, searchCriteria]) 
+    }, [loaded, searchCriteria, filterBy]) 
 
     return (
         <ProductContext.Provider value={context}>
