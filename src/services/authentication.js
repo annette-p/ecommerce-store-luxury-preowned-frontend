@@ -70,9 +70,10 @@ export function getRefreshToken() {
     }
 }
 
-export async function createNewUserProfile(username, password, email) {
+export async function createNewUserProfile(firstname, username, password, email) {
     let userInfo = {
         type: "Customer",
+        firstname: firstname,
         username: username,
         password: password,
         email: email

@@ -5,6 +5,7 @@ import UserProfileContext from '../../contexts/profile/UserProfileContext';
 
 export default function SignupForm(){
 
+    const [firstname, setFirstname] = useState();
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
     const [confirmPassword, setConfirmPassword] = useState();
@@ -19,6 +20,11 @@ export default function SignupForm(){
     function validateForm() {
         let errors = {}
         let formIsValid = true
+
+        if (!firstname) {
+            formIsValid = false
+            errors["firstname"] = "Please enter your first name"
+        }
 
         if (!username) {
             formIsValid = false
@@ -54,7 +60,7 @@ export default function SignupForm(){
     async function createUserAccount() {
         if (validateForm()) {
             try {
-                await userContext.createUserProfile(username, password, email)
+                await userContext.createUserProfile(firstname, username, password, email)
                 .then( signupSuccess => {
                     if (signupSuccess) {
                         setAccountCreationSuccess(true);
@@ -87,6 +93,11 @@ export default function SignupForm(){
                     <h5 class="card-title text-center">Create Account</h5>
                     {/* display account creation failure error */}
                     {renderFailAccountCreation()}
+                    {/* first name */}
+                    <div class="mt-4">
+                        <input class="form-control" type="text" placeholder="First name" name="firstname" value={firstname} onChange={(e) => {setFirstname(e.target.value)}}/>
+                        <div className="error-msg">{errors.firstname}</div>
+                    </div>
                     {/* username */}
                     <div class="mt-4">
                         <input class="form-control" type="text" placeholder="Username" name="username" value={username} onChange={(e) => {setUsername(e.target.value)}}/>

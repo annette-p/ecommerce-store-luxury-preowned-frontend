@@ -207,8 +207,8 @@ export default function UserProfileProvider(props) {
             return retrievedUserInfo;
         },
 
-        createUserProfile: async (username, password, email) => {
-            let signupSuccess = await createNewUserProfile(username, password, email);
+        createUserProfile: async (firstname, username, password, email) => {
+            let signupSuccess = await createNewUserProfile(firstname, username, password, email);
             return signupSuccess;
         },
 
