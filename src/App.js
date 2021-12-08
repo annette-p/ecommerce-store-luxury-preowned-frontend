@@ -3,6 +3,7 @@ import './App.css';
 // import './mobile.css'
 import MainPage from "./pages/MainPage";
 import UserProfileProvider from './contexts/profile/UserProfileProvider'
+import ProductProvider from './contexts/products/ProductProvider'
 
 // global variables
 global.apiUrl = process.env.REACT_APP_BACKEND_API
@@ -11,7 +12,9 @@ function App() {
   return (
     <div>
       <UserProfileProvider>
-        <MainPage/>
+        <ProductProvider>
+          <MainPage/>
+        </ProductProvider>
       </UserProfileProvider>
     </div>
   );

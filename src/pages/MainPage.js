@@ -7,7 +7,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
 import NavFilterOption from '../components/main/NavFilterOption'
 import Footer from '../components/main/Footer'
-import ProductProvider from '../contexts/products/ProductProvider'
+// import ProductProvider from '../contexts/products/ProductProvider'
 import CartProvider from '../contexts/carts/CartProvider';
 import ConsignmentProvider from '../contexts/consignment/ConsignmentProvider';
 import ListingPage from './ListingPage'
@@ -20,6 +20,7 @@ import CheckoutPage from './CheckoutPage'; // to remove later
 import AuthenticationPage from './AuthenticationPage';
 
 import UserProfileContext from '../contexts/profile/UserProfileContext';
+import ProductContext from '../contexts/products/ProductContext';
 
 export default function MainPage(){
 
@@ -29,21 +30,28 @@ export default function MainPage(){
 
     // for shopping cart 
     const [show, setShow] = useState(true);
+    const [isUserAuthenticated, setIsUserAuthenticated] = useState(false)
+
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    
 
     // for nav bar
     const userContext = useContext(UserProfileContext);
+    const productContext = useContext(ProductContext);
 
     useEffect(() => {
-        //
-    }, [userContext])
+        setIsUserAuthenticated(userContext.isAuthenticated());
+    }, [isUserAuthenticated, userContext, productContext])
+
+    function updateSearchCriteria(newSearchText) {
+        productContext.updateSearchCriteria(newSearchText)
+    }
 
     function renderSearchBar() {
         return (
             <form className="d-flex justify-content-center mb-2 mt-2 search-box-div">
-                <input className="form-control me-2 search-box" type="search" placeholder="Search" aria-label="Search"/>
-                {/* <button className="btn btn-outline-success" type="submit">Search</button> */}
+                <input className="form-control me-2 search-box" type="search" placeholder="Search" aria-label="Search" name="search" value={productContext.getSearchCriteria()} onChange={(e) => updateSearchCriteria(e.target.value)}/>
             </form>
         )
     }
@@ -141,44 +149,44 @@ export default function MainPage(){
                     <NavFilterOption/>
 
 
-                    <ProductProvider>
-                        <ConsignmentProvider>
-                            <CartProvider>
+                    {/* <ProductProvider> */}
+                    <ConsignmentProvider>
+                        <CartProvider>
 
-                                <Switch> 
-                                    <Route exact path="/">
-                                        <ListingPage/>
-                                    </Route>
-                                    <Route path="/product/:productId">
-                                        <ProductPage/> 
-                                    </Route> 
-                                    <Route exact path="/shopping-cart">
-                                        <CartPage handleClose={handleClose} placement="end" show={show}/>
-                                    </Route>
-                                    {/* To remove later */}
-                                    <Route path="/checkout">
-                                        <CheckoutPage handleClose={handleClose} placement="end" show={show}/>
-                                    </Route>
-                                    <Route exact path="/login">
-                                        <LoginModal action="login"/>
-                                    </Route> 
-                                    <Route exact path="/signup">
-                                        <LoginModal action="signup"/>
-                                    </Route> 
-                                    <Route path="/profile">
-                                        <ProfilePage/>
-                                    </Route> 
-                                    <Route exact path="/consignment">
-                                        <ConsignmentPage/>
-                                    </Route>
-                                    <Route exact path="/product-authentication">
-                                        <AuthenticationPage/>
-                                    </Route>
-                                </Switch>
+                            <Switch> 
+                                <Route exact path="/">
+                                    <ListingPage/>
+                                </Route>
+                                <Route path="/product/:productId">
+                                    <ProductPage/> 
+                                </Route> 
+                                <Route exact path="/shopping-cart">
+                                    <CartPage handleClose={handleClose} placement="end" show={show}/>
+                                </Route>
+                                {/* To remove later */}
+                                <Route path="/checkout">
+                                    <CheckoutPage handleClose={handleClose} placement="end" show={show}/>
+                                </Route>
+                                <Route exact path="/login">
+                                    <LoginModal action="login"/>
+                                </Route> 
+                                <Route exact path="/signup">
+                                    <LoginModal action="signup"/>
+                                </Route> 
+                                <Route path="/profile">
+                                    <ProfilePage/>
+                                </Route> 
+                                <Route exact path="/consignment">
+                                    <ConsignmentPage/>
+                                </Route>
+                                <Route exact path="/product-authentication">
+                                    <AuthenticationPage/>
+                                </Route>
+                            </Switch>
 
-                            </CartProvider>
-                        </ConsignmentProvider>
-                    </ProductProvider>
+                        </CartProvider>
+                    </ConsignmentProvider>
+                    {/* </ProductProvider> */}
                     
 
                     {/* footer section */}

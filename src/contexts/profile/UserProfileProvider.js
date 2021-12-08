@@ -105,17 +105,6 @@ export default function UserProfileProvider(props) {
         },
     ]);
 
-    const [userProfile, setUserProfile] = useState(
-        {
-          id: 1,
-          name: "Jane",
-          last_name: "XX",
-          email: "jane@gmail.com",
-          address: "132 xxxxxxxxxx Singapore 232323",
-          shipping_address: "132 xxxxxxxxxx Singapore 232323"
-        }
-    );
-
     // eslint-disable-next-line 
     const [user, setUser] = useState(null);
 
@@ -165,7 +154,7 @@ export default function UserProfileProvider(props) {
         // Validate whether there is currently an authenticated user session based on whether 'user' state variable is NULL
         isAuthenticated: () => {
             // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
-            if (getUserInfoFromLocalStorage()) {
+            if (getUserInfoFromLocalStorage() && user) {
                 // User info found in local storage. We can assume that user is authenticated :)
                 return true;
             } else {
@@ -230,10 +219,6 @@ export default function UserProfileProvider(props) {
                 return false;
             }
             
-        },
-
-        test: () => {
-            setUserProfile(userProfile)
         }
 
     }

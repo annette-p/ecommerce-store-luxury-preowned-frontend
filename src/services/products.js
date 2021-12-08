@@ -2,8 +2,20 @@ import axios from 'axios'
 
 import { getRefreshToken, generateHttpAuthzHeader } from './authentication'
 
-export async function getAllProducts() {
-    let response = await axios.get(`${global.apiUrl}/products`);
+export async function getAllProducts(searchCriteria) {
+    // By default, will list only active products
+    let searchParams = {
+        params: {
+            "active": "true"
+        }
+    }
+    if (searchCriteria) {
+        searchParams.params = { ...searchParams.params, search: searchCriteria }
+    }
+
+    console.log("getAllProducts() - searchParams: ", searchParams)
+
+    let response = await axios.get(`${global.apiUrl}/products`, searchParams);
     const products = response.data.data;
     return products;
 }

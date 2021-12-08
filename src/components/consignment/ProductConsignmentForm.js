@@ -104,7 +104,7 @@ export default function ProductConsignmentForm(){
                 // }
                 // console.log("cloudinaryUrl: ", cloudinaryUrl)
                 // console.log("frontImageUpload: ", frontImageUpload)
-                // let frontImageUploadResponse = await axios.post(cloudinaryUrl, frontImageUpload)
+                // let frontImageUploadResponse = await axios.post(cloudinaryUrl, frontImageUpload, { headers: { "Content-Type": "multipart/form-data" } })
                 // console.log(frontImageUploadResponse.data)
 
                 // await context.createConsignment(designer, category, type, expectedPrice, condition, conditionDescription, width, height, 

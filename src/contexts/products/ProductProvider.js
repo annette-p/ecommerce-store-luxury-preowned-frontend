@@ -42,6 +42,7 @@ export default function ProductProvider(props) {
     //     }
     // ]);
     const [products, setProducts] = useState([]);
+    const [searchCriteria, setSearchCriteria] = useState()
     const [loaded, setLoaded] = useState(false)
 
     const context = {
@@ -55,19 +56,29 @@ export default function ProductProvider(props) {
         getProductByID: (selectedProductID) => {
             return products.filter( p => p.id === parseInt(selectedProductID))[0] 
         },
+
+        getSearchCriteria: () => {
+            return searchCriteria;
+        },
+
+        updateSearchCriteria: (searchText) => {
+            setSearchCriteria(searchText);
+            setLoaded(false);
+        }
     }
 
     useEffect(() => {
 
         const loadData = async() => {
-            const products = await getAllProducts();
+            console.log("Loading product list for search criteria: ", searchCriteria)
+            const products = await getAllProducts(searchCriteria);
             setProducts(products);
 
             setLoaded(true);
         }
         loadData();
 
-    }, [loaded]) 
+    }, [loaded, searchCriteria]) 
 
     return (
         <ProductContext.Provider value={context}>
