@@ -17,7 +17,7 @@ export default function ProductInfo({product}){
                     {/* Specification */}
                     <Accordion.Item eventKey="1">
                         <Accordion.Header>Specification</Accordion.Header>
-                        <Accordion.Body style={{whiteSpace: "pre"}}>
+                        <Accordion.Body style={{whiteSpace: "pre-wrap"}}>
                             {/* Ref https://developer.mozilla.org/en-US/docs/Web/CSS/white-space */}
                             {product.specifications}
                         </Accordion.Body>
