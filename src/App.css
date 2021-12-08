@@ -624,6 +624,18 @@ a {
     font-size: 17px;
 }
 
+/* ...................... voucher page ...................... */
+
+.fully-redeem-div {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+.check-icon {
+    font-size: 50px;
+    color: rgb(138, 50, 50);
+}
+
 
 /* ................................style for meduim and large screen................................... */
 
@@ -853,6 +865,18 @@ a {
         font-size: 23px;
         text-align: center;
         margin-top: 300px;
+    }
+
+    /* ...................... voucher page ...................... */
+
+    .fully-redeem-div {
+        margin-top: 200px;
+        margin-bottom: 230px;
+    }
+
+    .check-icon {
+        font-size: 50px;
+        color: rgb(138, 50, 50);
     }
 
 
@@ -1162,6 +1186,19 @@ a {
         font-size: 23px;
         text-align: center;
         margin-top: 250px;
+    }
+
+
+    /* ...................... voucher page ...................... */
+
+    .fully-redeem-div {
+        margin-top: 130px;
+        margin-bottom: 250px;
+    }
+
+    .check-icon {
+        font-size: 50px;
+        color: rgb(138, 50, 50);
     }
 
     

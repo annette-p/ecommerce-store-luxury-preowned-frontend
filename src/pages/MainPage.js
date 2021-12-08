@@ -19,6 +19,7 @@ import LoginModal from '../components/main/LoginModal'
 import CheckoutPage from './CheckoutPage'; // to remove later
 import AuthenticationPage from './AuthenticationPage';
 import ComingSoonPage from './ComingSoonPage';
+import VoucherPage from './VoucherPage';
 
 import UserProfileContext from '../contexts/profile/UserProfileContext';
 import ProductContext from '../contexts/products/ProductContext';
@@ -194,6 +195,9 @@ export default function MainPage(){
                                 </Route>
                                 <Route exact path="/coming-soon">
                                     <ComingSoonPage/>
+                                </Route>
+                                <Route exact path="/voucher">
+                                    <VoucherPage/>
                                 </Route>
                             </Switch>
 
