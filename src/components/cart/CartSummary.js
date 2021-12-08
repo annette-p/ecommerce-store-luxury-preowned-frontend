@@ -1,9 +1,12 @@
 import React, { useContext, useEffect, useState }  from 'react'
-
+import { useHistory } from 'react-router'
 import ProductContext from '../../contexts/products/ProductContext'
 import CartContext from '../../contexts/carts/CartContext'
+import UserProfileContext from '../../contexts/profile/UserProfileContext';
 
 export default function CartSummary() {
+
+    const history = useHistory();
 
     const [ cartItems, setCartItems ] = useState([]);
     const [ totalAmount, setTotalAmount ] = useState(0);
@@ -11,7 +14,7 @@ export default function CartSummary() {
 
     const productContext = useContext(ProductContext);
     const cartContext = useContext(CartContext);
-
+    const userContext = useContext(UserProfileContext);
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -38,6 +41,16 @@ export default function CartSummary() {
         }
         fetchProduct();
     }, [loaded, cartContext, productContext])
+
+    async function performCheckout() {
+        if (userContext.isAuthenticated()) {
+            // route to checkout page
+            history.push("/checkout");
+        } else {
+            // route to login page
+            history.push("/login");
+        }
+    }
     
     return (
         <React.Fragment>
@@ -60,7 +73,7 @@ export default function CartSummary() {
                     <button className="btn btn-secondary gold-hover" type="submit">APPLY</button>
                 </form>
                 <div className="d-grid gap-2 mt-3">
-                    <button className="btn btn-secondary gold-hover" type="button">CHECK OUT</button>
+                    <button className="btn btn-secondary gold-hover" type="button" onClick={() => performCheckout()}>CHECK OUT</button>
                 </div>
             </div>
 

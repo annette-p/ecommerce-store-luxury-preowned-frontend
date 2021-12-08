@@ -134,3 +134,38 @@ export async function getCartIdForUser() {
     }
     
 }
+
+export async function checkout() {
+    let cartId = getCartId();
+    console.log("In checkout(), content of cartId: ", cartId)
+    if (cartId) {
+        try {
+            const refreshToken = getRefreshToken();
+            console.log("In checkout(), content of refreshToken: ", refreshToken)
+            if (refreshToken) {
+                const headers = await generateHttpAuthzHeader(refreshToken);
+                const checkoutData = {
+                    "success_url": `https://${window.location.hostname}/checkout/success`,
+                    "cancel_url": `https://${window.location.hostname}/checkout/error`
+                }
+                let response = await axios.post(`${global.apiUrl}/checkout`, checkoutData, headers);
+                /*
+                    The backend api will response with the following information when a Stripe checkout session
+                    has been created.
+                    {
+                        "sessionId": ***,
+                        "publishableKey": ***
+                    }
+                */
+               console.log(`Stripe checkout session for cart id ${cartId}: `, response.data);
+                return response.data;
+            } else {
+                return null;
+            }
+            
+        } catch(err) {
+            console.log(err);
+            throw err;
+        }
+    }
+}

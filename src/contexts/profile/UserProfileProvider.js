@@ -116,6 +116,7 @@ export default function UserProfileProvider(props) {
         }
     );
 
+    // eslint-disable-next-line 
     const [user, setUser] = useState(null);
 
     const context = {
@@ -163,7 +164,6 @@ export default function UserProfileProvider(props) {
 
         // Validate whether there is currently an authenticated user session based on whether 'user' state variable is NULL
         isAuthenticated: () => {
-            console.log("user: ", user)
             // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
             if (getUserInfoFromLocalStorage()) {
                 // User info found in local storage. We can assume that user is authenticated :)

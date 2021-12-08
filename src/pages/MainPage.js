@@ -156,7 +156,7 @@ export default function MainPage(){
                                         <CartPage handleClose={handleClose} placement="end" show={show}/>
                                     </Route>
                                     {/* To remove later */}
-                                    <Route exact path="/checkout">
+                                    <Route path="/checkout">
                                         <CheckoutPage handleClose={handleClose} placement="end" show={show}/>
                                     </Route>
                                     <Route exact path="/login">

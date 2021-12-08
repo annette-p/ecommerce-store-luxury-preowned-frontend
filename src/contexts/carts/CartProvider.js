@@ -3,6 +3,7 @@ import CartContext from "./CartContext";
 
 import {
     addItemToCart,
+    checkout,
     getCartId,
     getCartItems,
     updateCartItemQuantity
@@ -62,7 +63,20 @@ export default function CartProvider(props) {
             // };
             // let clone = [...cartItems, newCartItem];
             // setCartItems(clone);
-        }, 
+        },
+
+        initiateCheckout: async () => {
+            try {
+                console.log("In CartProvider initiateCheckout()")
+                let stripeCheckoutToken = await checkout();
+                console.log("Content of stripeCheckoutToken after calling checkout(): ", stripeCheckoutToken)
+                if (stripeCheckoutToken) {
+                    return stripeCheckoutToken;
+                }
+            } catch(_err) {
+                return false;
+            }
+        },
 
         updateCartQuantity: async (productId, newQuantity) => {
             let updateSuccess = await updateCartItemQuantity(productId, newQuantity)
