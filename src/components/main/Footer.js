@@ -35,7 +35,9 @@ export default function Footer(){
                     <Link to="/product-authentication" className="no-underline">
                         <div className="pt-2">Authentication</div>
                     </Link>
+                    <Link to="/condition-guide" className="no-underline">
                     <div>Condition Guide</div>
+                    </Link>
                     <Link to="/coming-soon" className="no-underline">
                         <div>Payment in installment plan<span className="fst-italic fw-light">- coming soon</span></div>
                     </Link>

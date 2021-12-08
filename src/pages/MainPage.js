@@ -18,6 +18,7 @@ import CartPage from './CartPage';
 import LoginModal from '../components/main/LoginModal'
 import CheckoutPage from './CheckoutPage'; // to remove later
 import AuthenticationPage from './AuthenticationPage';
+import ConditionGuidePage from './ConditionGuidePage';
 import ComingSoonPage from './ComingSoonPage';
 import VoucherPage from './VoucherPage';
 
@@ -192,6 +193,9 @@ export default function MainPage(){
                                 </Route>
                                 <Route exact path="/product-authentication">
                                     <AuthenticationPage/>
+                                </Route>
+                                <Route exact path="/condition-guide">
+                                    <ConditionGuidePage/>
                                 </Route>
                                 <Route exact path="/coming-soon">
                                     <ComingSoonPage/>

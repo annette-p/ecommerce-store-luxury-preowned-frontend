@@ -1201,6 +1201,15 @@ a {
         color: rgb(138, 50, 50);
     }
 
+    /* ...................... Condition guide page ...................... */
+
+    .condition-card {
+        width: 50rem;
+        margin-left: 250px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
     
        
 
