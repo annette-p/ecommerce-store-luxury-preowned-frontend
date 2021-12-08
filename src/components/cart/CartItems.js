@@ -66,9 +66,9 @@ export default function CartItems(){
                                     </div>
                                     {/* product description */}
                                     <div className="col product-des-cart">
-                                        {/* ---linkable to product page--- */}
+                                        {/* to access nested object > ref: https://stackoverflow.com/a/46309951 */}
                                         {item.product.designer && 
-                                            <div>{item.product.designer.name}</div>
+                                            <div className="fw-bold">{item.product.designer.name}</div>
                                         }
                                         <div>{item.product.name}</div>
                                         <div><span className="fw-bold">Condition: </span>{item.product.condition}</div>
