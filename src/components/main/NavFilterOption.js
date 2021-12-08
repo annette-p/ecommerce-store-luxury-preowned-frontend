@@ -46,7 +46,7 @@ export default function NavFilterOption(){
                     <Dropdown.Menu>
                         {productContext.getDesigners().map( designer => {
                             return (
-                                <Dropdown.Item eventKey={designer.id}>{designer.name}</Dropdown.Item>
+                                <Dropdown.Item key={`designerId_${designer.id}`} eventKey={designer.id}>{designer.name}</Dropdown.Item>
                             )
                         })}
                     </Dropdown.Menu>
@@ -57,7 +57,7 @@ export default function NavFilterOption(){
                     <Dropdown.Menu>
                         {productContext.getCategories().map( category => {
                             return (
-                                <Dropdown.Item eventKey={category.id}>{category.name}</Dropdown.Item>
+                                <Dropdown.Item key={`categoryId_${category.id}`} eventKey={category.id}>{category.name}</Dropdown.Item>
                             )
                         })}
                     </Dropdown.Menu>

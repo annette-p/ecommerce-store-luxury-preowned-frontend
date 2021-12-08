@@ -3,8 +3,6 @@ import axios from 'axios'
 import { getRefreshToken, generateHttpAuthzHeader } from './authentication'
 
 export async function getAllProducts(searchCriteria, filterBy) {
-    console.log("getAllProducts() - searchCriteria: ", searchCriteria)
-    console.log("getAllProducts() - filterBy: ", filterBy)
     /*
         "filterBy" will be an object in the following possible formats
 
@@ -32,8 +30,6 @@ export async function getAllProducts(searchCriteria, filterBy) {
             ...searchParams.params, 
             ...filterBy }
     }
-
-    console.log("getAllProducts() - searchParams: ", searchParams)
 
     let response = await axios.get(`${global.apiUrl}/products`, searchParams);
     const products = response.data.data;

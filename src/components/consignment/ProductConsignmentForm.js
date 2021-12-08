@@ -74,15 +74,45 @@ export default function ProductConsignmentForm(){
             errors["expectedPrice"] = "Please specify your desired selling price for the item"
         }
 
-        // if (!frontImage) {
-        //     formIsValid = false
-        //     errors["frontImage"] = "Please provide the front image for the item"
-        // }
+        if (!frontImage) {
+            formIsValid = false
+            errors["frontImage"] = "Please provide the front image for the item"
+        }
 
-        // if (!backImage) {
-        //     formIsValid = false
-        //     errors["backImage"] = "Please provide the front image for the item"
-        // }
+        if (!backImage) {
+            formIsValid = false
+            errors["backImage"] = "Please provide the front image for the item"
+        }
+
+        if (!cornerImage) {
+            formIsValid = false
+            errors["cornerImage"] = "Please provide the corner image for the item"
+        }
+
+        if (!insideImage) {
+            formIsValid = false
+            errors["insideImage"] = "Please provide the inside image for the item"
+        }
+
+        if (!labelImage) {
+            formIsValid = false
+            errors["labelImage"] = "Please provide the label image for the item"
+        }
+
+        if (!serialImage) {
+            formIsValid = false
+            errors["serialImage"] = "Please provide the serial number image for the item"
+        }
+
+        if (!tagImage) {
+            formIsValid = false
+            errors["tagImage"] = "Please provide the tag image for the item"
+        }
+
+        if (!receiptImage) {
+            formIsValid = false
+            errors["receiptImage"] = "Please provide the receipt image for the item"
+        }
 
         setErrors(errors);
 
@@ -94,25 +124,6 @@ export default function ProductConsignmentForm(){
     async function requestNewConsignment() {
         if (validateForm()) {
             try {
-
-                // // Ref: https://cloudinary.com/documentation/upload_images#uploading_with_a_direct_call_to_the_rest_api
-                // const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_NAME}/upload`
-
-                // const frontImageUpload = {
-                //     file: frontImage,
-                //     upload_preset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
-                // }
-                // console.log("cloudinaryUrl: ", cloudinaryUrl)
-                // console.log("frontImageUpload: ", frontImageUpload)
-                // let frontImageUploadResponse = await axios.post(cloudinaryUrl, frontImageUpload, { headers: { "Content-Type": "multipart/form-data" } })
-                // console.log(frontImageUploadResponse.data)
-
-                // await context.createConsignment(designer, category, type, expectedPrice, condition, conditionDescription, width, height, 
-                //                                 frontImage, backImage, cornerImage, insideImage, labelImage, labelImage, serialImage, tagImage, receiptImage)
-                // setSuccessFormSubmission(true)
-
-                // *** Without proper handling of the selected images yet :(
-
                 await context.createConsignment(designer, category, type, expectedPrice, condition, conditionDescription, width, height, 
                                                 frontImage, backImage, cornerImage, insideImage, labelImage, labelImage, serialImage, tagImage, receiptImage)
                 setSuccessFormSubmission(true)
@@ -122,6 +133,22 @@ export default function ProductConsignmentForm(){
             }
         }
     }
+
+    /*
+        // Sample logic for testing image upload to Cloudinary using REST API.. not working at the moment
+
+        // Ref: https://cloudinary.com/documentation/upload_images#uploading_with_a_direct_call_to_the_rest_api
+        const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_NAME}/upload`
+
+        const frontImageUpload = {
+            file: frontImage,
+            upload_preset: process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
+        }
+        console.log("cloudinaryUrl: ", cloudinaryUrl)
+        console.log("frontImageUpload: ", frontImageUpload)
+        let frontImageUploadResponse = await axios.post(cloudinaryUrl, frontImageUpload, { headers: { "Content-Type": "multipart/form-data" } })
+        console.log(frontImageUploadResponse.data)
+    */
 
     // function renderCloudinaryUploadWidget() {
     //     let widget = window.cloudinary.createUploadWidget({
@@ -305,7 +332,7 @@ export default function ProductConsignmentForm(){
                         </div>
                     </div>
 
-                    {/* Product Images -- to use when success integrated with cloudinaty widget */}
+                    {/* Product Images -- to use when success integrated with cloudinary widget */}
                     {/* <div className="row mt-4 pt-3 v-light-grey-bg">
                         <h5>Product Images</h5>
                         <div className="mb-3">
