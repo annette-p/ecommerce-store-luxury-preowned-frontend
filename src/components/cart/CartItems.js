@@ -76,12 +76,12 @@ export default function CartItems(){
                                     </div>
                                     {/* Quantity Control Section */}
                                     <div className="col-12 mb-1">
-                                        <form class="d-flex quantity-control-sec">
-                                            <button class="btn btn-outline-secondary gold-hover white-font me-1 quantity-btn" type="button" onClick={() => updateCartItemQuantity(index, cartItems[index].quantity + 1)}>
+                                        <form className="d-flex quantity-control-sec">
+                                            <button className="btn btn-outline-secondary gold-hover white-font me-1 quantity-btn" type="button" onClick={() => updateCartItemQuantity(index, cartItems[index].quantity + 1)}>
                                                 <FontAwesomeIcon icon={faPlus} className="mb-1"/>
                                             </button>
-                                            <input class="form-control me-1 quantity-form" type="number" value={cartItems[index].quantity} onChange={(e) => updateCartItemQuantity(index, e.target.value)} />
-                                            <button class="btn btn-outline-secondary gold-hover white-font quantity-btn" type="button" onClick={() => updateCartItemQuantity(index, cartItems[index].quantity - 1)}>
+                                            <input className="form-control me-1 quantity-form" type="number" value={cartItems[index].quantity} onChange={(e) => updateCartItemQuantity(index, e.target.value)} />
+                                            <button className="btn btn-outline-secondary gold-hover white-font quantity-btn" type="button" onClick={() => updateCartItemQuantity(index, cartItems[index].quantity - 1)}>
                                                 <FontAwesomeIcon icon={faMinus} className="mb-1"/>
                                             </button>
                                             {/* trash */}

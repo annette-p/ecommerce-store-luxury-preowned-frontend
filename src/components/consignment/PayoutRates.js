@@ -12,8 +12,8 @@ export default function PayoutRates(){
 
             <div className="row mt-md-3 mt-lg-4">
                 <div className="col-12 col-md-6 mb-2 mb-md-0">
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-secondary" type="button" 
+                    <div className="d-grid gap-2">
+                        <button className="btn btn-secondary" type="button" 
                         // onClick={() => { setOpen1(!open1); setOpen2(open1) }} 
                         onClick={() => { setOpen1(!open1); }}
                         aria-controls="bag-payout"
@@ -23,8 +23,8 @@ export default function PayoutRates(){
                     </div>
                 </div>
                 <div className="col-12 col-md-6">
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-secondary" type="button" 
+                    <div className="d-grid gap-2">
+                        <button className="btn btn-secondary" type="button" 
                         // onClick={() =>{ setOpen2(!open2); setOpen1(open2) }} 
                         onClick={() =>{ setOpen2(!open2); }} 
                         aria-controls="apparel-payout"
@@ -36,9 +36,9 @@ export default function PayoutRates(){
                 <div className="col-12 col-lg-6">
                     <Collapse in={open1}>
                         <div id="bag-payout">
-                            <div class="card collapse-card" >
-                                <div class="card-body">
-                                    <table class="table table-hover">
+                            <div className="card collapse-card" >
+                                <div className="card-body">
+                                    <table className="table table-hover">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Selling Price (SGD)</th>
@@ -72,9 +72,9 @@ export default function PayoutRates(){
                 <div className="col-12 col-lg-6">
                     <Collapse in={open2}>
                         <div id="apparel-payout">
-                            <div class="card collapse-card">
-                                <div class="card-body">
-                                    <table class="table table-hover">
+                            <div className="card collapse-card">
+                                <div className="card-body">
+                                    <table className="table table-hover">
                                         <thead>
                                             <tr>
                                                 <th scope="col">Selling Price (SGD)</th>

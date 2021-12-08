@@ -47,13 +47,13 @@ export default function OrderDetails(){
                         <div className="fw-bold">Product Details</div>
                     </div>
                     <div className="row mt-3">
-                        <div class="col-3 col-lg-1 mb-4">
+                        <div className="col-3 col-lg-1 mb-4">
                             <img className="product-img-profile"
                             src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
                             alt="product"/>
                             {/* ---linkable to product page--- */}
                         </div>
-                        <div class="col-9 col-lg-11 light-grey-hover mb-4">
+                        <div className="col-9 col-lg-11 light-grey-hover mb-4">
                             {/* ---linkable to product page--- */}
                             <div className="ms-2 fw-bold">{order.designer}</div>
                             <div className="ms-2">{order.name}</div>
@@ -63,13 +63,13 @@ export default function OrderDetails(){
                         </div>
 
                         {/* ----- it must display all products in this same prder (e.g of total orders 3 items, here to display all 3) */}
-                        <div class="col-3 col-lg-1">
+                        <div className="col-3 col-lg-1">
                             <img className="product-img-profile"
                             src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
                             alt="product"/>
                             {/* ---linkable to product page--- */}
                         </div>
-                        <div class="col-9 col-lg-11 light-grey-hover">
+                        <div className="col-9 col-lg-11 light-grey-hover">
                             {/* ---linkable to product page--- */}
                             <div className="ms-2 fw-bold">{order.designer}</div>
                             <div className="ms-2">{order.name}</div>

@@ -89,39 +89,39 @@ export default function SignupForm(){
     function renderSignupForm() {
         if (!accountCreationSuccess) {
             return (
-                <div class="card-body">
-                    <h5 class="card-title text-center">Create Account</h5>
+                <div className="card-body">
+                    <h5 className="card-title text-center">Create Account</h5>
                     {/* display account creation failure error */}
                     {renderFailAccountCreation()}
                     {/* first name */}
-                    <div class="mt-4">
-                        <input class="form-control" type="text" placeholder="First name" name="firstname" value={firstname} onChange={(e) => {setFirstname(e.target.value)}}/>
+                    <div className="mt-4">
+                        <input className="form-control" type="text" placeholder="First name" name="firstname" value={firstname} onChange={(e) => {setFirstname(e.target.value)}}/>
                         <div className="error-msg">{errors.firstname}</div>
                     </div>
                     {/* username */}
-                    <div class="mt-4">
-                        <input class="form-control" type="text" placeholder="Username" name="username" value={username} onChange={(e) => {setUsername(e.target.value)}}/>
+                    <div className="mt-4">
+                        <input className="form-control" type="text" placeholder="Username" name="username" value={username} onChange={(e) => {setUsername(e.target.value)}}/>
                         <div className="error-msg">{errors.username}</div>
                     </div>
                     {/* password */}
-                    <div class="mt-4">
-                        <input class="form-control" type="password" placeholder="Password" name="password" value={password} onChange={(e) => {setPassword(e.target.value)}}/>
+                    <div className="mt-4">
+                        <input className="form-control" type="password" placeholder="Password" name="password" value={password} onChange={(e) => {setPassword(e.target.value)}}/>
                         <div className="error-msg">{errors.password}</div>
                     </div>
                     {/* confirm password */} 
-                    <div class="mt-4">
-                        <input class="form-control" type="password" placeholder="Confirm Password" name="confirmPassword" value={confirmPassword} onChange={(e) => {setConfirmPassword(e.target.value)}}/>
+                    <div className="mt-4">
+                        <input className="form-control" type="password" placeholder="Confirm Password" name="confirmPassword" value={confirmPassword} onChange={(e) => {setConfirmPassword(e.target.value)}}/>
                         <div className="error-msg">{errors.confirmPassword}</div>
                     </div>
                     {/* email address */} 
-                    <div class="mt-4">
-                        <input class="form-control" type="text" placeholder="Email Address" name="email" value={email} onChange={(e) => {setEmail(e.target.value)}}/>
+                    <div className="mt-4">
+                        <input className="form-control" type="text" placeholder="Email Address" name="email" value={email} onChange={(e) => {setEmail(e.target.value)}}/>
                         <div className="error-msg">{errors.email}</div>
                     </div>
                     {/* sign up button */}
-                    <div class="mt-4">
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-secondary" type="submit" onClick={()=>{createUserAccount()}}>
+                    <div className="mt-4">
+                        <div className="d-grid gap-2">
+                            <button className="btn btn-secondary" type="submit" onClick={()=>{createUserAccount()}}>
                                 SIGN UP
                             </button>
                         </div>
@@ -135,7 +135,7 @@ export default function SignupForm(){
     function renderSuccessAccountCreation() {
         if (accountCreationSuccess) {
             return (
-                <div class="card-body">
+                <div className="card-body">
                     <div className="row mt-4">
                         <h5 className="text-center top-margin-div">Your Account has been created</h5>
                         <p className="text-center mt-4 fw-bold">
@@ -150,7 +150,7 @@ export default function SignupForm(){
     return (
         <React.Fragment>
 
-            <div class="col-md-6">                      
+            <div className="col-md-6">                      
                 {renderSignupForm()}
                 {renderSuccessAccountCreation()}
             </div>

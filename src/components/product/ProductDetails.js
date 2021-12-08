@@ -56,7 +56,7 @@ export default function ProductDetails({product}){
                                 {images.map( image => {
                                     if (product[image]) {
                                         return (
-                                            <div class="additional-img-div me-1">
+                                            <div className="additional-img-div me-1">
                                                 <img className="product-img-cart"
                                                 src={product[image]}
                                                 alt="product" onClick={() => setCarouselImg(product[image])}/>

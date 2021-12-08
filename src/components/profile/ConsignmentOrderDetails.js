@@ -59,61 +59,61 @@ export default function ConsignmentOrderDetails(){
                             <div className="row mt-2">
                                 <div className="consignment-img-bucket horizontal-scrollbar">
                                     {/* img 1 */}
-                                    <div class="additional-img-div me-2">
+                                    <div className="additional-img-div me-2">
                                         <img className="consignment-img"
                                         src={require('../../images/consignment/ysl-sample.png').default}
                                         alt="product"/>
                                     </div>
                                     {/* img 2 */}
-                                    <div class="additional-img-div me-2">
+                                    <div className="additional-img-div me-2">
                                         <img className="consignment-img"
                                         src={require('../../images/consignment/ysl-sample.png').default}
                                         alt="product"/>
                                     </div>
                                     {/* img 3 */}
-                                    <div class="additional-img-div me-2">
+                                    <div className="additional-img-div me-2">
                                         <img className="consignment-img"
                                         src={require('../../images/consignment/ysl-sample.png').default}
                                         alt="product"/>
                                     </div>
                                     {/* img 4 */}
-                                    <div class="additional-img-div me-2">
+                                    <div className="additional-img-div me-2">
                                         <img className="consignment-img"
                                         src={require('../../images/consignment/ysl-sample.png').default}
                                         alt="product"/>
                                     </div>
                                     {/* img 5 */}
-                                    <div class="additional-img-div me-2">
+                                    <div className="additional-img-div me-2">
                                         <img className="consignment-img"
                                         src={require('../../images/consignment/ysl-sample.png').default}
                                         alt="product"/>
                                     </div>
                                     {/* img 6 */}
-                                    <div class="additional-img-div me-2">
+                                    <div className="additional-img-div me-2">
                                         <img className="consignment-img"
                                         src={require('../../images/consignment/ysl-sample.png').default}
                                         alt="product"/>
                                     </div>
                                     {/* img 7 */}
-                                    <div class="additional-img-div me-2">
+                                    <div className="additional-img-div me-2">
                                         <img className="consignment-img"
                                         src={require('../../images/consignment/ysl-sample.png').default}
                                         alt="product"/>
                                     </div>
                                     {/* img 8 */}
-                                    <div class="additional-img-div me-2">
+                                    <div className="additional-img-div me-2">
                                         <img className="consignment-img"
                                         src={require('../../images/consignment/ysl-sample.png').default}
                                         alt="product"/>
                                     </div>
                                     {/* img 9 */}
-                                    <div class="additional-img-div me-2">
+                                    <div className="additional-img-div me-2">
                                         <img className="consignment-img"
                                         src={require('../../images/consignment/ysl-sample.png').default}
                                         alt="product"/>
                                     </div>
                                     {/* img 10 */}
-                                    <div class="additional-img-div me-2">
+                                    <div className="additional-img-div me-2">
                                         <img className="consignment-img"
                                         src={require('../../images/consignment/ysl-sample.png').default}
                                         alt="product"/>

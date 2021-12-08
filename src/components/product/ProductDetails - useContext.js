@@ -43,61 +43,61 @@ export default function ProductDetails(){
                         <div className="row mt-2">
                             <div className="img-bucket horizontal-scrollbar">
                                 {/* img 1 */}
-                                <div class="additional-img-div me-1">
+                                <div className="additional-img-div me-1">
                                     <img className="product-img-cart"
                                     src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
                                     alt="product"/>
                                 </div>
                                 {/* img 2 */}
-                                <div class="additional-img-div me-1">
+                                <div className="additional-img-div me-1">
                                     <img className="product-img-cart"
                                     src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
                                     alt="product"/>
                                 </div>
                                 {/* img 3 */}
-                                <div class="additional-img-div me-1">
+                                <div className="additional-img-div me-1">
                                     <img className="product-img-cart"
                                     src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
                                     alt="product"/>
                                 </div>
                                 {/* img 4 */}
-                                <div class="additional-img-div me-1">
+                                <div className="additional-img-div me-1">
                                     <img className="product-img-cart"
                                     src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
                                     alt="product"/>
                                 </div>
                                 {/* img 5 */}
-                                <div class="additional-img-div me-1">
+                                <div className="additional-img-div me-1">
                                     <img className="product-img-cart"
                                     src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
                                     alt="product"/>
                                 </div>
                                 {/* img 6 */}
-                                <div class="additional-img-div me-1">
+                                <div className="additional-img-div me-1">
                                     <img className="product-img-cart"
                                     src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
                                     alt="product"/>
                                 </div>
                                 {/* img 7 */}
-                                <div class="additional-img-div me-1">
+                                <div className="additional-img-div me-1">
                                     <img className="product-img-cart"
                                     src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
                                     alt="product"/>
                                 </div>
                                 {/* img 8 */}
-                                <div class="additional-img-div me-1">
+                                <div className="additional-img-div me-1">
                                     <img className="product-img-cart"
                                     src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
                                     alt="product"/>
                                 </div>
                                 {/* img 9 */}
-                                <div class="additional-img-div me-1">
+                                <div className="additional-img-div me-1">
                                     <img className="product-img-cart"
                                     src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
                                     alt="product"/>
                                 </div>
                                 {/* img 10 */}
-                                <div class="additional-img-div me-1">
+                                <div className="additional-img-div me-1">
                                     <img className="product-img-cart"
                                     src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
                                     alt="product"/>

@@ -10,7 +10,7 @@ export default function AuthenticationPage(){
                 AUTHENTICATION <span>
                 <FontAwesomeIcon icon={faSearch} className="ms-3 magnify-glass"/></span>
             </h4> 
-            <div class="container-fluid d-flex justify-content-center mb-4">
+            <div className="container-fluid d-flex justify-content-center mb-4">
                 <video src={videoAuthentication} id="vdo" controls="controls" muted="true" autoplay="true" />
             </div>
             <article className="article-text pt-3 pb-3">

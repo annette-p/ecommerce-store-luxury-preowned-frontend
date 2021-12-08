@@ -38,8 +38,8 @@ export default function MySellingOrders(){
                         </li>
                     </ul>
                     {/* content container */}
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div className="tab-content" id="myTabContent">
+                        <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                             <Switch>
                                 {/* <Route  path={`${url}/progress`}>

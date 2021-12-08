@@ -16,7 +16,7 @@ export default function CardListing(){
                     context.getProducts().map( (p)=>{
                         return (
 
-                            <div className="col mb-3">
+                            <div key={`productId_${p.id}}`} className="col mb-3">
                                 <Link to={"/product/" + p.id} className="no-underline">
                                     <div className="card listing-card" key={p.id}>
                                         <img src={p.product_image_1}
