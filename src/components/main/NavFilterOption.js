@@ -23,21 +23,24 @@ export default function NavFilterOption(){
         })
     }
 
+    function filterProductByTag(tagid) {
+        productContext.setFilterBy({
+            "tag_id": parseInt(tagid)
+        })
+    }
+
     function renderFilterMenuBar() {
         return (
             <Nav>
-                <Nav.Item>
-                    <Nav.Link href="/home">Just in</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="link-1">Limited edition</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="link-1">X Collaboration</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link eventKey="link-1">Runway Collection</Nav.Link>
-                </Nav.Item>
+                {/* Display list of product tags */}
+                {productContext.getTags().map(tag => {
+                    return (
+                        <Nav.Item key={`productTagId_${tag.id}`}>
+                            <Nav.Link onClick={()=>filterProductByTag(tag.id)}>{tag.name}</Nav.Link>
+                        </Nav.Item>
+                    )
+                })}
+                {/* Display dropdown list of designers */}
                 <Dropdown as={NavItem} onSelect={filterProductByDesigner}>
                     <Dropdown.Toggle as={NavLink}>Designers</Dropdown.Toggle>
                     <Dropdown.Menu>
@@ -48,6 +51,7 @@ export default function NavFilterOption(){
                         })}
                     </Dropdown.Menu>
                 </Dropdown>
+                {/* Display dropdown list of categories */}
                 <Dropdown as={NavItem} onSelect={filterProductByCategory}>
                     <Dropdown.Toggle as={NavLink}>By categories</Dropdown.Toggle>
                     <Dropdown.Menu>
@@ -58,9 +62,6 @@ export default function NavFilterOption(){
                         })}
                     </Dropdown.Menu>
                 </Dropdown>
-                <Nav.Item>
-                    <Nav.Link eventKey="link-4">Vintage</Nav.Link>
-                </Nav.Item>
                 <Nav.Item>
                     <Nav.Link eventKey="link-5">Voucher</Nav.Link>
                 </Nav.Item>
