@@ -18,6 +18,7 @@ import CartPage from './CartPage';
 import LoginModal from '../components/main/LoginModal'
 import CheckoutPage from './CheckoutPage'; // to remove later
 import AuthenticationPage from './AuthenticationPage';
+import ComingSoonPage from './ComingSoonPage';
 
 import UserProfileContext from '../contexts/profile/UserProfileContext';
 import ProductContext from '../contexts/products/ProductContext';
@@ -50,9 +51,9 @@ export default function MainPage(){
 
     function renderSearchBar() {
         return (
-            <form className="d-flex justify-content-center mb-2 mt-2 search-box-div">
+            <div className="d-flex justify-content-center mb-2 mt-2 search-box-div">
                 <input className="form-control me-2 search-box" type="search" placeholder="Search" aria-label="Search" name="search" value={productContext.getSearchCriteria()} onChange={(e) => updateSearchCriteria(e.target.value)}/>
-            </form>
+            </div>
         )
     }
 
@@ -181,6 +182,9 @@ export default function MainPage(){
                                 </Route>
                                 <Route exact path="/product-authentication">
                                     <AuthenticationPage/>
+                                </Route>
+                                <Route exact path="/coming-soon">
+                                    <ComingSoonPage/>
                                 </Route>
                             </Switch>
 

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel'
 
 export default function ShopCarousel(){
@@ -69,7 +70,9 @@ export default function ShopCarousel(){
                             <div className="row second-custom-cap-carousel-btn">
                                 <div className="col d-none d-lg-block"></div>
                                 <div className="col">
-                                    <button type="button" className="btn btn-secondary left-align small-btn">Become VIP customer<span className="fw-bold gold-color">&nbsp; &gt;&gt;</span></button>
+                                    <Link to="/coming-soon" className="no-underline">
+                                        <button type="button" className="btn btn-secondary left-align small-btn">Become VIP customer<span className="fw-bold gold-color">&nbsp; &gt;&gt;</span></button>
+                                    </Link>
                                 </div>
                                 <div className="col d-none d-lg-block"></div>
                             </div>
@@ -94,7 +97,10 @@ export default function ShopCarousel(){
                             </div>
                             <div className="mt-1 row third-custom-caption-carousel">
                                 <div className="col-12">
+                                <Link to="/coming-soon" className="no-underline">
                                     <button type="button" className="btn btn-secondary left-align third-margin-btm">Register for Interest<span className="ms-2 fw-bold gold-color">&nbsp; &gt;&gt;</span></button>
+                                </Link>
+                                    
                                 </div>
                             </div>
                         </Carousel.Caption>
