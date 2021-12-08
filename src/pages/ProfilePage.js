@@ -2,6 +2,7 @@ import React, {useContext, useEffect} from 'react'
 import { BrowserRouter as Router, Switch, Route, Link, useHistory, useRouteMatch } from "react-router-dom";
 import Accordion from 'react-bootstrap/Accordion'
 // import UserProfileProvider from '../contexts/profile/UserProfileProvider';
+import Dashboard from '../components/profile/Dashboard'
 import MyPurchaseOrders from '../components/profile/MyPurchaseOrders'
 import MySellingOrders from '../components/profile/MySellingOrders'
 import EditProfile from '../components/profile/EditProfile'
@@ -25,9 +26,11 @@ export default function ProfilePage(){
     function renderSideNavigationBar() {
         return (
             <div className="ps-1 col-bg">
-                <div className="mt-3 col-hover">
-                    <div className="btn white-font mt-2">Dashboard</div>
-                </div>
+                <Link to={`${url}/dashboard`}>
+                    <div className="mt-3 col-hover">
+                        <div className="btn white-font mt-2">Dashboard</div>
+                    </div>
+                </Link>
                 <Link to={`${url}/purchases`}>
                     <div className="mt-3 col-hover">
                         <div className="btn white-font">My Purchases</div>
@@ -85,6 +88,9 @@ export default function ProfilePage(){
                             {/* <UserProfileProvider> */}
 
                                 <Switch>
+                                    <Route path={`${url}/dashboard`}>
+                                        <Dashboard/>
+                                    </Route>
                                     <Route path={`${url}/purchases`}>
                                         <MyPurchaseOrders/>
                                     </Route>

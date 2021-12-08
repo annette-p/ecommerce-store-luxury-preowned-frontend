@@ -17,7 +17,7 @@ export default function CartPage({ ...props }){
                         <FontAwesomeIcon icon={faCartArrowDown} className="cart-icon"/>
                     </Offcanvas.Title>
                 </Offcanvas.Header>
-                <Offcanvas.Body className="grey-bg white-font"> 
+                <Offcanvas.Body className="grey-bg white-font" id="cart-body"> 
                     <hr className="dark-grey cart-hr"></hr>
                     {/* product item list */}
                     <CartItems />

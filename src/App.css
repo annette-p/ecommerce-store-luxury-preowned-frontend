@@ -83,6 +83,11 @@ a {
     color: rgb(12, 12, 12);
 }
 
+.light-gold-bg {
+    /* background-color: rgb(245, 236, 224); */
+    background-color: rgb(240, 240, 226);
+}
+
 .text {
     color: rgb(43, 42, 42);
 }
@@ -1016,7 +1021,12 @@ a {
         overflow-y: scroll; /* Add vertical scrollbar */
         display: flex;
         height: 62vh;
+        /* scrollbar-width: none; */
     }
+
+    /* #cart-body::-webkit-scrollbar { 
+        display:none; 
+    } */
 
     .additional-img-div {
         display: inline-block;
@@ -1119,6 +1129,10 @@ a {
     .delete-done-div {
         margin-left: 150px;
         width: 40rem;
+    }
+
+    .dashboard-card {
+        width: 18rem;
     }
 
     /* ...................... login page ...................... */
