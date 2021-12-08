@@ -38,6 +38,12 @@ export async function getProductConditions() {
     return productConditions;
 }
 
+export async function getProductTags() {
+    let response = await axios.get(`${global.apiUrl}/tags`);
+    const productTags = response.data.data;
+    return productTags;
+}
+
 export async function createConsignment(designerId, categoryId, itemName, sellingPrice, 
                                         itemCondition, itemConditionDescription, itemWidth, itemHeight,
                                         itemPhoto1, itemPhoto2, itemPhoto3, itemPhoto4,

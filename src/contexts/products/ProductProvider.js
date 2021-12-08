@@ -2,50 +2,34 @@ import React, {useEffect, useState} from "react";
 import ProductContext from "./ProductContext";
 
 import {
-    getAllProducts
+    getAllProducts,
+    getProductCategories,
+    getProductDesigners,
+    getProductTags,
 } from '../../services/products';
 
 export default function ProductProvider(props) {
 
-    // const [products, setProducts] = useState([
-    //     {
-    //       id: 1,
-    //       designer: "Dior1",
-    //       name: "Diorissimo Canvas and Leather Mini Saddle Shoulder Bag",
-    //       price: "3,500",
-    //       retail_price: "3,500",
-    //       condition: "Used like new"
-    //     },
-    //     {
-    //         id: 2,
-    //         designer: "Dior2",
-    //         name: "Diorissimo Canvas and Leather Mini Saddle Shoulder Bag",
-    //         price: "4,500",
-    //         retail_price: "4,500",
-    //         condition: "new with tag"
-    //     },
-    //     {
-    //         id: 3,
-    //         designer: "Dior3",
-    //         name: "Diorissimo Canvas and Leather Mini Saddle Shoulder Bag",
-    //         price: "5,500",
-    //         retail_price: "5,500",
-    //         condition: "Used twice"
-    //     },
-    //     {
-    //         id: 4,
-    //         designer: "Dior4",
-    //         name: "Diorissimo Canvas and Leather Mini Saddle Shoulder Bag",
-    //         price: "6,500",
-    //         retail_price: "6,500",
-    //         condition: "Used like new"
-    //     }
-    // ]);
+    const [categories, setCategories] = useState([]);
+    const [designers, setDesigners] = useState([]);
+    const [tags, setTags] = useState([]);
     const [products, setProducts] = useState([]);
     const [searchCriteria, setSearchCriteria] = useState()
     const [loaded, setLoaded] = useState(false)
 
     const context = {
+
+        getCategories: () => {
+            return categories;
+        },
+
+        getDesigners: () => {
+            return designers;
+        },
+
+        getTags: () => {
+            return tags;
+        },
 
         // retrieve all the products
         getProducts: () => {
@@ -57,10 +41,12 @@ export default function ProductProvider(props) {
             return products.filter( p => p.id === parseInt(selectedProductID))[0] 
         },
 
+        // return the search criteria from state variable
         getSearchCriteria: () => {
             return searchCriteria;
         },
 
+        // update the search criteria in state variable
         updateSearchCriteria: (searchText) => {
             setSearchCriteria(searchText);
             setLoaded(false);
@@ -70,9 +56,17 @@ export default function ProductProvider(props) {
     useEffect(() => {
 
         const loadData = async() => {
-            console.log("Loading product list for search criteria: ", searchCriteria)
-            const products = await getAllProducts(searchCriteria);
-            setProducts(products);
+            const retrievedProducts = await getAllProducts(searchCriteria);
+            setProducts(retrievedProducts);
+
+            const retrievedCategories = await getProductCategories();
+            setCategories(retrievedCategories);
+
+            const retrievedDesigners = await getProductDesigners();
+            setDesigners(retrievedDesigners);
+
+            const retrievedTags = await getProductTags();
+            setTags(retrievedTags);
 
             setLoaded(true);
         }
