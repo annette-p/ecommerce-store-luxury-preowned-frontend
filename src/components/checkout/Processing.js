@@ -16,9 +16,6 @@ export default function Processing(){
         const performCheckout = async() => {
             if (userContext.isAuthenticated()) {
                 const stripeCheckoutToken = await cartContext.initiateCheckout();
-
-                console.log("performCheckout() in useEffect() of Processing component.. ", stripeCheckoutToken)
-
                 // Ref: https://stackoverflow.com/a/60112617
                 const stripePromise = loadStripe(stripeCheckoutToken.publishableKey);
                 const stripe = await stripePromise;

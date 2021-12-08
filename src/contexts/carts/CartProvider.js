@@ -6,6 +6,7 @@ import {
     checkout,
     getCartId,
     getCartItems,
+    removeCartId,
     updateCartItemQuantity
 } from '../../services/cart';
 
@@ -76,6 +77,10 @@ export default function CartProvider(props) {
             } catch(_err) {
                 return false;
             }
+        },
+
+        removeCart: () => {
+            removeCartId();
         },
 
         updateCartQuantity: async (productId, newQuantity) => {
