@@ -45,12 +45,14 @@ export default function ShopCarousel(){
                                     <button type="button" className="btn btn-secondary left-align small-btn">Shop Limited Edition<span className="fw-bold gold-color">&nbsp; &gt;&gt;</span></button>
                                 </div>
                                 <div className="col-md-6 col-lg-12 margin-bottom left-margin">
-                                    <a href="/consignment" 
-                                        className="btn btn-secondary left-align carousel-sell-btn small-btn">
-                                        Sell with Us
-                                        <span className="sell-btn fw-bold gold-color">&nbsp; &gt;&gt;
-                                        </span>
-                                    </a>
+                                    <Link to="/consignment" className="no-underline">
+                                        <button type="button" 
+                                            className="btn btn-secondary left-align carousel-sell-btn small-btn">
+                                            Sell with Us
+                                            <span className="sell-btn fw-bold gold-color">&nbsp; &gt;&gt;
+                                            </span>
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         </Carousel.Caption>
