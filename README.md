@@ -76,3 +76,60 @@ See [attached document](docs/testing-manual-project3.pdf) for more details on ea
 |**Admin (staff)**|<ul><li>To manage and perform order (purchase and consignment) processing as flowless as possible<li>To manage product and listing on the site</ul>|<ul><li>Need the order flow correctly with less complication or unnecessary step to perform their task or reducing efficiently in managing orders and products.</ul>|
 
 
+## Structure
+
+### Site Map
+
+Refer to [PDF file](docs/site-map.pdf) for the site map. 
+
+This site has achieved within 3 click checkout experience for user
+
+### Wireframe
+
+Refer to [PDF file](docs/wireframe.pdf) for the wireframe for the following:
+* Home page 
+* Landing page
+* Listing page
+* Product page
+* Shopping cart page
+* Profile page
+
+### Surface Plane
+
+#### Responsiveness
+
+This website is responsive to small, medium and large screen sizes. It is a mobile first approach application. And it is single page application.
+
+#### Colours
+
+Refer to attached PDF files for more details.
+* [deep-grey-gold.pdf](docs/deep-grey-gold.pdf)
+* [grey-gold-orange.pdf](docs/grey-gold-orange.pdf)
+
+**Combination of beige grey, deep grey and shade of gold:** use this theme combination for the site surface plane including the brand logo to represent mood and tone for the platform.
+
+Gold represents luxury, extravagance, wealth, riches, and excess. Gold is a warm colour that can be either bright and cheerful or sober and traditional. It shares several of the same attributes of the yellow and brown which is associated with illumination, love, compassion, courage, passion, magic, and wisdom
+
+While grey represents luxury, calm, neutrality and balance. Grey has a very soothing and cooling presence.
+
+This is an eCommerce platform for luxury resales hence, the combination serves the purpose of platform mood and tone.
+
+#### Typography
+
+Using **google font**:
+* Montserrat, sans-serif: for h1, h2, h3, h4, h5 and h6
+* Open Sans, sans-serif: for a tag and p tag
+
+**Montserrat** is widely used for products such as bags. It is simple geometric letters which make the design appealing and have a large X-height. It provides the vibes of trust and can go best with maximum fonts. The font has a charming tale, features friendly and open curves. This makes for a more natural reading rhythm more commonly found in humanist and serif types.
+
+**Open Sans** is widely used in high end stores. It was designed with an upright stress, open forms, and a neutral, yet friendly appearance. It was optimized for print, web, and mobile interfaces, and has excellent legibility characteristics in its letterforms.
+
+#### Layout
+
+**Collapsible Tab** is used to make sure the site and other sections on the page can be viewed unobstructed across devices of all sizes and user can hide and show the search options as desired.
+
+**Stackable column** is applied to smaller screen size for better UX and readability.
+
+**Offcanvas** toggle from right side of the page is use for shopping cart to maintain same product page when user click on shopping cart to view cart details and perform check out. This is to improve UX of the product, shopping cart and checkout process.
+
+**Popup modal** is used for login, account sign up and some other pop up information to provide users with info without leaving their current page. So, there will be no page change when user need to perform login or even quick account signup with conveniently just click on cross to close the modal pop up.
