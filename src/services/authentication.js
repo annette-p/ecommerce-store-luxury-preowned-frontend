@@ -51,6 +51,7 @@ export async function authenticateUser(username, password) {
             return false
         }
     } catch(err) {
+        console.log("ERROR in service/authentication.js authenticateUser(): ", err);
         throw err;
     }
 }
@@ -98,6 +99,7 @@ export async function createNewUserProfile(firstname, username, password, email)
             return false
         }
     } catch(err) {
+        console.log("ERROR in service/authentication.js createNewUserProfile(): ", err);
         throw err;
     }
 }

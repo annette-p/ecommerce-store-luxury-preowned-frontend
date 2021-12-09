@@ -12,7 +12,6 @@ export default function ProductPage() {
     useEffect(() => {
         const fetchProduct = (id) => {
             let selectedProduct = context.getProductByID(id);
-            console.log(selectedProduct)
             setProduct(selectedProduct);
         }
         fetchProduct(productId);

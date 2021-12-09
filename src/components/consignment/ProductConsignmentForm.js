@@ -128,7 +128,6 @@ export default function ProductConsignmentForm(){
                                                 frontImage, backImage, cornerImage, insideImage, labelImage, labelImage, serialImage, tagImage, receiptImage)
                 setSuccessFormSubmission(true)
             } catch(_err) {
-                console.log(_err)
                 setSuccessFormSubmission(false)
             }
         }

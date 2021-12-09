@@ -93,7 +93,7 @@ export async function addItemToCart(productId, quantity) {
             return newCartId;
         }
     } catch(err) {
-        console.log(err)
+        console.log("ERROR in service/carts.js addItemToCart(): ", err);
         throw err;
     }
 
@@ -113,7 +113,7 @@ export async function updateCartItemQuantity(productId, newQuantity) {
             await axios.put(`${global.apiUrl}/carts/${cartId}/update/${productId}`, cartData, headers);
             return true
         } catch(err) {
-            console.log(err)
+            console.log("ERROR in service/carts.js updateCartItemQuantity(): ", err);
             throw err;
         }
     } else {
@@ -129,9 +129,8 @@ export async function takeOwnershipOfCart() {
     if (cartId) {
         try {
             await axios.put(`${global.apiUrl}/carts/${cartId}/own`, {}, headers);
-            // /carts/35/own
         } catch(err) {
-            console.log(err);
+            console.log("ERROR in service/carts.js getCartIdForUser(): ", err);
             throw err;;
         }
     }
@@ -150,7 +149,7 @@ export async function getCartIdForUser() {
             }
             
         } catch(err) {
-            console.log(err);
+            console.log("ERROR in service/carts.js getCartIdForUser(): ", err);
             if (err.response.status !== 404) {
                 throw err;
             }
@@ -161,11 +160,9 @@ export async function getCartIdForUser() {
 
 export async function checkout() {
     let cartId = getCartId();
-    console.log("In checkout(), content of cartId: ", cartId)
     if (cartId) {
         try {
             const refreshToken = getRefreshToken();
-            console.log("In checkout(), content of refreshToken: ", refreshToken)
             if (refreshToken) {
                 const headers = await generateHttpAuthzHeader(refreshToken);
                 const checkoutData = {
@@ -181,14 +178,13 @@ export async function checkout() {
                         "publishableKey": ***
                     }
                 */
-               console.log(`Stripe checkout session for cart id ${cartId}: `, response.data);
                 return response.data;
             } else {
                 return null;
             }
             
         } catch(err) {
-            console.log(err);
+            console.log("ERROR in service/carts.js checkout(): ", err);
             throw err;
         }
     }
