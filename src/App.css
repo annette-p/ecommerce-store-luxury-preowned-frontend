@@ -317,7 +317,7 @@ a {
     overflow-x: hidden; /* Hide horizontal scrollbar  */
     overflow-y: scroll; /* Add vertical scrollbar */
     display: flex;
-    height: 62vh;
+    height: 51vh;
 }
 
 .additional-img-div {
@@ -363,7 +363,7 @@ a {
 
 .quantity-control-sec {
     margin-left: 150px;
-    margin-top: -130px;
+    /* margin-top: -130px; */
 }
 
 .trash-icon {
@@ -785,6 +785,13 @@ a {
         padding-top: 3px;
     }
 
+    .vertical-scrollbar {
+        overflow-x: hidden; /* Hide horizontal scrollbar  */
+        overflow-y: scroll; /* Add vertical scrollbar */
+        display: flex;
+        height: 69vh;
+    }
+
     /* ...................... Authentication page ...................... */
 
     #vdo {
@@ -856,7 +863,7 @@ a {
     .quantity-control-sec {
         /* margin-left: 100px; */
         margin-left: 160px;
-        margin-top: -240px;
+        /* margin-top: -240px; */
     }
 
     /* ...................... checkout page ...................... */
@@ -1177,7 +1184,7 @@ a {
     .quantity-control-sec {
         /* margin-left: 100px; */
         margin-left: 160px;
-        margin-top: -180px;
+        /* margin-top: -180px; */
     }
 
     /* ...................... checkout page ...................... */

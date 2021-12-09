@@ -56,7 +56,8 @@ export default function CartItems(){
                         
                         return (
                             item.product ? 
-                                <div className="row">
+                            <div className="container">
+                                <div className="row pb-4">
                                     {/* product image */}
                                     <div className="col">
                                         <img className="product-img-cart"
@@ -74,6 +75,8 @@ export default function CartItems(){
                                         <div><span className="fw-bold">Condition: </span>{item.product.condition}</div>
                                         <div className="fw-bold">S${item.product.selling_price}</div>
                                     </div>
+                                </div>
+                                <div class="row">
                                     {/* Quantity Control Section */}
                                     <div className="col-12 mb-1">
                                         <form className="d-flex quantity-control-sec">
@@ -89,8 +92,10 @@ export default function CartItems(){
                                         </form> 
                                         <hr className="mt-3"></hr>
                                     </div>
-                                    {/* <hr className="white-hr"></hr> */}
                                 </div>
+                                    {/* <hr className="white-hr"></hr> */}
+                                
+                            </div>
                             : null
                             
                         )
