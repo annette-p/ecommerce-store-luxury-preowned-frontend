@@ -17,9 +17,15 @@ export default function Footer(){
                 </div>
                 <div className="col mb-3">
                     <h5 className="mt-3">Sell</h5>
-                    <div className="pt-2">How to sell</div>
-                    <div>Selling advice</div>
-                    <div>Start selling</div> 
+                    <Link to="/consignment" className="no-underline">
+                        <div className="pt-2">How to sell</div>
+                    </Link>
+                    <Link to="/consignment" className="no-underline">
+                        <div>Selling advice</div>
+                    </Link>
+                    <Link to="/consignment" className="no-underline">
+                        <div>Start selling</div> 
+                    </Link>
                 </div>
                 <div className="col mb-3">
                     <h5 className="mt-3">Help</h5>

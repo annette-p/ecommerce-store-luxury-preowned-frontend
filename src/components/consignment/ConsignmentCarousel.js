@@ -19,7 +19,7 @@ export default function ConsignmentCarousel(){
                             {/* button */}
                             <div className="ms-4 me-4 mb-2 mb-lg-4">
                                 <div className="d-grid gap-2">
-                                    <button className="btn btn-outline-secondary white-font fw-bold" type="button">Get Initial Evaluation NOW</button>
+                                    <button className="btn btn-secondary white-font fw-bold" type="button">Get Initial Evaluation BELOW</button>
                                 </div>
                             </div>
                         </Carousel.Caption>
@@ -67,7 +67,7 @@ export default function ConsignmentCarousel(){
                             {/* button */}
                             <div className="ms-4 me-4 mb-2 mb-4">
                                 <div className="d-grid gap-2">
-                                    <button className="btn btn-outline-secondary white-font fw-bold" type="button">See the Payout Scheme</button>
+                                    <button className="btn btn-secondary white-font fw-bold" type="button">See the Payout Scheme BELOW</button>
                                 </div>
                             </div>
                         </Carousel.Caption>
