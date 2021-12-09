@@ -48,3 +48,31 @@ Provide secured platform for consumer to purchase and sell their authentic luxur
 |**Deletion of the account and the listing**|▪ Customers can delete their account anytime when they decided not to use the platform for any reason.|▪ The account will be removed from the platform DB, no record of customer will be kept on the platform (old orders will be re-assigned to fake users account for business audit trail purpose) <br>▪ The data provided for the reason to leave the platform will be collected and stored separately for future revision.|
 
 See [attached document](docs/testing-manual-project3.pdf) for more details on each product features.
+
+## UX/UI
+
+### Strategy
+
+#### Users
+
+|Consumer Demographic|Characteristic behavioural|
+|---|---|
+|**Gen Z / Millennials**|<ul><li>High interest in collaboration pieces, <li>consider resale value when purchasing, <li>influence by sustainability (in trend but not practically into it), <li>high on social media interaction, <li>shift spending from traditional luxury to premium luxury</ul>|
+|**Gen X**|<ul><li>Interest in traditional luxury</ul>|
+|**True-luxury consumers**|Status seeker, fashionista, Rich up-starter, absolute luxurer, social wearer (majority are millennial tribe) <ul><li>Seeking extravagance <li>Runway collections <li>New creativity ((new wave luxury value) <li>Very high interest in limited edition and rate items<ul>|
+
+
+|Users||
+|---|---|
+|**Customer (buy)**|<p>Customers (Gen Z, millennials, Gen X, true-luxury consumers) who buy the authentic luxury products on the platform</p><p>individual customers who are looking to buy trusted, authentic resale luxury products online, who need assuring and guarantee the authenticity of the products their purchased.</p>|
+|**Customer (consign)**|<p>Customers (Gen Z, millennials, Gen X, true-luxury consumers) who are looking to sell their authentic luxury products on the platform</p><p>Individual customers who are looking for trusted site to sell their authentic items online with less effort, has transparency to trace the status and what’s going on with their consignment.</o>|
+
+### User needs and pain points
+
+||Needs|Pain Points|
+|---|---|---|
+|**Customer (buy)**|<ul><li>Looking for vintage, limited edition, rare items that are not easily available on retail.<li>Looking to purchase on trusted, reliable source of authentic luxury products <li>Need affordable authentic luxury items <li>Transparency on the price, authenticity with guarantee <li>Need federated login ties to their social media account as they are super high on social media interaction</ul>|<ul><li>Rare items, limited edition or vintage pieces are hard to come by<li>Unsure of the authenticity of the product purchase (be it online of in store) unless purchase directly from the actual brand store which is the first- hand item. <li>Need to manage several login accounts for different website instead of just using their social media to login as user authentication|
+|**Customer (sell)**|<ul><li>To sell their authentic luxury items with no effort (to either their wardrobe, financing new luxury items of desired, to recycle or change a new in trend luxury item)<li>Need to sell on legitimated and trusted site.<li>Transparent process, can track the status an know what’s going on with the process.<li>Need federated login ties to their social media account as they are super high on social media interaction<ul>|<ul><li>The selling process are too complicated and no transparency <li>Afraid of being switch from the authentic products to counterfeit from the store (untrusted site) <li>Need to manage several login accounts for different website instead of just using their social media to login as user authentication </ul>|
+|**Admin (staff)**|<ul><li>To manage and perform order (purchase and consignment) processing as flowless as possible<li>To manage product and listing on the site</ul>|<ul><li>Need the order flow correctly with less complication or unnecessary step to perform their task or reducing efficiently in managing orders and products.</ul>|
+
+
