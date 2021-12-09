@@ -31,7 +31,7 @@ Luxury Pre-owned is a resale luxury eCommerce stores that sell top edged consume
 |**Company**|Owner|• Operate eCommerce store, consign-sell luxury products, made most process happen online and automated as much as possible. <br>• Promote circular fashion through shop, sell, repeat. <br>• Provide channels for consumer to purchase trusted, reliable source of authentic luxury products. <br>• Provide channels to accommodate seller who want to sell their luxury products. <br>• Channels to gather feedback data and collect user transaction data for future business expansion|
 |**Company**|Admin|• To management and perform order processing <br>• To manage product listing and recording|
 |**Customers**|Buyer|• To buy authentic resale luxury products online at convenience. <br>• Needed trusted and reliable since there are many counterfeit products out there. To reduce a risk of buying unauthentic items. <br>• Need transparency and reasonable price as per market trend. <br>• Purchase a rare, limited edition and vintage items that hard to come by and easily available in the market.|
-|**Customers**|Owner|• Looking for trusted site/brand to sell or consign their authentic luxury products. <br>• Want to finance new luxury purchases and empty the wardrobe <br>• To get ride of items that are no longer in trendy anymore|
+|**Customers**|Seller (consignment)|• Looking for trusted site/brand to sell or consign their authentic luxury products. <br>• Want to finance new luxury purchases and empty the wardrobe <br>• To get rid of items that are no longer in trendy anymore|
 
 ### Product Goal
 
