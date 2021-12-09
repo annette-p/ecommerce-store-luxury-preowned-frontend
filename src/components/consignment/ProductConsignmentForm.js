@@ -222,9 +222,12 @@ export default function ProductConsignmentForm(){
                         <div className="mb-3 fw-bold">
                             <label for="exampleFormControlInput1" className="form-label">
                                 Which condition is your item in? 
-                                <span className="ms-3 fst-italic text-decoration-underline" href="">
+                                {/* <span className="ms-3 fst-italic text-decoration-underline" href="">
                                     See condition guide here
-                                </span>
+                                </span> */}
+                                <a className="ms-3 fst-italic text-decoration-underline" href="/condition-guide" target="_blank">
+                                    See condition guide here
+                                </a>
                             </label>
                             <select className="form-select" name="condition" value={condition} onChange={(e)=>{setCondition(e.target.value)}}>
                                 <option selected value=""> ------ Select item's condition  ------ </option>
