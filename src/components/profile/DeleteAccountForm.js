@@ -1,16 +1,45 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useHistory, useRouteMatch } from 'react-router-dom';
+import emailjs from 'emailjs-com';  // initialize EmailJS
+
+import UserProfileContext from '../../contexts/profile/UserProfileContext';
+
 
 export default function DeleteAccountForm(){
+
+    // EmailJS config
+    const emailUserId = process.env.REACT_APP_EMAILJS_USER_ID
+    const emailServiceId = process.env.REACT_APP_EMAILJS_SERVICE_ID
+    const emailTemplateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID
+    emailjs.init(emailUserId);
 
     const history = useHistory();
     let { url } = useRouteMatch();
 
+    const [firstName, setFirstName] = useState();
     const [deleteReason, setDeleteReason] = useState();
     const [specifyDeleteReason, setSpecifyDeleteReason] = useState();
     const [currentPassword, setCurrentPassword] = useState();
+    const [errors, setErrors] = useState({});
+    const [loaded, setLoaded] = useState(false)
     const [deleteAccountFailed, setDeleteAccountFailed] = useState(false);
     const [deleteAccountSuccess, setDeleteAccountSuccess] = useState(false);
+
+    const userContext = useContext(UserProfileContext);
+
+    // to display the form with existing infomation frm the shared state in contex
+    useEffect(() => {
+
+        const fetchUserProfile = async () => {
+            if (!loaded) {
+                let retrievedUserProfile = await userContext.getUserProfile();
+                setFirstName(retrievedUserProfile.firstname);
+                setLoaded(true);
+            }
+        }
+        fetchUserProfile();
+
+    }, [loaded, deleteAccountFailed, userContext]) 
 
     function cancelDeletion() {
         history.push("/");
@@ -20,49 +49,55 @@ export default function DeleteAccountForm(){
     // -- to take customer name from session storage to display on the deletion form message **
 
     // function to perform form validation (password authentication, reason and specify reason)
+    function validateForm() {
+        let errors = {}
+        let formIsValid = true
+
+        if (!deleteReason) {
+            formIsValid = false
+            errors["deleteReason"] = "Please specify why you want to delete this account"
+        }
+
+        if (deleteReason === "other" && !specifyDeleteReason) {
+            formIsValid = false
+            errors["specifyDeleteReason"] = "Please specify why you want to delete this account"
+        }
+
+        if (!currentPassword) {
+            formIsValid = false
+            errors["currentPassword"] = "Please enter your password"
+        }
+
+        setErrors(errors);
+
+        return formIsValid
+    }
 
 
     // function to delete account -- to add logic to delete account in db
-    function deleteAccount() {
-        // assume success
-        setDeleteAccountFailed(false)
-        setDeleteAccountSuccess(true)
+    async function deleteAccount() {
+        if (validateForm()) {
+            try {
+                const accountDeleteStatus = await userContext.deleteUserAccount(currentPassword);
+                if (accountDeleteStatus) {
 
-        // --- for reference ----
-        // deleteFreelancer = async () => {
-        //     if (this.validateDeleteAccountForm()) {
-        //         let freelancerToDelete = this.state._id
-        //         let deleteAccountFailed = false
-        //         let deleteAccountSuccess = false
-    
-        //         let data = {
-        //             "password": this.state.currentPassword,
-        //             "reasonToLeave": this.state.reasonToDelete,
-        //             "additionalInfo": this.state.specifyDeleteReason
-        //         }
-    
-        //         await axios.delete(`${this.apiUrl}/freelancer/${freelancerToDelete}`, {data: data})
-        //         .then( async (result) => {
-        //             deleteAccountSuccess = true
-        //             sessionStorage.removeItem("authenticatedUser")
+                    // send feedback via EmailJS
+                    let feedback = {
+                        feedback: deleteReason === "other" ? `Others: ${specifyDeleteReason}` : deleteReason
+                    }
+                    await emailjs.send(emailServiceId, emailTemplateId, feedback, emailUserId);
+
+                    setDeleteAccountSuccess(true);
+                    history.push(`${url}/completed`);
+                    
+                } else {
+                    setDeleteAccountFailed(true); 
+                }
+            } catch(_err) {
+                setDeleteAccountFailed(true); 
+            }
+        }
         
-        //             setTimeout(this.props.afterUpdateFreelancerProfile, 5000);
-        //         })
-        //         .catch( (e) => {
-        //             deleteAccountFailed = true
-        //         })
-    
-        //         this.setState({
-        //             deleteAccountFailed: deleteAccountFailed,
-        //             deleteAccountSuccess: deleteAccountSuccess, 
-        //             currentPassword: "",
-        //             reasonToDelete: "",
-        //             specifyDeleteReason: ""
-        //         })
-        //     }
-        // }
-
-        history.push(`${url}/completed`);
     }
 
     function renderDeleteAccountForm() {
@@ -71,7 +106,7 @@ export default function DeleteAccountForm(){
 
                 <div className="card v-light-grey-bg ms-4 delete-acct-div">
                     <div className="card-body">
-                        <p className="mt-3">Dear <span className="fw-bold">name</span></p>
+                        <p className="mt-3">Dear <span className="fw-bold">{firstName}</span></p>
                         <p>We are sorry to hear that you would like to delete your account.</p>
                         <p className="fw-bold mt-3">Are you sure you want to proceed?</p>
                         <p>
@@ -88,14 +123,14 @@ export default function DeleteAccountForm(){
                                 <div className="mt-0 mt-md-4">
                                     <select className="form-select" name="deleteReason" value={deleteReason} onChange={(e) => {setDeleteReason(e.target.value)}} >
                                         <option value=""> ----- Select One ----- </option>
-                                        <option value="second-account">Create second account</option>
-                                        <option value="remove-data">Want to remove something</option>
-                                        <option value="data-privacy">Concerned about my data</option>
-                                        <option value="privacy">Privacy concerns</option>
-                                        <option value="navigation">Trouble nagivating platform</option>
+                                        <option value="Create second account">Create second account</option>
+                                        <option value="Want to remove something">Want to remove something</option>
+                                        <option value="Concerned about my data">Concerned about my data</option>
+                                        <option value="Privacy concerns">Privacy concerns</option>
+                                        <option value="Trouble nagivating platform">Trouble nagivating platform</option>
                                         <option value="other">Something else</option>
                                     </select>
-                                    <div className="error-msg"></div>
+                                    <div className="error-msg">{errors.deleteReason}</div>
                                 </div>
                             </div>
                         </div>
@@ -107,9 +142,9 @@ export default function DeleteAccountForm(){
                                 <p className="mt-3 fw-bold">To continue, please re-enter your password</p>
                             </div>
                             <div className="col-sm-12 col-md-7 mt-0 mt-md-2">
-                                <input className="form-control" type="text" name="currentPassword"  value={currentPassword} 
+                                <input className="form-control" type="password" name="currentPassword"  value={currentPassword} 
                                 onChange={(e) => {setCurrentPassword(e.target.value)}}/>
-                                <div className="error-msg"></div>
+                                <div className="error-msg">{errors.currentPassword}</div>
                             </div>
                         </div>
                         {/* buttons */}
@@ -147,7 +182,7 @@ export default function DeleteAccountForm(){
                         value={specifyDeleteReason} 
                         onChange={(e) => {setSpecifyDeleteReason(e.target.value)}}
                         />
-                        <div className="error-msg"></div>
+                        <div className="error-msg">{errors.specifyDeleteReason}</div>
                     </div>
                 </div>
 

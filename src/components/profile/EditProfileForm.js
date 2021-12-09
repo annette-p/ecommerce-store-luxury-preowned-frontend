@@ -22,9 +22,7 @@ export default function EditProfileForm(){
     useEffect(() => {
 
         const fetchUserProfile = async () => {
-            console.log("executing fetchUserProfile()...")
             let retrievedUserProfile = await userContext.getUserProfile();
-            console.log(retrievedUserProfile)
             setFirstName(retrievedUserProfile.firstname);
             setLastName(retrievedUserProfile.lastname);
             // setEmail(retrievedUserProfile.email)

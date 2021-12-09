@@ -10,6 +10,7 @@ import {
 } from '../../services/authentication';
 
 import {
+    deleteUserAccount,
     getUserInfo,
     getUserInfoFromLocalStorage,
     updateUserInfo
@@ -141,6 +142,22 @@ export default function UserProfileProvider(props) {
             try {
                 let changePasswordSuccess = await changeUserPassword(currentPassword, newPassword);
                 return changePasswordSuccess;
+            } catch(_err) {
+                return false;
+            }
+        },
+
+        deleteUserAccount: async(currentPassword) => {
+            try {
+                let deleteAccountSuccess = await deleteUserAccount(currentPassword);
+                if (deleteAccountSuccess) {
+                    invalidateUserAuthentication();
+                    removeCartId();
+                    setIsAuthenticated(false);
+                    return true;
+                } else {
+                    return false;
+                }
             } catch(_err) {
                 return false;
             }

@@ -30,3 +30,20 @@ export async function updateUserInfo(firstName, lastName, shippingAdress) {
 export function getUserInfoFromLocalStorage() {
     return JSON.parse(localStorage.getItem("authenticatedUser"));
 }
+
+export async function deleteUserAccount(currentPassword) {
+    try {
+
+        const refreshToken = getRefreshToken();
+        const headers = await generateHttpAuthzHeader(refreshToken);
+        const userInfo = {
+            password: currentPassword
+        }
+        // Ref https://stackoverflow.com/a/56210828
+        await axios.delete(`${global.apiUrl}/users/delete`, { ...headers, data: userInfo});
+        return true;
+    } catch(err) {
+        console.log("ERROR in service/users.js deleteUserAccount(): ", err)
+        throw err
+    }
+}
