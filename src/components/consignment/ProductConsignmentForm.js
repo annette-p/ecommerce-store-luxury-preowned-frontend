@@ -104,15 +104,15 @@ export default function ProductConsignmentForm(){
             errors["serialImage"] = "Please provide the serial number image for the item"
         }
 
-        if (!tagImage) {
-            formIsValid = false
-            errors["tagImage"] = "Please provide the tag image for the item"
-        }
+        // if (!tagImage) {
+        //     formIsValid = false
+        //     errors["tagImage"] = "Please provide the tag image for the item"
+        // }
 
-        if (!receiptImage) {
-            formIsValid = false
-            errors["receiptImage"] = "Please provide the receipt image for the item"
-        }
+        // if (!receiptImage) {
+        //     formIsValid = false
+        //     errors["receiptImage"] = "Please provide the receipt image for the item"
+        // }
 
         setErrors(errors);
 
