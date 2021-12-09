@@ -11,6 +11,7 @@ export default function OrderDetails(){
     useEffect(() => {
         const fetchPurchaseOrder = (id) => {
             let retrievedPurchasedOrder = context.getPurchaseOrderById(id); 
+            console.log(`Retrieved order for id ${id}: `, retrievedPurchasedOrder)
             setOrder(retrievedPurchasedOrder);
         }
         fetchPurchaseOrder(order_id);
@@ -22,16 +23,20 @@ export default function OrderDetails(){
                 (<div className="row mt-4 mb-3 mb-lg-0">
                     <div className="col-6 col-lg-3 light-grey-hover">
                         <div className="fw-bold">Shipping Information</div>
-                        <div className="mt-2">
-                            {order.shipping_name} - {order.delivery_tracking}
-                        </div>
+                        {order.orderShipment[0] && 
+                            <div className="mt-2">
+                                {order.orderShipment[0].shipment_provider} - {order.orderShipment[0].tracking_number}
+                            </div>
+                        }
                     </div>
                     <div className="col-6 mb-3 mb-lg-0 col-lg-3 light-grey-hover">
                         <div className="fw-bold">Delivery Address</div>
                         <div className="mt-2">{order.customer_name}</div>
-                        <div>
-                            {order.delivery_address}
-                        </div>
+                        {order.orderShipment[0] && 
+                            <div>
+                                {order.orderShipment[0].shipping_address}
+                            </div>
+                        }
                     </div>
                     <div className="col-6 col-lg-3 light-grey-hover">
                         <div className="fw-bold center-lg">Payment Method</div>
@@ -46,40 +51,28 @@ export default function OrderDetails(){
                     <div className="row mt-3">
                         <div className="fw-bold">Product Details</div>
                     </div>
-                    <div className="row mt-3">
-                        <div className="col-3 col-lg-1 mb-4">
-                            <img className="product-img-profile"
-                            src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
-                            alt="product"/>
-                            {/* ---linkable to product page--- */}
-                        </div>
-                        <div className="col-9 col-lg-11 light-grey-hover mb-4">
-                            {/* ---linkable to product page--- */}
-                            <div className="ms-2 fw-bold">{order.designer}</div>
-                            <div className="ms-2">{order.name}</div>
-                            <div className="ms-2"><span className="fw-bold">Condition: </span>{order.condition}</div>
-                            <div className="ms-2 fw-bold">$S {order.price}<span className="ms-1 fw-normal">x {order.quantity}</span></div>
-                            <div className="ms-2 fw-bold">Total: <span className="ms-1 fw-normal orange-text">$S {order.total}</span></div>
-                        </div>
-
-                        {/* ----- it must display all products in this same prder (e.g of total orders 3 items, here to display all 3) */}
-                        <div className="col-3 col-lg-1">
-                            <img className="product-img-profile"
-                            src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
-                            alt="product"/>
-                            {/* ---linkable to product page--- */}
-                        </div>
-                        <div className="col-9 col-lg-11 light-grey-hover">
-                            {/* ---linkable to product page--- */}
-                            <div className="ms-2 fw-bold">{order.designer}</div>
-                            <div className="ms-2">{order.name}</div>
-                            <div className="ms-2"><span className="fw-bold">Condition: </span>Used like new</div>
-                            <div className="ms-2 fw-bold">$S 3,500 <span className="ms-1 fw-normal">x1</span></div>
-                            <div className="ms-2 fw-bold">Total: <span className="ms-1 fw-normal orange-text">$S 3,500</span></div>
-                        </div>
-                    
-                    </div>
-
+                    {/* <div className="row mt-3"> */}
+                        {order.products && order.products.map( product => {
+                            return (
+                                <div className="row mt-3">
+                                    <div className="col-3 col-lg-1 mb-4">
+                                        <img className="product-img-profile"
+                                        src={product.product_image_1}
+                                        alt="product"/>
+                                        {/* ---linkable to product page--- */}
+                                    </div>
+                                    <div className="col-9 col-lg-11 light-grey-hover mb-4">
+                                        {/* ---linkable to product page--- */}
+                                        <div className="ms-2 fw-bold">{product.designer.name}</div>
+                                        <div className="ms-2">{product.name}</div>
+                                        <div className="ms-2"><span className="fw-bold">Condition: </span>{product.condition}</div>
+                                        <div className="ms-2 fw-bold">$S {product["_pivot_unit_price"]}<span className="ms-1 fw-normal">x {product["_pivot_quantity"]}</span></div>
+                                        <div className="ms-2 fw-bold">Total: <span className="ms-1 fw-normal orange-text">S${(product["_pivot_unit_price"] * product["_pivot_quantity"] / 100).toFixed(2)}</span></div>
+                                    </div>
+                                </div>
+                            )
+                            
+                        })}
                 </div>) 
             : null}
             

@@ -9,21 +9,58 @@ export default function OrderSummary(){
     const {order_status} = useParams();
     let { url } = useRouteMatch();
     const [ purchaseOrders, setPurchaseOrders ] = useState();
-    const context = useContext(UserProfileContext);
+    // const [loaded, setLoaded] = useState(false);
+    const userContext = useContext(UserProfileContext);
 
     useEffect(() => {
-        const fetchPurchaseOrders = (status) => {
+        const fetchPurchaseOrders = async (status) => {
+
+            console.log("fetchPurchaseOrders() status: ", status)
+            /*
+                The list of valid order statuses are:
+                [
+                    "New",
+                    "Processing",
+                    "Shipment",
+                    "Completed",
+                    "Cancelled",
+                    "Refund"
+                ]
+
+                The order status tabs on the frontend UI are:
+                * To Delivery    (uri /deliver)
+                * To Receive     (uri /receive)
+                * Completed      (uri /completed)
+                * Cancelled      (uri /cancelled)
+                * Return Refund  (uri /refund)
+            */
             let orderStatus;
             switch(status) {
-                case "deliver": orderStatus="new"; break;
-                case "receive": orderStatus="delivery"; break;
-                default: orderStatus=status; 
+                case "deliver": 
+                    orderStatus=["New", "Processing"]; 
+                    break;
+                case "receive": 
+                    orderStatus=["Shipment"]; 
+                    break;
+                case "completed":
+                    orderStatus=["Completed"]; 
+                    break;
+                case "cancelled":
+                    orderStatus=["Cancelled"]; 
+                    break;
+                case "refund":
+                    orderStatus=["Refund"]; 
+                    break;
+                default: 
+                    orderStatus=[status]; 
             }
-            let retrievedPurchasedOrders = context.getPurchaseOrdersByStatus(orderStatus);  
+            let retrievedPurchasedOrders = await userContext.getPurchaseOrdersByStatus(orderStatus);
+            console.log("retrievedPurchasedOrders: ", retrievedPurchasedOrders);
             setPurchaseOrders(retrievedPurchasedOrders);
+            
         }
         fetchPurchaseOrders(order_status);
-    }, [context, order_status]) 
+    }, [userContext, order_status]) 
 
 
     return (
@@ -33,23 +70,29 @@ export default function OrderSummary(){
                 purchaseOrders.map(order => {
                     return (
                         <Link to={`${url}/${order.id}/order-details`} className="no-underline">
-                            <div className="row mt-4">
-                                {/* product image */}
-                                <div className="col-3 col-lg-1">
-                                    <img className="product-img-profile"
-                                    src={require('../../images/product/dior-mini-saddle-shoulder.jpg').default}
-                                    alt="product"/>
+                            {order.products[0] && 
+                                <div className="row mt-4">
+                                    {/* product image */}
+                                    <div className="col-3 col-lg-1">
+                                        <img className="product-img-profile"
+                                        src={order.products[0].product_image_1}
+                                        alt="product"/>
+                                    </div>
+                                    {/* product description */}
+                                    <div className="col-9 col-lg-11">
+                                        <div className="ms-2 fw-bold">{order.products[0].designer.name}</div>
+                                        <div className="ms-2">{order.products[0].name}</div>
+                                        <div className="ms-2"><span className="fw-bold">Condition: </span>{order.products[0].condition}</div>
+                                        <div className="ms-2 fw-bold">
+                                            Order Total: <span className="ms-1 fw-normal orange-text">S${(order.payment_amount / 100).toFixed(2)}</span>
+                                            {/* Formula to use reduce() to calculate total */}
+                                            {/* Ref: https://stackoverflow.com/a/16751601 */}
+                                            <span className="ms-3 fw-normal">({order.products.reduce( (partial_total, a) => partial_total + a['_pivot_quantity'], 0)} items)</span>
+                                        </div>
+                                    </div>
+                                    <hr className="mt-3"></hr>
                                 </div>
-                                {/* product description */}
-                                <div className="col-9 col-lg-11">
-                                    <div className="ms-2 fw-bold">{order.designer}</div>
-                                    <div className="ms-2">{order.name}</div>
-                                    <div className="ms-2"><span className="fw-bold">Condition: </span>{order.condition}</div>
-                                    <div className="ms-2 fw-bold">$S {order.price}<span className="ms-1 fw-normal">x {order.quantity}</span></div>
-                                    <div className="ms-2 fw-bold">Order Total: <span className="ms-1 fw-normal orange-text">$S {order.total}</span><span className="ms-3 fw-normal">({order.total_quantity} items)</span></div>
-                                </div>
-                                <hr className="mt-3"></hr>
-                            </div>
+                            }
                         </Link> 
                     )
                 })
