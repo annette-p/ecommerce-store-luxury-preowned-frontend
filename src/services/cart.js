@@ -150,9 +150,9 @@ export async function getCartIdForUser() {
             
         } catch(err) {
             console.log("ERROR in service/carts.js getCartIdForUser(): ", err);
-            if (err.response.status !== 404) {
-                throw err;
-            }
+            // if (err.response.status !== 404) {
+            //     throw err;
+            // }
         }
     }
     

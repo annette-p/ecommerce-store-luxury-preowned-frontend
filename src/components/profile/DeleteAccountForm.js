@@ -82,10 +82,12 @@ export default function DeleteAccountForm(){
                 if (accountDeleteStatus) {
 
                     // send feedback via EmailJS
-                    let feedback = {
-                        feedback: deleteReason === "other" ? `Others: ${specifyDeleteReason}` : deleteReason
+                    let emailContent = {
+                        subject: "Account Deletion Feedback",
+                        body: "Customer decided to delete the account due to: ",
+                        content: deleteReason === "other" ? `Others: ${specifyDeleteReason}` : deleteReason
                     }
-                    await emailjs.send(emailServiceId, emailTemplateId, feedback, emailUserId);
+                    await emailjs.send(emailServiceId, emailTemplateId, emailContent, emailUserId);
 
                     setDeleteAccountSuccess(true);
                     history.push(`${url}/completed`);
