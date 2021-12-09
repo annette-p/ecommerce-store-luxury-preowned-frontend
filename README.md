@@ -133,3 +133,37 @@ Using **google font**:
 **Offcanvas** toggle from right side of the page is use for shopping cart to maintain same product page when user click on shopping cart to view cart details and perform check out. This is to improve UX of the product, shopping cart and checkout process.
 
 **Popup modal** is used for login, account sign up and some other pop up information to provide users with info without leaving their current page. So, there will be no page change when user need to perform login or even quick account signup with conveniently just click on cross to close the modal pop up.
+
+## Technologies Used
+
+### Frontend
+
+| Technology | Description |
+|---|---|
+| **HTML 5** | To structure the content of the website. |
+| **CSS** | To add stylistic touches to the website. |
+| **Bootstrap 5.1** | To structure the layout of the website (i.e., cards, modal, interactive container, column) and ensure website is mobile responsiveness.|
+| **React Bootstrap v2.0.0 (Bootstrap 5.1)** | To use Navbar, collapse tools, collapse bar & tab, offcanvas that compatible with react framework. |
+| **GoogleFonts** | To style the typography on the website to enhance the visual experience of users. |
+| **FontAwesome** | Uses the icons provided by FontAwesome to enhance the user experience by making user interaction with the application more intuitive. |
+| **React Framework** | To create component-based interactive UIs. |
+| **Email JS** | To securely send email from Javascript. In this contact, mainly use to receive appointment request for product consignment, new service testing hypothesis, feedback from user submission through this eCommerce application. |
+
+### Admin Site
+
+| Technology | Description |
+|---|---|
+| **Node.js / Express framework** | Backend web application framework for Node.js to build web applications |
+| **Express Handlebars (HBS)** | <p>A templating engine to render web pages to the client side from data on the server-side, used with express as the hbs module. </p><p>It ensures minimum templating and is a logicless engine that keeps the view and the code separated.</p> |
+| **Caolan form** | To create, parse and validate forms in node |
+| **Cloudinary** | For end-to-end image- and video-management solution from image and video uploads, storage, manipulations, optimizations to delivery. |
+
+### API & DB
+
+| Technology | |
+|---|---|
+| **Node.js / Express framework** | Backend web application framework for Node.js to build web applications and APIs. To connect the react frontend to MySQL / PostgreSQL. |
+| **MySQL / PostgreSQL**| Oen-source relational database management system |
+| **ORM, database migrations, Bookshelf** | <p>Bookshelf is a JavaScript ORM for Node. js, built on the Knex SQL query builder. It features both Promise-based and traditional callback interfaces, transaction support, eager/nested-eager relation loading, polymorphic associations, and support for one-to-one, one-to-many, and many-to-many relations.</p><p>It is a simple library for common tasks when querying databases in JavaScript, and forming relations between these objects, taking a lot of ideas from the Data Mapper Pattern.</p>|
+| **Stripe payment** | Payment processing software and application programming interfaces for e- commerce websites and mobile applications, supporting the electronic transfer of money from a customer's bank (issuing bank) into a merchant's bank (acquiring bank) as payment for goods or services bought with a credit card. |
+
