@@ -44,9 +44,6 @@ export default function DeleteAccountForm(){
     function cancelDeletion() {
         history.push("/");
     }
-    
-
-    // -- to take customer name from session storage to display on the deletion form message **
 
     // function to perform form validation (password authentication, reason and specify reason)
     function validateForm() {
