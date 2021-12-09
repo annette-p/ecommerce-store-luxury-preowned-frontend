@@ -19,10 +19,8 @@ export async function getOrdersOfUser() {
     try {
         const refreshToken = getRefreshToken();
         const headers = await generateHttpAuthzHeader(refreshToken);
-        console.log("getOrdersOfUser() - headers: ", headers)
         let userOrdersResult = await axios.get(`${global.apiUrl}/orders`, headers);
         const userOrders = userOrdersResult.data.data;
-        console.log("getOrdersOfUser() - userOrders: ", userOrders)
         return userOrders;
     } catch(err) {
         console.log("ERROR in service/orders.js getOrders(): ", err)
@@ -34,10 +32,8 @@ export async function getConsignmentsOfUser() {
     try {
         const refreshToken = getRefreshToken();
         const headers = await generateHttpAuthzHeader(refreshToken);
-        console.log("getConsignmentsOfUser() - headers: ", headers)
         let userConsignmentsResult = await axios.get(`${global.apiUrl}/consignments`, headers);
         const userConsignments = userConsignmentsResult.data.data;
-        console.log("getConsignmentsOfUser() - userConsignments: ", userConsignments)
         return userConsignments;
     } catch(err) {
         console.log("ERROR in service/orders.js getConsignments(): ", err)

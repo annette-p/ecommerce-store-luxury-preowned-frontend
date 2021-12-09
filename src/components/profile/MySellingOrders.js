@@ -42,22 +42,6 @@ export default function MySellingOrders(){
                         <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                             <Switch>
-                                {/* <Route  path={`${url}/progress`}>
-                                    <ConsignmentOrderSummary/>
-                                </Route>
-                                <Route  path={`${url}/listing`}>
-                                    <ConsignmentOrderNone/>  
-                                </Route>
-                                <Route  path={`${url}/completed`}>
-                                    <ConsignmentOrderNone/>  
-                                </Route>
-                                <Route  path={`${url}/cancelled`}>
-                                    <ConsignmentOrderNone/>  
-                                </Route>
-                                <Route  path={`${url}/refund`}>
-                                    <ConsignmentOrderNone/>  
-                                </Route> */}
-
                                 <Route path={`${url}/:order_status/:order_id/order-details`}>
                                     <ConsignmentOrderDetails/>
                                 </Route>
@@ -65,8 +49,7 @@ export default function MySellingOrders(){
                                     <ConsignmentOrderSummary/>
                                 </Route>
                             </Switch> 
-                            
-                            
+
                         </div>
                     </div>
 

@@ -14,8 +14,6 @@ export default function OrderSummary(){
 
     useEffect(() => {
         const fetchPurchaseOrders = async (status) => {
-
-            console.log("fetchPurchaseOrders() status: ", status)
             /*
                 The list of valid order statuses are:
                 [
@@ -55,7 +53,6 @@ export default function OrderSummary(){
                     orderStatus=[status]; 
             }
             let retrievedPurchasedOrders = await userContext.getPurchaseOrdersByStatus(orderStatus);
-            console.log("retrievedPurchasedOrders: ", retrievedPurchasedOrders);
             setPurchaseOrders(retrievedPurchasedOrders);
             
         }
@@ -69,7 +66,7 @@ export default function OrderSummary(){
             {purchaseOrders && purchaseOrders.length > 0 ? 
                 purchaseOrders.map(order => {
                     return (
-                        <Link to={`${url}/${order.id}/order-details`} className="no-underline">
+                        <Link to={`${url}/${order.id}/order-details`} key={`orderId_${order.id}`} className="no-underline">
                             {order.products[0] && 
                                 <div className="row mt-4">
                                     {/* product image */}

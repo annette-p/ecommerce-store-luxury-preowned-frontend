@@ -11,7 +11,6 @@ export default function OrderDetails(){
     useEffect(() => {
         const fetchPurchaseOrder = (id) => {
             let retrievedPurchasedOrder = context.getPurchaseOrderById(id); 
-            console.log(`Retrieved order for id ${id}: `, retrievedPurchasedOrder)
             setOrder(retrievedPurchasedOrder);
         }
         fetchPurchaseOrder(order_id);
