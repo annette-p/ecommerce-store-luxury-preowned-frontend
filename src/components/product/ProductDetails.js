@@ -6,7 +6,6 @@ import SellWithUs from './SellWithUs'
 // import CheckoutPage from '../../pages/CheckoutPage' // to remove later
 
 import CartContext from '../../contexts/carts/CartContext';
-import UserProfileContext from '../../contexts/profile/UserProfileContext';
 
 
 export default function ProductDetails({product}){
@@ -26,7 +25,6 @@ export default function ProductDetails({product}){
     const handleShow = () => setShow(true);
 
     const cartContext = useContext(CartContext);
-    const userContext = useContext(UserProfileContext);
 
     useEffect(() => {
         setCarouselImg(product[images[0]])

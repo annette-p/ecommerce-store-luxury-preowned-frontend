@@ -28,7 +28,7 @@ export default function CheckoutPage({ ...props }){
             setLoaded(true);
         }
         performCheckout()
-    }, [loaded, userContext])
+    }, [loaded, history, userContext])
     
     return (
         <React.Fragment>
