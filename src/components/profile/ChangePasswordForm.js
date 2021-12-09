@@ -1,23 +1,57 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+
+import UserProfileContext from '../../contexts/profile/UserProfileContext';
 
 export default function ChangePasswordForm(){
 
     const [currentPassword, setCurrentPassword] = useState();
     const [newPassword, setNewPassword] = useState();
     const [confirmPassword, setConfirmPassword] = useState();
+    const [errors, setErrors] = useState({})
     const [changePasswordSuccess, setChangePasswordSuccess] = useState(false);
     const [changePasswordFailed, setChangePasswordFailed] = useState(false);
-    
 
-    function changePassword() {
-        // assume success
-        console.log("currentPassword: ", currentPassword)
-        console.log("newPassword: ", newPassword)
-        setChangePasswordSuccess(true)
-        setChangePasswordFailed(false)
-        setCurrentPassword("")
-        setNewPassword("")
-        setConfirmPassword("")
+    const userContext = useContext(UserProfileContext);
+    
+    // Perform validation of form inputs
+    function validateForm() {
+        let errors = {}
+        let formIsValid = true
+
+        if (!currentPassword) {
+            formIsValid = false
+            errors["currentPassword"] = "Please enter your current password"
+        }
+
+        if (!newPassword) {
+            formIsValid = false
+            errors["newPassword"] = "Please enter your preferred new password"
+        }
+
+        if (!confirmPassword) {
+            formIsValid = false
+            errors["confirmPassword"] = "Please re-enter your preferred new password"
+        }
+
+        if (newPassword && confirmPassword && newPassword !== confirmPassword) {
+            formIsValid = false
+            errors["confirmPassword"] = "Does not match with the preferred new password"
+        }
+
+        setErrors(errors);
+
+        return formIsValid;
+    }
+
+    async function changePassword() {
+        if (validateForm()) {
+            const changePasswordSuccess = await userContext.changeUserPassword(currentPassword, newPassword);
+            if (changePasswordSuccess) {
+                setChangePasswordSuccess(true);
+            } else {
+                setChangePasswordFailed(true);
+            }
+        }
     }
 
     function renderChangePasswordForm() {
@@ -27,18 +61,21 @@ export default function ChangePasswordForm(){
                     <div className="card-body">
                         {/* password */}
                         <div className="mt-4">
-                            <input className="form-control" type="text" placeholder="Current Password" name="currentPassword"  value={currentPassword} 
+                            <input className="form-control" type="password" placeholder="Current Password" name="currentPassword"  value={currentPassword} 
                             onChange={(e) => {setCurrentPassword(e.target.value)}}/>
+                            <div className="error-msg">{errors.currentPassword}</div>
                         </div>
                         {/* new password */}
                         <div className="mt-4">
-                            <input className="form-control" type="text" placeholder="New Password" name="newPassword"  value={newPassword} 
+                            <input className="form-control" type="password" placeholder="New Password" name="newPassword"  value={newPassword} 
                             onChange={(e) => {setNewPassword(e.target.value)}}/>
+                            <div className="error-msg">{errors.newPassword}</div>
                         </div>
                         {/* confirm new password */}
                         <div className="mt-4">
-                            <input className="form-control" type="text" placeholder="Confirm New Password" name="confirmPassword"  value={confirmPassword} 
+                            <input className="form-control" type="password" placeholder="Confirm New Password" name="confirmPassword"  value={confirmPassword} 
                             onChange={(e) => {setConfirmPassword(e.target.value)}}/>
+                            <div className="error-msg">{errors.confirmPassword}</div>
                         </div>
                         {/* button */}
                         <div className="mt-4">

@@ -3,6 +3,7 @@ import UserProfileContext from "./UserProfileContext";
 
 import { 
     authenticateUser,
+    changeUserPassword,
     createNewUserProfile,
     getRefreshToken,
     invalidateUserAuthentication
@@ -128,8 +129,21 @@ export default function UserProfileProvider(props) {
         },
 
         createUserProfile: async (firstname, username, password, email) => {
-            let signupSuccess = await createNewUserProfile(firstname, username, password, email);
-            return signupSuccess;
+            try {
+                let signupSuccess = await createNewUserProfile(firstname, username, password, email);
+                return signupSuccess;
+            } catch(_err) {
+                return false
+            }
+        },
+
+        changeUserPassword: async(currentPassword, newPassword) => {
+            try {
+                let changePasswordSuccess = await changeUserPassword(currentPassword, newPassword);
+                return changePasswordSuccess;
+            } catch(_err) {
+                return false;
+            }
         },
 
         // function to allow edit and update profile 

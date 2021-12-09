@@ -145,3 +145,19 @@ export async function generateHttpAuthzHeader(refreshToken) {
         return null;
     }
 }
+
+export async function changeUserPassword(currentPassword, newPassword) {
+    try {
+        const refreshToken = getRefreshToken();
+        const headers = await generateHttpAuthzHeader(refreshToken);
+        const updatedUserInfo = {
+            current_password: currentPassword,
+            new_password: newPassword
+        }
+        await axios.put(`${global.apiUrl}/users/change-password`, updatedUserInfo, headers);
+        return true;
+    } catch(err) {
+        console.log("ERROR in service/autentication.js changeUserPassword(): ", err)
+        throw err
+    }
+}
