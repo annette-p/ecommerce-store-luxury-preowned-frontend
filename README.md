@@ -167,3 +167,117 @@ Using **google font**:
 | **ORM, database migrations, Bookshelf** | <p>Bookshelf is a JavaScript ORM for Node. js, built on the Knex SQL query builder. It features both Promise-based and traditional callback interfaces, transaction support, eager/nested-eager relation loading, polymorphic associations, and support for one-to-one, one-to-many, and many-to-many relations.</p><p>It is a simple library for common tasks when querying databases in JavaScript, and forming relations between these objects, taking a lot of ideas from the Data Mapper Pattern.</p>|
 | **Stripe payment** | Payment processing software and application programming interfaces for e- commerce websites and mobile applications, supporting the electronic transfer of money from a customer's bank (issuing bank) into a merchant's bank (acquiring bank) as payment for goods or services bought with a credit card. |
 
+## Logical Schema
+
+![Logical Schema](docs/logical-schema.png)
+
+## Software Application Development
+
+Here are some test cases of some features available on this application as to demonstration.
+
+### User Story, Test Case and Acceptance Criteria
+
+Refer to [PDF file](docs/test-case-acceptance-criteria.pdf).
+
+### Testing
+
+Refer to the [attach](docs/testing-manual-project3.pdf) for step-by-step instructions for the following:
+
+* Listing
+* Search and Filter
+* Product details
+* Shopping cart
+* Checkout (stripe)
+* Login
+* Account registration
+* Profile management
+  * Dashboard
+  * Purchase orders
+  * Consignment orders 
+  * Account setting
+    * Editprofile
+    * Change password
+    * Delete account
+* Consignment
+  * Consignment form
+  * Virtual appointment form
+* Product authentication
+
+## Known bugs
+
+### Product inventory issue
+
+* After order completion, inventory is not updated
+
+### Shopping Cart
+
+* Vertical scroll always appears even though the cart items are not occupied full div
+
+## Future Development Features
+
+### Login
+
+* To implement registration confirmation via link sent to registered email address
+* To implement user/password reset (authentication through URL sent to registered email
+address)
+* Implement federated login (Gmail, Facebook, Instagram, Tiktok).
+* Implement option to "remember me" log in and option to allow user to login every time
+accessing the page without remember me.
+
+### Profile
+
+* To implement change email under account management page
+* Implement force re-login after changing password and trigger email notification informing password has been change
+
+### Product
+
+* Implement the alert message box when customer view the product that has quantity of 1, to courage them to make a purchase.
+
+### Shopping cart
+
+* Toimplementemailautomatedtoabandonshoppingcarttocourageandremindcustomers of their items in the cart to complete the order (to increase sales transaction to company)
+
+### Consignment
+
+* Implement photo upload (improve from existing version that using image URL) in React frontend.
+* Implement new order creation in HBS side for admin processing after first appointment assessment made from virtual appointment
+
+### Admin portal
+
+* Implement search features in admin portal
+
+### New Services
+
+* Implement email JS integration for feedback form, new services such as instalment plan, VIP plan to gather and test hypothesis and market need. 
+* Implement sharable post via social media 
+* Chatbot
+
+## References
+
+* Device simulator application
+  * http://www.responsinator.com/
+* Colourschemesgenerator
+  * https://coolors.co/
+* Images are from:
+  * https://www.gucci.com/us/en/
+  * https://ap.louisvuitton.com/eng-sg/
+  * https://www.balenciaga.com/en-sg
+  * https://www.hermes.com/sg/en/
+  * https://www.celine.com/en-gb/home
+  * https://www.dior.com
+  * https://www.dolcegabbana.com/
+  * https://www.chanel.com/sg/
+  * https://www.alexandermcqueen.com/
+  * https://www.alexanderwang.com/
+  * https://www.fendi.com/
+  * http://asia.christianlouboutin.com/
+  * https://www.miumiu.com/sg
+  * https://www.phillips.com
+  * https://www.prada.com/
+  * https://www.rolex.com/
+  * https://www.ysl.com/en-sg
+  * https://www.valentino.com/
+  * https://www.versace.com/
+* VDO from:
+  * https://www.fashionphile.com
+  * https://www.aucshow.net/assets/frontend/global/img/Processing.gif
