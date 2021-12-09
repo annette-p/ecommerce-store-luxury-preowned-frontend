@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Luxury Preowned Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Demo
 
-## Available Scripts
+A live website of the application can be found here:
 
-In the project directory, you can run:
+* **Frontend** (React framework): https://reverent-pasteur-680936.netlify.app
+* **Admin** (node.js/Express, HBS): https://annette-p-luxury-preowned-adm.herokuapp.com
+* **Backend** (node.js/Express, MySQL, Postgresql): https://annette-p-luxury-preowned-api.herokuapp.com
 
-### `npm start`
+Setup instructions: [Frontend](DEVELOPMENT.md) | [Admin](https://github.com/annette-p/ecommerce-store-luxury-preowned-admin/blob/main/docs/DEVELOPMENT.md) | [Backend](https://github.com/annette-p/ecommerce-store-luxury-preowned-backend/blob/main/docs/DEVELOPMENT.md)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Luxury Resale Market Analysis
 
-### `npm test`
+Click [here](docs/luxury-resales-market-analysis-report.pdf) to view the report
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Executive Summary
 
-### `npm run build`
+### Company and Product summary
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Luxury Pre-owned is a resale luxury eCommerce stores that sell top edged consumer products and allow consignment of luxury consumer products through platform, promote sustainable luxury through circular fashion (shop, sell and repeat) and help reduce waste in fashion industry.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Company and User Goal
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+|   |Key stakeholders|Goals|
+|---|---|---|
+|**Company**|Owner|• Operate eCommerce store, consign-sell luxury products, made most process happen online and automated as much as possible. <br>• Promote circular fashion through shop, sell, repeat. <br>• Provide channels for consumer to purchase trusted, reliable source of authentic luxury products. <br>• Provide channels to accommodate seller who want to sell their luxury products. <br>• Channels to gather feedback data and collect user transaction data for future business expansion|
+|**Company**|Admin|• To management and perform order processing <br>• To manage product listing and recording|
+|**Customers**|Buyer|• To buy authentic resale luxury products online at convenience. <br>• Needed trusted and reliable since there are many counterfeit products out there. To reduce a risk of buying unauthentic items. <br>• Need transparency and reasonable price as per market trend. <br>• Purchase a rare, limited edition and vintage items that hard to come by and easily available in the market.|
+|**Company**|Owner|• Looking for trusted site/brand to sell or consign their authentic luxury products. <br>• Want to finance new luxury purchases and empty the wardrobe <br>• To get ride of items that are no longer in trendy anymore|
 
-### `npm run eject`
+### Product Goal
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Provide secured platform for consumer to purchase and sell their authentic luxury consumer products, made the process transparent and visible to them. Ability to view their order transactions, history and as well as manage their account.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Product & Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+|Features|Benefits to Users|Benefits to Company|
+|---|---|---|
+|**Listing**|▪ List of all products on the first page of the site application <br><ul><li>Display the image with function to hover image changes, provide quick views and idea how it looks like when using the products <li>Name if the brand or designer display o Details of the products <li>Price <li>Estimate retail price</ul><br>▪ Ability to click on any area of the product to view more details about that respective product <br>▪ Login is not required makes it easy for customers who just new to the page and has yet to have account to explore the product and the site around|• |
+|**Product details**|▪Details of the products <br>▪ Ability to add to cart and to perform quick checkout to complete the payment ▪Collapse and expandable of the product information such as description, specification, condition and etc
+▪Option to sell the same product if customer
+who are viewing the page is having the
+similar products.
+▪Indication of the product being
+authenticated and the return/refund are
+allowed.
+▪Login is not required makes it easy for
+customers who just new to the page and has yet to have account to explore the product and the site around|• |
+|**Company**| |• |
+|**Company**| |• |
+|**Company**| |• |
