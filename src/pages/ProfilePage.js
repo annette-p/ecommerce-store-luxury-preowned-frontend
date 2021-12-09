@@ -41,9 +41,6 @@ export default function ProfilePage(){
                         <div className="btn white-font">My Selling</div>
                     </div>
                 </Link>
-                <div className="mt-3 col-hover">
-                    <div className="btn white-font">Order History</div>
-                </div>
                 <Link to={`${url}/account-settings`}>
                     <div className="mt-3 col-hover">
                         <div className="btn white-font">Account Settings</div>

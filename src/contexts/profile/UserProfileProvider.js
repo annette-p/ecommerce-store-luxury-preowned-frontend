@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import UserProfileContext from "./UserProfileContext";
 
 import { 
@@ -20,132 +20,146 @@ import {
     removeCartId
 } from '../../services/cart';
 
+import {
+    // getListOfValidOrderStatuses,
+    // getListOfValidConsignmentStatuses,
+    getConsignmentsOfUser,
+    getOrdersOfUser
+} from '../../services/orders';
+
 export default function UserProfileProvider(props) {
 
-    const [purchaseOrders, setPurchaseOrders] = useState([
-        {
-          id: 1,
-          designer: "Dior1",
-          name: "Diorissimo Canvas and Leather Mini Saddle Shoulder Bag",
-          condition: "Used like new",
-          price: "3,500",
-          quantity: "1",
-          total: "3,500",
-          total_quantity: "1",
-          status: "new",
-          shipping_name: "NA",
-          delivery_tracking: "NA",
-          delivery_address: "80 Marine Parade Rd, Singapore 449269",
-          customer_name: "Jenny Doe"
-        },
-        {
-            id: 2,
-            designer: "Dior2",
-            name: "Diorissimo Canvas and Leather Mini Saddle Shoulder Bag2",
-            condition: "New with tag",
-            price: "4,500",
-            quantity: "2",
-            total: "9,000",
-            total_quantity: "2",
-            status: "delivery",
-            shipping_name: "FedEx",
-            delivery_tracking: "XY99999888888",
-            delivery_address: "80 Marine Parade Rd, Singapore 449269",
-            customer_name: "James Daniel"
-        },
-        {
-            id: 3,
-            designer: "Dior3",
-            name: "Diorissimo Canvas and Leather Mini Saddle Shoulder Bag",
-            condition: "Worn twice",
-            price: "5,500",
-            quantity: "3",
-            total: "16,500",
-            total_quantity: "3",
-            status: "completed",
-            shipping_name: "FedEx",
-            delivery_tracking: "MT5555555555555",
-            delivery_address: "80 Marine Parade Rd, Singapore 449269",
-            customer_name: "Tony Jaa"
-        },
-    ]);
+    // const [purchaseOrders, setPurchaseOrders] = useState([
+    //     {
+    //       id: 1,
+    //       designer: "Dior1",
+    //       name: "Diorissimo Canvas and Leather Mini Saddle Shoulder Bag",
+    //       condition: "Used like new",
+    //       price: "3,500",
+    //       quantity: "1",
+    //       total: "3,500",
+    //       total_quantity: "1",
+    //       status: "new",
+    //       shipping_name: "NA",
+    //       delivery_tracking: "NA",
+    //       delivery_address: "80 Marine Parade Rd, Singapore 449269",
+    //       customer_name: "Jenny Doe"
+    //     },
+    //     {
+    //         id: 2,
+    //         designer: "Dior2",
+    //         name: "Diorissimo Canvas and Leather Mini Saddle Shoulder Bag2",
+    //         condition: "New with tag",
+    //         price: "4,500",
+    //         quantity: "2",
+    //         total: "9,000",
+    //         total_quantity: "2",
+    //         status: "delivery",
+    //         shipping_name: "FedEx",
+    //         delivery_tracking: "XY99999888888",
+    //         delivery_address: "80 Marine Parade Rd, Singapore 449269",
+    //         customer_name: "James Daniel"
+    //     },
+    //     {
+    //         id: 3,
+    //         designer: "Dior3",
+    //         name: "Diorissimo Canvas and Leather Mini Saddle Shoulder Bag",
+    //         condition: "Worn twice",
+    //         price: "5,500",
+    //         quantity: "3",
+    //         total: "16,500",
+    //         total_quantity: "3",
+    //         status: "completed",
+    //         shipping_name: "FedEx",
+    //         delivery_tracking: "MT5555555555555",
+    //         delivery_address: "80 Marine Parade Rd, Singapore 449269",
+    //         customer_name: "Tony Jaa"
+    //     },
+    // ]);
 
-    const [sellingOrders, setSellingOrders] = useState([
-        {
-          id: 1,
-          order_no: "CLP00099998885555671",
-          designer: "YSL",
-          name: "Red Leather Mini Shoulder Bag",
-          condition: "Used like new",
-          quantity: "1",
-          extected_price: "3,500",
-          status: "pending initial evaluation"
-        },
-        {
-            id: 2,
-            order_no: "CLP0009999888888888",
-            designer: "Dolce Cabana",
-            name: "Blue Leather Tole Bag",
-            condition: "New with tag",
-            quantity: "1",
-            extected_price: "2,500",
-            status: "Pending official evaluation",
-            delivery_tracking: "XY99999888888"
-        },
-        {
-            id: 3,
-            order_no: "CLP00099995555555555",
-            designer: "Gucci",
-            name: "Baby Pink Side Bag",
-            condition: "Vintage",
-            quantity: "1",
-            extected_price: "5,500",
-            status: "Cancelled",
-            status_comment: "xxxxxxxxxxxxx"
-        },
-    ]);
+    // const [sellingOrders, setSellingOrders] = useState([
+    //     {
+    //       id: 1,
+    //       order_no: "CLP00099998885555671",
+    //       designer: "YSL",
+    //       name: "Red Leather Mini Shoulder Bag",
+    //       condition: "Used like new",
+    //       quantity: "1",
+    //       extected_price: "3,500",
+    //       status: "pending initial evaluation"
+    //     },
+    //     {
+    //         id: 2,
+    //         order_no: "CLP0009999888888888",
+    //         designer: "Dolce Cabana",
+    //         name: "Blue Leather Tole Bag",
+    //         condition: "New with tag",
+    //         quantity: "1",
+    //         extected_price: "2,500",
+    //         status: "Pending official evaluation",
+    //         delivery_tracking: "XY99999888888"
+    //     },
+    //     {
+    //         id: 3,
+    //         order_no: "CLP00099995555555555",
+    //         designer: "Gucci",
+    //         name: "Baby Pink Side Bag",
+    //         condition: "Vintage",
+    //         quantity: "1",
+    //         extected_price: "5,500",
+    //         status: "Cancelled",
+    //         status_comment: "xxxxxxxxxxxxx"
+    //     },
+    // ]);
 
-    // eslint-disable-next-line 
-    const [user, setUser] = useState(null);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [consignments, setConsigments] = useState([])
+    const [orders, setOrders] = useState([]);
+    // const [consignmentStatuses, setConsignmentStatuses] = useState([])
+    // const [orderStatuses, setOrderStatuses] = useState([])
+    const [loaded, setLoaded] = useState(false);
 
     const context = {
 
+        // // retrieve the list of valid order statuses
+        // getPurchaseOrderStatuses: () => {
+        //     return orderStatuses;
+        // },
+
         // retrieve all purchase orders of that authenticated user
         getPurchaseOrders:() => {
-            return purchaseOrders;
+            return orders;
         },
 
         getPurchaseOrderById: (id) => {
-            return purchaseOrders.filter( p => p.id === parseInt(id))[0]
+            return orders.find( p => p.id === parseInt(id))
         },
 
         getPurchaseOrdersByStatus: (selectedStatus) => {
-            return purchaseOrders.filter( p => p.status === selectedStatus)
-        },
-
-        testOrder: () => {
-            setPurchaseOrders(purchaseOrders)
+            return orders.filter( p => selectedStatus.includes(p.status) )
         },
 
 
         // .................................................................... //
 
+        // // retrieve list of valid consignment statuses
+        // getSellingOrderStatuses: () => {
+        //     return consignmentStatuses;
+        // },
+
         // retrieve all consignment orders of that authenticated user 
         getSellingOrders:() => {
-            return sellingOrders;
+            return consignments;
         },
 
         getSellingOrderById: (id) => {
-            return sellingOrders.filter( s => s.id === parseInt(id))[0]
+            return consignments.find( s => s.id === parseInt(id))
         },
 
         // *** to fix -- for several pending status such as pending initial evaliation, pending official evaluation status which is be displayed under "in progress" tap  >> currently only display 1 status only
         getSellingOrdersByStatus: (selectedStatus) => {
-            return sellingOrders.filter( s => s.status.toLowerCase() === selectedStatus.toLowerCase())
-        },
-
-        testSellingOrder: () => {
-            setSellingOrders(sellingOrders)
+            console.log(selectedStatus)
+            return consignments.filter( s => s.status.toLowerCase() === selectedStatus.toLowerCase())
         },
 
 
@@ -167,10 +181,8 @@ export default function UserProfileProvider(props) {
         loginUser: async (username, password) => {
             let loginSuccess = await authenticateUser(username, password);
             if (loginSuccess) {
-                // if authentication is successful, keep a copy of the user info from the window local storage and save in the
-                // React Context state. The main purpose is to leverage "useEffect" to re-render components when the Context state
-                // changes.
-                setUser(JSON.parse(localStorage.getItem("authenticatedUser")));
+                // The main purpose is to leverage "useEffect" to re-render components when the Context state changes.
+                setIsAuthenticated(true);
 
                 // take ownership of cart (if any)
                 await takeOwnershipOfCart()
@@ -183,16 +195,15 @@ export default function UserProfileProvider(props) {
 
         // Perform logout of user by invalidating the window local storage, as well as the React Context state.
         logoutUser: () => {
+            setIsAuthenticated(false);
             invalidateUserAuthentication();
             removeCartId();
-            setUser(null);
         },
 
         // Retrieve all details about that authenticated user profile
         getUserProfile: async () => {
             // return user.info;
             let retrievedUserInfo = await getUserInfo();
-            // setUser(retrievedUserInfo);
             return retrievedUserInfo;
         },
 
@@ -217,7 +228,6 @@ export default function UserProfileProvider(props) {
                 }
 
                 localStorage.setItem("authenticatedUser", JSON.stringify(authenticatedUserInfo));
-                setUser(authenticatedUserInfo);
                 return true;
             } else {
                 return false;
@@ -226,6 +236,35 @@ export default function UserProfileProvider(props) {
         }
 
     }
+
+    useEffect(() => {
+
+        const loadData = async() => {
+            if (!loaded) {
+                if (getUserInfoFromLocalStorage()) {
+                    setIsAuthenticated(true);
+                } else {
+                    setIsAuthenticated(false);
+                }
+    
+                const retrievedOrders = await getOrdersOfUser();
+                setOrders(retrievedOrders);
+    
+                const retrievedConsignments = await getConsignmentsOfUser();
+                setConsigments(retrievedConsignments);
+    
+                // const retrievedOrderStatuses = await getListOfValidOrderStatuses();
+                // setOrderStatuses(retrievedOrderStatuses);
+    
+                // const retrievedConsignmentStatuses = await getListOfValidConsignmentStatuses();
+                // setConsignmentStatuses(retrievedConsignmentStatuses);
+    
+                setLoaded(true);
+            }
+        }
+        loadData();
+
+    }, [loaded, isAuthenticated, orders, consignments])
 
     return (
         <UserProfileContext.Provider value={context}>
