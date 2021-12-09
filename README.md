@@ -1,6 +1,6 @@
 # Luxury Preowned Platform
 
-# Demo
+## Demo
 
 A live website of the application can be found here:
 
@@ -8,8 +8,11 @@ A live website of the application can be found here:
 * **Admin** (node.js/Express, HBS): https://annette-p-luxury-preowned-adm.herokuapp.com
 * **Backend** (node.js/Express, MySQL, Postgresql): https://annette-p-luxury-preowned-api.herokuapp.com
 
-Setup instructions: [Frontend](DEVELOPMENT.md) | [Admin](https://github.com/annette-p/ecommerce-store-luxury-preowned-admin/blob/main/docs/DEVELOPMENT.md) | [Backend](https://github.com/annette-p/ecommerce-store-luxury-preowned-backend/blob/main/docs/DEVELOPMENT.md)
+Setup instructions: [Frontend](docs/DEVELOPMENT.md) | [Admin](https://github.com/annette-p/ecommerce-store-luxury-preowned-admin/blob/main/docs/DEVELOPMENT.md) | [Backend](https://github.com/annette-p/ecommerce-store-luxury-preowned-backend/blob/main/docs/DEVELOPMENT.md)
 
+## Full Report for Project
+
+Click [here](docs/project-report-luxury-preowned.pdf) for the full report of this project.
 
 ## Luxury Resale Market Analysis
 
