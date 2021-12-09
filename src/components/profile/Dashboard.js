@@ -1,10 +1,32 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+
+import UserProfileContext from '../../contexts/profile/UserProfileContext';
 
 export default function Dashboard(){
+
+    const [firstName, setFirstName] = useState();
+    const [loaded, setLoaded] = useState(false)
+
+    const userContext = useContext(UserProfileContext);
+
+    // to display the form with existing infomation frm the shared state in contex
+    useEffect(() => {
+
+        const fetchUserProfile = async () => {
+            if (!loaded) {
+                let retrievedUserProfile = await userContext.getUserProfile();
+                setFirstName(retrievedUserProfile.firstname);
+                setLoaded(true);
+            }
+        }
+        fetchUserProfile();
+
+    }, [loaded, userContext]) 
+
     return (
         <React.Fragment>
             <div className="row mt-4">
-                <h4 class="mt-3 mb-0 mb-md-4">Hello Name</h4>
+                <h4 class="mt-3 mb-0 mb-md-4">Hello {firstName}</h4>
                 <div class="d-none d-lg-block col-1 mt-4"></div>
                 <div class="col mt-4 ms-0 ms-lg-4">
                     <div class="card light-gold-bg dashboard-card">
