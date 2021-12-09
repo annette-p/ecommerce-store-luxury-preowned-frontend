@@ -16,12 +16,14 @@ export default function Processing(){
         const performCheckout = async() => {
             if (userContext.isAuthenticated()) {
                 const stripeCheckoutToken = await cartContext.initiateCheckout();
-                // Ref: https://stackoverflow.com/a/60112617
-                const stripePromise = loadStripe(stripeCheckoutToken.publishableKey);
-                const stripe = await stripePromise;
-                stripe.redirectToCheckout({
-                    sessionId: stripeCheckoutToken.sessionId
-                })
+                if (stripeCheckoutToken) {
+                    // Ref: https://stackoverflow.com/a/60112617
+                    const stripePromise = loadStripe(stripeCheckoutToken.publishableKey);
+                    const stripe = await stripePromise;
+                    stripe.redirectToCheckout({
+                        sessionId: stripeCheckoutToken.sessionId
+                    })
+                }
             }
             setLoaded(true);
         }

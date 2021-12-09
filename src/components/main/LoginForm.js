@@ -43,7 +43,8 @@ export default function LoginForm(){
                 await userContext.loginUser(username, password)
                 .then( authSuccess => {
                     if (authSuccess) {
-                        history.push("/");
+                        // history.push("/");
+                        history.goBack();
                     } else {
                         setLoginFailed(true)
                     }

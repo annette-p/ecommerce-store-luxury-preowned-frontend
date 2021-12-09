@@ -1,16 +1,34 @@
-import React from 'react'
+import React, {useContext, useEffect, useState} from 'react';
+import { useHistory } from 'react-router';
 import { BrowserRouter as Router, Switch, Route, useRouteMatch } from "react-router-dom";
 import Offcanvas from 'react-bootstrap/Offcanvas'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons'
-import Processing from '../components/checkout/Processing'
-import CheckoutSuccess from '../components/checkout/CheckoutSuccess'
-import CheckoutFail from '../components/checkout/CheckoutFail'
+import Processing from '../components/checkout/Processing';
+import CheckoutSuccess from '../components/checkout/CheckoutSuccess';
+import CheckoutFail from '../components/checkout/CheckoutFail';
+
+import UserProfileContext from '../contexts/profile/UserProfileContext';
 
 
 export default function CheckoutPage({ ...props }){
 
     let { url } = useRouteMatch();
+    const history = useHistory();
+
+    const [loaded, setLoaded] = useState(false);
+
+    const userContext = useContext(UserProfileContext);
+
+    useEffect(() => {
+        const performCheckout = async() => {
+            if (!userContext.isAuthenticated()) {
+                history.push("/login");
+            }
+            setLoaded(true);
+        }
+        performCheckout()
+    }, [loaded, userContext])
     
     return (
         <React.Fragment>

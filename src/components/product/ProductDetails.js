@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { useHistory } from 'react-router'
 import CartPage from '../../pages/CartPage'
 import ProductInfo from './ProductInfo'
 import SellWithUs from './SellWithUs'
 // import CheckoutPage from '../../pages/CheckoutPage' // to remove later
 
-import CartContext from '../../contexts/carts/CartContext'
+import CartContext from '../../contexts/carts/CartContext';
+import UserProfileContext from '../../contexts/profile/UserProfileContext';
 
 
 export default function ProductDetails({product}){
@@ -15,6 +17,8 @@ export default function ProductDetails({product}){
         'product_gallery_5', 'product_gallery_6', 'product_gallery_7', 'product_gallery_8'
     ]
 
+    const history = useHistory();
+
     const [carouselImg, setCarouselImg] = useState(product[images[0]])
     const [show, setShow] = useState(false);
     
@@ -22,17 +26,32 @@ export default function ProductDetails({product}){
     const handleShow = () => setShow(true);
 
     const cartContext = useContext(CartContext);
+    const userContext = useContext(UserProfileContext);
 
     useEffect(() => {
         setCarouselImg(product[images[0]])
         // eslint-disable-next-line
     }, [product]);
 
+    // add item to cart, and show cart details
     async function addItemToCart(productId) {
         try {
             let success = await cartContext.addProductToCart(productId, 1)
             if (success) {
                 handleShow()
+            }
+        } catch(err) {
+            console.log(err)
+        }
+    }
+
+    // add the item to cart, and proceed to checkout
+    async function buyNow(productId) {
+        try {
+            let success = await cartContext.addProductToCart(productId, 1)
+            if (success) {
+                // route to checkout page
+                history.push("/checkout");
             }
         } catch(err) {
             console.log(err)
@@ -83,7 +102,7 @@ export default function ProductDetails({product}){
                         {/* buttons */}
                         <div className="row mt-4">
                             <div className="d-grid gap-2 ms-2 ms-md-0">
-                                <button className="btn btn-secondary gold-hover" type="button">BUY NOW</button>
+                                <button className="btn btn-secondary gold-hover" type="button" onClick={() => buyNow(product.id)}>BUY NOW</button>
                                 <button className="btn btn-secondary gold-hover" type="button" onClick={() => addItemToCart(product.id)}>ADD TO CART</button>
                                 <CartPage handleClose={handleClose} placement="end" show={show} />
 
