@@ -5,6 +5,8 @@ import UserProfileContext from '../../contexts/profile/UserProfileContext';
 export default function Dashboard(){
 
     const [firstName, setFirstName] = useState();
+    const [numOrders, setNumOrders] = useState([]);
+    const [numConsignments, setNumConsignments] = useState([]);
     const [loaded, setLoaded] = useState(false)
 
     const userContext = useContext(UserProfileContext);
@@ -14,8 +16,9 @@ export default function Dashboard(){
 
         const fetchUserProfile = async () => {
             if (!loaded) {
-                let retrievedUserProfile = await userContext.getUserProfile();
-                setFirstName(retrievedUserProfile.firstname);
+                setFirstName(userContext.getUserInfoFromLocalStorage().info.firstname);
+                setNumOrders(userContext.getNumberOfPurchaseOrders());
+                setNumConsignments(userContext.getNumberOfSellingOrders());
                 setLoaded(true);
             }
         }
@@ -32,7 +35,7 @@ export default function Dashboard(){
                     <div class="card light-gold-bg dashboard-card">
                         <div class="card-body text-center">
                             <h6 class="card-subtitle mb-2 text-muted">BUY</h6>
-                            <h1>2</h1>
+                            <h1>{numOrders}</h1>
                         </div>
                     </div>
                 </div>
@@ -40,7 +43,7 @@ export default function Dashboard(){
                     <div class="card total-card-bg light-gold-bg dashboard-card">
                         <div class="card-body text-center">
                             <h6 class="card-subtitle mb-2 text-muted">SELL</h6>
-                            <h1>0</h1>
+                            <h1>{numConsignments}</h1>
                         </div>
                     </div>
                 </div>

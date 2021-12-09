@@ -45,6 +45,10 @@ export default function UserProfileProvider(props) {
         //     return orderStatuses;
         // },
 
+        getNumberOfPurchaseOrders:() => {
+            return orders.length;
+        },
+
         // retrieve all purchase orders of that authenticated user
         getPurchaseOrders:() => {
             return orders;
@@ -65,6 +69,10 @@ export default function UserProfileProvider(props) {
         // getSellingOrderStatuses: () => {
         //     return consignmentStatuses;
         // },
+
+        getNumberOfSellingOrders:() => {
+            return consignments.length;
+        },
 
         // retrieve all consignment orders of that authenticated user 
         getSellingOrders:() => {
