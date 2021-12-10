@@ -13,7 +13,7 @@ export default function PayoutRates(){
             <div className="row mt-md-3 mt-lg-4">
                 <div className="col-12 col-md-6 mb-2 mb-md-0">
                     <div className="d-grid gap-2">
-                        <button className="btn btn-secondary" type="button" 
+                        <button className="btn btn-secondary gold-hover" type="button" 
                         // onClick={() => { setOpen1(!open1); setOpen2(open1) }} 
                         onClick={() => { setOpen1(!open1); }}
                         aria-controls="bag-payout"
@@ -24,7 +24,7 @@ export default function PayoutRates(){
                 </div>
                 <div className="col-12 col-md-6">
                     <div className="d-grid gap-2">
-                        <button className="btn btn-secondary" type="button" 
+                        <button className="btn btn-secondary gold-hover" type="button" 
                         // onClick={() =>{ setOpen2(!open2); setOpen1(open2) }} 
                         onClick={() =>{ setOpen2(!open2); }} 
                         aria-controls="apparel-payout"

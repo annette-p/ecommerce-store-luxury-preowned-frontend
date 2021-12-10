@@ -120,7 +120,7 @@ export default function VirtualAppointmentForm(){
                     {/* Submit button */}
                     <div className="row mt-4 mb-2">
                         <div className="d-grid gap-2">
-                            <button className="btn btn-secondary" type="submit" onClick={()=>{requestVirtualAppt()}}>
+                            <button className="btn btn-secondary gold-hover" type="submit" onClick={()=>{requestVirtualAppt()}}>
                                 SUBMIT
                             </button>
                         </div>
