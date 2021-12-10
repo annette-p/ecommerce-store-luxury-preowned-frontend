@@ -88,14 +88,14 @@ export async function createConsignment(designerId, categoryId, itemName, sellin
             "specifications": `${itemWidth}cm (width), ${itemHeight}cm (height)`,
             "condition": itemCondition,
             "condition_description": itemConditionDescription,
-            "product_gallery_1": itemPhoto1 ? itemPhoto1 : null,
-            "product_gallery_2": itemPhoto2 ? itemPhoto2 : null,
-            "product_gallery_3": itemPhoto3 ? itemPhoto3 : null,
-            "product_gallery_4": itemPhoto4 ? itemPhoto4 : null,
-            "product_gallery_5": itemPhoto5 ? itemPhoto5 : null,
-            "product_gallery_6": itemPhoto6 ? itemPhoto6 : null,
-            "product_gallery_7": itemPhoto7 ? itemPhoto7 : null,
-            "product_gallery_8": itemPhoto8 ? itemPhoto8 : null,
+            "product_image_1": itemPhoto1 ? itemPhoto1 : null,
+            "product_image_2": itemPhoto2 ? itemPhoto2 : null,
+            "product_gallery_1": itemPhoto3 ? itemPhoto3 : null,
+            "product_gallery_2": itemPhoto4 ? itemPhoto4 : null,
+            "product_gallery_3": itemPhoto5 ? itemPhoto5 : null,
+            "product_gallery_4": itemPhoto6 ? itemPhoto6 : null,
+            "product_gallery_5": itemPhoto7 ? itemPhoto7 : null,
+            "product_gallery_6": itemPhoto8 ? itemPhoto8 : null,
         }
         let response = await axios.post(`${global.apiUrl}/consignments/create`, newConsigmentData, headers);
         /*
