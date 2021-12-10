@@ -16,6 +16,9 @@ export default function MyPurchaseOrders(){
                 <div className="row mt-4 mb-4 me-2">
                     {/* Nav list */}
                     <ul className="nav nav-tabs" id="myTab" role="tablist">
+                        <li className="nav-item" role="presentation" onClick={() => {setActivePage("ToPay")}}>
+                            <Link to={`${url}/pay`} type="button" className={activePage === "ToPay" ? "nav-link active" : "nav-link"}>To Pay</Link>
+                        </li>
                         <li className="nav-item" role="presentation" onClick={() => {setActivePage("Deliver")}}>
                             <Link to={`${url}/deliver`} type="button" className={activePage === "Deliver" ? "nav-link active" : "nav-link"}>To Deliver</Link>
                         </li>

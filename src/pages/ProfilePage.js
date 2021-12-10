@@ -1,5 +1,6 @@
 import React, {useContext, useEffect} from 'react'
 import { BrowserRouter as Router, Switch, Route, Link, useHistory, useRouteMatch } from "react-router-dom";
+import { Redirect } from 'react-router';
 import Accordion from 'react-bootstrap/Accordion'
 // import UserProfileProvider from '../contexts/profile/UserProfileProvider';
 import Dashboard from '../components/profile/Dashboard'
@@ -85,6 +86,9 @@ export default function ProfilePage(){
                             {/* <UserProfileProvider> */}
 
                                 <Switch>
+                                    <Route exact path={`${url}`}>
+                                        <Redirect to={`${url}/dashboard`} />
+                                    </Route>
                                     <Route path={`${url}/dashboard`}>
                                         <Dashboard/>
                                     </Route>

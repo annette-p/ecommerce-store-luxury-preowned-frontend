@@ -34,8 +34,11 @@ export default function OrderSummary(){
             */
             let orderStatus;
             switch(status) {
+                case "pay":
+                    orderStatus=["New"]; 
+                    break;
                 case "deliver": 
-                    orderStatus=["New", "Processing"]; 
+                    orderStatus=["Paid", "Processing"]; 
                     break;
                 case "receive": 
                     orderStatus=["Shipment"]; 
