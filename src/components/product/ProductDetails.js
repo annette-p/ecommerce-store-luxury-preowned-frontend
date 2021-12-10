@@ -20,6 +20,7 @@ export default function ProductDetails({product}){
 
     const [carouselImg, setCarouselImg] = useState(product[images[0]])
     const [show, setShow] = useState(false);
+    const [soldOut, setSoldOut] = useState(false);
     
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -27,19 +28,31 @@ export default function ProductDetails({product}){
     const cartContext = useContext(CartContext);
 
     useEffect(() => {
+        console.log("...")
         setCarouselImg(product[images[0]])
         // eslint-disable-next-line
-    }, [product]);
+    }, [soldOut, product]);
 
     // add item to cart, and show cart details
     async function addItemToCart(productId) {
         try {
             let success = await cartContext.addProductToCart(productId, 1)
             if (success) {
-                handleShow()
+                handleShow();
+            } else {
+                setSoldOut(true);
             }
         } catch(err) {
-            console.log(err)
+            setSoldOut(true);
+            console.log(err);
+        }
+    }
+
+    function renderItemSoldOut() {
+        if (soldOut) {
+            return (
+                <div className="error-msg text-center mt-2">Sorry, item sold out</div>
+            )
         }
     }
 
@@ -50,8 +63,11 @@ export default function ProductDetails({product}){
             if (success) {
                 // route to checkout page
                 history.push("/checkout");
+            } else {
+                setSoldOut(true);
             }
         } catch(err) {
+            setSoldOut(true);
             console.log(err)
         }
     }
@@ -73,7 +89,7 @@ export default function ProductDetails({product}){
                                 {images.map( image => {
                                     if (product[image]) {
                                         return (
-                                            <div className="additional-img-div me-1">
+                                            <div key={`${image}`} className="additional-img-div me-1">
                                                 <img className="product-img-cart"
                                                 src={product[image]}
                                                 alt="product" onClick={() => setCarouselImg(product[image])}/>
@@ -103,6 +119,7 @@ export default function ProductDetails({product}){
                                 <button className="btn btn-secondary gold-hover" type="button" onClick={() => buyNow(product.id)}>BUY NOW</button>
                                 <button className="btn btn-secondary gold-hover" type="button" onClick={() => addItemToCart(product.id)}>ADD TO CART</button>
                                 <CartPage handleClose={handleClose} placement="end" show={show} />
+                                {renderItemSoldOut()}
 
                                 {/* to remove later */}
                                 {/* <CheckoutPage handleClose={handleClose} placement="end" show={show} /> */}

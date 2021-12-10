@@ -37,6 +37,17 @@ export async function getAllProducts(searchCriteria, filterBy) {
     return products;
 }
 
+export async function getProductById(productId) {
+    try {
+        let response = await axios.get(`${global.apiUrl}/products/${productId}`);
+        let productInfo = response.data.data;
+        return productInfo;
+    } catch(err) {
+        console.log(`Unable to retrieve details of product id ${productId}. ERROR: `, err);
+        return null;
+    }
+}
+
 export async function getProductCategories() {
     let response = await axios.get(`${global.apiUrl}/categories`);
     const productCategories = response.data.data;

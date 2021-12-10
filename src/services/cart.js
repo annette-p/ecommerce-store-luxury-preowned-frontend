@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 import { getRefreshToken, generateHttpAuthzHeader } from './authentication'
+import { getProductById } from './products'
 
 export function getCartId() {
     return localStorage.getItem("luxuryPreOwnedCartId")
@@ -34,6 +35,16 @@ export async function addItemToCart(productId, quantity) {
     const cartId = getCartId();
     const refreshToken = getRefreshToken();
     const headers = await generateHttpAuthzHeader(refreshToken);
+
+    try {
+        let productInfo = await getProductById(productId);
+        if (productInfo.quantity < quantity) {
+            throw new Error(`Fail to add product to cart due to insufficient stock.`);
+        }
+    } catch(err) {
+        console.log("ERROR retrieving product details in service/carts.js addItemToCart(): ", err);
+        throw err;
+    }
 
     let cartData = {
         "items": [
