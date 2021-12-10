@@ -1,4 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
+import { useHistory } from 'react-router'
 import { loadStripe } from "@stripe/stripe-js";
 
 import UserProfileContext from '../../contexts/profile/UserProfileContext';
@@ -7,6 +8,7 @@ import CartContext from '../../contexts/carts/CartContext';
 
 export default function Processing(){
 
+    const history = useHistory();
     const [loaded, setLoaded] = useState(false);
 
     const userContext = useContext(UserProfileContext);
@@ -23,12 +25,15 @@ export default function Processing(){
                     stripe.redirectToCheckout({
                         sessionId: stripeCheckoutToken.sessionId
                     })
+                } else {
+                    // error - route to checkout error page
+                    history.push("/checkout/error");
                 }
             }
             setLoaded(true);
         }
         performCheckout()
-    }, [loaded, userContext, cartContext])
+    }, [loaded, history, userContext, cartContext])
 
     return (
         <React.Fragment>

@@ -294,42 +294,42 @@ export default function ProductConsignmentForm(){
                         </div>
                         <div className="mb-3">
                             <label className="form-label fw-bold">Front Image of your item</label>
-                            <input type="text" class="form-control" placeholder="Front Image" name="frontImage" value={frontImage} onChange={(e) => {setFrontImage(e.target.value)}}/>
+                            <input type="text" className="form-control" placeholder="Front Image" name="frontImage" value={frontImage} onChange={(e) => {setFrontImage(e.target.value)}}/>
                             <div className="error-msg">{errors.frontImage}</div>
                         </div>
                         <div className="mb-3">
                             <label className="form-label fw-bold">Back Image of your item</label>
-                            <input class="form-control" placeholder="Back Image" name="backImage" value={backImage} onChange={(e) => {setBackImage(e.target.value)}}/>
+                            <input className="form-control" placeholder="Back Image" name="backImage" value={backImage} onChange={(e) => {setBackImage(e.target.value)}}/>
                             <div className="error-msg">{errors.backImage}</div>
                         </div>
                         <div className="mb-3">
                             <label for="formFile" className="form-label fw-bold">Corner Image of your item</label>
-                            <input class="form-control" placeholder="Corner Image" name="cornerImage" value={cornerImage} onChange={(e) => {setCornerImage(e.target.value)}}/>
+                            <input className="form-control" placeholder="Corner Image" name="cornerImage" value={cornerImage} onChange={(e) => {setCornerImage(e.target.value)}}/>
                             <div className="error-msg">{errors.cornerImage}</div>
                         </div>
                         <div className="mb-3">
                             <label for="formFile" className="form-label fw-bold">Inside Image of your item</label>
-                            <input class="form-control" placeholder="Inside Image" name="insideImage" value={insideImage} onChange={(e) => {setInsideImage(e.target.value)}}/>
+                            <input className="form-control" placeholder="Inside Image" name="insideImage" value={insideImage} onChange={(e) => {setInsideImage(e.target.value)}}/>
                             <div className="error-msg">{errors.insideImage}</div>
                         </div>
                         <div className="mb-3">
                             <label for="formFile" className="form-label fw-bold"> Image of item Label</label>
-                            <input class="form-control" placeholder="Label Image" name="labelImage" value={labelImage} onChange={(e) => {setLabelImage(e.target.value)}}/>
+                            <input className="form-control" placeholder="Label Image" name="labelImage" value={labelImage} onChange={(e) => {setLabelImage(e.target.value)}}/>
                             <div className="error-msg">{errors.labelImage}</div>
                         </div>
                         <div className="mb-3">
                             <label for="formFile" className="form-label fw-bold">Image of item Serial Number</label>
-                            <input class="form-control" placeholder="Serial Number Image" name="serialImage" value={serialImage} onChange={(e) => {setSerialImage(e.target.value)}}/> 
+                            <input className="form-control" placeholder="Serial Number Image" name="serialImage" value={serialImage} onChange={(e) => {setSerialImage(e.target.value)}}/> 
                             <div className="error-msg">{errors.serialImage}</div>        
                         </div>
                         <div className="mb-3">
                             <label for="formFile" className="form-label fw-bold">Image of item tag (if any)</label>
-                            <input class="form-control" placeholder="Tag Image" name="tagImage" value={tagImage} onChange={(e) => {setTagImage(e.target.value)}}/>
+                            <input className="form-control" placeholder="Tag Image" name="tagImage" value={tagImage} onChange={(e) => {setTagImage(e.target.value)}}/>
                             <div className="error-msg">{errors.tagImage}</div> 
                         </div>
                         <div className="mb-4">
                             <label for="formFile" className="form-label fw-bold">Image of item receipt (if any)</label>
-                            <input class="form-control" placeholder="Receipt Image" name="receiptImage" value={receiptImage} onChange={(e) => {setReceiptImage(e.target.value)}}/>
+                            <input className="form-control" placeholder="Receipt Image" name="receiptImage" value={receiptImage} onChange={(e) => {setReceiptImage(e.target.value)}}/>
                             <div className="error-msg">{errors.receiptImage}</div> 
                         </div>
                     </div>

@@ -29,11 +29,13 @@ export default function CartSummary() {
                 // by lookup using id of product
                 itemsInCart.forEach( item => {
                     let product = productContext.getProductByID(item.product_id);
-                    total = total + (item.quantity * product.selling_price);
-                    numItems = numItems + item.quantity
-                    return {
-                        "product": product,
-                        "quantity": item.quantity
+                    if (product) {
+                        total = total + (item.quantity * product.selling_price);
+                        numItems = numItems + item.quantity
+                        return {
+                            "product": product,
+                            "quantity": item.quantity
+                        }
                     }
                 })
             }

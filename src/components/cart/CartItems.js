@@ -76,7 +76,7 @@ export default function CartItems(){
                                         <div className="fw-bold">S${item.product.selling_price}</div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div className="row">
                                     {/* Quantity Control Section */}
                                     <div className="col-12 mb-1">
                                         <form className="d-flex quantity-control-sec">

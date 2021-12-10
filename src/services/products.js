@@ -16,7 +16,8 @@ export async function getAllProducts(searchCriteria, filterBy) {
     // By default, will list only active products
     let searchParams = {
         params: {
-            "active": "true"
+            "active": "true",
+            "min_quantity": 1
         }
     }
     if (searchCriteria) {
