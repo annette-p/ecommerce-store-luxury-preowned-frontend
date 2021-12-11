@@ -1,15 +1,13 @@
-import React from 'react'
-// import { useHistory } from 'react-router'
+import React, { useState } from 'react'
 
-export default function DontMissOutModal(){
-    // const history = useHistory();
-
+export default function DontMissOutModal({displayModal}){
+    const [show, setShow] = useState(displayModal);
 
     return (
         <React.Fragment>
             <div
                 className="modal show fade" tabIndex="-1"
-                style={{display: "block", backgroundColor: "rgba(0.5, 0.5, 0.5, 0.5)"
+                style={{display: show ? "block" : "none", backgroundColor: "rgba(0.5, 0.5, 0.5, 0.5)"
                 }}>
                 <div className="modal-dialog dont-miss-modal">  {/* modal-lg */}
                     <div className="modal-content login-card">
@@ -18,8 +16,7 @@ export default function DontMissOutModal(){
                             <h3 className="modal-title missout-title">
                                 Don't miss out !
                             </h3>
-                            {/* onClick={() => {history.goBack()}} */}
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={() => setShow(false)}></button>
                         </div>
                         <div className="modal-body login-card">
                             <div className="container-fluid"> 

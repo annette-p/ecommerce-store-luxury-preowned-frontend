@@ -133,7 +133,9 @@ export default function ProductDetails({product}){
                         <ProductInfo product={product} />
                     </div>
                     <div className="col-1">
-                    <DontMissOutModal/>
+                        {product.quantity === 1 ? 
+                            <DontMissOutModal displayModal={true} />
+                        : null}
                     </div>
                 </div>
             </div>
