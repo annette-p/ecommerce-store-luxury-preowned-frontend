@@ -347,6 +347,21 @@ a {
     padding-top: 5px;
 }
 
+.dont-miss-modal {
+    width: 330px;
+}
+
+.missout-title {
+    margin-left: 55px;
+}
+
+.hour-glass-img {
+    height: 250px;
+    width: 250px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
 
 /* ...................... Shopping Cart page ...................... */
 
@@ -792,6 +807,21 @@ a {
         height: 69vh;
     }
 
+    .dont-miss-modal {
+        width: 460px;
+    }
+
+    .missout-title {
+        margin-left: 120px;
+    }
+
+    .hour-glass-img {
+        height: 280px;
+        width: 280px;
+        margin-left: 65px;
+        margin-bottom: 15px;
+    }
+
     /* ...................... Authentication page ...................... */
 
     #vdo {
@@ -1084,6 +1114,21 @@ a {
     .similar-item-div {
         margin-left: -100px;
         padding-top: 5px;
+    }
+
+    .dont-miss-modal {
+        width: 700px;
+    }
+
+    .missout-title {
+        margin-left: 100px;
+    }
+
+    .hour-glass-img {
+        height: 300px;
+        width: 300px;
+        margin-left: 70px;
+        margin-bottom: 15px;
     }
 
 

@@ -3,6 +3,7 @@ import { useHistory } from 'react-router'
 import CartPage from '../../pages/CartPage'
 import ProductInfo from './ProductInfo'
 import SellWithUs from './SellWithUs'
+import DontMissOutModal from './DontMissOutModal'
 // import CheckoutPage from '../../pages/CheckoutPage' // to remove later
 
 import CartContext from '../../contexts/carts/CartContext';
@@ -132,6 +133,7 @@ export default function ProductDetails({product}){
                         <ProductInfo product={product} />
                     </div>
                     <div className="col-1">
+                    <DontMissOutModal/>
                     </div>
                 </div>
             </div>
