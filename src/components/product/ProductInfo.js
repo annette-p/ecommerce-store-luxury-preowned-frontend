@@ -47,7 +47,7 @@ export default function ProductInfo({product}){
                                 <div className="fw-bold mt-3">
                                     See our authentication process
                                 </div>
-                                <Link to="/product-authentication">
+                                <Link to="/product-authentication" target="_blank">
                                     click here 
                                 </Link>
                                 <div>

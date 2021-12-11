@@ -14,7 +14,7 @@ export default function SellWithUs(){
                 </div>
                 <div className="col mt-2 similar-item-div">
                     <h6>Have a similar item?</h6>
-                    <a href="/sell" className="card-link">Click here to Sell with Us!</a>
+                    <a href="/consignment" className="card-link">Click here to Sell with Us!</a>
                 </div>
                 <div className="col d-none d-md-block">
                 </div>
