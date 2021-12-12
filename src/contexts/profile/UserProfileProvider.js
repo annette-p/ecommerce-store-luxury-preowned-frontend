@@ -23,8 +23,6 @@ import {
 } from '../../services/cart';
 
 import {
-    // getListOfValidOrderStatuses,
-    // getListOfValidConsignmentStatuses,
     getConsignmentsOfUser,
     getOrdersOfUser
 } from '../../services/orders';
@@ -34,17 +32,11 @@ export default function UserProfileProvider(props) {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [consignments, setConsigments] = useState([])
     const [orders, setOrders] = useState([]);
-    // const [consignmentStatuses, setConsignmentStatuses] = useState([])
-    // const [orderStatuses, setOrderStatuses] = useState([])
     const [loaded, setLoaded] = useState(false);
 
     const context = {
 
-        // // retrieve the list of valid order statuses
-        // getPurchaseOrderStatuses: () => {
-        //     return orderStatuses;
-        // },
-
+        // get number of purchase orders
         getNumberOfPurchaseOrders:() => {
             return orders.length;
         },
@@ -54,22 +46,20 @@ export default function UserProfileProvider(props) {
             return orders;
         },
 
+        // retrieve a purchase order by its id
         getPurchaseOrderById: (id) => {
             return orders.find( p => p.id === parseInt(id))
         },
 
-        getPurchaseOrdersByStatus: (selectedStatus) => {
-            return orders.filter( p => selectedStatus.includes(p.status) )
+        // retrieve purchase orders that matches the list of given order statuses
+        getPurchaseOrdersByStatus: (desiredOrderStatuses) => {
+            return orders.filter( p => desiredOrderStatuses.includes(p.status) )
         },
 
 
         // .................................................................... //
 
-        // // retrieve list of valid consignment statuses
-        // getSellingOrderStatuses: () => {
-        //     return consignmentStatuses;
-        // },
-
+        // get number of selling orders (i.e. consignments)
         getNumberOfSellingOrders:() => {
             return consignments.length;
         },
@@ -79,19 +69,21 @@ export default function UserProfileProvider(props) {
             return consignments;
         },
 
+        // retrieve a consignment order by its id
         getSellingOrderById: (id) => {
             return consignments.find( s => s.id === parseInt(id))
         },
 
-        // *** to fix -- for several pending status such as pending initial evaliation, pending official evaluation status which is be displayed under "in progress" tap  >> currently only display 1 status only
-        getSellingOrdersByStatus: (selectedStatus) => {
-            return consignments.filter( p => selectedStatus.includes(p.status) )
+        // retrieve consignment orders that matches the list of given order statuses
+        getSellingOrdersByStatus: (desiredOrderStatuses) => {
+            return consignments.filter( p => desiredOrderStatuses.includes(p.status) )
         },
 
 
         // .................................................................... //
 
-        // Validate whether there is currently an authenticated user session based on whether 'user' state variable is NULL
+        // Validate whether there is currently an authenticated user session
+        // - the authenticated user information is stored in window local storage
         isAuthenticated: () => {
             // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
             if (getUserInfoFromLocalStorage()) {
@@ -133,10 +125,12 @@ export default function UserProfileProvider(props) {
             return retrievedUserInfo;
         },
 
+        // retrieve the authenticated user information from window local storage
         getUserInfoFromLocalStorage: () => {
             return getUserInfoFromLocalStorage()
         },
 
+        // create a user profile
         createUserProfile: async (firstname, username, password, email) => {
             try {
                 let signupSuccess = await createNewUserProfile(firstname, username, password, email);
@@ -146,6 +140,7 @@ export default function UserProfileProvider(props) {
             }
         },
 
+        // change the user's current password
         changeUserPassword: async(currentPassword, newPassword) => {
             try {
                 let changePasswordSuccess = await changeUserPassword(currentPassword, newPassword);
@@ -155,6 +150,8 @@ export default function UserProfileProvider(props) {
             }
         },
 
+        // delete the user's account
+        // - user need to provide the current password as an additional level of security
         deleteUserAccount: async(currentPassword) => {
             try {
                 let deleteAccountSuccess = await deleteUserAccount(currentPassword);
@@ -196,23 +193,22 @@ export default function UserProfileProvider(props) {
 
         const loadData = async() => {
             if (!loaded) {
+
+                // check whether user is authenticated
                 if (getUserInfoFromLocalStorage()) {
                     setIsAuthenticated(true);
                 } else {
                     setIsAuthenticated(false);
                 }
     
-                const retrievedOrders = await getOrdersOfUser();
-                setOrders(retrievedOrders);
-    
-                const retrievedConsignments = await getConsignmentsOfUser();
-                setConsigments(retrievedConsignments);
-    
-                // const retrievedOrderStatuses = await getListOfValidOrderStatuses();
-                // setOrderStatuses(retrievedOrderStatuses);
-    
-                // const retrievedConsignmentStatuses = await getListOfValidConsignmentStatuses();
-                // setConsignmentStatuses(retrievedConsignmentStatuses);
+                // for authenticated user, retrieve the list of purchased orders and consignment orders
+                if (isAuthenticated) {
+                    const retrievedOrders = await getOrdersOfUser();
+                    setOrders(retrievedOrders);
+        
+                    const retrievedConsignments = await getConsignmentsOfUser();
+                    setConsigments(retrievedConsignments);
+                }
     
                 setLoaded(true);
             }

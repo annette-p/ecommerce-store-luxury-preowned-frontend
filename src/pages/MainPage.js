@@ -7,7 +7,6 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import Tooltip from 'react-bootstrap/Tooltip'
 import NavFilterOption from '../components/main/NavFilterOption'
 import Footer from '../components/main/Footer'
-// import ProductProvider from '../contexts/products/ProductProvider'
 import CartProvider from '../contexts/carts/CartProvider';
 import ConsignmentProvider from '../contexts/consignment/ConsignmentProvider';
 import ListingPage from './ListingPage'
@@ -16,7 +15,7 @@ import ProfilePage from "./ProfilePage";
 import ConsignmentPage from "./ConsignmentPage";
 import CartPage from './CartPage';
 import LoginModal from '../components/main/LoginModal'
-import CheckoutPage from './CheckoutPage'; // to remove later
+import CheckoutPage from './CheckoutPage';
 import AuthenticationPage from './AuthenticationPage';
 import ConditionGuidePage from './ConditionGuidePage';
 import ComingSoonPage from './ComingSoonPage';
@@ -27,10 +26,6 @@ import ProductContext from '../contexts/products/ProductContext';
 
 export default function MainPage(){
 
-    // const [showLogin, setShowLogin] = useState(false);
-    // const handleCloseLogin = () => setShowLogin(false);
-    // const handleShowLogin = () => setShowLogin(true);
-
     // for shopping cart 
     const [show, setShow] = useState(true);
     const [isUserAuthenticated, setIsUserAuthenticated] = useState(false)
@@ -38,7 +33,6 @@ export default function MainPage(){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     
-
     // for nav bar
     const userContext = useContext(UserProfileContext);
     const productContext = useContext(ProductContext);
@@ -142,14 +136,10 @@ export default function MainPage(){
                                                     Shopping Cart
                                                 </Tooltip>
                                             }>
-                                            {/* <a className="nav-link" href="/product"> */}
-                                                <FontAwesomeIcon icon={faCartArrowDown} className="cart"/>
-                                            {/* </a> */}
+                                            <FontAwesomeIcon icon={faCartArrowDown} className="cart"/>
                                         </OverlayTrigger>
                                     </li>
                                 </Link>
-                                {/* login Modal Pop-up */}
-                                {/* <LoginModal/> */}
                             </ul>
                         </div> 
                         {/* Search input  - render on iPad and Mobile*/}
@@ -161,7 +151,6 @@ export default function MainPage(){
                     <NavFilterOption/>
 
 
-                    {/* <ProductProvider> */}
                     <ConsignmentProvider>
                         <CartProvider>
 
@@ -175,7 +164,6 @@ export default function MainPage(){
                                 <Route exact path="/shopping-cart">
                                     <CartPage handleClose={handleClose} placement="end" show={show}/>
                                 </Route>
-                                {/* To remove later */}
                                 <Route path="/checkout">
                                     <CheckoutPage handleClose={handleClose} placement="end" show={show}/>
                                 </Route>
@@ -207,7 +195,6 @@ export default function MainPage(){
 
                         </CartProvider>
                     </ConsignmentProvider>
-                    {/* </ProductProvider> */}
                     
 
                     {/* footer section */}

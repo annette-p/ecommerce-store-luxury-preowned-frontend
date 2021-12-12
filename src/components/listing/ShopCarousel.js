@@ -1,14 +1,24 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel'
+
+import ProductContext from '../../contexts/products/ProductContext';
 
 export default function ShopCarousel(){
 
     const [index, setIndex] = useState(0);
 
+    let productContext = useContext(ProductContext);
+
     const handleSelect = (selectedIndex, e) => {
         setIndex(selectedIndex);
     };
+
+    function filterProductByTag(tagid) {
+        productContext.setFilterBy({
+            "tag_id": parseInt(tagid)
+        })
+    }
 
     return (
         <React.Fragment>
@@ -42,7 +52,9 @@ export default function ShopCarousel(){
                             </div>
                             <div className="row custom-caption-carousel">
                                 <div className="col-md-6 col-lg-12 mb-1 mb-md-0 mb-lg-2">
-                                    <button type="button" className="btn btn-secondary left-align small-btn">Shop Limited Edition<span className="fw-bold gold-color">&nbsp; &gt;&gt;</span></button>
+                                    <button type="button" className="btn btn-secondary left-align small-btn" onClick={() => filterProductByTag(2)}>
+                                        Shop Limited Edition<span className="fw-bold gold-color">&nbsp; &gt;&gt;</span>
+                                    </button>
                                 </div>
                                 <div className="col-md-6 col-lg-12 margin-bottom left-margin">
                                     <Link to="/consignment" className="no-underline">
@@ -127,7 +139,9 @@ export default function ShopCarousel(){
                             </div>
                             <div className="mt-1 row forth-custom-caption-carousel">
                                 <div className="col-12">
-                                    <button type="button" className="btn btn-secondary left-align third-margin-btm">Shop New Arrival<span className="ms-2 fw-bold gold-color">&nbsp; &gt;&gt;</span></button>
+                                    <button type="button" className="btn btn-secondary left-align third-margin-btm" onClick={() => filterProductByTag(1)}>
+                                        Shop New Arrival<span className="ms-2 fw-bold gold-color">&nbsp; &gt;&gt;</span>
+                                    </button>
                                 </div>
                             </div>
                         </Carousel.Caption>
