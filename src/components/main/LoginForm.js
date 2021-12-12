@@ -78,7 +78,7 @@ export default function LoginForm(){
                     {/* display login error */}
                     {renderLoginFailMessage()}
                     <div className="mt-4">
-                        <input className="form-control" type="text" placeholder="Username" name="username" value={username} onChange={(e) => {setUsername(e.target.value)}}/>
+                        <input className="form-control" type="text" placeholder="Username or Email" name="username" value={username} onChange={(e) => {setUsername(e.target.value)}}/>
                         <div className="error-msg">{errors.username}</div>
                     </div>
                     <div className="mt-4">
