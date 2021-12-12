@@ -37,6 +37,10 @@ Luxury Pre-owned is a resale luxury eCommerce stores that sell top edged consume
 
 Provide secured platform for consumer to purchase and sell their authentic luxury consumer products, made the process transparent and visible to them. Ability to view their order transactions, history and as well as manage their account.
 
+### Business Logic
+
+Refer to [attached PDF file](docs/business-logic.pdf) for details on the business logic.
+
 ### Product & Features
 
 
