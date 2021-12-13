@@ -93,9 +93,11 @@ export default function UserProfileProvider(props) {
             let userInfo = getUserInfoFromLocalStorage();
             if (userInfo) {
                 // User info found in local storage. We can assume that user is authenticated :)
+                setIsAuthenticated(true);
                 return true;
             } else {
                 // User info NOT found in local storage. We can assume that user is NOT authenticated
+                setIsAuthenticated(false);
                 return false;
             }
         },
@@ -120,10 +122,11 @@ export default function UserProfileProvider(props) {
         },
 
         // Perform logout of user by invalidating the window local storage, as well as the React Context state.
-        logoutUser: () => {
+        logoutUser: async () => {
             setIsAuthenticated(false);
-            invalidateUserAuthentication();
+            await invalidateUserAuthentication();
             removeCartId();
+            setLoaded(false);
         },
 
         // Retrieve all details about that authenticated user profile

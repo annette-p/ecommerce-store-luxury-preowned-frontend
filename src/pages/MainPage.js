@@ -38,6 +38,7 @@ export default function MainPage(){
     const productContext = useContext(ProductContext);
 
     useEffect(() => {
+        console.log("MainPage - isUserAuthenticated: ", isUserAuthenticated)
         setIsUserAuthenticated(userContext.isAuthenticated());
     }, [isUserAuthenticated, userContext, productContext])
 
@@ -55,7 +56,7 @@ export default function MainPage(){
 
     function renderLoginUserName() {
         let user = userContext.getUserInfoFromLocalStorage();
-        if (user) {
+        if (userContext.isAuthenticated && user) {
             return user.info.firstname;
         } else {
             return null;
