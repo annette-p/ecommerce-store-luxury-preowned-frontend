@@ -155,6 +155,7 @@ Using **google font**:
 | **FontAwesome** | Uses the icons provided by FontAwesome to enhance the user experience by making user interaction with the application more intuitive. |
 | **React Framework** | To create component-based interactive UIs. |
 | **Email JS** | To securely send email from Javascript. In this contact, mainly use to receive appointment request for product consignment, new service testing hypothesis, feedback from user submission through this eCommerce application. |
+| **Netlify** | For deployment and hosting of the application |
 
 ### Admin Site
 
@@ -164,6 +165,7 @@ Using **google font**:
 | **Express Handlebars (HBS)** | <p>A templating engine to render web pages to the client side from data on the server-side, used with express as the hbs module. </p><p>It ensures minimum templating and is a logicless engine that keeps the view and the code separated.</p> |
 | **Caolan form** | To create, parse and validate forms in node |
 | **Cloudinary** | For end-to-end image- and video-management solution from image and video uploads, storage, manipulations, optimizations to delivery. |
+| **Heroku** | For deployment and hosting of the application |
 
 ### API & DB
 
@@ -173,6 +175,7 @@ Using **google font**:
 | **MySQL / PostgreSQL**| Oen-source relational database management system |
 | **ORM, database migrations, Bookshelf** | <p>Bookshelf is a JavaScript ORM for Node. js, built on the Knex SQL query builder. It features both Promise-based and traditional callback interfaces, transaction support, eager/nested-eager relation loading, polymorphic associations, and support for one-to-one, one-to-many, and many-to-many relations.</p><p>It is a simple library for common tasks when querying databases in JavaScript, and forming relations between these objects, taking a lot of ideas from the Data Mapper Pattern.</p>|
 | **Stripe payment** | Payment processing software and application programming interfaces for e- commerce websites and mobile applications, supporting the electronic transfer of money from a customer's bank (issuing bank) into a merchant's bank (acquiring bank) as payment for goods or services bought with a credit card. |
+| **Heroku** | For deployment, and hosting of the application and database. |
 
 ## Logical Schema
 
@@ -212,9 +215,10 @@ Refer to the [attach](docs/testing-manual-project3.pdf) for step-by-step instruc
 
 ## Known bugs
 
-### Product inventory issue
+### User Profile
 
-* After order completion, inventory is not updated
+* Intermittently, logged in users, after stay in the page for a while or go idle (inactive), the order listing (purchase and selling) in profile page are no logner display. Need to re-login again to display the order listing. 
+* After add an item to cart as an anonymous user, then login to proceed with checkout, the user profile page does not show the list of purchase and selling orders (any order listing are not display). User required to re-login again to see those orders being displayed in their profile.
 
 ### Shopping Cart
 
