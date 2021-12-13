@@ -52,7 +52,7 @@ export default function ProductDetails({product}){
     function renderItemSoldOut() {
         if (soldOut) {
             return (
-                <div className="error-msg text-center mt-2">Sorry, item sold out</div>
+                <div className="error-msg text-center mt-2">Sorry, insufficient stock</div>
             )
         }
     }

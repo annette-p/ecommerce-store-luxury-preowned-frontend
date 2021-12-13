@@ -36,8 +36,9 @@ export async function addItemToCart(productId, quantity) {
     const refreshToken = getRefreshToken();
     const headers = await generateHttpAuthzHeader(refreshToken);
 
+    let productInfo;
     try {
-        let productInfo = await getProductById(productId);
+        productInfo = await getProductById(productId);
         if (productInfo.quantity < quantity) {
             throw new Error(`Fail to add product to cart due to insufficient stock.`);
         }
@@ -59,14 +60,24 @@ export async function addItemToCart(productId, quantity) {
             // check if item already exists in cart. If yes, need to increment the quantity accordingly
             let existingCartItems = await getCartItems();
 
-            let updated = false;
+            // this flag "updated" is used to indicate whether the product to be added already exists in 
+            // the customer's cart
+            let itemExistsInCart = false;
             existingCartItems.forEach(item => {
                 if (item.product_id === productId) {
-                    item.quantity += quantity
-                    updated = true
+                    const desiredNewCartQuantity = item.quantity + quantity;
+                    if (productInfo.quantity < desiredNewCartQuantity) {
+                        const errMsg = `Fail to increase quantity from ${item.quantity} to ${desiredNewCartQuantity} for product id ${productId} in cart id ${cartId}`;
+                        console.error(errMsg);
+                        throw new Error(errMsg);
+                    } else {
+                        item.quantity = desiredNewCartQuantity;
+                        itemExistsInCart = true;
+                    }
                 }
             })
-            if (!updated) {
+            if (!itemExistsInCart) {
+                // item currently do not exists in the cart, so have to include it
                 cartData = {
                     "items": [
                         ...existingCartItems,
@@ -74,6 +85,7 @@ export async function addItemToCart(productId, quantity) {
                     ]
                 }
             } else {
+                // item currently exists in the cart, and the desired new quantity to be updated
                 cartData = {
                     "items": [ ...existingCartItems ]
                 }

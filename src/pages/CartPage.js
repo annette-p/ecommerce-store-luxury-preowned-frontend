@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { useHistory } from 'react-router'
 import Offcanvas from 'react-bootstrap/Offcanvas'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons'
@@ -10,6 +11,7 @@ import CartContext from '../contexts/carts/CartContext'
 
 export default function CartPage({ ...props }){
     
+    const history = useHistory();
     const [isCartEmpty, setIsCartEmpty] = useState(true);
     const cartContext = useContext(CartContext);
 
@@ -22,7 +24,7 @@ export default function CartPage({ ...props }){
 
     return (
         <React.Fragment>
-            <Offcanvas show={props.show} onHide={props.handleClose} {...props}>   {/* is a short cut of: <Offcanvas onHide={props.handleClose} show={props.show} placement={props.placement}> 
+            <Offcanvas show={props.show} onHide={() => history.goBack()} {...props}>   {/* is a short cut of: <Offcanvas onHide={props.handleClose} show={props.show} placement={props.placement}> 
             note: placement indicate which direction the canvas will show (start, end, top, bottom) */}
                 <Offcanvas.Header closeButton className="grey-bg"> 
                     <Offcanvas.Title>
