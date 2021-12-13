@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { BrowserRouter as Router, Switch, Route, Link, useHistory, useRouteMatch } from "react-router-dom";
 import { Redirect } from 'react-router';
 import Accordion from 'react-bootstrap/Accordion'
@@ -15,9 +15,11 @@ export default function ProfilePage(){
     const history = useHistory();
     const userContext = useContext(UserProfileContext);
 
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
+
     useEffect(() => {
-        //
-    }, [userContext])
+        setIsAuthenticated(userContext.isAuthenticated());
+    }, [isAuthenticated, userContext])
 
     function logoutUser() {
         userContext.logoutUser();

@@ -42,7 +42,9 @@ export default function UserProfileProvider(props) {
         },
 
         // retrieve all purchase orders of that authenticated user
-        getPurchaseOrders:() => {
+        getPurchaseOrders: async() => {
+            const retrievedOrders = await getOrdersOfUser();
+            setOrders(retrievedOrders);
             return orders;
         },
 
@@ -65,7 +67,9 @@ export default function UserProfileProvider(props) {
         },
 
         // retrieve all consignment orders of that authenticated user 
-        getSellingOrders:() => {
+        getSellingOrders: async () => {
+            const retrievedConsignments = await getConsignmentsOfUser();
+            setConsigments(retrievedConsignments);
             return consignments;
         },
 
@@ -86,7 +90,8 @@ export default function UserProfileProvider(props) {
         // - the authenticated user information is stored in window local storage
         isAuthenticated: () => {
             // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
-            if (getUserInfoFromLocalStorage()) {
+            let userInfo = getUserInfoFromLocalStorage();
+            if (userInfo) {
                 // User info found in local storage. We can assume that user is authenticated :)
                 return true;
             } else {
@@ -103,10 +108,13 @@ export default function UserProfileProvider(props) {
                 setIsAuthenticated(true);
 
                 // take ownership of cart (if any)
-                await takeOwnershipOfCart()
+                await takeOwnershipOfCart();
 
                 // if user have an existing cart, retrieved the cart id
-                await getCartIdForUser()
+                await getCartIdForUser();
+
+                // initiate data loading via useEffect() hook
+                setLoaded(false);
             }
             return loginSuccess;
         },
@@ -192,22 +200,34 @@ export default function UserProfileProvider(props) {
     useEffect(() => {
 
         const loadData = async() => {
-            if (!loaded) {
 
-                // check whether user is authenticated
-                if (getUserInfoFromLocalStorage()) {
-                    setIsAuthenticated(true);
-                } else {
-                    setIsAuthenticated(false);
-                }
-    
-                // for authenticated user, retrieve the list of purchased orders and consignment orders
+            // check whether user is authenticated
+            let userInfo = getUserInfoFromLocalStorage();
+            if (userInfo) {
+                // if (!isAuthenticated) {
+                //     setLoaded(false);
+                // }
+                setIsAuthenticated(true);
+            } else {
+                // if (isAuthenticated) {
+                //     setLoaded(false);
+                // }
+                setIsAuthenticated(false);
+            }
+
+            if (!loaded) {
+                
                 if (isAuthenticated) {
+                    // for authenticated user, retrieve the list of purchased orders and consignment orders
                     const retrievedOrders = await getOrdersOfUser();
                     setOrders(retrievedOrders);
         
                     const retrievedConsignments = await getConsignmentsOfUser();
                     setConsigments(retrievedConsignments);
+                } else {
+                    // for authenticated user, initialize the orders and consignments to empty array
+                    setOrders([]);
+                    setConsigments([]);
                 }
     
                 setLoaded(true);
@@ -215,7 +235,7 @@ export default function UserProfileProvider(props) {
         }
         loadData();
 
-    }, [loaded, isAuthenticated, orders, consignments])
+    }, [isAuthenticated, loaded, orders, consignments])
 
     return (
         <UserProfileContext.Provider value={context}>

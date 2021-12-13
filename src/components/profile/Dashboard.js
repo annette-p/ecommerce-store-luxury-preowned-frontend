@@ -24,7 +24,7 @@ export default function Dashboard(){
         }
         fetchUserProfile();
 
-    }, [loaded, userContext]) 
+    }, [loaded, numOrders, numConsignments, userContext]) 
 
     return (
         <React.Fragment>
