@@ -17,8 +17,10 @@ export default function Dashboard(){
         const fetchUserProfile = async () => {
             if (!loaded) {
                 setFirstName(userContext.getUserInfoFromLocalStorage().info.firstname);
-                setNumOrders(userContext.getNumberOfPurchaseOrders());
-                setNumConsignments(userContext.getNumberOfSellingOrders());
+                let orders = await userContext.getPurchaseOrders();
+                setNumOrders(orders.length);
+                let consignments = await userContext.getSellingOrders()
+                setNumConsignments(consignments.length);
                 setLoaded(true);
             }
         }

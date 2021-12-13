@@ -38,7 +38,6 @@ export default function MainPage(){
     const productContext = useContext(ProductContext);
 
     useEffect(() => {
-        console.log("MainPage - isUserAuthenticated: ", isUserAuthenticated)
         setIsUserAuthenticated(userContext.isAuthenticated());
     }, [isUserAuthenticated, userContext, productContext])
 
