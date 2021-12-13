@@ -215,11 +215,6 @@ Refer to the [attach](docs/testing-manual-project3.pdf) for step-by-step instruc
 
 ## Known bugs
 
-### User Profile
-
-* Intermittently, logged in users, after stay in the page for a while or go idle (inactive), the order listing (purchase and selling) in profile page are no logner display. Need to re-login again to display the order listing. 
-* After add an item to cart as an anonymous user, then login to proceed with checkout, the user profile page does not show the list of purchase and selling orders (any order listing are not display). User required to re-login again to see those orders being displayed in their profile.
-
 ### Shopping Cart
 
 * Vertical scroll always appears even though the cart items are not occupied full div
