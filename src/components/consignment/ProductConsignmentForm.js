@@ -125,7 +125,7 @@ export default function ProductConsignmentForm(){
         if (validateForm()) {
             try {
                 await context.createConsignment(designer, category, type, expectedPrice, condition, conditionDescription, width, height, 
-                                                frontImage, backImage, cornerImage, insideImage, labelImage, labelImage, serialImage, tagImage, receiptImage)
+                                                frontImage, backImage, cornerImage, insideImage, labelImage, serialImage, tagImage, receiptImage)
                 setSuccessFormSubmission(true)
             } catch(_err) {
                 setSuccessFormSubmission(false)
