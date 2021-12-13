@@ -54,13 +54,13 @@ export default function OrderDetails(){
                         {order.products && order.products.map( product => {
                             return (
                                 <div className="row mt-3">
-                                    <div className="col-3 col-lg-1 mb-4">
+                                    <div className="col-4 col-lg-2 mb-4">
                                         <img className="product-img-profile"
                                         src={product.product_image_1}
                                         alt="product"/>
                                         {/* ---linkable to product page--- */}
                                     </div>
-                                    <div className="col-9 col-lg-11 light-grey-hover mb-4">
+                                    <div className="col-8 col-lg-10 light-grey-hover mb-4">
                                         {/* ---linkable to product page--- */}
                                         <div className="ms-2 fw-bold">{product.designer.name}</div>
                                         <div className="ms-2">{product.name}</div>

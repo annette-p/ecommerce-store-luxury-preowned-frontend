@@ -73,13 +73,13 @@ export default function OrderSummary(){
                             {order.products[0] && 
                                 <div className="row mt-4">
                                     {/* product image */}
-                                    <div className="col-3 col-lg-1">
+                                    <div className="col-4 col-lg-2">
                                         <img className="product-img-profile"
                                         src={order.products[0].product_image_1}
                                         alt="product"/>
                                     </div>
                                     {/* product description */}
-                                    <div className="col-9 col-lg-11">
+                                    <div className="col-8 col-lg-10">
                                         <div className="ms-2 fw-bold">{order.products[0].designer.name}</div>
                                         <div className="ms-2">{order.products[0].name}</div>
                                         <div className="ms-2"><span className="fw-bold">Condition: </span>{order.products[0].condition}</div>
