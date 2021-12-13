@@ -153,7 +153,7 @@ export async function takeOwnershipOfCart() {
         try {
             await axios.put(`${global.apiUrl}/carts/${cartId}/own`, {}, headers);
         } catch(err) {
-            console.log("ERROR in service/carts.js getCartIdForUser(): ", err);
+            console.log("ERROR in service/carts.js takeOwnershipOfCart(): ", err);
             throw err;;
         }
     }
