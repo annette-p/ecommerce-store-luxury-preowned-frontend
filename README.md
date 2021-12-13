@@ -4,11 +4,11 @@
 
 A live website of the application can be found here:
 
-* **Frontend** (React framework): https://reverent-pasteur-680936.netlify.app
-* **Admin** (node.js/Express, HBS): https://annette-p-luxury-preowned-adm.herokuapp.com
-* **Backend** (node.js/Express, MySQL, Postgresql): https://annette-p-luxury-preowned-api.herokuapp.com
-
-Setup instructions: [Frontend](docs/DEVELOPMENT.md) | [Admin](https://github.com/annette-p/ecommerce-store-luxury-preowned-admin/blob/main/docs/DEVELOPMENT.md) | [Backend](https://github.com/annette-p/ecommerce-store-luxury-preowned-backend/blob/main/docs/DEVELOPMENT.md)
+| Application | Link to Demo Website | Setup Instructions | Deployment Instructions |
+| --- | --- | --- | --- |
+| <b>Frontend</b> (React framework) | https://reverent-pasteur-680936.netlify.app | [instructions](docs/DEVELOPMENT.md) | [instructions](docs/DEPLOYMENT.md) |
+| <b>Admin</b> (node.js/Express, HBS) | https://annette-p-luxury-preowned-adm.herokuapp.com | [instructions](https://github.com/annette-p/ecommerce-store-luxury-preowned-admin/blob/main/docs/DEVELOPMENT.md) | [instructions](https://github.com/annette-p/ecommerce-store-luxury-preowned-admin/blob/main/docs/DEPLOYMENT.md) |
+| <b>Backend</b> (node.js/Express, MySQL, Postgresql) | https://annette-p-luxury-preowned-api.herokuapp.com | [instructions](https://github.com/annette-p/ecommerce-store-luxury-preowned-backend/blob/main/docs/DEVELOPMENT.md) | [instructions](https://github.com/annette-p/ecommerce-store-luxury-preowned-backend/blob/main/docs/DEPLOYMENT.md) |
 
 ## Full Report for Project
 
@@ -16,7 +16,7 @@ Click [here](docs/project-report-luxury-preowned.pdf) for the full report of thi
 
 ## Luxury Resale Market Analysis
 
-Click [here](docs/luxury-resales-market-analysis-report.pdf) to view the report
+Click [here](docs/luxury-resales-market-analysis-report.pdf) to view the report.
 
 ## Executive Summary
 
@@ -28,10 +28,10 @@ Luxury Pre-owned is a resale luxury eCommerce stores that sell top edged consume
 
 |   |Key stakeholders|Goals|
 |---|---|---|
-|**Company**|Owner|• Operate eCommerce store, consign-sell luxury products, made most process happen online and automated as much as possible. <br>• Promote circular fashion through shop, sell, repeat. <br>• Provide channels for consumer to purchase trusted, reliable source of authentic luxury products. <br>• Provide channels to accommodate seller who want to sell their luxury products. <br>• Channels to gather feedback data and collect user transaction data for future business expansion|
-|**Company**|Admin|• To management and perform order processing <br>• To manage product listing and recording|
-|**Customers**|Buyer|• To buy authentic resale luxury products online at convenience. <br>• Needed trusted and reliable since there are many counterfeit products out there. To reduce a risk of buying unauthentic items. <br>• Need transparency and reasonable price as per market trend. <br>• Purchase a rare, limited edition and vintage items that hard to come by and easily available in the market.|
-|**Customers**|Seller (consignment)|• Looking for trusted site/brand to sell or consign their authentic luxury products. <br>• Want to finance new luxury purchases and empty the wardrobe <br>• To get rid of items that are no longer in trendy anymore|
+|<b>Company</b>|Owner|<ul><li>Operate eCommerce store, consign-sell luxury products, made most process happen online and automated as much as possible. </li><li>Promote circular fashion through shop, sell, repeat. </li><li>Provide channels for consumer to purchase trusted, reliable source of authentic luxury products. </li><li>Provide channels to accommodate seller who want to sell their luxury products. </li><li>Channels to gather feedback data and collect user transaction data for future business expansion.</li></ul>|
+|<b>Company</b>|Admin|<ul><li>To management and perform order processing </li><li>To manage product listing and recording.</li></ul>|
+|<b>Customers</b>|Buyer|<ul><li>To buy authentic resale luxury products online at convenience. </li><li>Needed trusted and reliable since there are many counterfeit products out there. To reduce a risk of buying unauthentic items. </li><li>Need transparency and reasonable price as per market trend. </li><li>Purchase a rare, limited edition and vintage items that hard to come by and easily available in the market.</li></ul>|
+|<b>Customers</b>|Seller (consignment)|<ul><li>Looking for trusted site/brand to sell or consign their authentic luxury products. </li><li>Want to finance new luxury purchases and empty the wardrobe. </li><li>To get rid of items that are no longer in trendy anymore</li></ul>|
 
 ### Product Goal
 
@@ -42,7 +42,6 @@ Provide secured platform for consumer to purchase and sell their authentic luxur
 Refer to [attached PDF file](docs/business-logic.pdf) for details on the business logic.
 
 ### Product & Features
-
 
 |Features|Benefits to Users|Benefits to Company|
 |---|---|---|
